@@ -53,8 +53,8 @@
     <div class="inline-flex items-center gap-2 bg-red-600/30 border border-red-500/40 px-2.5 py-0.5 rounded text-[11px] text-yellow-300 font-bold">
       <i class="fa-solid fa-motorcycle"></i> Door Delivery: ONLY IN VALLIYUR TOWN
     </div>
-    <div class="text-[11px] font-mono text-gray-400">
-      Owner: <strong class="text-white">Augstin</strong> | ⏱ 11:30 AM – 11:00 PM
+    <div class="text-[11px] font-mono text-gray-300">
+      Owner: <strong class="text-white">Augstin</strong> | ⏱ <span class="text-brandGold font-bold">4:00 PM – 12:00 AM (Midnight)</span>
     </div>
   </div>
 
@@ -84,7 +84,7 @@
 
   <section class="relative py-12 px-4 text-center overflow-hidden border-b border-white/5 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-red-950/50 via-cyberDark to-cyberDark">
     <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/40 px-3.5 py-1.5 rounded-full text-xs font-cyber text-brandNeon mb-4">
-      <i class="fa-solid fa-fire text-brandGold"></i> BEST TASTE DIRECT AT OUR SHOP • ESTD 2026
+      <i class="fa-solid fa-fire text-brandGold"></i> BEST TASTE DIRECT AT OUR SHOP • 4:00 PM TO 12:00 AM
     </div>
     
     <h2 class="font-cyber text-4xl sm:text-6xl lg:text-7xl font-black tracking-wider text-white mb-2">
@@ -102,7 +102,7 @@
       <a href="https://www.google.com/maps/search/?api=1&query=William+Booth+Memorial+complex+opposite+Eswari+nursing+home+Valliyur+Tamil+Nadu+627117" target="_blank" class="bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400 text-amber-300 font-extrabold px-5 py-3 rounded-xl transition text-sm flex items-center gap-2 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
         <i class="fa-solid fa-star text-amber-400"></i> Write Google Review
       </a>
-      <a href="http://googleusercontent.com/maps.google.com/5" target="_blank" class="bg-cyberCard hover:bg-zinc-800 border border-white/20 text-gray-300 font-semibold px-5 py-3 rounded-xl transition text-sm flex items-center gap-2">
+      <a href="https://www.google.com/maps/search/?api=1&query=Street+Burger+William+Booth+Memorial+complex+Valliyur+Tamil+Nadu+627117" target="_blank" class="bg-cyberCard hover:bg-zinc-800 border border-white/20 text-gray-300 font-semibold px-5 py-3 rounded-xl transition text-sm flex items-center gap-2">
         <i class="fa-solid fa-location-dot text-red-500"></i> Get Directions
       </a>
     </div>
@@ -114,7 +114,7 @@
         </div>
         <div>
           <h4 class="font-cyber text-sm text-white font-bold">COME ENJOY AT SHOP!</h4>
-          <p class="text-xs text-gray-300">Burgers taste best straight off the grill with hot melted cheese. Visit with friends & family!</p>
+          <p class="text-xs text-gray-300">Burgers taste best straight off the grill with hot melted cheese. Visit our Valliyur outlet!</p>
         </div>
       </div>
 
@@ -124,7 +124,7 @@
         </div>
         <div>
           <h4 class="font-cyber text-sm text-brandNeon font-bold">DELIVERY ONLY IN VALLIYUR</h4>
-          <p class="text-xs text-gray-300">Fast doorstep parcel delivery available inside Valliyur town limits. WhatsApp us your order!</p>
+          <p class="text-xs text-gray-300">Fast doorstep parcel delivery available strictly inside Valliyur town limits from 4:00 PM onwards.</p>
         </div>
       </div>
     </div>
@@ -238,353 +238,384 @@
         <p class="text-xs text-gray-400">Boost your meal with extra layers of hot melted cheese and crispy sides</p>
       </div>
       <div class="flex flex-wrap justify-center gap-2 text-xs font-bold">
-        <button onclick="addToCart('Extra Cheese Slice', 20)" class="bg-black/70 hover:bg-amber-500 hover:text-black border border-amber-400/40 px-3.5 py-2 rounded-xl text-amber-300 transition">+ Cheese Slice ₹20</button>
-        <button onclick="addToCart('Extra Crispy Chicken Patty', 60)" class="bg-black/70 hover:bg-red-600 hover:text-white border border-red-500/40 px-3.5 py-2 rounded-xl text-red-300 transition">+ Crispy Patty ₹60</button>
-        <button onclick="addToCart('French Fries Combo', 40)" class="bg-black/70 hover:bg-yellow-400 hover:text-black border border-yellow-400/40 px-3.5 py-2 rounded-xl text-yellow-300 transition">+ Fries Combo ₹40</button>
+        <button onclick="addCustomItem('Extra Cheese Slice', 20)" class="bg-black/70 hover:bg-amber-500 hover:text-black border border-amber-400/40 px-3.5 py-2 rounded-xl text-amber-300 transition">+ Cheese Slice ₹20</button>
+        <button onclick="addCustomItem('Extra Crispy Chicken Patty', 60)" class="bg-black/70 hover:bg-red-600 hover:text-white border border-red-500/40 px-3.5 py-2 rounded-xl text-red-300 transition">+ Crispy Patty ₹60</button>
+        <button onclick="addCustomItem('French Fries Combo', 40)" class="bg-black/70 hover:bg-yellow-400 hover:text-black border border-yellow-400/40 px-3.5 py-2 rounded-xl text-yellow-300 transition">+ Fries Combo ₹40</button>
       </div>
     </div>
   </section>
 
   <section id="menuSection" class="max-w-6xl mx-auto px-4">
     <div class="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 pt-2">
-      <button onclick="showTab('burgers', this)" class="tab-btn active-tab bg-brandGold text-black font-cyber text-xs px-4 py-2.5 rounded-xl whitespace-nowrap transition font-bold">
+      <button id="btn-all" onclick="showCategory('all')" class="tab-btn bg-brandGold text-black font-cyber text-xs px-4 py-2.5 rounded-xl whitespace-nowrap transition font-bold border border-brandGold">
+        🌟 All Items
+      </button>
+      <button id="btn-burgers" onclick="showCategory('burgers')" class="tab-btn bg-cyberCard text-gray-300 font-cyber text-xs px-4 py-2.5 rounded-xl whitespace-nowrap transition border border-white/10">
         🍔 Gourmet Burgers
       </button>
-      <button onclick="showTab('sandwiches', this)" class="tab-btn bg-cyberCard text-gray-300 border border-white/10 hover:border-brandGold/40 font-cyber text-xs px-4 py-2.5 rounded-xl whitespace-nowrap transition">
+      <button id="btn-sandwiches" onclick="showCategory('sandwiches')" class="tab-btn bg-cyberCard text-gray-300 font-cyber text-xs px-4 py-2.5 rounded-xl whitespace-nowrap transition border border-white/10">
         🥪 Panini & Sandwiches
       </button>
-      <button onclick="showTab('appetizers', this)" class="tab-btn bg-cyberCard text-gray-300 border border-white/10 hover:border-brandGold/40 font-cyber text-xs px-4 py-2.5 rounded-xl whitespace-nowrap transition">
+      <button id="btn-appetizers" onclick="showCategory('appetizers')" class="tab-btn bg-cyberCard text-gray-300 font-cyber text-xs px-4 py-2.5 rounded-xl whitespace-nowrap transition border border-white/10">
         🍟 Appetizers & Crunch
       </button>
-      <button onclick="showTab('mojitos', this)" class="tab-btn bg-cyberCard text-gray-300 border border-white/10 hover:border-brandGold/40 font-cyber text-xs px-4 py-2.5 rounded-xl whitespace-nowrap transition">
+      <button id="btn-mojitos" onclick="showCategory('mojitos')" class="tab-btn bg-cyberCard text-gray-300 font-cyber text-xs px-4 py-2.5 rounded-xl whitespace-nowrap transition border border-white/10">
         🍹 Fizz & Mojitos
       </button>
     </div>
 
-    <div id="burgersSection" class="menu-tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
+    <div id="sec-burgers" class="menu-block my-6" style="display: block;">
+      <div class="border-l-4 border-brandGold pl-3 mb-4">
+        <h3 class="font-cyber text-lg sm:text-xl text-brandGold uppercase">🍔 Gourmet Burgers Collection</h3>
+        <p class="text-xs text-gray-400">Artisan Brioche Buns & 100% Real Melted Cheese</p>
+      </div>
       
-      <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
-        <div class="relative h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" alt="Classic Street Burger Chicken" class="w-full h-full object-cover">
-          <span class="absolute top-3 left-3 bg-red-600/90 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold uppercase">USA Recipe • Must Try</span>
-          <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg border border-amber-400/40">₹110</span>
-        </div>
-        <div class="p-4 flex-1 flex flex-col justify-between">
-          <div>
-            <div class="text-[11px] font-bold text-red-400 mb-1">▲ NON-VEG</div>
-            <h3 class="font-bold text-lg text-white mb-1">Classic STREET BURGER Chicken</h3>
-            <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">எங்களது கடையின் பிரத்யேக Signature Sauce சேர்த்து தயாரிக்கப்பட்ட பிரத்யேக உணவு!</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        
+        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
+          <div class="relative h-44 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" alt="Classic Street Burger Chicken" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-red-600/90 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold uppercase">USA Recipe • Must Try</span>
+            <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg border border-amber-400/40">₹110</span>
           </div>
-          <button onclick="addToCart('Classic STREET BURGER Chicken', 110)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition">
-            <i class="fa-solid fa-cart-plus"></i> Add To Order
-          </button>
-        </div>
-      </div>
-
-      <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
-        <div class="relative h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?w=600&q=80" alt="Fried Chicken Burger" class="w-full h-full object-cover">
-          <span class="absolute top-3 left-3 bg-amber-600/90 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold uppercase">USA Crispy</span>
-          <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg border border-amber-400/40">₹100</span>
-        </div>
-        <div class="p-4 flex-1 flex flex-col justify-between">
-          <div>
-            <div class="text-[11px] font-bold text-red-400 mb-1">▲ NON-VEG</div>
-            <h3 class="font-bold text-lg text-white mb-1">Fried Chicken Burger</h3>
-            <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">அமெரிக்க பாரம்பரிய முறையில் பொரித்தெடுக்கப்பட்ட சிக்கன் & சிக்னேச்சர் சாஸ்.</p>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-[11px] font-bold text-red-400 mb-1">▲ NON-VEG</div>
+              <h3 class="font-bold text-lg text-white mb-1">Classic STREET BURGER Chicken</h3>
+              <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">எங்களது கடையின் பிரத்யேக Signature Sauce சேர்த்து தயாரிக்கப்பட்ட பிரத்யேக உணவு!</p>
+            </div>
+            <button onclick="addToCart('Classic STREET BURGER Chicken', 110)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition">
+              <i class="fa-solid fa-cart-plus"></i> Add To Order
+            </button>
           </div>
-          <button onclick="addToCart('Fried Chicken Burger', 100)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition">
-            <i class="fa-solid fa-cart-plus"></i> Add To Order
-          </button>
         </div>
-      </div>
 
-      <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
-        <div class="relative h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=600&q=80" alt="Buffalo Chicken Burger" class="w-full h-full object-cover">
-          <span class="absolute top-3 left-3 bg-red-700 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold uppercase">USA Spicy • Fiery Hot</span>
-          <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg border border-amber-400/40">₹120</span>
-        </div>
-        <div class="p-4 flex-1 flex flex-col justify-between">
-          <div>
-            <div class="text-[11px] font-bold text-red-400 mb-1">▲ NON-VEG</div>
-            <h3 class="font-bold text-lg text-white mb-1">Buffalo Chicken Burger</h3>
-            <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">காரசாரமான பஃபலோ சாஸில் தயாரிக்கப்பட்ட உருகிய சீஸ் சுவை.</p>
+        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
+          <div class="relative h-44 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?w=600&q=80" alt="Fried Chicken Burger" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-amber-600/90 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold uppercase">USA Crispy</span>
+            <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg border border-amber-400/40">₹100</span>
           </div>
-          <button onclick="addToCart('Buffalo Chicken Burger', 120)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition">
-            <i class="fa-solid fa-cart-plus"></i> Add To Order
-          </button>
-        </div>
-      </div>
-
-      <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
-        <div class="relative h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=600&q=80" alt="Classic Tambaron Burger" class="w-full h-full object-cover">
-          <span class="absolute top-3 left-3 bg-blue-600/90 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold uppercase">Philippines Special</span>
-          <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg border border-amber-400/40">₹90</span>
-        </div>
-        <div class="p-4 flex-1 flex flex-col justify-between">
-          <div>
-            <div class="text-[11px] font-bold text-red-400 mb-1">▲ NON-VEG</div>
-            <h3 class="font-bold text-lg text-white mb-1">Classic Tambaron Burger</h3>
-            <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">பிலிப்பைன்ஸ் நாட்டின் பாரம்பரிய முறையில் காரசாரமான மசாலா கலவை.</p>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-[11px] font-bold text-red-400 mb-1">▲ NON-VEG</div>
+              <h3 class="font-bold text-lg text-white mb-1">Fried Chicken Burger</h3>
+              <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">அமெரிக்க பாரம்பரிய முறையில் பொரித்தெடுக்கப்பட்ட சிக்கன் & சிக்னேச்சர் சாஸ்.</p>
+            </div>
+            <button onclick="addToCart('Fried Chicken Burger', 100)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition">
+              <i class="fa-solid fa-cart-plus"></i> Add To Order
+            </button>
           </div>
-          <button onclick="addToCart('Classic Tambaron Burger', 90)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition">
-            <i class="fa-solid fa-cart-plus"></i> Add To Order
-          </button>
         </div>
-      </div>
 
-      <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
-        <div class="relative h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1520072959219-c595dc870360?w=600&q=80" alt="Peri Peri Paneer Burger" class="w-full h-full object-cover">
-          <span class="absolute top-3 left-3 bg-green-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold uppercase">Africa • Veg Special</span>
-          <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg border border-amber-400/40">₹100</span>
-        </div>
-        <div class="p-4 flex-1 flex flex-col justify-between">
-          <div>
-            <div class="text-[11px] font-bold text-green-400 mb-1">● VEG SPECIAL</div>
-            <h3 class="font-bold text-lg text-white mb-1">Peri Peri Paneer Burger</h3>
-            <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">காரசாரமான பெரிய பெரிய மசாலா தடவிய பன்னீர் மற்றும் பிரத்யேக சீஸ் சாஸ்.</p>
+        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
+          <div class="relative h-44 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=600&q=80" alt="Buffalo Chicken Burger" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-red-700 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold uppercase">USA Spicy • Fiery Hot</span>
+            <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg border border-amber-400/40">₹120</span>
           </div>
-          <button onclick="addToCart('Peri Peri Paneer Burger', 100)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition">
-            <i class="fa-solid fa-cart-plus"></i> Add To Order
-          </button>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-[11px] font-bold text-red-400 mb-1">▲ NON-VEG</div>
+              <h3 class="font-bold text-lg text-white mb-1">Buffalo Chicken Burger</h3>
+              <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">காரசாரமான பஃபலோ சாஸில் தயாரிக்கப்பட்ட உருகிய சீஸ் சுவை.</p>
+            </div>
+            <button onclick="addToCart('Buffalo Chicken Burger', 120)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition">
+              <i class="fa-solid fa-cart-plus"></i> Add To Order
+            </button>
+          </div>
         </div>
-      </div>
 
+        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
+          <div class="relative h-44 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=600&q=80" alt="Classic Tambaron Burger" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-blue-600/90 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold uppercase">Philippines Special</span>
+            <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg border border-amber-400/40">₹90</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-[11px] font-bold text-red-400 mb-1">▲ NON-VEG</div>
+              <h3 class="font-bold text-lg text-white mb-1">Classic Tambaron Burger</h3>
+              <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">பிலிப்பைன்ஸ் நாட்டின் பாரம்பரிய முறையில் காரசாரமான மசாலா கலவை.</p>
+            </div>
+            <button onclick="addToCart('Classic Tambaron Burger', 90)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition">
+              <i class="fa-solid fa-cart-plus"></i> Add To Order
+            </button>
+          </div>
+        </div>
+
+        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
+          <div class="relative h-44 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1520072959219-c595dc870360?w=600&q=80" alt="Peri Peri Paneer Burger" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-green-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold uppercase">Africa • Veg Special</span>
+            <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg border border-amber-400/40">₹100</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-[11px] font-bold text-green-400 mb-1">● VEG SPECIAL</div>
+              <h3 class="font-bold text-lg text-white mb-1">Peri Peri Paneer Burger</h3>
+              <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">காரசாரமான பெரிய பெரிய மசாலா தடவிய பன்னீர் மற்றும் பிரத்யேக சீஸ் சாஸ்.</p>
+            </div>
+            <button onclick="addToCart('Peri Peri Paneer Burger', 100)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition">
+              <i class="fa-solid fa-cart-plus"></i> Add To Order
+            </button>
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <div id="sandwichesSection" class="menu-tab-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
-      
-      <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
-        <div class="relative h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600&q=80" alt="Classic Veg Sandwich" class="w-full h-full object-cover">
-          <span class="absolute top-3 left-3 bg-green-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold">ITALY RECIPE</span>
-          <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg">₹80</span>
-        </div>
-        <div class="p-4 flex-1 flex flex-col justify-between">
-          <div>
-            <div class="text-[11px] font-bold text-green-400 mb-1">● VEG</div>
-            <h3 class="font-bold text-lg text-white mb-1">Classic Veg Sandwich</h3>
-            <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">புதிதாக நறுக்கிய காய்கறிகள் மற்றும் கடையின் சிக்னேச்சர் சாஸ் சேர்த்து வாட்டிய உணவு.</p>
-          </div>
-          <button onclick="addToCart('Classic Veg Sandwich', 80)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs transition">Add To Order</button>
-        </div>
+    <div id="sec-sandwiches" class="menu-block my-6" style="display: block;">
+      <div class="border-l-4 border-amber-400 pl-3 mb-4">
+        <h3 class="font-cyber text-lg sm:text-xl text-amber-300 uppercase">🥪 Panini & Sandwiches</h3>
+        <p class="text-xs text-gray-400">Italian Toasted Panini & Grilled Specialties</p>
       </div>
 
-      <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
-        <div class="relative h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1621852004158-f3bc188ace2d?w=600&q=80" alt="Roasted Chicken Sandwich" class="w-full h-full object-cover">
-          <span class="absolute top-3 left-3 bg-amber-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold">CHEF SPECIAL</span>
-          <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg">₹100</span>
-        </div>
-        <div class="p-4 flex-1 flex flex-col justify-between">
-          <div>
-            <div class="text-[11px] font-bold text-red-400 mb-1">▲ NON-VEG</div>
-            <h3 class="font-bold text-lg text-white mb-1">Classic Roasted Chicken Sandwich</h3>
-            <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">நறுமண மசாலாக்களுடன் வாட்டி தயாரிக்கப்பட்ட சுவையான சிக்கன் பனினி.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        
+        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
+          <div class="relative h-44 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600&q=80" alt="Classic Veg Sandwich" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-green-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold">ITALY RECIPE</span>
+            <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg">₹80</span>
           </div>
-          <button onclick="addToCart('Classic Roasted Chicken Sandwich', 100)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs transition">Add To Order</button>
-        </div>
-      </div>
-
-      <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
-        <div class="relative h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?w=600&q=80" alt="Peri Peri Paneer Sandwich" class="w-full h-full object-cover">
-          <span class="absolute top-3 left-3 bg-green-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold">AFRICA SPICE</span>
-          <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg">₹100</span>
-        </div>
-        <div class="p-4 flex-1 flex flex-col justify-between">
-          <div>
-            <div class="text-[11px] font-bold text-green-400 mb-1">● VEG</div>
-            <h3 class="font-bold text-lg text-white mb-1">Peri Peri Paneer Sandwich</h3>
-            <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">காரசாரமான பெரிய பெரிய மசாலா தடவிய பன்னீர், சுடச்சுட வாட்டிய ரொட்டி.</p>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-[11px] font-bold text-green-400 mb-1">● VEG</div>
+              <h3 class="font-bold text-lg text-white mb-1">Classic Veg Sandwich</h3>
+              <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">புதிதாக நறுக்கிய காய்கறிகள் மற்றும் கடையின் சிக்னேச்சர் சாஸ் சேர்த்து வாட்டிய உணவு.</p>
+            </div>
+            <button onclick="addToCart('Classic Veg Sandwich', 80)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs transition">Add To Order</button>
           </div>
-          <button onclick="addToCart('Peri Peri Paneer Sandwich', 100)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs transition">Add To Order</button>
         </div>
-      </div>
 
-      <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
-        <div class="relative h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1553909489-cd47e0907980?w=600&q=80" alt="Mushroom Fajita Sandwich" class="w-full h-full object-cover">
-          <span class="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold">MEXICAN FAJITA</span>
-          <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg">₹90</span>
-        </div>
-        <div class="p-4 flex-1 flex flex-col justify-between">
-          <div>
-            <div class="text-[11px] font-bold text-green-400 mb-1">● VEG</div>
-            <h3 class="font-bold text-lg text-white mb-1">Mushroom Fajita Sandwich</h3>
-            <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">குடைமிளகாய், காரசாரமான மெக்சிகன் மசாலாக்களுடன் கூடிய காளான் சுவை.</p>
+        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
+          <div class="relative h-44 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1621852004158-f3bc188ace2d?w=600&q=80" alt="Roasted Chicken Sandwich" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-amber-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold">CHEF SPECIAL</span>
+            <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg">₹100</span>
           </div>
-          <button onclick="addToCart('Mushroom Fajita Sandwich', 90)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs transition">Add To Order</button>
-        </div>
-      </div>
-
-      <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
-        <div class="relative h-44 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1525059696034-4967a8e1dca2?w=600&q=80" alt="Buffalo Chicken Sandwich" class="w-full h-full object-cover">
-          <span class="absolute top-3 left-3 bg-red-700 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold">SPICY BUFFALO</span>
-          <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg">₹120</span>
-        </div>
-        <div class="p-4 flex-1 flex flex-col justify-between">
-          <div>
-            <div class="text-[11px] font-bold text-red-400 mb-1">▲ NON-VEG</div>
-            <h3 class="font-bold text-lg text-white mb-1">Buffalo Chicken Sandwich</h3>
-            <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">அமெரிக்க பாணியில் காரசாரமான பஃபலோ சாஸ் மற்றும் சிக்னேச்சர் சீஸ்.</p>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-[11px] font-bold text-red-400 mb-1">▲ NON-VEG</div>
+              <h3 class="font-bold text-lg text-white mb-1">Classic Roasted Chicken Sandwich</h3>
+              <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">நறுமண மசாலாக்களுடன் வாட்டி தயாரிக்கப்பட்ட சுவையான சிக்கன் பனினி.</p>
+            </div>
+            <button onclick="addToCart('Classic Roasted Chicken Sandwich', 100)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs transition">Add To Order</button>
           </div>
-          <button onclick="addToCart('Buffalo Chicken Sandwich', 120)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs transition">Add To Order</button>
         </div>
-      </div>
 
+        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
+          <div class="relative h-44 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?w=600&q=80" alt="Peri Peri Paneer Sandwich" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-green-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold">AFRICA SPICE</span>
+            <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg">₹100</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-[11px] font-bold text-green-400 mb-1">● VEG</div>
+              <h3 class="font-bold text-lg text-white mb-1">Peri Peri Paneer Sandwich</h3>
+              <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">காரசாரமான பெரிய பெரிய மசாலா தடவிய பன்னீர், சுடச்சுட வாட்டிய ரொட்டி.</p>
+            </div>
+            <button onclick="addToCart('Peri Peri Paneer Sandwich', 100)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs transition">Add To Order</button>
+          </div>
+        </div>
+
+        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
+          <div class="relative h-44 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1553909489-cd47e0907980?w=600&q=80" alt="Mushroom Fajita Sandwich" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold">MEXICAN FAJITA</span>
+            <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg">₹90</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-[11px] font-bold text-green-400 mb-1">● VEG</div>
+              <h3 class="font-bold text-lg text-white mb-1">Mushroom Fajita Sandwich</h3>
+              <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">குடைமிளகாய், காரசாரமான மெக்சிகன் மசாலாக்களுடன் கூடிய காளான் சுவை.</p>
+            </div>
+            <button onclick="addToCart('Mushroom Fajita Sandwich', 90)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs transition">Add To Order</button>
+          </div>
+        </div>
+
+        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden neon-card transition duration-300 flex flex-col justify-between">
+          <div class="relative h-44 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1525059696034-4967a8e1dca2?w=600&q=80" alt="Buffalo Chicken Sandwich" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-red-700 text-white text-[10px] font-cyber px-2.5 py-1 rounded-md font-bold">SPICY BUFFALO</span>
+            <span class="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md text-brandNeon font-cyber text-base font-black px-2.5 py-1 rounded-lg">₹120</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-[11px] font-bold text-red-400 mb-1">▲ NON-VEG</div>
+              <h3 class="font-bold text-lg text-white mb-1">Buffalo Chicken Sandwich</h3>
+              <p class="text-xs text-gray-400 font-tamil leading-relaxed mb-4">அமெரிக்க பாணியில் காரசாரமான பஃபலோ சாஸ் மற்றும் சிக்னேச்சர் சீஸ்.</p>
+            </div>
+            <button onclick="addToCart('Buffalo Chicken Sandwich', 120)" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs transition">Add To Order</button>
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <div id="appetizersSection" class="menu-tab-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
-      
-      <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
-        <div>
-          <span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-cyber">BELGIUM CRUNCH</span>
-          <h4 class="font-bold text-white text-base mt-1">Classic French Fries</h4>
-          <p class="text-xs text-gray-400 font-tamil">மொறுமொறுப்பான உருளைக்கிழங்கு திண்டுகள்</p>
-          <span class="text-brandNeon font-cyber font-bold text-lg">₹50</span>
-        </div>
-        <button onclick="addToCart('Classic French Fries', 50)" class="bg-zinc-800 hover:bg-brandRed px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
+    <div id="sec-appetizers" class="menu-block my-6" style="display: block;">
+      <div class="border-l-4 border-red-500 pl-3 mb-4">
+        <h3 class="font-cyber text-lg sm:text-xl text-red-400 uppercase">🍟 Appetizers & Global Crunch</h3>
+        <p class="text-xs text-gray-400">Crispy Fries, Cheesy Bites & Fried Delights</p>
       </div>
 
-      <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
-        <div>
-          <span class="text-[10px] bg-red-500/20 text-red-300 px-2 py-0.5 rounded font-cyber">AFRICAN SPICE</span>
-          <h4 class="font-bold text-white text-base mt-1">Peri Peri Fries</h4>
-          <p class="text-xs text-gray-400 font-tamil">காரசாரமான பெரிய பெரிய மசாலா</p>
-          <span class="text-brandNeon font-cyber font-bold text-lg">₹60</span>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        
+        <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
+          <div>
+            <span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-cyber">BELGIUM CRUNCH</span>
+            <h4 class="font-bold text-white text-base mt-1">Classic French Fries</h4>
+            <p class="text-xs text-gray-400 font-tamil">மொறுமொறுப்பான உருளைக்கிழங்கு திண்டுகள்</p>
+            <span class="text-brandNeon font-cyber font-bold text-lg">₹50</span>
+          </div>
+          <button onclick="addToCart('Classic French Fries', 50)" class="bg-zinc-800 hover:bg-brandRed px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
         </div>
-        <button onclick="addToCart('Peri Peri Fries', 60)" class="bg-zinc-800 hover:bg-brandRed px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
-      </div>
 
-      <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
-        <div>
-          <span class="text-[10px] bg-yellow-500/20 text-yellow-300 px-2 py-0.5 rounded font-cyber">CANADA POUTINE</span>
-          <h4 class="font-bold text-white text-base mt-1">Cheesy Chicken Fries</h4>
-          <p class="text-xs text-gray-400 font-tamil">உருகிய சீஸ் கோர்த்த சிக்கன் சுவை ஆட்டாக்</p>
-          <span class="text-brandNeon font-cyber font-bold text-lg">₹80</span>
+        <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
+          <div>
+            <span class="text-[10px] bg-red-500/20 text-red-300 px-2 py-0.5 rounded font-cyber">AFRICAN SPICE</span>
+            <h4 class="font-bold text-white text-base mt-1">Peri Peri Fries</h4>
+            <p class="text-xs text-gray-400 font-tamil">காரசாரமான பெரிய பெரிய மசாலா</p>
+            <span class="text-brandNeon font-cyber font-bold text-lg">₹60</span>
+          </div>
+          <button onclick="addToCart('Peri Peri Fries', 60)" class="bg-zinc-800 hover:bg-brandRed px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
         </div>
-        <button onclick="addToCart('Cheesy Chicken Fries', 80)" class="bg-zinc-800 hover:bg-brandRed px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
-      </div>
 
-      <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
-        <div>
-          <span class="text-[10px] bg-zinc-700 text-gray-300 px-2 py-0.5 rounded font-cyber">USA RECIPE</span>
-          <h4 class="font-bold text-white text-base mt-1">Chicken Nuggets</h4>
-          <p class="text-xs text-gray-400 font-tamil">எண்ணெயில் பொரித்தெடுத்த சிக்கன் நக்கெட்ஸ்</p>
-          <span class="text-brandNeon font-cyber font-bold text-lg">₹70</span>
+        <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
+          <div>
+            <span class="text-[10px] bg-yellow-500/20 text-yellow-300 px-2 py-0.5 rounded font-cyber">CANADA POUTINE</span>
+            <h4 class="font-bold text-white text-base mt-1">Cheesy Chicken Fries</h4>
+            <p class="text-xs text-gray-400 font-tamil">உருகிய சீஸ் கோர்த்த சிக்கன் சுவை ஆட்டாக்</p>
+            <span class="text-brandNeon font-cyber font-bold text-lg">₹80</span>
+          </div>
+          <button onclick="addToCart('Cheesy Chicken Fries', 80)" class="bg-zinc-800 hover:bg-brandRed px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
         </div>
-        <button onclick="addToCart('Chicken Nuggets', 70)" class="bg-zinc-800 hover:bg-brandRed px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
-      </div>
 
-      <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
-        <div>
-          <span class="text-[10px] bg-zinc-700 text-gray-300 px-2 py-0.5 rounded font-cyber">TIBET CLASSIC</span>
-          <h4 class="font-bold text-white text-base mt-1">Chicken / Veg Momos</h4>
-          <p class="text-xs text-gray-400 font-tamil">திபெத் பாரம்பரிய மொறுமொறுப்பான உண்டி</p>
-          <span class="text-brandNeon font-cyber font-bold text-lg">₹70 / ₹60</span>
+        <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
+          <div>
+            <span class="text-[10px] bg-zinc-700 text-gray-300 px-2 py-0.5 rounded font-cyber">USA RECIPE</span>
+            <h4 class="font-bold text-white text-base mt-1">Chicken Nuggets</h4>
+            <p class="text-xs text-gray-400 font-tamil">எண்ணெயில் பொரித்தெடுத்த சிக்கன் நக்கெட்ஸ்</p>
+            <span class="text-brandNeon font-cyber font-bold text-lg">₹70</span>
+          </div>
+          <button onclick="addToCart('Chicken Nuggets', 70)" class="bg-zinc-800 hover:bg-brandRed px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
         </div>
-        <button onclick="addToCart('Chicken Momos', 70)" class="bg-zinc-800 hover:bg-brandRed px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
-      </div>
 
-      <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
-        <div>
-          <span class="text-[10px] bg-red-600/20 text-red-400 px-2 py-0.5 rounded font-cyber">CHEF SPECIAL</span>
-          <h4 class="font-bold text-white text-base mt-1">Crumb Fried Chicken</h4>
-          <p class="text-xs text-gray-400 font-tamil">நறுமண மசாலாக்களுடன் பொரித்தெடுத்த கோழி</p>
-          <span class="text-brandNeon font-cyber font-bold text-lg">₹80</span>
+        <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
+          <div>
+            <span class="text-[10px] bg-zinc-700 text-gray-300 px-2 py-0.5 rounded font-cyber">TIBET CLASSIC</span>
+            <h4 class="font-bold text-white text-base mt-1">Chicken / Veg Momos</h4>
+            <p class="text-xs text-gray-400 font-tamil">திபெத் பாரம்பரிய மொறுமொறுப்பான உண்டி</p>
+            <span class="text-brandNeon font-cyber font-bold text-lg">₹70 / ₹60</span>
+          </div>
+          <button onclick="addToCart('Chicken Momos', 70)" class="bg-zinc-800 hover:bg-brandRed px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
         </div>
-        <button onclick="addToCart('Crumb Fried Chicken', 80)" class="bg-zinc-800 hover:bg-brandRed px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
-      </div>
 
-      <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
-        <div>
-          <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-cyber">MEXICO</span>
-          <h4 class="font-bold text-white text-base mt-1">Cheesy Jalapeno Fritters</h4>
-          <p class="text-xs text-gray-400 font-tamil">ஜால்பெனோ மிளகாயில் Cheese வைத்து பொரித்தது</p>
-          <span class="text-brandNeon font-cyber font-bold text-lg">₹70</span>
+        <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
+          <div>
+            <span class="text-[10px] bg-red-600/20 text-red-400 px-2 py-0.5 rounded font-cyber">CHEF SPECIAL</span>
+            <h4 class="font-bold text-white text-base mt-1">Crumb Fried Chicken</h4>
+            <p class="text-xs text-gray-400 font-tamil">நறுமண மசாலாக்களுடன் பொரித்தெடுத்த கோழி</p>
+            <span class="text-brandNeon font-cyber font-bold text-lg">₹80</span>
+          </div>
+          <button onclick="addToCart('Crumb Fried Chicken', 80)" class="bg-zinc-800 hover:bg-brandRed px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
         </div>
-        <button onclick="addToCart('Cheesy Jalapeno Fritters', 70)" class="bg-zinc-800 hover:bg-brandRed px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
-      </div>
 
-      <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
-        <div>
-          <span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-cyber">USA</span>
-          <h4 class="font-bold text-white text-base mt-1">Mac 'n Cheese Ball</h4>
-          <p class="text-xs text-gray-400 font-tamil">பாலாடைக்கட்டி கலவை உருண்டைகள்</p>
-          <span class="text-brandNeon font-cyber font-bold text-lg">₹70</span>
+        <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
+          <div>
+            <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-cyber">MEXICO</span>
+            <h4 class="font-bold text-white text-base mt-1">Cheesy Jalapeno Fritters</h4>
+            <p class="text-xs text-gray-400 font-tamil">ஜால்பெனோ மிளகாயில் Cheese வைத்து பொரித்தது</p>
+            <span class="text-brandNeon font-cyber font-bold text-lg">₹70</span>
+          </div>
+          <button onclick="addToCart('Cheesy Jalapeno Fritters', 70)" class="bg-zinc-800 hover:bg-brandRed px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
         </div>
-        <button onclick="addToCart('Mac n Cheese Ball', 70)" class="bg-zinc-800 hover:bg-brandRed px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
-      </div>
 
-      <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
-        <div>
-          <span class="text-[10px] bg-red-500/20 text-red-300 px-2 py-0.5 rounded font-cyber">USA KENTUCKY</span>
-          <h4 class="font-bold text-white text-base mt-1">Kentucky Fried Chicken</h4>
-          <p class="text-xs text-gray-400 font-tamil">ஊறிய கோழி இறைச்சி மொறுமொறுப்பான உண்டி</p>
-          <span class="text-brandNeon font-cyber font-bold text-lg">₹80</span>
+        <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
+          <div>
+            <span class="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-cyber">USA</span>
+            <h4 class="font-bold text-white text-base mt-1">Mac 'n Cheese Ball</h4>
+            <p class="text-xs text-gray-400 font-tamil">பாலாடைக்கட்டி கலவை உருண்டைகள்</p>
+            <span class="text-brandNeon font-cyber font-bold text-lg">₹70</span>
+          </div>
+          <button onclick="addToCart('Mac n Cheese Ball', 70)" class="bg-zinc-800 hover:bg-brandRed px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
         </div>
-        <button onclick="addToCart('Kentucky Fried Chicken', 80)" class="bg-zinc-800 hover:bg-brandRed px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
-      </div>
 
+        <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
+          <div>
+            <span class="text-[10px] bg-red-500/20 text-red-300 px-2 py-0.5 rounded font-cyber">USA KENTUCKY</span>
+            <h4 class="font-bold text-white text-base mt-1">Kentucky Fried Chicken</h4>
+            <p class="text-xs text-gray-400 font-tamil">ஊறிய கோழி இறைச்சி மொறுமொறுப்பான உண்டி</p>
+            <span class="text-brandNeon font-cyber font-bold text-lg">₹80</span>
+          </div>
+          <button onclick="addToCart('Kentucky Fried Chicken', 80)" class="bg-zinc-800 hover:bg-brandRed px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
+        </div>
+
+      </div>
     </div>
 
-    <div id="mojitosSection" class="menu-tab-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
-      
-      <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
-        <div>
-          <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-cyber">CUBA CLASSIC</span>
-          <h4 class="font-bold text-white text-base mt-1">Virgin Mojito</h4>
-          <p class="text-xs text-gray-400 font-tamil">புதினா, எலுமிச்சை சாறு மிதமான சோடா கலவை</p>
-          <span class="text-brandNeon font-cyber font-bold text-lg">₹50</span>
-        </div>
-        <button onclick="addToCart('Virgin Mojito', 50)" class="bg-zinc-800 hover:bg-emerald-600 px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
+    <div id="sec-mojitos" class="menu-block my-6" style="display: block;">
+      <div class="border-l-4 border-emerald-500 pl-3 mb-4">
+        <h3 class="font-cyber text-lg sm:text-xl text-emerald-400 uppercase">🍹 Fizz's & Mojitos</h3>
+        <p class="text-xs text-gray-400">Sparkling Fresh Chill Coolers</p>
       </div>
 
-      <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
-        <div>
-          <span class="text-[10px] bg-sky-500/20 text-sky-300 px-2 py-0.5 rounded font-cyber">CARIBBEAN HIT</span>
-          <h4 class="font-bold text-white text-base mt-1">Blue Curacao Mojito</h4>
-          <p class="text-xs text-gray-400 font-tamil">ஆரஞ்சு பழச் சாறு, புதினா & சோடா கவர்ச்சி</p>
-          <span class="text-brandNeon font-cyber font-bold text-lg">₹60</span>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        
+        <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
+          <div>
+            <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-cyber">CUBA CLASSIC</span>
+            <h4 class="font-bold text-white text-base mt-1">Virgin Mojito</h4>
+            <p class="text-xs text-gray-400 font-tamil">புதினா, எலுமிச்சை சாறு மிதமான சோடா கலவை</p>
+            <span class="text-brandNeon font-cyber font-bold text-lg">₹50</span>
+          </div>
+          <button onclick="addToCart('Virgin Mojito', 50)" class="bg-zinc-800 hover:bg-emerald-600 px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
         </div>
-        <button onclick="addToCart('Blue Curacao Mojito', 60)" class="bg-zinc-800 hover:bg-sky-600 px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
-      </div>
 
-      <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
-        <div>
-          <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-cyber">CHILL FIZZ</span>
-          <h4 class="font-bold text-white text-base mt-1">Mint Mojito</h4>
-          <p class="text-xs text-gray-400 font-tamil">இயற்கை புதினா, எலுமிச்சை சாறு சோடா</p>
-          <span class="text-brandNeon font-cyber font-bold text-lg">₹70</span>
+        <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
+          <div>
+            <span class="text-[10px] bg-sky-500/20 text-sky-300 px-2 py-0.5 rounded font-cyber">CARIBBEAN HIT</span>
+            <h4 class="font-bold text-white text-base mt-1">Blue Curacao Mojito</h4>
+            <p class="text-xs text-gray-400 font-tamil">ஆரஞ்சு பழச் சாறு, புதினா & சோடா கவர்ச்சி</p>
+            <span class="text-brandNeon font-cyber font-bold text-lg">₹60</span>
+          </div>
+          <button onclick="addToCart('Blue Curacao Mojito', 60)" class="bg-zinc-800 hover:bg-sky-600 px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
         </div>
-        <button onclick="addToCart('Mint Mojito', 70)" class="bg-zinc-800 hover:bg-emerald-600 px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
-      </div>
 
-      <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
-        <div>
-          <span class="text-[10px] bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded font-cyber">ENGLAND COOLER</span>
-          <h4 class="font-bold text-white text-base mt-1">The World's End</h4>
-          <p class="text-xs text-gray-400 font-tamil">நறுமண பத்தினா, எலுமிச்சை சாறு வண்ண பெர்ரி</p>
-          <span class="text-brandNeon font-cyber font-bold text-lg">₹80</span>
+        <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
+          <div>
+            <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-cyber">CHILL FIZZ</span>
+            <h4 class="font-bold text-white text-base mt-1">Mint Mojito</h4>
+            <p class="text-xs text-gray-400 font-tamil">இயற்கை புதினா, எலுமிச்சை சாறு சோடா</p>
+            <span class="text-brandNeon font-cyber font-bold text-lg">₹70</span>
+          </div>
+          <button onclick="addToCart('Mint Mojito', 70)" class="bg-zinc-800 hover:bg-emerald-600 px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
         </div>
-        <button onclick="addToCart('The Worlds End Mojito', 80)" class="bg-zinc-800 hover:bg-rose-600 px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
-      </div>
 
-      <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
-        <div>
-          <span class="text-[10px] bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded font-cyber">AUSTRALIA FIZZ</span>
-          <h4 class="font-bold text-white text-base mt-1">Mermaid Beach</h4>
-          <p class="text-xs text-gray-400 font-tamil">நீல குராகோஸ், தேங்காய் சாறு & குளிர்ந்த சோடா</p>
-          <span class="text-brandNeon font-cyber font-bold text-lg">₹80</span>
+        <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
+          <div>
+            <span class="text-[10px] bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded font-cyber">ENGLAND COOLER</span>
+            <h4 class="font-bold text-white text-base mt-1">The World's End</h4>
+            <p class="text-xs text-gray-400 font-tamil">நறுமண பத்தினா, எலுமிச்சை சாறு வண்ண பெர்ரி</p>
+            <span class="text-brandNeon font-cyber font-bold text-lg">₹80</span>
+          </div>
+          <button onclick="addToCart('The Worlds End Mojito', 80)" class="bg-zinc-800 hover:bg-rose-600 px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
         </div>
-        <button onclick="addToCart('Mermaid Beach Mojito', 80)" class="bg-zinc-800 hover:bg-indigo-600 px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
-      </div>
 
+        <div class="bg-cyberCard border border-white/10 rounded-2xl p-4 flex justify-between items-center">
+          <div>
+            <span class="text-[10px] bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded font-cyber">AUSTRALIA FIZZ</span>
+            <h4 class="font-bold text-white text-base mt-1">Mermaid Beach</h4>
+            <p class="text-xs text-gray-400 font-tamil">நீல குராகோஸ், தேங்காய் சாறு & குளிர்ந்த சோடா</p>
+            <span class="text-brandNeon font-cyber font-bold text-lg">₹80</span>
+          </div>
+          <button onclick="addToCart('Mermaid Beach Mojito', 80)" class="bg-zinc-800 hover:bg-indigo-600 px-3 py-2 rounded-xl text-xs font-bold text-white">+</button>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -613,7 +644,7 @@
               <i class="fa-solid fa-clock text-brandGold text-xl"></i>
               <div>
                 <strong class="text-white block">Opening Hours:</strong>
-                <p>Monday to Sunday: 11:30 AM – 11:00 PM</p>
+                <p class="text-brandNeon font-bold">Every Day: 4:00 PM – 12:00 AM (Midnight)</p>
               </div>
             </div>
 
@@ -650,7 +681,7 @@
           </div>
           <h4 class="font-cyber text-lg text-white font-bold">Best Taste Straight From The Kitchen!</h4>
           <p class="text-xs text-gray-400 leading-relaxed max-w-sm mx-auto">
-            Visit our shop opposite Eswari Nursing Home to experience hot toasted brioche buns, sizzling patties, and our secret 1946 cheese sauce at peak flavor.
+            Visit our shop opposite Eswari Nursing Home from 4:00 PM to 12:00 AM to experience hot toasted brioche buns, sizzling patties, and our secret 1946 cheese sauce at peak flavor.
           </p>
           <div class="pt-2 flex flex-col gap-2">
             <span class="inline-block bg-amber-500/10 text-amber-300 border border-amber-500/30 text-[11px] px-3 py-1 rounded-full font-bold">
@@ -706,10 +737,10 @@
               <input type="radio" name="orderType" value="Delivery in Valliyur" class="mr-1"> Delivery
             </label>
           </div>
-          <p class="text-[10px] text-amber-400 italic mb-2">*Notice: Home delivery is available strictly inside Valliyur town only.</p>
+          <p class="text-[10px] text-amber-400 italic mb-2">*Home delivery is available strictly inside Valliyur town only (4:00 PM – 12:00 AM).</p>
         </div>
 
-        <input id="orderNote" type="text" placeholder="Your name, Table No, or Valliyur delivery street" class="w-full bg-black/50 border border-white/20 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-brandNeon">
+        <input id="orderNote" type="text" placeholder="Your name, Table No, or Valliyur delivery address" class="w-full bg-black/50 border border-white/20 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-brandNeon">
         
         <button onclick="sendOrderNow()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2">
           <i class="fa-brands fa-whatsapp text-lg"></i> Send Order to Augstin
@@ -774,7 +805,8 @@
         <p class="font-bold text-white mb-1">📍 Street Burger Outlet Location:</p>
         <p>William Booth Memorial complex, opposite Eswari nursing home,</p>
         <p>Valliyur, Vadakkuvalliyur, Tamil Nadu – 627117</p>
-        <p class="text-amber-400 mt-2 font-semibold">🛵 Home Delivery Policy: Orders delivered strictly inside Valliyur town.</p>
+        <p class="text-amber-400 mt-2 font-semibold">⏱ Timings: 4:00 PM to 12:00 AM (Midnight) Every Day</p>
+        <p class="text-gray-400 text-[11px] mt-1">🛵 Home Delivery Policy: Orders delivered strictly inside Valliyur town.</p>
         <p class="mt-1 font-mono text-gray-400">Owner & Chef: Augstin | Hotline: +91 93425 41946</p>
       </div>
 
@@ -795,18 +827,46 @@
   <script>
     let cart = [];
 
-    function showTab(catName, btn) {
-      document.querySelectorAll('.menu-tab-content').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('.tab-btn').forEach(el => {
-        el.classList.remove('bg-brandGold', 'text-black');
-        el.classList.add('bg-cyberCard', 'text-gray-300');
-      });
+    // CATEGORY TAB SWITCHER THAT NEVER FAILS
+    function showCategory(category) {
+      const allSections = ['burgers', 'sandwiches', 'appetizers', 'mojitos'];
+      const buttons = {
+        'all': document.getElementById('btn-all'),
+        'burgers': document.getElementById('btn-burgers'),
+        'sandwiches': document.getElementById('btn-sandwiches'),
+        'appetizers': document.getElementById('btn-appetizers'),
+        'mojitos': document.getElementById('btn-mojitos'),
+      };
 
-      document.getElementById(catName + 'Section').classList.remove('hidden');
-      btn.classList.add('bg-brandGold', 'text-black');
-      btn.classList.remove('bg-cyberCard', 'text-gray-300');
+      // Reset all tab button styles
+      for (let key in buttons) {
+        if (buttons[key]) {
+          buttons[key].className = 'tab-btn bg-cyberCard text-gray-300 font-cyber text-xs px-4 py-2.5 rounded-xl whitespace-nowrap transition border border-white/10';
+        }
+      }
+
+      // Highlight active button
+      if (buttons[category]) {
+        buttons[category].className = 'tab-btn bg-brandGold text-black font-cyber text-xs px-4 py-2.5 rounded-xl whitespace-nowrap transition font-bold border border-brandGold';
+      }
+
+      // Toggle display using inline CSS
+      if (category === 'all') {
+        allSections.forEach(sec => {
+          const el = document.getElementById('sec-' + sec);
+          if (el) el.style.display = 'block';
+        });
+      } else {
+        allSections.forEach(sec => {
+          const el = document.getElementById('sec-' + sec);
+          if (el) {
+            el.style.display = (sec === category) ? 'block' : 'none';
+          }
+        });
+      }
     }
 
+    // CART MANAGEMENT
     function addToCart(name, price) {
       const existing = cart.find(i => i.name === name);
       if (existing) {
@@ -815,6 +875,10 @@
         cart.push({ name, price, qty: 1 });
       }
       refreshCart();
+    }
+
+    function addCustomItem(name, price) {
+      addToCart(name, price);
     }
 
     function updateQty(name, delta) {
@@ -867,12 +931,14 @@
         alert('Please add items to your cart first!');
         return;
       }
-      const orderType = document.querySelector('input[name="orderType"]:checked').value;
+      const orderTypeRadio = document.querySelector('input[name="orderType"]:checked');
+      const orderType = orderTypeRadio ? orderTypeRadio.value : 'Dine-In';
       const note = document.getElementById('orderNote').value || 'Standard Order';
       
       let text = `*NEW ORDER - STREET BURGER (VALLIYUR)*\n`;
       text += `Owner: Augstin\n`;
       text += `Location: Opp. Eswari Nursing Home, Valliyur\n`;
+      text += `⏱ Kitchen Hours: 4:00 PM – 12:00 AM\n`;
       text += `---------------------------\n`;
       text += `📍 *Service Type:* ${orderType}\n`;
       text += `---------------------------\n`;
@@ -884,7 +950,7 @@
       text += `*TOTAL AMOUNT: ₹${total}*\n`;
       text += `*Customer / Address Note:* ${note}\n`;
       if(orderType === 'Delivery in Valliyur') {
-        text += `*(Note: Delivery strictly inside Valliyur limits)*\n`;
+        text += `*(Note: Home delivery strictly within Valliyur limits)*\n`;
       }
       text += `_Sent via Street Burger Valliyur Portal_`;
 
@@ -916,6 +982,8 @@
       closeFeedbackModal();
     }
 
+    // Default initialization
+    showCategory('all');
     refreshCart();
   </script>
 </body>

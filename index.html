@@ -85,14 +85,16 @@
   </div>
 
   <header class="sticky top-0 z-40 bg-cyberDark/95 backdrop-blur-md border-b border-white/10 px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 flex items-center justify-between">
-    <div class="flex items-center gap-2.5 sm:gap-4 min-w-0">
-      <!-- FIXED: Massively increased logo size for extreme visibility -->
+    <div class="flex items-center gap-4 min-w-0">
       <div class="h-28 w-28 lg:h-36 lg:w-36 rounded-full border-2 border-brandNeon/80 p-1 shadow-[0_0_20px_rgba(245,158,11,0.6)] shrink-0 overflow-hidden bg-black flex items-center justify-center">
         <img src="1000428989logo.jpg" alt="Street Burger Logo" class="h-full w-full rounded-full object-cover">
       </div>
-      <div class="truncate">
-        <h1 class="font-cyber text-2xl lg:text-4xl font-black tracking-wider sm:tracking-widest shimmer-gold leading-none truncate">STREET BURGER</h1>
-        <p class="text-[10px] lg:text-xs tracking-[0.2em] text-red-400 uppercase font-bold mt-1.5 truncate">Artisan Buns • 100% Real Cheese</p>
+      <div>
+        <!-- FIXED: Made name extremely clear, removed truncate, added shadow and bright color -->
+        <h1 class="font-cyber text-3xl lg:text-5xl font-black tracking-widest text-brandNeon drop-shadow-[0_4px_6px_rgba(0,0,0,0.9)] leading-none mt-1" style="text-shadow: 2px 2px 5px #000, 0 0 15px rgba(245,158,11,0.8);">
+          STREET BURGER
+        </h1>
+        <p class="text-xs lg:text-sm tracking-[0.2em] text-red-400 uppercase font-bold mt-2">Artisan Buns • 100% Real Cheese</p>
       </div>
     </div>
 
@@ -118,23 +120,24 @@
     </div>
   </header>
 
-  <section class="relative py-12 px-4 border-b border-white/5 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-950/40 via-zinc-950 to-cyberDark">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+  <section class="relative py-14 px-4 border-b border-white/5 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-950/40 via-zinc-950 to-cyberDark">
+    <!-- FIXED: Changed layout to flex-col and perfectly centered everything -->
+    <div class="max-w-5xl mx-auto flex flex-col items-center justify-center gap-10">
       
-      <div class="lg:col-span-7 text-left">
-        <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 px-4 py-2 rounded-full text-xs font-cyber text-brandNeon mb-4 tracking-widest uppercase">
+      <div class="flex flex-col items-center text-center w-full">
+        <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 px-4 py-2 rounded-full text-xs font-cyber text-brandNeon mb-5 tracking-widest uppercase">
           <i class="fa-solid fa-crown text-brandGold"></i> Chef Augstin • Valliyur Outlet
         </div>
         
-        <h2 class="font-luxury text-5xl lg:text-6xl font-black tracking-wide text-white mb-4">
+        <h2 class="font-luxury text-5xl lg:text-6xl font-black tracking-wide text-white mb-5 text-center">
           TASTE THE <br/><span class="shimmer-gold">STREET CRUNCH</span>
         </h2>
         
-        <p class="text-sm lg:text-base text-stone-300 mb-8 font-tamil leading-relaxed max-w-xl">
+        <p class="text-sm lg:text-base text-stone-300 mb-8 font-tamil leading-relaxed max-w-2xl text-center">
           நேரடியாக கடைக்கு வந்து சுடச்சுட சாப்பிட்டு மகிழுங்கள்! அசல் சமையல் குறிப்புகளுடன் பிரத்யேக சீஸ் சாஸ் மற்றும் கைவினை ரொட்டிகளுடன் தயாரிக்கப்படும் உலகத்தரம் வாய்ந்த பர்கர்கள், டோஸ்ட் சாண்ட்விச்கள் & குளிர்பானங்கள்.
         </p>
 
-        <div class="flex flex-wrap items-center justify-start gap-4 mb-6">
+        <div class="flex flex-wrap items-center justify-center gap-4 mb-2 w-full">
           <a href="#menuSection" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold px-6 py-3.5 rounded-xl transition text-sm flex items-center gap-2 shadow-[0_0_20px_rgba(245,158,11,0.35)]">
             <i class="fa-solid fa-utensils"></i> Order From Menu
           </a>
@@ -147,8 +150,8 @@
         </div>
       </div>
 
-      <div class="lg:col-span-5">
-        <div class="relative group rounded-3xl p-1.5 bg-gradient-to-tr from-amber-500/40 via-red-500/20 to-amber-400/40 shadow-[0_0_35px_rgba(245,158,11,0.3)]">
+      <div class="w-full max-w-3xl">
+        <div class="relative group rounded-3xl p-1.5 bg-gradient-to-tr from-amber-500/40 via-red-500/20 to-amber-400/40 shadow-[0_0_40px_rgba(245,158,11,0.4)]">
           
           <div class="relative w-full overflow-hidden rounded-[22px] bg-black">
             

@@ -152,7 +152,15 @@
               src="1000430339shop.png" 
               alt="Street Burger Valliyur Food Truck Counter" 
               class="w-full h-full object-cover enhanced-cart-img group-hover:scale-105 transition duration-500"
-              onerror="this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80'"
+              onerror="
+                if (this.src.indexOf('1000430339shop.png') !== -1) {
+                  this.src = '1000430339.png';
+                } else if (this.src.indexOf('1000430339.png') !== -1) {
+                  this.src = '1000429671.jpg';
+                } else {
+                  this.src = 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80';
+                }
+              "
             >
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
             

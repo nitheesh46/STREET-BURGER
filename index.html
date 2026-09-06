@@ -46,6 +46,10 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    /* Photo Sharpness & Vibrance enhancement */
+    .enhanced-outlet-img {
+      filter: contrast(1.12) saturate(1.15) brightness(1.03);
+    }
     ::-webkit-scrollbar {
       width: 6px;
       height: 6px;
@@ -70,24 +74,24 @@
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
         <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
       </span>
-      <span class="font-cyber text-[9px] sm:text-[10px] text-brandNeon tracking-widest uppercase">LIVE KITCHEN • VALLIYUR</span>
+      <span class="font-cyber text-[9px] sm:text-[10px] text-brandNeon tracking-widest uppercase">LIVE KITCHEN ACTIVE • VALLIYUR TOWN</span>
     </div>
     <div class="inline-flex items-center gap-1.5 bg-red-950/80 border border-red-500/40 px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] text-yellow-300 font-bold">
-      <i class="fa-solid fa-motorcycle text-red-400"></i> Local Town Delivery • 4 PM – 12 AM
+      <i class="fa-solid fa-motorcycle text-red-400"></i> Door Delivery: Valliyur Town Limits
     </div>
     <div class="text-[10px] sm:text-[11px] font-mono text-stone-300 hidden md:block">
-      Owner: <strong class="text-white font-bold">Augstin</strong> | 📞 <a href="tel:9342541946" class="text-brandGold hover:underline">93425 41946</a>
+      Owner: <strong class="text-white font-bold">Augstin</strong> | ⏱ <span class="text-brandGold font-bold">4:00 PM – 12:00 AM</span>
     </div>
   </div>
 
   <header class="sticky top-0 z-40 bg-cyberDark/95 backdrop-blur-md border-b border-white/10 px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 flex items-center justify-between">
     <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
-      <div class="h-10 w-10 sm:h-12 sm:w-12 rounded-full border-2 border-brandNeon/80 p-0.5 shadow-[0_0_15px_rgba(245,158,11,0.35)] shrink-0">
-        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=160&q=80" alt="Street Burger Valliyur" class="h-full w-full rounded-full object-cover">
+      <div class="h-10 w-10 sm:h-12 sm:w-12 rounded-full border-2 border-brandNeon/80 p-0.5 shadow-[0_0_15px_rgba(245,158,11,0.35)] shrink-0 overflow-hidden">
+        <img src="1000429671.jpg" alt="Street Burger Logo" class="h-full w-full rounded-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=160&q=80'">
       </div>
       <div class="truncate">
         <h1 class="font-cyber text-base sm:text-2xl font-black tracking-wider sm:tracking-widest shimmer-gold leading-none truncate">STREET BURGER</h1>
-        <p class="text-[8px] sm:text-[10px] tracking-[0.2em] text-red-400 uppercase font-bold mt-1 truncate">Artisan Buns • Real Cheese</p>
+        <p class="text-[8px] sm:text-[10px] tracking-[0.2em] text-red-400 uppercase font-bold mt-1 truncate">Artisan Buns • Real Cheese • Valliyur</p>
       </div>
     </div>
 
@@ -96,9 +100,9 @@
         <i class="fa-solid fa-star text-amber-400"></i> Review
       </a>
       
-      <a href="https://wa.me/919342541946" target="_blank" class="flex items-center gap-1.5 bg-emerald-700/90 hover:bg-emerald-600 text-white text-xs font-bold p-2 sm:px-3 sm:py-2 rounded-xl transition border border-emerald-400/40">
+      <a href="https://wa.me/919342541946" target="_blank" class="flex items-center gap-1.5 bg-emerald-700/90 hover:bg-emerald-600 text-white text-xs font-bold p-2 sm:px-3.5 sm:py-2 rounded-xl transition border border-emerald-400/40">
         <i class="fa-brands fa-whatsapp text-sm sm:text-base"></i>
-        <span class="hidden sm:inline">WhatsApp</span>
+        <span class="hidden sm:inline">93425 41946</span>
       </a>
 
       <button onclick="handleUserLogout()" title="Clear Session / Logout" class="flex items-center gap-1.5 bg-zinc-900 hover:bg-red-950/80 text-stone-400 hover:text-red-400 p-2 sm:px-3 sm:py-2 rounded-xl border border-white/10 transition text-xs font-bold">
@@ -113,47 +117,77 @@
     </div>
   </header>
 
-  <section class="relative py-10 sm:py-14 px-4 text-center overflow-hidden border-b border-white/5 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-950/40 via-zinc-950 to-cyberDark">
-    <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 px-3.5 py-1.5 rounded-full text-[10px] sm:text-xs font-cyber text-brandNeon mb-4 tracking-widest uppercase">
-      <i class="fa-solid fa-crown text-brandGold"></i> ESTD 1946 Recipe Collection
-    </div>
-    
-    <h2 class="font-luxury text-3xl sm:text-6xl font-black tracking-wide text-white mb-2">
-      HAUTE CRUNCH <span class="shimmer-gold">& COOLERS</span>
-    </h2>
-    
-    <p class="max-w-xl mx-auto text-xs sm:text-base text-stone-300 mb-6 font-tamil leading-relaxed">
-      நேரடியாக கடைக்கு வந்து சுடச்சுட சாப்பிட்டு மகிழுங்கள்! அசல் சமையல் குறிப்புகளுடன் தயாரிக்கப்படும் பர்கர், டோஸ்ட் சாண்ட்விச் & கூல் மோஜிதோஸ்.
-    </p>
+  <section class="relative py-8 sm:py-12 px-4 border-b border-white/5 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-950/40 via-zinc-950 to-cyberDark">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      
+      <div class="lg:col-span-7 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 px-3.5 py-1.5 rounded-full text-[10px] sm:text-xs font-cyber text-brandNeon mb-4 tracking-widest uppercase">
+          <i class="fa-solid fa-crown text-brandGold"></i> Chef Augstin • Valliyur Town Outlet
+        </div>
+        
+        <h2 class="font-luxury text-3xl sm:text-5xl font-black tracking-wide text-white mb-3">
+          EXPERIENCE THE <span class="shimmer-gold">STREET CRUNCH</span>
+        </h2>
+        
+        <p class="text-xs sm:text-sm text-stone-300 mb-6 font-tamil leading-relaxed max-w-xl mx-auto lg:mx-0">
+          நேரடியாக கடைக்கு வந்து சுடச்சுட சாப்பிட்டு மகிழுங்கள்! அசல் சமையல் குறிப்புகளுடன் பிரத்யேக சீஸ் சாஸ் மற்றும் கைவினை ரொட்டிகளுடன் தயாரிக்கப்படும் உலகத்தரம் வாய்ந்த பர்கர்கள் & குளிர்பானங்கள்.
+        </p>
 
-    <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-8">
-      <a href="#menuSection" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl transition text-xs sm:text-sm flex items-center gap-2 shadow-[0_0_20px_rgba(245,158,11,0.35)]">
-        <i class="fa-solid fa-utensils"></i> View Menu
-      </a>
-      <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="bg-zinc-900/80 hover:bg-zinc-800 border border-amber-400/40 text-amber-300 font-bold px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl transition text-xs sm:text-sm flex items-center gap-2">
-        <i class="fa-solid fa-star text-amber-400"></i> Review
-      </a>
-      <a href="https://maps.app.goo.gl/2y8oXRwLtySKuoNaA" target="_blank" class="bg-zinc-900/80 hover:bg-zinc-800 border border-white/20 text-stone-300 font-semibold px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl transition text-xs sm:text-sm flex items-center gap-2">
-        <i class="fa-solid fa-location-dot text-red-500"></i> Location
-      </a>
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3 mb-6">
+          <a href="#menuSection" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl transition text-xs sm:text-sm flex items-center gap-2 shadow-[0_0_20px_rgba(245,158,11,0.35)]">
+            <i class="fa-solid fa-utensils"></i> Order From Menu
+          </a>
+          <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="bg-zinc-900 hover:bg-zinc-800 border border-amber-400/40 text-amber-300 font-bold px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl transition text-xs sm:text-sm flex items-center gap-2">
+            <i class="fa-solid fa-star text-amber-400"></i> Write Google Review
+          </a>
+          <a href="https://maps.app.goo.gl/2y8oXRwLtySKuoNaA" target="_blank" class="bg-zinc-900 hover:bg-zinc-800 border border-white/20 text-stone-300 font-semibold px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl transition text-xs sm:text-sm flex items-center gap-2">
+            <i class="fa-solid fa-location-dot text-red-500"></i> Get Directions
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="relative group rounded-3xl p-1.5 bg-gradient-to-tr from-amber-500/40 via-red-500/20 to-amber-400/40 shadow-[0_0_35px_rgba(245,158,11,0.25)]">
+          <div class="relative h-64 sm:h-80 w-full overflow-hidden rounded-[22px] bg-black">
+            <img 
+              src="1000429671.jpg" 
+              alt="Street Burger Live Counter Valliyur" 
+              class="w-full h-full object-cover enhanced-outlet-img group-hover:scale-105 transition duration-500"
+              onerror="this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80'"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+            
+            <div class="absolute top-3 right-3 bg-red-600/90 text-white font-cyber text-[9px] px-2.5 py-1 rounded-full uppercase tracking-wider font-bold">
+              ● Live Kitchen
+            </div>
+
+            <div class="absolute bottom-3 inset-x-3 text-left">
+              <span class="text-[10px] font-cyber text-brandNeon uppercase font-bold tracking-widest">Valliyur Outlet</span>
+              <p class="text-xs text-white font-semibold">Street Burger Authentic Grill Station</p>
+              <p class="text-[10px] text-stone-300 font-mono">Open Every Evening 4:00 PM – 12:00 AM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3 text-center">
+    <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3 text-center mt-8">
       <div class="bg-zinc-900/60 border border-white/5 p-3 rounded-xl">
         <div class="text-brandGold text-base sm:text-lg mb-1"><i class="fa-solid fa-bread-slice"></i></div>
         <div class="font-cyber text-[10px] sm:text-[11px] font-bold text-white uppercase">Brioche Buns</div>
       </div>
       <div class="bg-zinc-900/60 border border-white/5 p-3 rounded-xl">
         <div class="text-brandGold text-base sm:text-lg mb-1"><i class="fa-solid fa-cheese"></i></div>
-        <div class="font-cyber text-[10px] sm:text-[11px] font-bold text-white uppercase">Real Cheese</div>
+        <div class="font-cyber text-[10px] sm:text-[11px] font-bold text-white uppercase">100% Real Cheese</div>
       </div>
       <div class="bg-zinc-900/60 border border-white/5 p-3 rounded-xl">
-        <div class="text-brandGold text-base sm:text-lg mb-1"><i class="fa-solid fa-flask"></i></div>
-        <div class="font-cyber text-[10px] sm:text-[11px] font-bold text-white uppercase">Secret Sauce</div>
+        <div class="text-brandGold text-base sm:text-lg mb-1"><i class="fa-solid fa-pepper-hot"></i></div>
+        <div class="font-cyber text-[10px] sm:text-[11px] font-bold text-white uppercase">Peri Peri Flavors</div>
       </div>
       <div class="bg-zinc-900/60 border border-white/5 p-3 rounded-xl">
-        <div class="text-brandGold text-base sm:text-lg mb-1"><i class="fa-solid fa-bolt"></i></div>
-        <div class="font-cyber text-[10px] sm:text-[11px] font-bold text-white uppercase">Fast Delivery</div>
+        <div class="text-brandGold text-base sm:text-lg mb-1"><i class="fa-solid fa-motorcycle"></i></div>
+        <div class="font-cyber text-[10px] sm:text-[11px] font-bold text-white uppercase">Valliyur Parcel</div>
       </div>
     </div>
   </section>
@@ -162,20 +196,20 @@
     <div class="bg-zinc-900/95 backdrop-blur-md border border-amber-500/40 rounded-2xl p-3 sm:p-4 shadow-2xl flex flex-col md:flex-row gap-3 items-center justify-between">
       <div class="relative w-full md:w-80">
         <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 text-xs"></i>
-        <input type="text" id="menuSearchInput" oninput="applyFilters()" placeholder="Search dishes (e.g. Burger, Fries, Mojito)..." class="w-full bg-black/60 border border-white/10 rounded-xl pl-9 pr-4 py-2 sm:py-2.5 text-xs text-white placeholder-stone-400 outline-none focus:border-brandGold transition">
+        <input type="text" id="menuSearchInput" oninput="applyFilters()" placeholder="Search Peri Peri, Burgers, Toast, Dips..." class="w-full bg-black/60 border border-white/10 rounded-xl pl-9 pr-4 py-2 sm:py-2.5 text-xs text-white placeholder-stone-400 outline-none focus:border-brandGold transition">
       </div>
 
       <div class="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-1 md:pb-0">
-        <button onclick="setDietFilter('all')" id="diet-all" class="diet-btn bg-brandGold text-black font-cyber text-[10px] sm:text-[11px] font-bold px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl whitespace-nowrap transition">
-          All
+        <button onclick="setDietFilter('all')" id="diet-all" class="diet-btn bg-brandGold text-black font-cyber text-[10px] sm:text-[11px] font-bold px-3.5 py-1.5 sm:py-2 rounded-xl whitespace-nowrap transition">
+          All Menu
         </button>
-        <button onclick="setDietFilter('nonveg')" id="diet-nonveg" class="diet-btn bg-black/50 text-stone-300 font-cyber text-[10px] sm:text-[11px] font-bold px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl whitespace-nowrap border border-white/10 transition">
+        <button onclick="setDietFilter('nonveg')" id="diet-nonveg" class="diet-btn bg-black/50 text-stone-300 font-cyber text-[10px] sm:text-[11px] font-bold px-3.5 py-1.5 sm:py-2 rounded-xl whitespace-nowrap border border-white/10 transition">
           🍗 Non-Veg
         </button>
-        <button onclick="setDietFilter('veg')" id="diet-veg" class="diet-btn bg-black/50 text-stone-300 font-cyber text-[10px] sm:text-[11px] font-bold px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl whitespace-nowrap border border-white/10 transition">
+        <button onclick="setDietFilter('veg')" id="diet-veg" class="diet-btn bg-black/50 text-stone-300 font-cyber text-[10px] sm:text-[11px] font-bold px-3.5 py-1.5 sm:py-2 rounded-xl whitespace-nowrap border border-white/10 transition">
           🌿 Pure Veg
         </button>
-        <button onclick="setDietFilter('cooler')" id="diet-cooler" class="diet-btn bg-black/50 text-stone-300 font-cyber text-[10px] sm:text-[11px] font-bold px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl whitespace-nowrap border border-white/10 transition">
+        <button onclick="setDietFilter('cooler')" id="diet-cooler" class="diet-btn bg-black/50 text-stone-300 font-cyber text-[10px] sm:text-[11px] font-bold px-3.5 py-1.5 sm:py-2 rounded-xl whitespace-nowrap border border-white/10 transition">
           🍹 Coolers
         </button>
       </div>
@@ -186,20 +220,20 @@
     <div class="bg-gradient-to-r from-zinc-900 via-neutral-900 to-zinc-900 border border-amber-500/30 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 gold-glow">
       <div>
         <div class="flex items-center gap-2 text-brandNeon font-cyber text-[10px] sm:text-xs tracking-widest uppercase mb-1">
-          <i class="fa-solid fa-sparkles"></i> Customization & Upgrades
+          <i class="fa-solid fa-sparkles"></i> Burger Customization & Upgrades
         </div>
         <h3 class="font-luxury text-lg sm:text-xl text-white font-bold">LEVEL UP YOUR ORDER</h3>
         <p class="text-[11px] sm:text-xs text-stone-400">Add layers of hot cheese, crispy meat patties, and potato treats</p>
       </div>
       <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
-        <button onclick="addToCart('Extra Cheese Slice', 20)" class="flex-1 md:flex-initial bg-black/70 hover:bg-amber-500 hover:text-black border border-amber-400/40 text-amber-300 font-bold px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-xl text-xs transition">
-          🧀 + Cheese (₹20)
+        <button onclick="addToCart('Extra Cheese Slice', 20)" class="flex-1 md:flex-initial bg-black/70 hover:bg-amber-500 hover:text-black border border-amber-400/40 text-amber-300 font-bold px-3.5 py-2.5 rounded-xl text-xs transition">
+          🧀 + Extra Cheese Slice (₹20)
         </button>
-        <button onclick="addToCart('Extra Crispy Chicken Patty', 60)" class="flex-1 md:flex-initial bg-black/70 hover:bg-red-600 hover:text-white border border-red-500/40 text-red-300 font-bold px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-xl text-xs transition">
-          🍗 + Patty (₹60)
+        <button onclick="addToCart('Extra Crispy Chicken Patty', 60)" class="flex-1 md:flex-initial bg-black/70 hover:bg-red-600 hover:text-white border border-red-500/40 text-red-300 font-bold px-3.5 py-2.5 rounded-xl text-xs transition">
+          🍗 + Crispy Patty (₹60)
         </button>
-        <button onclick="addToCart('French Fries Combo', 40)" class="flex-1 md:flex-initial bg-black/70 hover:bg-yellow-400 hover:text-black border border-yellow-400/40 text-yellow-300 font-bold px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-xl text-xs transition">
-          🍟 + Fries (₹40)
+        <button onclick="addToCart('French Fries Combo', 40)" class="flex-1 md:flex-initial bg-black/70 hover:bg-yellow-400 hover:text-black border border-yellow-400/40 text-yellow-300 font-bold px-3.5 py-2.5 rounded-xl text-xs transition">
+          🍟 + Fries Combo (₹40)
         </button>
       </div>
     </div>
@@ -253,13 +287,13 @@
     
     <div class="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-3 pt-1">
       <button onclick="filterCategory('all')" id="tab-all" class="cat-tab bg-brandGold text-black font-cyber text-xs px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold whitespace-nowrap transition">
-        🌟 All
+        🌟 All Sections
       </button>
       <button onclick="filterCategory('burgers')" id="tab-burgers" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-xs px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold whitespace-nowrap border border-white/10 transition">
-        🍔 Burgers
+        🍔 Gourmet Burgers
       </button>
       <button onclick="filterCategory('panini')" id="tab-panini" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-xs px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold whitespace-nowrap border border-white/10 transition">
-        🥪 Panini
+        🥪 Panini & Toast
       </button>
       <button onclick="filterCategory('mojitos')" id="tab-mojitos" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-xs px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold whitespace-nowrap border border-white/10 transition">
         🍹 Mojitos
@@ -271,8 +305,8 @@
 
     <div class="menu-group cat-burgers my-6 sm:my-8" data-category="burgers">
       <div class="border-l-4 border-brandGold pl-3 mb-4 sm:mb-5">
-        <h3 class="font-luxury text-xl sm:text-2xl text-white font-bold tracking-wide">GOURMET BURGERS</h3>
-        <p class="text-xs text-stone-400">Brioche Buns, Real Melted Cheese & House Secret Sauce</p>
+        <h3 class="font-luxury text-xl sm:text-2xl text-white font-bold tracking-wide">GOURMET BURGERS COLLECTION</h3>
+        <p class="text-xs text-stone-400">Artisan Brioche Buns & 100% Real Melted Cheese</p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
@@ -280,7 +314,7 @@
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Classic STREET BURGER Chicken" data-diet="nonveg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700&q=80" alt="Classic Street Burger Chicken" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-red-600/90 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">USA Recipe</span>
+            <span class="absolute top-3 left-3 bg-red-600/90 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">USA Recipe</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹110</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -298,7 +332,7 @@
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Classic Tambaron Burger" data-diet="nonveg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&q=80" alt="Classic Tambaron Burger" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-amber-600/90 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">Philippines</span>
+            <span class="absolute top-3 left-3 bg-amber-600/90 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Philippines</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹90</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -315,8 +349,8 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Fried Chicken Burger" data-diet="nonveg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80" alt="Fried Chicken Burger" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-rose-600/90 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">USA Crispy</span>
+            <img src="https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?w=700&q=80" alt="Fried Chicken Burger" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-rose-600/90 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">USA Crispy</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹100</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -334,7 +368,7 @@
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Peri Peri Panneer Burger" data-diet="veg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1520072959219-c595dc870360?w=700&q=80" alt="Peri Peri Panneer Burger" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-emerald-600/90 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">Africa Special</span>
+            <span class="absolute top-3 left-3 bg-emerald-600/90 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Africa • Peri Peri Veg</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹100</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -350,9 +384,9 @@
         </div>
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Buffalo Chicken Burger" data-diet="nonveg">
-          <div class="relative h-48 overflow-hidden">
+          <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=700&q=80" alt="Buffalo Chicken Burger" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-red-700 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">USA Spicy</span>
+            <span class="absolute top-3 left-3 bg-red-700 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">USA Spicy</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹120</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -373,15 +407,15 @@
     <div class="menu-group cat-panini my-6 sm:my-8" data-category="panini">
       <div class="border-l-4 border-brandGold pl-3 mb-4 sm:mb-5">
         <h3 class="font-luxury text-xl sm:text-2xl text-white font-bold tracking-wide">PANINIO & SANDWICH</h3>
-        <p class="text-xs text-stone-400">Italian Toasted Panini & Grilled Sandwiches with Herbs</p>
+        <p class="text-xs text-stone-400">Italian Toasted Panini & Grilled Sandwiches</p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
         
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Classic Veg Sandwich" data-diet="veg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1525059696034-4967a8e1bca2?w=700&q=80" alt="Classic Veg Sandwich" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-emerald-600/90 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">Italy</span>
+            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700&q=80" alt="Classic Veg Sandwich" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-emerald-600/90 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Italy Tradition</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹80</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -398,8 +432,8 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Classic Roasted Chicken Sandwich" data-diet="nonveg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700&q=80" alt="Classic Roasted Chicken Sandwich" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-red-600/90 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">Italy Special</span>
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&q=80" alt="Classic Roasted Chicken Sandwich" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-red-600/90 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Chef's Special</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹100</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -416,8 +450,8 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Peri Peri Paneer Sandwich" data-diet="veg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&q=80" alt="Peri Peri Paneer Sandwich" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-emerald-600/90 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">Fusion</span>
+            <img src="https://images.unsplash.com/photo-1525059696034-4967a8e1bca2?w=700&q=80" alt="Peri Peri Paneer Sandwich" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-emerald-600/90 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Africa Peri Peri</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹100</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -435,7 +469,7 @@
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Mushroom Fajita Sandwich" data-diet="veg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=700&q=80" alt="Mushroom Fajita Sandwich" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-amber-600/90 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">Mexico Fajita</span>
+            <span class="absolute top-3 left-3 bg-amber-600/90 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Mexico Fajita</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹90</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -453,7 +487,7 @@
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Buffalo Chicken Sandwich" data-diet="nonveg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?w=700&q=80" alt="Buffalo Chicken Sandwich" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-red-700 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">USA Buffalo</span>
+            <span class="absolute top-3 left-3 bg-red-700 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Spicy Buffalo</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹120</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -474,7 +508,7 @@
     <div class="menu-group cat-mojitos my-6 sm:my-8" data-category="mojitos">
       <div class="border-l-4 border-brandGold pl-3 mb-4 sm:mb-5">
         <h3 class="font-luxury text-xl sm:text-2xl text-white font-bold tracking-wide">FIZZ'S & MOJITOS</h3>
-        <p class="text-xs text-stone-400">Sparkling Chill, House-Crafted Syrups & 100% Fresh Crush</p>
+        <p class="text-xs text-stone-400">Sparkling Chill, House-Crafted Syrups & Real Mint</p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
@@ -482,7 +516,7 @@
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Virgin Mojito" data-diet="cooler">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=700&q=80" alt="Virgin Mojito" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">Cuba Classic</span>
+            <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Cuba Classic</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹50</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -500,7 +534,7 @@
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Blue Curacao Mojito" data-diet="cooler">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=700&q=80" alt="Blue Curacao Mojito" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-blue-600 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">Caribbean</span>
+            <span class="absolute top-3 left-3 bg-blue-600 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Tropical Hit</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹60</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -518,7 +552,7 @@
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Mint Mojito" data-diet="cooler">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1546171753-97d7676e4602?w=700&q=80" alt="Mint Mojito" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-teal-600 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">Cuba Classic</span>
+            <span class="absolute top-3 left-3 bg-teal-600 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Cuba Classic</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹70</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -536,12 +570,12 @@
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="The World's End" data-diet="cooler">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=700&q=80" alt="The World's End" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-rose-700 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">England Cooler</span>
+            <span class="absolute top-3 left-3 bg-rose-700 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">England Cooler</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹80</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-[10px] font-bold text-rose-400 mb-1">● BERRY HIT</div>
+              <div class="text-[10px] font-bold text-rose-400 mb-1">● BERRY EXPLOSION</div>
               <h4 class="font-bold text-base text-white mb-1">The World's End</h4>
               <p class="text-xs text-stone-400 font-tamil leading-relaxed mb-4">இங்கிலாந்து நாட்டு பாரம்பரிய முறைப்படி பெர்ரி சாறுகள் மற்றும் புதினா கலந்த பானம்.</p>
             </div>
@@ -554,7 +588,7 @@
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Mermaid Beach" data-diet="cooler">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=700&q=80" alt="Mermaid Beach" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-purple-600 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">Australia Fizz</span>
+            <span class="absolute top-3 left-3 bg-purple-600 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Australia Fizz</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹80</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -575,7 +609,7 @@
     <div class="menu-group cat-appetizers my-6 sm:my-8" data-category="appetizers">
       <div class="border-l-4 border-brandGold pl-3 mb-4 sm:mb-5">
         <h3 class="font-luxury text-xl sm:text-2xl text-white font-bold tracking-wide">GLOBAL APPETIZERS</h3>
-        <p class="text-xs text-stone-400">100% Crunchy & Fresh • International Street Sides</p>
+        <p class="text-xs text-stone-400">100% Crunchy & Fresh • Fried Fresh to Order</p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
@@ -583,7 +617,7 @@
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Classic French Fries" data-diet="veg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=700&q=80" alt="Classic French Fries" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-amber-600 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">Belgium</span>
+            <span class="absolute top-3 left-3 bg-amber-600 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Belgium</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹50</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -601,7 +635,7 @@
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Peri Peri Fries" data-diet="veg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1576107232684-1279f3908594?w=700&q=80" alt="Peri Peri Fries" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-orange-600 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">Africa</span>
+            <span class="absolute top-3 left-3 bg-orange-600 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Africa Peri Peri</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹60</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -619,7 +653,7 @@
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Cheesy Chicken Fries" data-diet="nonveg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1585109649139-366815a0d713?w=700&q=80" alt="Cheesy Chicken Fries" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-red-600 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">Canada</span>
+            <span class="absolute top-3 left-3 bg-red-600 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Canada</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹80</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -637,7 +671,7 @@
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Crumb Fried Chicken" data-diet="nonveg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=700&q=80" alt="Crumb Fried Chicken" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-amber-600 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">USA</span>
+            <span class="absolute top-3 left-3 bg-amber-600 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">USA</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹80</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -654,8 +688,8 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Cheesy Jalapeno Fritters" data-diet="veg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80" alt="Cheesy Jalapeno Fritters" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">Mexico Hit</span>
+            <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=700&q=80" alt="Cheesy Jalapeno Fritters" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Mexico Hit</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹70</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -673,7 +707,7 @@
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Mac 'n Cheese Ball" data-diet="veg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?w=700&q=80" alt="Mac 'n Cheese Ball" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-yellow-600 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">USA Tradition</span>
+            <span class="absolute top-3 left-3 bg-yellow-600 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">USA Tradition</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹70</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -691,7 +725,7 @@
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Corn Cheese Ball" data-diet="veg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=700&q=80" alt="Corn Cheese Ball" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-amber-500 text-black text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">USA Style</span>
+            <span class="absolute top-3 left-3 bg-amber-500 text-black text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">USA Style</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹70</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -709,7 +743,7 @@
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Kentucky Fried Chicken" data-diet="nonveg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=700&q=80" alt="Kentucky Fried Chicken" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-red-600 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">Chef's Pick</span>
+            <span class="absolute top-3 left-3 bg-red-600 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Chef's Pick</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹80</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
@@ -727,8 +761,8 @@
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Fried Momos (Chicken / Veg)" data-diet="nonveg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=700&q=80" alt="Fried Momos" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-rose-600 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">Tibet</span>
-            <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xs sm:text-sm font-black px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg border border-amber-400/30">₹70 / ₹60</span>
+            <span class="absolute top-3 left-3 bg-rose-600 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Tibet</span>
+            <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xs sm:text-sm font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹70 / ₹60</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
             <div>
@@ -750,8 +784,8 @@
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Crispy Nuggets (Chicken / Veg)" data-diet="nonveg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=700&q=80" alt="Nuggets" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-amber-600 text-white text-[9px] sm:text-[10px] font-cyber px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold uppercase">USA</span>
-            <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xs sm:text-sm font-black px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg border border-amber-400/30">₹70 / ₹60</span>
+            <span class="absolute top-3 left-3 bg-amber-600 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">USA</span>
+            <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xs sm:text-sm font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹70 / ₹60</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
             <div>
@@ -785,7 +819,7 @@
         <p class="text-xs text-stone-400 font-tamil">உங்கள் கருத்து எங்களுக்கு முக்கியம்! கூகுள் மேப்பில் உங்கள் 5-ஸ்டார் மதிப்பீட்டை பகிருங்கள்.</p>
       </div>
       <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="w-full md:w-auto text-center bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-amber-400 hover:to-yellow-300 text-black font-extrabold px-6 py-3 rounded-xl transition text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg">
-        <i class="fa-brands fa-google text-base"></i> Post Review
+        <i class="fa-brands fa-google text-base"></i> Post Review on Google
       </a>
     </div>
   </section>
@@ -828,7 +862,7 @@
         </div>
 
         <div>
-          <label class="block text-[10px] text-stone-400 mb-1">WhatsApp / Mobile Contact *</label>
+          <label class="block text-[10px] text-stone-400 mb-1">WhatsApp / Contact Phone *</label>
           <input type="tel" id="custPhone" oninput="persistCustomerData()" placeholder="9342541946" class="w-full bg-black/60 border border-white/20 rounded-lg px-3 py-2 text-xs text-white focus:border-brandGold outline-none">
         </div>
 

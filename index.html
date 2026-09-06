@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Street Burger | Valliyur | Gourmet Street Crunch & Coolers</title>
+  <title>STREET BURGER | Valliyur Haute Fast-Food & Mocktails</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Orbitron:wght@600;800;900&family=Montserrat:wght@300;400;500;700;800&family=Mukta+Malar:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Orbitron:wght@600;800;900&family=Montserrat:wght@300;400;500;600;700;800&family=Mukta+Malar:wght@400;600;700&display=swap" rel="stylesheet">
   
   <script>
     tailwind.config = {
@@ -31,71 +31,91 @@
   </script>
   <style>
     .gold-glow {
-      box-shadow: 0 0 25px rgba(245, 158, 11, 0.2);
+      box-shadow: 0 0 30px rgba(245, 158, 11, 0.18), inset 0 0 15px rgba(245, 158, 11, 0.05);
     }
     .luxury-card {
-      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .luxury-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(245, 158, 11, 0.25);
-      border-color: rgba(245, 158, 11, 0.6);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.9), 0 0 25px rgba(245, 158, 11, 0.28);
+      border-color: rgba(245, 158, 11, 0.7);
     }
     .shimmer-gold {
       background: linear-gradient(90deg, #f59e0b 0%, #fef08a 50%, #f59e0b 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    .gold-border-gradient {
+      border-image: linear-gradient(to right, #f59e0b, #ef4444, #f59e0b) 1;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #070709;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #27272a;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #f59e0b;
+    }
   </style>
 </head>
-<body class="bg-cyberDark text-stone-100 font-sans antialiased pb-28 selection:bg-brandGold selection:text-black">
+<body class="bg-cyberDark text-stone-100 font-sans antialiased pb-32 selection:bg-brandGold selection:text-black">
 
   <div class="bg-gradient-to-r from-red-950 via-zinc-950 to-amber-950 border-b border-amber-500/20 px-4 py-2 text-xs flex flex-wrap justify-between items-center text-stone-300 gap-2">
     <div class="flex items-center gap-2">
-      <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-      <span class="font-cyber text-[10px] text-brandNeon tracking-widest uppercase">KITCHEN OPEN • ESTD 1946 RECIPE HERITAGE</span>
+      <span class="relative flex h-2.5 w-2.5">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+      </span>
+      <span class="font-cyber text-[10px] text-brandNeon tracking-widest uppercase">LIVE KITCHEN ACTIVE • VALLIYUR TOWN</span>
     </div>
-    <div class="inline-flex items-center gap-2 bg-red-950/80 border border-red-500/50 px-3 py-0.5 rounded-full text-[11px] text-yellow-300 font-bold tracking-wide">
-      <i class="fa-solid fa-motorcycle text-red-400"></i> Door Delivery: ONLY IN VALLIYUR TOWN
+    <div class="inline-flex items-center gap-2 bg-red-950/80 border border-red-500/40 px-3 py-0.5 rounded-full text-[11px] text-yellow-300 font-bold tracking-wide">
+      <i class="fa-solid fa-motorcycle text-red-400"></i> Local Valliyur Delivery • 4:00 PM – 12:00 AM
     </div>
     <div class="text-[11px] font-mono text-stone-300">
-      Owner: <strong class="text-white font-bold">Augstin</strong> | ⏱ <span class="text-brandGold font-bold">4:00 PM – 12:00 AM (Midnight)</span>
+      Owner: <strong class="text-white font-bold">Augstin</strong> | 📞 <a href="tel:9342541946" class="text-brandGold hover:underline">93425 41946</a>
     </div>
   </div>
 
-  <header class="sticky top-0 z-40 bg-cyberDark/95 backdrop-blur-md border-b border-white/10 px-4 lg:px-8 py-3 flex items-center justify-between">
+  <header class="sticky top-0 z-40 bg-cyberDark/95 backdrop-blur-md border-b border-white/10 px-4 lg:px-8 py-3.5 flex items-center justify-between">
     <div class="flex items-center gap-3">
-      <div class="h-12 w-12 rounded-full border-2 border-brandNeon/80 p-0.5 shadow-[0_0_15px_rgba(245,158,11,0.4)]">
-        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=160&q=80" alt="Street Burger Logo" class="h-full w-full rounded-full object-cover">
+      <div class="h-12 w-12 rounded-full border-2 border-brandNeon/80 p-0.5 shadow-[0_0_15px_rgba(245,158,11,0.35)]">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=160&q=80" alt="Street Burger Valliyur" class="h-full w-full rounded-full object-cover">
       </div>
       <div>
         <h1 class="font-cyber text-lg sm:text-2xl font-black tracking-widest shimmer-gold leading-none">STREET BURGER</h1>
-        <p class="text-[9px] sm:text-[10px] tracking-[0.25em] text-red-400 uppercase font-bold mt-1">Artisan Buns • Signature Cheese Sauce</p>
+        <p class="text-[9px] sm:text-[10px] tracking-[0.25em] text-red-400 uppercase font-bold mt-1">Artisan Buns • 100% Real Cheese</p>
       </div>
     </div>
 
     <div class="flex items-center gap-2 sm:gap-3">
-      <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="hidden md:flex items-center gap-1.5 bg-zinc-900 hover:bg-zinc-800 text-amber-300 text-xs font-bold px-3 py-2 rounded-xl transition border border-amber-400/30">
-        <i class="fa-solid fa-star text-amber-400"></i> Review on Google
+      <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="hidden md:flex items-center gap-1.5 bg-zinc-900/90 hover:bg-zinc-800 text-amber-300 text-xs font-bold px-3.5 py-2.5 rounded-xl transition border border-amber-400/30">
+        <i class="fa-solid fa-star text-amber-400"></i> Review Us
       </a>
-      <a href="https://wa.me/919342541946" target="_blank" class="flex items-center gap-1.5 bg-emerald-700/80 hover:bg-emerald-600 text-white text-xs font-bold px-3.5 py-2 rounded-xl transition border border-emerald-400/40">
+      <a href="https://wa.me/919342541946" target="_blank" class="flex items-center gap-1.5 bg-emerald-700/90 hover:bg-emerald-600 text-white text-xs font-bold px-3.5 py-2.5 rounded-xl transition border border-emerald-400/40">
         <i class="fa-brands fa-whatsapp text-base"></i>
-        <span class="hidden sm:inline">93425 41946</span>
+        <span class="hidden sm:inline">WhatsApp Us</span>
       </a>
-      <button onclick="toggleCart()" class="relative bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-500 hover:to-rose-600 text-white px-4 py-2 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2.5 transition shadow-[0_0_18px_rgba(220,38,38,0.5)]">
+      <button onclick="toggleCart()" class="relative bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-500 hover:to-rose-600 text-white px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2.5 transition shadow-[0_0_18px_rgba(220,38,38,0.5)]">
         <i class="fa-solid fa-bag-shopping"></i>
-        <span id="cartCount" class="bg-brandGold text-black font-extrabold text-xs px-1.5 py-0.2 rounded-full">0</span>
+        <span id="headerCartCount" class="bg-brandGold text-black font-extrabold text-xs px-1.5 py-0.2 rounded-full">0</span>
       </button>
     </div>
   </header>
 
   <section class="relative py-14 px-4 text-center overflow-hidden border-b border-white/5 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-950/40 via-zinc-950 to-cyberDark">
     <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 px-4 py-1.5 rounded-full text-xs font-cyber text-brandNeon mb-4 tracking-widest uppercase">
-      <i class="fa-solid fa-crown text-brandGold"></i> Crafted Street Gastronomy • 100% Real Cheese
+      <i class="fa-solid fa-crown text-brandGold"></i> ESTD 1946 Heritage Recipe Collection
     </div>
     
     <h2 class="font-luxury text-4xl sm:text-6xl font-black tracking-wide text-white mb-2">
-      GOURMET <span class="shimmer-gold">STREET CRUNCH</span>
+      HAUTE CRUNCH <span class="shimmer-gold">& COOLERS</span>
     </h2>
     
     <p class="max-w-xl mx-auto text-sm sm:text-base text-stone-300 mb-6 font-tamil leading-relaxed">
@@ -104,32 +124,56 @@
 
     <div class="flex flex-wrap items-center justify-center gap-3 mb-8">
       <a href="#menuSection" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold px-6 py-3 rounded-xl transition text-sm flex items-center gap-2 shadow-[0_0_25px_rgba(245,158,11,0.35)]">
-        <i class="fa-solid fa-utensils"></i> Browse Official Menu
+        <i class="fa-solid fa-utensils"></i> View Gourmet Menu
       </a>
       <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="bg-zinc-900/80 hover:bg-zinc-800 border border-amber-400/40 text-amber-300 font-bold px-5 py-3 rounded-xl transition text-sm flex items-center gap-2">
         <i class="fa-solid fa-star text-amber-400"></i> Write Google Review
       </a>
       <a href="https://maps.app.goo.gl/2y8oXRwLtySKuoNaA" target="_blank" class="bg-zinc-900/80 hover:bg-zinc-800 border border-white/20 text-stone-300 font-semibold px-5 py-3 rounded-xl transition text-sm flex items-center gap-2">
-        <i class="fa-solid fa-location-dot text-red-500"></i> Get Directions
+        <i class="fa-solid fa-location-dot text-red-500"></i> Valliyur Location
       </a>
     </div>
 
     <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
       <div class="bg-zinc-900/60 border border-white/5 p-3.5 rounded-xl">
         <div class="text-brandGold text-lg mb-1"><i class="fa-solid fa-bread-slice"></i></div>
-        <div class="font-cyber text-[11px] font-bold text-white uppercase">Butter Brioche Buns</div>
+        <div class="font-cyber text-[11px] font-bold text-white uppercase">Butter Brioche</div>
       </div>
       <div class="bg-zinc-900/60 border border-white/5 p-3.5 rounded-xl">
         <div class="text-brandGold text-lg mb-1"><i class="fa-solid fa-cheese"></i></div>
-        <div class="font-cyber text-[11px] font-bold text-white uppercase">100% Real Cheese</div>
+        <div class="font-cyber text-[11px] font-bold text-white uppercase">Melted Cheese</div>
       </div>
       <div class="bg-zinc-900/60 border border-white/5 p-3.5 rounded-xl">
         <div class="text-brandGold text-lg mb-1"><i class="fa-solid fa-flask"></i></div>
-        <div class="font-cyber text-[11px] font-bold text-white uppercase">Secret Sauces</div>
+        <div class="font-cyber text-[11px] font-bold text-white uppercase">House Secret Sauces</div>
       </div>
       <div class="bg-zinc-900/60 border border-white/5 p-3.5 rounded-xl">
-        <div class="text-brandGold text-lg mb-1"><i class="fa-solid fa-fire"></i></div>
-        <div class="font-cyber text-[11px] font-bold text-white uppercase">Fresh, Hot & Tasty</div>
+        <div class="text-brandGold text-lg mb-1"><i class="fa-solid fa-bolt"></i></div>
+        <div class="font-cyber text-[11px] font-bold text-white uppercase">Town Express Parcel</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 -mt-5 relative z-20">
+    <div class="bg-zinc-900/90 backdrop-blur-md border border-amber-500/40 rounded-2xl p-4 shadow-2xl flex flex-col md:flex-row gap-3 items-center justify-between">
+      <div class="relative w-full md:w-80">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 text-xs"></i>
+        <input type="text" id="menuSearchInput" oninput="applyFilters()" placeholder="Search dishes (e.g. Burger, Fries, Mojito)..." class="w-full bg-black/60 border border-white/10 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder-stone-400 outline-none focus:border-brandGold transition">
+      </div>
+
+      <div class="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-1 md:pb-0">
+        <button onclick="setDietFilter('all')" id="diet-all" class="diet-btn bg-brandGold text-black font-cyber text-[11px] font-bold px-3.5 py-2 rounded-xl whitespace-nowrap transition">
+          All Menu
+        </button>
+        <button onclick="setDietFilter('nonveg')" id="diet-nonveg" class="diet-btn bg-black/50 text-stone-300 font-cyber text-[11px] font-bold px-3.5 py-2 rounded-xl whitespace-nowrap border border-white/10 transition">
+          🍗 Non-Veg
+        </button>
+        <button onclick="setDietFilter('veg')" id="diet-veg" class="diet-btn bg-black/50 text-stone-300 font-cyber text-[11px] font-bold px-3.5 py-2 rounded-xl whitespace-nowrap border border-white/10 transition">
+          🌿 Pure Veg
+        </button>
+        <button onclick="setDietFilter('cooler')" id="diet-cooler" class="diet-btn bg-black/50 text-stone-300 font-cyber text-[11px] font-bold px-3.5 py-2 rounded-xl whitespace-nowrap border border-white/10 transition">
+          🍹 Coolers
+        </button>
       </div>
     </div>
   </section>
@@ -141,17 +185,17 @@
           <i class="fa-solid fa-sparkles"></i> Customization & Upgrades
         </div>
         <h3 class="font-luxury text-xl text-white font-bold">LEVEL UP YOUR ORDER</h3>
-        <p class="text-xs text-stone-400">Add genuine gourmet layers to your burgers and toasts</p>
+        <p class="text-xs text-stone-400">Add layers of hot cheese, crispy meat patties, and potato treats</p>
       </div>
       <div class="flex flex-wrap items-center gap-2">
         <button onclick="addToCart('Extra Cheese Slice', 20)" class="bg-black/70 hover:bg-amber-500 hover:text-black border border-amber-400/40 text-amber-300 font-bold px-3.5 py-2.5 rounded-xl text-xs transition">
-          🧀 + Extra Cheese Slice (₹20)
+          🧀 + Cheese Slice (₹20)
         </button>
         <button onclick="addToCart('Extra Crispy Chicken Patty', 60)" class="bg-black/70 hover:bg-red-600 hover:text-white border border-red-500/40 text-red-300 font-bold px-3.5 py-2.5 rounded-xl text-xs transition">
           🍗 + Crispy Patty (₹60)
         </button>
         <button onclick="addToCart('French Fries Combo', 40)" class="bg-black/70 hover:bg-yellow-400 hover:text-black border border-yellow-400/40 text-yellow-300 font-bold px-3.5 py-2.5 rounded-xl text-xs transition">
-          🍟 + French Fries Combo (₹40)
+          🍟 + Fries Combo (₹40)
         </button>
       </div>
     </div>
@@ -202,25 +246,26 @@
   </section>
 
   <section id="menuSection" class="max-w-6xl mx-auto px-4">
+    
     <div class="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 pt-2">
-      <button onclick="filterCategory('all')" id="tab-all" class="tab-btn bg-brandGold text-black font-cyber text-xs px-4 py-2.5 rounded-xl font-bold whitespace-nowrap transition">
-        🌟 All Items
+      <button onclick="filterCategory('all')" id="tab-all" class="cat-tab bg-brandGold text-black font-cyber text-xs px-4 py-2.5 rounded-xl font-bold whitespace-nowrap transition">
+        🌟 All Sections
       </button>
-      <button onclick="filterCategory('burgers')" id="tab-burgers" class="tab-btn bg-cyberCard text-stone-300 font-cyber text-xs px-4 py-2.5 rounded-xl font-bold whitespace-nowrap border border-white/10 transition">
+      <button onclick="filterCategory('burgers')" id="tab-burgers" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-xs px-4 py-2.5 rounded-xl font-bold whitespace-nowrap border border-white/10 transition">
         🍔 Gourmet Burgers
       </button>
-      <button onclick="filterCategory('panini')" id="tab-panini" class="tab-btn bg-cyberCard text-stone-300 font-cyber text-xs px-4 py-2.5 rounded-xl font-bold whitespace-nowrap border border-white/10 transition">
+      <button onclick="filterCategory('panini')" id="tab-panini" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-xs px-4 py-2.5 rounded-xl font-bold whitespace-nowrap border border-white/10 transition">
         🥪 Panini & Toast
       </button>
-      <button onclick="filterCategory('mojitos')" id="tab-mojitos" class="tab-btn bg-cyberCard text-stone-300 font-cyber text-xs px-4 py-2.5 rounded-xl font-bold whitespace-nowrap border border-white/10 transition">
+      <button onclick="filterCategory('mojitos')" id="tab-mojitos" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-xs px-4 py-2.5 rounded-xl font-bold whitespace-nowrap border border-white/10 transition">
         🍹 Fizz & Mojitos
       </button>
-      <button onclick="filterCategory('appetizers')" id="tab-appetizers" class="tab-btn bg-cyberCard text-stone-300 font-cyber text-xs px-4 py-2.5 rounded-xl font-bold whitespace-nowrap border border-white/10 transition">
+      <button onclick="filterCategory('appetizers')" id="tab-appetizers" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-xs px-4 py-2.5 rounded-xl font-bold whitespace-nowrap border border-white/10 transition">
         🍟 Global Appetizers
       </button>
     </div>
 
-    <div class="menu-group cat-burgers my-8">
+    <div class="menu-group cat-burgers my-8" data-category="burgers">
       <div class="border-l-4 border-brandGold pl-3 mb-5">
         <h3 class="font-luxury text-2xl text-white font-bold tracking-wide">GOURMET BURGERS COLLECTION</h3>
         <p class="text-xs text-stone-400">Butter Brioche Buns, Crisp Greens, 100% Real Cheese & House Secret Sauce</p>
@@ -228,7 +273,7 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Classic STREET BURGER Chicken" data-diet="nonveg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700&q=80" alt="Classic Street Burger Chicken" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-red-600/90 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">USA Recipe • Must-Try</span>
@@ -246,7 +291,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Classic Tambaron Burger" data-diet="nonveg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&q=80" alt="Classic Tambaron Burger" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-amber-600/90 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Philippines Recipe</span>
@@ -264,7 +309,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Fried Chicken Burger" data-diet="nonveg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?w=700&q=80" alt="Fried Chicken Burger" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-rose-600/90 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">USA Crispy</span>
@@ -282,7 +327,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Peri Peri Panneer Burger" data-diet="veg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1520072959219-c595dc870360?w=700&q=80" alt="Peri Peri Panneer Burger" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-emerald-600/90 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Africa • Veg Special</span>
@@ -300,7 +345,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Buffalo Chicken Burger" data-diet="nonveg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=700&q=80" alt="Buffalo Chicken Burger" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-red-700 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">USA Spicy • Fiery Hot</span>
@@ -321,7 +366,7 @@
       </div>
     </div>
 
-    <div class="menu-group cat-panini my-8">
+    <div class="menu-group cat-panini my-8" data-category="panini">
       <div class="border-l-4 border-brandGold pl-3 mb-5">
         <h3 class="font-luxury text-2xl text-white font-bold tracking-wide">PANINIO & SANDWICH COLLECTION</h3>
         <p class="text-xs text-stone-400">Italian Toasted Panini & Grilled Sandwiches with Slow-Roasted Herbs</p>
@@ -329,7 +374,7 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Classic Veg Sandwich" data-diet="veg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1525059696034-4967a8e1bca2?w=700&q=80" alt="Classic Veg Sandwich" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-emerald-600/90 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Italy Tradition</span>
@@ -347,7 +392,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Classic Roasted Chicken Sandwich" data-diet="nonveg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700&q=80" alt="Classic Roasted Chicken Sandwich" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-red-600/90 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Italy • Chef's Special</span>
@@ -365,7 +410,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Peri Peri Paneer Sandwich" data-diet="veg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&q=80" alt="Peri Peri Paneer Sandwich" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-emerald-600/90 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Italy + Africa Fusion</span>
@@ -383,7 +428,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Mushroom Fajita Sandwich" data-diet="veg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=700&q=80" alt="Mushroom Fajita Sandwich" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-amber-600/90 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Mexico • Mexican Fajita</span>
@@ -401,7 +446,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Buffalo Chicken Sandwich" data-diet="nonveg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?w=700&q=80" alt="Buffalo Chicken Sandwich" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-red-700 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">USA • Spicy Buffalo</span>
@@ -422,7 +467,7 @@
       </div>
     </div>
 
-    <div class="menu-group cat-mojitos my-8">
+    <div class="menu-group cat-mojitos my-8" data-category="mojitos">
       <div class="border-l-4 border-brandGold pl-3 mb-5">
         <h3 class="font-luxury text-2xl text-white font-bold tracking-wide">FIZZ'S & MOJITOS</h3>
         <p class="text-xs text-stone-400">Sparkling Chill, House-Crafted Syrups & 100% Natural Fresh Crush</p>
@@ -430,7 +475,7 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Virgin Mojito" data-diet="cooler">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=700&q=80" alt="Virgin Mojito" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Cuba Classic</span>
@@ -448,7 +493,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Blue Curacao Mojito" data-diet="cooler">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=700&q=80" alt="Blue Curacao Mojito" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Caribbean • Tropical Hit</span>
@@ -466,7 +511,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Mint Mojito" data-diet="cooler">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1546171753-97d7676e4602?w=700&q=80" alt="Mint Mojito" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-teal-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Cuba Classic</span>
@@ -484,7 +529,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="The World's End" data-diet="cooler">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=700&q=80" alt="The World's End" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-rose-700 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">England • Signature Cooler</span>
@@ -502,7 +547,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Mermaid Beach" data-diet="cooler">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=700&q=80" alt="Mermaid Beach" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-purple-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Australia • Coconut Fizz</span>
@@ -523,7 +568,7 @@
       </div>
     </div>
 
-    <div class="menu-group cat-appetizers my-8">
+    <div class="menu-group cat-appetizers my-8" data-category="appetizers">
       <div class="border-l-4 border-brandGold pl-3 mb-5">
         <h3 class="font-luxury text-2xl text-white font-bold tracking-wide">GLOBAL APPETIZERS</h3>
         <p class="text-xs text-stone-400">100% Crunchy & Fresh • International Street Sides</p>
@@ -531,7 +576,7 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Classic French Fries" data-diet="veg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=700&q=80" alt="Classic French Fries" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-amber-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Belgium Heritage</span>
@@ -549,7 +594,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Peri Peri Fries" data-diet="veg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1576107232684-1279f3908594?w=700&q=80" alt="Peri Peri Fries" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-orange-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Africa Recipe</span>
@@ -567,7 +612,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Cheesy Chicken Fries" data-diet="nonveg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1585109649139-366815a0d713?w=700&q=80" alt="Cheesy Chicken Fries" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Canada Style</span>
@@ -585,7 +630,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Crumb Fried Chicken" data-diet="nonveg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=700&q=80" alt="Crumb Fried Chicken" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-amber-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">USA Crispy</span>
@@ -603,7 +648,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Cheesy Jalapeno Fritters" data-diet="veg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=700&q=80" alt="Cheesy Jalapeno Fritters" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Mexico Hit</span>
@@ -621,7 +666,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Mac 'n Cheese Ball" data-diet="veg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?w=700&q=80" alt="Mac 'n Cheese Ball" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-yellow-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">USA Tradition</span>
@@ -639,7 +684,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Corn Cheese Ball" data-diet="veg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=700&q=80" alt="Corn Cheese Ball" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-amber-500 text-black text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">USA Style</span>
@@ -657,7 +702,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Kentucky Fried Chicken" data-diet="nonveg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=700&q=80" alt="Kentucky Fried Chicken" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Chef's Pick</span>
@@ -675,7 +720,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Fried Momos (Chicken / Veg)" data-diet="nonveg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=700&q=80" alt="Fried Momos" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-rose-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Tibet Heritage</span>
@@ -698,7 +743,7 @@
           </div>
         </div>
 
-        <div class="bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Crispy Nuggets (Chicken / Veg)" data-diet="nonveg">
           <div class="relative h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=700&q=80" alt="Nuggets" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-amber-600 text-white text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">USA Classic</span>
@@ -725,17 +770,17 @@
     </div>
   </section>
 
-  <section class="max-w-6xl mx-auto px-4 my-8">
+  <section class="max-w-6xl mx-auto px-4 my-10">
     <div class="bg-gradient-to-r from-zinc-900 via-neutral-900 to-zinc-900 border border-amber-400/40 rounded-2xl p-5 flex flex-col md:flex-row items-center justify-between gap-4 gold-glow">
       <div class="text-center md:text-left">
         <div class="flex items-center justify-center md:justify-start gap-1 text-amber-400 text-sm mb-1">
           <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-          <span class="text-white text-xs font-bold ml-2">Augstin's Street Kitchen</span>
+          <span class="text-white text-xs font-bold ml-2">Augstin's Gourmet Counter</span>
         </div>
-        <h4 class="font-luxury text-xl text-white font-bold">RATE OUR CRUNCH ON GOOGLE MAPS</h4>
+        <h4 class="font-luxury text-xl text-white font-bold">SHARE YOUR DINING EXPERIENCE</h4>
         <p class="text-xs text-stone-400 font-tamil">உங்கள் கருத்து எங்களுக்கு முக்கியம்! கூகுள் மேப்பில் உங்கள் 5-ஸ்டார் மதிப்பீட்டை பகிருங்கள்.</p>
       </div>
-      <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-amber-400 hover:to-yellow-300 text-black font-extrabold px-6 py-3 rounded-xl transition text-xs sm:text-sm flex items-center gap-2 whitespace-nowrap shadow-lg">
+      <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-amber-400 hover:to-yellow-300 text-black font-extrabold px-6 py-3.5 rounded-xl transition text-xs sm:text-sm flex items-center gap-2 whitespace-nowrap shadow-lg">
         <i class="fa-brands fa-google text-base"></i> Write a Google Review
       </a>
     </div>
@@ -743,70 +788,136 @@
 
   <div id="cartDrawer" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex justify-end">
     <div class="bg-zinc-950 w-full max-w-md h-full flex flex-col border-l border-white/10 p-5 overflow-y-auto">
+      
       <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
-        <h3 class="font-luxury text-xl text-brandGold font-bold flex items-center gap-2">
-          <i class="fa-solid fa-cart-shopping"></i> YOUR ORDER BASKET
-        </h3>
-        <button onclick="toggleCart()" class="text-stone-400 hover:text-white text-xl">✕</button>
+        <div>
+          <h3 class="font-luxury text-xl text-brandGold font-bold flex items-center gap-2">
+            <i class="fa-solid fa-bag-shopping text-brandNeon"></i> YOUR BASKET
+          </h3>
+          <p class="text-[10px] font-mono text-stone-400">Street Burger Valliyur Town Terminal</p>
+        </div>
+        <button onclick="toggleCart()" class="w-8 h-8 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center text-stone-400 hover:text-white transition">✕</button>
       </div>
 
-      <div id="cartItemsContainer" class="flex-1 overflow-y-auto space-y-3 mb-4 pr-1">
+      <div id="cartItemsContainer" class="flex-1 overflow-y-auto space-y-2.5 mb-4 pr-1">
         </div>
 
       <div class="bg-zinc-900/90 border border-white/10 p-4 rounded-xl mb-4 space-y-3">
-        <h4 class="font-cyber text-xs text-brandNeon tracking-wider uppercase font-bold">Customer Details</h4>
+        <div class="flex items-center justify-between">
+          <h4 class="font-cyber text-xs text-brandNeon tracking-wider uppercase font-bold">Delivery & Customer Info</h4>
+          <span class="text-[10px] text-amber-400 font-mono">Autosaved</span>
+        </div>
         
         <div>
-          <label class="block text-[11px] text-stone-400 mb-1">Customer Name *</label>
-          <input type="text" id="custName" placeholder="Augstin / Customer Name" class="w-full bg-black/60 border border-white/20 rounded-lg px-3 py-2 text-xs text-white focus:border-brandGold outline-none">
+          <label class="block text-[11px] text-stone-400 mb-1">Customer Full Name *</label>
+          <input type="text" id="custName" onchange="persistCustomerData()" placeholder="Augstin" class="w-full bg-black/60 border border-white/20 rounded-lg px-3 py-2 text-xs text-white focus:border-brandGold outline-none">
         </div>
 
         <div>
-          <label class="block text-[11px] text-stone-400 mb-1">Mobile Contact *</label>
-          <input type="tel" id="custPhone" placeholder="9342541946" class="w-full bg-black/60 border border-white/20 rounded-lg px-3 py-2 text-xs text-white focus:border-brandGold outline-none">
+          <label class="block text-[11px] text-stone-400 mb-1">WhatsApp / Contact Number *</label>
+          <input type="tel" id="custPhone" onchange="persistCustomerData()" placeholder="9342541946" class="w-full bg-black/60 border border-white/20 rounded-lg px-3 py-2 text-xs text-white focus:border-brandGold outline-none">
         </div>
 
         <div>
-          <label class="block text-[11px] text-stone-400 mb-1">Order Mode</label>
-          <select id="custMode" onchange="toggleAddressField()" class="w-full bg-black/60 border border-white/20 rounded-lg px-3 py-2 text-xs text-white focus:border-brandGold outline-none">
-            <option value="Takeaway / Shop Pickup">Takeaway / Shop Pickup</option>
-            <option value="Doorstep Delivery (Valliyur Town Only)">Doorstep Delivery (Valliyur Town Only)</option>
+          <label class="block text-[11px] text-stone-400 mb-1">Order Fulfillment</label>
+          <select id="custMode" onchange="handleModeChange()" class="w-full bg-black/60 border border-white/20 rounded-lg px-3 py-2 text-xs text-white focus:border-brandGold outline-none">
+            <option value="Takeaway / Shop Pickup">Takeaway / Shop Counter Pickup (Free)</option>
+            <option value="Door Delivery (Valliyur Town)">Door Delivery (Valliyur Town +₹20)</option>
           </select>
         </div>
 
         <div id="addressBox" class="hidden">
           <label class="block text-[11px] text-stone-400 mb-1">Valliyur Delivery Address *</label>
-          <textarea id="custAddress" rows="2" placeholder="Street, Door No, Valliyur Landmark..." class="w-full bg-black/60 border border-white/20 rounded-lg px-3 py-2 text-xs text-white focus:border-brandGold outline-none"></textarea>
+          <textarea id="custAddress" onchange="persistCustomerData()" rows="2" placeholder="Street, Door No, Valliyur Landmark..." class="w-full bg-black/60 border border-white/20 rounded-lg px-3 py-2 text-xs text-white focus:border-brandGold outline-none"></textarea>
         </div>
 
         <div>
-          <label class="block text-[11px] text-stone-400 mb-1">Special Notes / Spice Level</label>
-          <input type="text" id="custNotes" placeholder="e.g. Extra spicy, no onions" class="w-full bg-black/60 border border-white/20 rounded-lg px-3 py-2 text-xs text-white focus:border-brandGold outline-none">
+          <label class="block text-[11px] text-stone-400 mb-1">Chef Instructions / Spice Customization</label>
+          <input type="text" id="custNotes" onchange="persistCustomerData()" placeholder="e.g. Less spicy, extra serviettes" class="w-full bg-black/60 border border-white/20 rounded-lg px-3 py-2 text-xs text-white focus:border-brandGold outline-none">
         </div>
       </div>
 
-      <div class="border-t border-white/10 pt-4">
-        <div class="flex justify-between items-center mb-3">
-          <span class="text-sm text-stone-400">Total Bill Amount:</span>
-          <span id="cartTotal" class="font-cyber font-black text-2xl text-brandNeon">₹0</span>
+      <div class="bg-black/60 border border-white/10 rounded-xl p-3.5 mb-4 text-xs space-y-1.5 font-mono">
+        <div class="flex justify-between text-stone-400">
+          <span>Items Subtotal:</span>
+          <span id="subtotalVal">₹0</span>
         </div>
-        <button onclick="checkoutToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-[0_0_20px_rgba(16,185,129,0.3)] transition">
-          <i class="fa-brands fa-whatsapp text-lg"></i> Send Order to WhatsApp (93425 41946)
+        <div class="flex justify-between text-stone-400">
+          <span>Eco Box & Foil Packaging:</span>
+          <span id="packVal">₹0</span>
+        </div>
+        <div class="flex justify-between text-stone-400">
+          <span>Town Delivery Charge:</span>
+          <span id="deliveryVal" class="text-emerald-400">FREE</span>
+        </div>
+        <div class="border-t border-white/10 pt-2 mt-2 flex justify-between items-center text-sm font-sans font-bold">
+          <span class="text-white">Grand Total Amount:</span>
+          <span id="cartTotal" class="font-cyber font-black text-xl text-brandNeon">₹0</span>
+        </div>
+      </div>
+
+      <button onclick="checkoutToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 text-sm shadow-[0_0_20px_rgba(16,185,129,0.3)] transition">
+        <i class="fa-brands fa-whatsapp text-lg"></i> Send Order to WhatsApp (93425 41946)
+      </button>
+    </div>
+  </div>
+
+  <div id="stickyBottomBar" class="fixed bottom-0 inset-x-0 z-30 bg-zinc-950/95 backdrop-blur-md border-t border-amber-500/30 px-4 py-2.5 flex items-center justify-between max-w-2xl mx-auto rounded-t-2xl shadow-2xl transition duration-300">
+    <div class="flex items-center gap-3">
+      <div class="relative">
+        <button onclick="toggleCart()" class="w-10 h-10 rounded-xl bg-brandRed flex items-center justify-center text-white text-base shadow-lg">
+          <i class="fa-solid fa-bag-shopping"></i>
         </button>
+        <span id="floatingCountBadge" class="absolute -top-1.5 -right-1.5 bg-brandGold text-black font-extrabold text-[10px] w-5 h-5 rounded-full flex items-center justify-center">0</span>
+      </div>
+      <div>
+        <div class="text-[11px] text-stone-400 font-mono">Current Cart</div>
+        <div id="floatingTotalBadge" class="font-cyber font-bold text-brandNeon text-sm leading-tight">₹0</div>
       </div>
     </div>
+    <button onclick="toggleCart()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold text-xs px-5 py-2.5 rounded-xl flex items-center gap-2 transition">
+      <span>Review & Order</span>
+      <i class="fa-solid fa-arrow-right text-[11px]"></i>
+    </button>
   </div>
 
   <script>
     let cart = [];
+    let currentCategory = 'all';
+    let currentDiet = 'all';
+
+    const PACKAGING_FEE_PER_ORDER = 10;
+    const DELIVERY_FEE = 20;
+
+    // Web Audio Click/Add Feedback Tone
+    function playBeep() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(800, ctx.currentTime);
+        gain.gain.setValueAtTime(0.06, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.12);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.12);
+      } catch(e) {}
+    }
+
+    // Lifecycle Init
+    window.addEventListener('DOMContentLoaded', () => {
+      loadStorageData();
+      renderCart();
+    });
 
     function toggleCart() {
       const drawer = document.getElementById('cartDrawer');
       drawer.classList.toggle('hidden');
-      renderCart();
     }
 
-    function toggleAddressField() {
+    function handleModeChange() {
       const mode = document.getElementById('custMode').value;
       const addressBox = document.getElementById('addressBox');
       if (mode.includes('Delivery')) {
@@ -814,16 +925,20 @@
       } else {
         addressBox.classList.add('hidden');
       }
+      persistCustomerData();
+      renderCart();
     }
 
     function addToCart(name, price) {
+      playBeep();
       const existing = cart.find(item => item.name === name);
       if (existing) {
         existing.qty += 1;
       } else {
         cart.push({ name, price, qty: 1 });
       }
-      updateCartBadge();
+      saveCart();
+      renderCart();
     }
 
     function changeQty(index, delta) {
@@ -831,50 +946,118 @@
       if (cart[index].qty <= 0) {
         cart.splice(index, 1);
       }
+      saveCart();
       renderCart();
-      updateCartBadge();
     }
 
-    function updateCartBadge() {
-      const count = cart.reduce((sum, item) => sum + item.qty, 0);
-      document.getElementById('cartCount').innerText = count;
+    function saveCart() {
+      localStorage.setItem('sb_cart', JSON.stringify(cart));
+    }
+
+    function persistCustomerData() {
+      const data = {
+        name: document.getElementById('custName').value,
+        phone: document.getElementById('custPhone').value,
+        mode: document.getElementById('custMode').value,
+        address: document.getElementById('custAddress').value,
+        notes: document.getElementById('custNotes').value,
+      };
+      localStorage.setItem('sb_customer', JSON.stringify(data));
+    }
+
+    function loadStorageData() {
+      try {
+        const savedCart = localStorage.getItem('sb_cart');
+        if (savedCart) cart = JSON.parse(savedCart);
+
+        const savedCust = localStorage.getItem('sb_customer');
+        if (savedCust) {
+          const c = JSON.parse(savedCust);
+          if (c.name) document.getElementById('custName').value = c.name;
+          if (c.phone) document.getElementById('custPhone').value = c.phone;
+          if (c.mode) {
+            document.getElementById('custMode').value = c.mode;
+            if (c.mode.includes('Delivery')) {
+              document.getElementById('addressBox').classList.remove('hidden');
+            }
+          }
+          if (c.address) document.getElementById('custAddress').value = c.address;
+          if (c.notes) document.getElementById('custNotes').value = c.notes;
+        }
+      } catch(e) {}
+    }
+
+    function calculateFinances() {
+      const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+      const isDelivery = document.getElementById('custMode').value.includes('Delivery');
+      const packaging = cart.length > 0 ? PACKAGING_FEE_PER_ORDER : 0;
+      const delivery = (cart.length > 0 && isDelivery) ? DELIVERY_FEE : 0;
+      const grandTotal = subtotal + packaging + delivery;
+
+      return { subtotal, packaging, delivery, grandTotal, isDelivery };
     }
 
     function renderCart() {
       const container = document.getElementById('cartItemsContainer');
       const totalEl = document.getElementById('cartTotal');
+      const subtotalEl = document.getElementById('subtotalVal');
+      const packEl = document.getElementById('packVal');
+      const deliveryEl = document.getElementById('deliveryVal');
+      
+      const headerBadge = document.getElementById('headerCartCount');
+      const floatBadge = document.getElementById('floatingCountBadge');
+      const floatTotal = document.getElementById('floatingTotalBadge');
+
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      headerBadge.innerText = totalCount;
+      floatBadge.innerText = totalCount;
+
       container.innerHTML = '';
 
       if (cart.length === 0) {
-        container.innerHTML = `<p class="text-stone-500 text-xs text-center py-8">Your cart is empty. Pick your favourites from the menu!</p>`;
+        container.innerHTML = `
+          <div class="text-center py-12 text-stone-500">
+            <i class="fa-solid fa-burger text-3xl mb-2 text-stone-600"></i>
+            <p class="text-xs">Your basket is clear.</p>
+            <p class="text-[10px] text-stone-600 mt-0.5">Explore the menu and choose your meal</p>
+          </div>
+        `;
+        subtotalEl.innerText = '₹0';
+        packEl.innerText = '₹0';
+        deliveryEl.innerText = 'FREE';
         totalEl.innerText = '₹0';
+        floatTotal.innerText = '₹0';
         return;
       }
 
-      let total = 0;
       cart.forEach((item, index) => {
-        const itemTotal = item.price * item.qty;
-        total += itemTotal;
+        const itemSum = item.price * item.qty;
         container.innerHTML += `
-          <div class="flex items-center justify-between bg-zinc-900/70 p-3 rounded-xl border border-white/5">
+          <div class="flex items-center justify-between bg-zinc-900/80 p-3 rounded-xl border border-white/5">
             <div>
               <div class="text-xs font-bold text-white">${item.name}</div>
-              <div class="text-[11px] text-amber-400">₹${item.price} each</div>
+              <div class="text-[11px] text-amber-400 font-mono">₹${item.price} × ${item.qty} = ₹${itemSum}</div>
             </div>
-            <div class="flex items-center gap-2">
-              <button onclick="changeQty(${index}, -1)" class="w-6 h-6 rounded bg-zinc-800 hover:bg-zinc-700 text-xs text-white font-bold">-</button>
-              <span class="text-xs font-bold text-white px-1">${item.qty}</span>
-              <button onclick="changeQty(${index}, 1)" class="w-6 h-6 rounded bg-zinc-800 hover:bg-zinc-700 text-xs text-white font-bold">+</button>
+            <div class="flex items-center gap-1.5 bg-black/60 px-1.5 py-1 rounded-lg border border-white/10">
+              <button onclick="changeQty(${index}, -1)" class="w-5 h-5 rounded bg-zinc-800 hover:bg-zinc-700 text-xs text-white font-bold flex items-center justify-center">-</button>
+              <span class="text-xs font-bold text-white px-1.5">${item.qty}</span>
+              <button onclick="changeQty(${index}, 1)" class="w-5 h-5 rounded bg-zinc-800 hover:bg-zinc-700 text-xs text-white font-bold flex items-center justify-center">+</button>
             </div>
           </div>
         `;
       });
-      totalEl.innerText = `₹${total}`;
+
+      const { subtotal, packaging, delivery, grandTotal, isDelivery } = calculateFinances();
+      subtotalEl.innerText = `₹${subtotal}`;
+      packEl.innerText = `₹${packaging}`;
+      deliveryEl.innerText = isDelivery ? `₹${delivery}` : 'FREE';
+      totalEl.innerText = `₹${grandTotal}`;
+      floatTotal.innerText = `₹${grandTotal}`;
     }
 
     function checkoutToWhatsApp() {
       if (cart.length === 0) {
-        alert('Please select items from the menu first.');
+        alert('Please add items to your cart before proceeding.');
         return;
       }
 
@@ -885,64 +1068,108 @@
       const notes = document.getElementById('custNotes').value.trim();
 
       if (!name || !phone) {
-        alert('Please provide your Name and Mobile Number.');
+        alert('Please provide your Name and Phone Number.');
         return;
       }
 
       if (mode.includes('Delivery') && !address) {
-        alert('Please enter your Delivery Address in Valliyur Town.');
+        alert('Please provide your local delivery address inside Valliyur town.');
         return;
       }
 
-      let message = `*NEW ORDER - STREET BURGER VALLIYUR*%0A%0A`;
-      message += `*Customer Details:*%0A`;
-      message += `👤 Name: ${encodeURIComponent(name)}%0A`;
-      message += `📞 Phone: ${encodeURIComponent(phone)}%0A`;
-      message += `🛵 Mode: ${encodeURIComponent(mode)}%0A`;
+      const { subtotal, packaging, delivery, grandTotal } = calculateFinances();
+
+      let text = `*STREET BURGER VALLIYUR - NEW ORDER*%0A`;
+      text += `━━━━━━━━━━━━━━━━━━━%0A`;
+      text += `👤 *Customer:* ${encodeURIComponent(name)}%0A`;
+      text += `📞 *Phone:* ${encodeURIComponent(phone)}%0A`;
+      text += `🛵 *Mode:* ${encodeURIComponent(mode)}%0A`;
       if (mode.includes('Delivery')) {
-        message += `📍 Address: ${encodeURIComponent(address)}%0A`;
+        text += `📍 *Address:* ${encodeURIComponent(address)}%0A`;
       }
       if (notes) {
-        message += `📝 Note: ${encodeURIComponent(notes)}%0A`;
+        text += `📝 *Notes:* ${encodeURIComponent(notes)}%0A`;
       }
+      text += `━━━━━━━━━━━━━━━━━━━%0A`;
+      text += `*ORDERED ITEMS:*%0A`;
 
-      message += `%0A*Order Summary:*%0A`;
-      let total = 0;
       cart.forEach((item, i) => {
-        const itemSum = item.price * item.qty;
-        total += itemSum;
-        message += `${i + 1}. ${encodeURIComponent(item.name)} x ${item.qty} = ₹${itemSum}%0A`;
+        text += `${i + 1}. ${encodeURIComponent(item.name)} (x${item.qty}) - ₹${item.price * item.qty}%0A`;
       });
 
-      message += `%0A*Grand Total: ₹${total}*`;
+      text += `━━━━━━━━━━━━━━━━━━━%0A`;
+      text += `Subtotal: ₹${subtotal}%0A`;
+      text += `Eco Packaging: ₹${packaging}%0A`;
+      if (delivery > 0) {
+        text += `Valliyur Delivery: ₹${delivery}%0A`;
+      }
+      text += `*GRAND TOTAL: ₹${grandTotal}*%0A`;
+      text += `━━━━━━━━━━━━━━━━━━━%0A`;
+      text += `_Please confirm acceptance & prep time._`;
 
-      const whatsappURL = `https://wa.me/919342541946?text=${message}`;
-      window.open(whatsappURL, '_blank');
+      window.open(`https://wa.me/919342541946?text=${text}`, '_blank');
     }
 
     function filterCategory(cat) {
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('bg-brandGold', 'text-black');
-        btn.classList.add('bg-cyberCard', 'text-stone-300');
+      currentCategory = cat;
+      document.querySelectorAll('.cat-tab').forEach(b => {
+        b.classList.remove('bg-brandGold', 'text-black');
+        b.classList.add('bg-cyberCard', 'text-stone-300');
       });
-      const activeBtn = document.getElementById(`tab-${cat}`);
-      if (activeBtn) {
-        activeBtn.classList.add('bg-brandGold', 'text-black');
-        activeBtn.classList.remove('bg-cyberCard', 'text-stone-300');
+      const active = document.getElementById(`tab-${cat}`);
+      if (active) {
+        active.classList.add('bg-brandGold', 'text-black');
+        active.classList.remove('bg-cyberCard', 'text-stone-300');
       }
+      applyFilters();
+    }
 
+    function setDietFilter(diet) {
+      currentDiet = diet;
+      document.querySelectorAll('.diet-btn').forEach(b => {
+        b.classList.remove('bg-brandGold', 'text-black');
+        b.classList.add('bg-black/50', 'text-stone-300');
+      });
+      const active = document.getElementById(`diet-${diet}`);
+      if (active) {
+        active.classList.add('bg-brandGold', 'text-black');
+        active.classList.remove('bg-black/50', 'text-stone-300');
+      }
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const q = document.getElementById('menuSearchInput').value.toLowerCase().trim();
       const groups = document.querySelectorAll('.menu-group');
-      if (cat === 'all') {
-        groups.forEach(g => g.style.display = 'block');
-      } else {
-        groups.forEach(g => {
-          if (g.classList.contains(`cat-${cat}`)) {
-            g.style.display = 'block';
+
+      groups.forEach(group => {
+        const groupCat = group.getAttribute('data-category');
+        const matchesCategory = (currentCategory === 'all' || currentCategory === groupCat);
+
+        let anyVisibleDish = false;
+        const dishes = group.querySelectorAll('.dish-card');
+
+        dishes.forEach(dish => {
+          const dishName = dish.getAttribute('data-name').toLowerCase();
+          const dishDiet = dish.getAttribute('data-diet');
+
+          const matchesQuery = dishName.includes(q);
+          const matchesDiet = (currentDiet === 'all' || currentDiet === dishDiet);
+
+          if (matchesQuery && matchesDiet) {
+            dish.style.display = 'flex';
+            anyVisibleDish = true;
           } else {
-            g.style.display = 'none';
+            dish.style.display = 'none';
           }
         });
-      }
+
+        if (matchesCategory && anyVisibleDish) {
+          group.style.display = 'block';
+        } else {
+          group.style.display = 'none';
+        }
+      });
     }
   </script>
 </body>

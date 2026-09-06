@@ -63,6 +63,16 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #f59e0b;
     }
+    
+    /* Global Touch Effect for Interactive Elements */
+    .interactive-tap {
+      transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.1s ease !important;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    .interactive-tap:active {
+      transform: scale(0.92) !important;
+    }
   </style>
 </head>
 <body class="bg-cyberDark text-stone-100 font-sans antialiased pb-32 selection:bg-brandGold selection:text-black">
@@ -85,7 +95,8 @@
 
   <header class="sticky top-0 z-40 bg-cyberDark/95 backdrop-blur-md border-b border-white/10 px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 flex items-center justify-between">
     <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
-      <div class="h-10 w-10 sm:h-12 sm:w-12 rounded-full border-2 border-brandNeon/80 p-0.5 shadow-[0_0_15px_rgba(245,158,11,0.4)] shrink-0 overflow-hidden bg-black flex items-center justify-center">
+      <!-- ENLARGED LOGO -->
+      <div class="h-16 w-16 sm:h-20 sm:w-20 rounded-full border-2 border-brandNeon/80 p-0.5 shadow-[0_0_15px_rgba(245,158,11,0.4)] shrink-0 overflow-hidden bg-black flex items-center justify-center">
         <img src="1000428989logo.jpg" alt="Street Burger Logo" class="h-full w-full rounded-full object-cover">
       </div>
       <div class="truncate">
@@ -95,21 +106,21 @@
     </div>
 
     <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-      <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="hidden lg:flex items-center gap-1.5 bg-zinc-900/90 hover:bg-zinc-800 text-amber-300 text-xs font-bold px-3 py-2 rounded-xl transition border border-amber-400/30">
+      <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="hidden lg:flex items-center gap-1.5 bg-zinc-900/90 hover:bg-zinc-800 text-amber-300 text-xs font-bold px-3 py-2 rounded-xl border border-amber-400/30">
         <i class="fa-solid fa-star text-amber-400"></i> Review
       </a>
       
-      <a href="https://wa.me/919342541946" target="_blank" class="flex items-center gap-1.5 bg-emerald-700/90 hover:bg-emerald-600 text-white text-xs font-bold p-2 sm:px-3.5 sm:py-2 rounded-xl transition border border-emerald-400/40">
+      <a href="https://wa.me/919342541946" target="_blank" class="flex items-center gap-1.5 bg-emerald-700/90 hover:bg-emerald-600 text-white text-xs font-bold p-2 sm:px-3.5 sm:py-2 rounded-xl border border-emerald-400/40">
         <i class="fa-brands fa-whatsapp text-sm sm:text-base"></i>
         <span class="hidden sm:inline">93425 41946</span>
       </a>
 
-      <button onclick="handleUserLogout()" title="Clear Session / Reset Cart" class="flex items-center gap-1.5 bg-zinc-900 hover:bg-red-950/80 text-stone-400 hover:text-red-400 p-2 sm:px-3 sm:py-2 rounded-xl border border-white/10 transition text-xs font-bold">
+      <button onclick="handleUserLogout()" title="Clear Session / Reset Cart" class="flex items-center gap-1.5 bg-zinc-900 hover:bg-red-950/80 text-stone-400 hover:text-red-400 p-2 sm:px-3 sm:py-2 rounded-xl border border-white/10 text-xs font-bold">
         <i class="fa-solid fa-power-off text-xs sm:text-sm"></i>
         <span class="hidden md:inline">Logout</span>
       </button>
 
-      <button onclick="toggleCart()" class="relative bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-500 hover:to-rose-600 text-white p-2 sm:px-3.5 sm:py-2 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-1.5 transition shadow-[0_0_15px_rgba(220,38,38,0.5)]">
+      <button onclick="toggleCart()" class="relative bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-500 hover:to-rose-600 text-white p-2 sm:px-3.5 sm:py-2 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-[0_0_15px_rgba(220,38,38,0.5)]">
         <i class="fa-solid fa-bag-shopping"></i>
         <span id="headerCartCount" class="bg-brandGold text-black font-extrabold text-[10px] sm:text-xs px-1.5 py-0.2 rounded-full">0</span>
       </button>
@@ -125,7 +136,7 @@
         </div>
         
         <h2 class="font-luxury text-3xl sm:text-5xl font-black tracking-wide text-white mb-3">
-          TASTE THE <span class="shimmer-gold">STREET CRUNCH</span>
+          TASTE THE <span class="shimmer-gold">STREET BURGER</span>
         </h2>
         
         <p class="text-xs sm:text-sm text-stone-300 mb-6 font-tamil leading-relaxed max-w-xl mx-auto lg:mx-0">
@@ -133,13 +144,13 @@
         </p>
 
         <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3 mb-6">
-          <a href="#menuSection" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl transition text-xs sm:text-sm flex items-center gap-2 shadow-[0_0_20px_rgba(245,158,11,0.35)]">
+          <a href="#menuSection" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm flex items-center gap-2 shadow-[0_0_20px_rgba(245,158,11,0.35)]">
             <i class="fa-solid fa-utensils"></i> Order From Menu
           </a>
-          <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="bg-zinc-900 hover:bg-zinc-800 border border-amber-400/40 text-amber-300 font-bold px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl transition text-xs sm:text-sm flex items-center gap-2">
+          <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="bg-zinc-900 hover:bg-zinc-800 border border-amber-400/40 text-amber-300 font-bold px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm flex items-center gap-2">
             <i class="fa-solid fa-star text-amber-400"></i> Review on Google
           </a>
-          <a href="https://maps.app.goo.gl/2y8oXRwLtySKuoNaA" target="_blank" class="bg-zinc-900 hover:bg-zinc-800 border border-white/20 text-stone-300 font-semibold px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl transition text-xs sm:text-sm flex items-center gap-2">
+          <a href="https://maps.app.goo.gl/2y8oXRwLtySKuoNaA" target="_blank" class="bg-zinc-900 hover:bg-zinc-800 border border-white/20 text-stone-300 font-semibold px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm flex items-center gap-2">
             <i class="fa-solid fa-location-dot text-red-500"></i> Get Directions
           </a>
         </div>
@@ -147,27 +158,15 @@
 
       <div class="lg:col-span-5">
         <div class="relative group rounded-3xl p-1.5 bg-gradient-to-tr from-amber-500/40 via-red-500/20 to-amber-400/40 shadow-[0_0_35px_rgba(245,158,11,0.3)]">
-          <div class="relative h-72 sm:h-96 w-full overflow-hidden rounded-[22px] bg-black">
-            <img 
-  src="./1000430339shop.png" 
-  alt="Street Burger Valliyur Food Truck Counter" 
-  class="w-full h-full object-cover enhanced-cart-img group-hover:scale-105 transition duration-500"
-  onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700&q=80'"
->
-             <div class="lg:col-span-5">
-        <div class="relative group rounded-3xl p-1.5 bg-gradient-to-tr from-amber-500/40 via-red-500/20 to-amber-400/40 shadow-[0_0_35px_rgba(245,158,11,0.3)]">
           
-          <!-- Completely removed height and aspect ratio restrictions -->
+          <!-- IMAGE FIX: Removed fixed heights (h-[300px]) so mobile and desktop scale perfectly identically -->
           <div class="relative w-full overflow-hidden rounded-[22px] bg-black">
-            
-            <!-- Added ?v=1 to force the browser to ignore the old cache -->
             <img 
               src="./1000430339.png?v=1" 
               alt="Street Burger Valliyur Food Truck Counter" 
               class="w-full h-auto block enhanced-cart-img group-hover:scale-105 transition duration-500"
               onerror="this.src='./1000430339shop.png?v=1'"
-              
->
+            >
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none"></div>
             
             <div class="absolute top-3 right-3 bg-red-600 text-white font-cyber text-[9px] px-2.5 py-1 rounded-full uppercase tracking-wider font-bold shadow-md z-10">
@@ -180,7 +179,6 @@
               <p class="text-[10px] text-stone-300 font-mono">Good Food Brings People Together</p>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -214,16 +212,16 @@
       </div>
 
       <div class="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-1 md:pb-0">
-        <button onclick="setDietFilter('all')" id="diet-all" class="diet-btn bg-brandGold text-black font-cyber text-[10px] sm:text-[11px] font-bold px-3.5 py-1.5 sm:py-2 rounded-xl whitespace-nowrap transition">
+        <button onclick="setDietFilter('all')" id="diet-all" class="diet-btn bg-brandGold text-black font-cyber text-[10px] sm:text-[11px] font-bold px-3.5 py-1.5 sm:py-2 rounded-xl whitespace-nowrap">
           All Menu
         </button>
-        <button onclick="setDietFilter('nonveg')" id="diet-nonveg" class="diet-btn bg-black/50 text-stone-300 font-cyber text-[10px] sm:text-[11px] font-bold px-3.5 py-1.5 sm:py-2 rounded-xl whitespace-nowrap border border-white/10 transition">
+        <button onclick="setDietFilter('nonveg')" id="diet-nonveg" class="diet-btn bg-black/50 text-stone-300 font-cyber text-[10px] sm:text-[11px] font-bold px-3.5 py-1.5 sm:py-2 rounded-xl whitespace-nowrap border border-white/10">
           🍗 Non-Veg
         </button>
-        <button onclick="setDietFilter('veg')" id="diet-veg" class="diet-btn bg-black/50 text-stone-300 font-cyber text-[10px] sm:text-[11px] font-bold px-3.5 py-1.5 sm:py-2 rounded-xl whitespace-nowrap border border-white/10 transition">
+        <button onclick="setDietFilter('veg')" id="diet-veg" class="diet-btn bg-black/50 text-stone-300 font-cyber text-[10px] sm:text-[11px] font-bold px-3.5 py-1.5 sm:py-2 rounded-xl whitespace-nowrap border border-white/10">
           🌿 Pure Veg
         </button>
-        <button onclick="setDietFilter('cooler')" id="diet-cooler" class="diet-btn bg-black/50 text-stone-300 font-cyber text-[10px] sm:text-[11px] font-bold px-3.5 py-1.5 sm:py-2 rounded-xl whitespace-nowrap border border-white/10 transition">
+        <button onclick="setDietFilter('cooler')" id="diet-cooler" class="diet-btn bg-black/50 text-stone-300 font-cyber text-[10px] sm:text-[11px] font-bold px-3.5 py-1.5 sm:py-2 rounded-xl whitespace-nowrap border border-white/10">
           🍹 Coolers
         </button>
       </div>
@@ -240,13 +238,13 @@
         <p class="text-[11px] sm:text-xs text-stone-400">Add layers of melted cheese, crunchy patties, or golden french fries</p>
       </div>
       <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
-        <button onclick="addToCart('Extra Cheese Slice', 20)" class="flex-1 md:flex-initial bg-black/70 hover:bg-amber-500 hover:text-black border border-amber-400/40 text-amber-300 font-bold px-3.5 py-2.5 rounded-xl text-xs transition">
+        <button onclick="addToCart('Extra Cheese Slice', 20)" class="flex-1 md:flex-initial bg-black/70 hover:bg-amber-500 hover:text-black border border-amber-400/40 text-amber-300 font-bold px-3.5 py-2.5 rounded-xl text-xs">
           🧀 + Extra Cheese Slice (₹20)
         </button>
-        <button onclick="addToCart('Extra Crispy Chicken Patty', 60)" class="flex-1 md:flex-initial bg-black/70 hover:bg-red-600 hover:text-white border border-red-500/40 text-red-300 font-bold px-3.5 py-2.5 rounded-xl text-xs transition">
+        <button onclick="addToCart('Extra Crispy Chicken Patty', 60)" class="flex-1 md:flex-initial bg-black/70 hover:bg-red-600 hover:text-white border border-red-500/40 text-red-300 font-bold px-3.5 py-2.5 rounded-xl text-xs">
           🍗 + Extra Crispy Patty (₹60)
         </button>
-        <button onclick="addToCart('Add French Fries Combo', 40)" class="flex-1 md:flex-initial bg-black/70 hover:bg-yellow-400 hover:text-black border border-yellow-400/40 text-yellow-300 font-bold px-3.5 py-2.5 rounded-xl text-xs transition">
+        <button onclick="addToCart('Add French Fries Combo', 40)" class="flex-1 md:flex-initial bg-black/70 hover:bg-yellow-400 hover:text-black border border-yellow-400/40 text-yellow-300 font-bold px-3.5 py-2.5 rounded-xl text-xs">
           🍟 + French Fries Combo (₹40)
         </button>
       </div>
@@ -264,31 +262,31 @@
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5 sm:gap-3">
-        <button onclick="addToCart('Smoky BBQ Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-red-950/60 p-2.5 sm:p-3 rounded-xl text-center transition">
+        <button onclick="addToCart('Smoky BBQ Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-red-950/60 p-2.5 sm:p-3 rounded-xl text-center">
           <div class="text-lg sm:text-xl mb-1">🥫</div>
           <div class="text-xs font-bold text-white">BBQ Sauce</div>
           <div class="text-[10px] sm:text-[11px] text-amber-400 font-mono mt-0.5">+ ₹20</div>
         </button>
 
-        <button onclick="addToCart('Melted Cheese Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-amber-950/60 p-2.5 sm:p-3 rounded-xl text-center transition">
+        <button onclick="addToCart('Melted Cheese Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-amber-950/60 p-2.5 sm:p-3 rounded-xl text-center">
           <div class="text-lg sm:text-xl mb-1">🧀</div>
           <div class="text-xs font-bold text-white">Cheese Dip</div>
           <div class="text-[10px] sm:text-[11px] text-amber-400 font-mono mt-0.5">+ ₹20</div>
         </button>
 
-        <button onclick="addToCart('Spicy Mayo Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-orange-950/60 p-2.5 sm:p-3 rounded-xl text-center transition">
+        <button onclick="addToCart('Spicy Mayo Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-orange-950/60 p-2.5 sm:p-3 rounded-xl text-center">
           <div class="text-lg sm:text-xl mb-1">🌶️</div>
           <div class="text-xs font-bold text-white">Spicy Mayo</div>
           <div class="text-[10px] sm:text-[11px] text-amber-400 font-mono mt-0.5">+ ₹20</div>
         </button>
 
-        <button onclick="addToCart('Creamy Garlic Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-zinc-800 p-2.5 sm:p-3 rounded-xl text-center transition">
+        <button onclick="addToCart('Creamy Garlic Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-zinc-800 p-2.5 sm:p-3 rounded-xl text-center">
           <div class="text-lg sm:text-xl mb-1">🧄</div>
           <div class="text-xs font-bold text-white">Garlic Dip</div>
           <div class="text-[10px] sm:text-[11px] text-amber-400 font-mono mt-0.5">+ ₹20</div>
         </button>
 
-        <button onclick="addToCart('Fiery Peri Peri Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-red-900/60 p-2.5 sm:p-3 rounded-xl text-center transition col-span-2 sm:col-span-1">
+        <button onclick="addToCart('Fiery Peri Peri Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-red-900/60 p-2.5 sm:p-3 rounded-xl text-center col-span-2 sm:col-span-1">
           <div class="text-lg sm:text-xl mb-1">🔥</div>
           <div class="text-xs font-bold text-white">Peri Peri Dip</div>
           <div class="text-[10px] sm:text-[11px] text-amber-400 font-mono mt-0.5">+ ₹20</div>
@@ -300,23 +298,24 @@
   <section id="menuSection" class="max-w-6xl mx-auto px-4">
     
     <div class="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-3 pt-1">
-      <button onclick="filterCategory('all')" id="tab-all" class="cat-tab bg-brandGold text-black font-cyber text-xs px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold whitespace-nowrap transition">
+      <button onclick="filterCategory('all')" id="tab-all" class="cat-tab bg-brandGold text-black font-cyber text-xs px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold whitespace-nowrap">
         🌟 All Sections
       </button>
-      <button onclick="filterCategory('burgers')" id="tab-burgers" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-xs px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold whitespace-nowrap border border-white/10 transition">
+      <button onclick="filterCategory('burgers')" id="tab-burgers" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-xs px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold whitespace-nowrap border border-white/10">
         🍔 Gourmet Burgers
       </button>
-      <button onclick="filterCategory('panini')" id="tab-panini" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-xs px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold whitespace-nowrap border border-white/10 transition">
+      <button onclick="filterCategory('panini')" id="tab-panini" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-xs px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold whitespace-nowrap border border-white/10">
         🥪 Panini & Toast
       </button>
-      <button onclick="filterCategory('mojitos')" id="tab-mojitos" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-xs px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold whitespace-nowrap border border-white/10 transition">
+      <button onclick="filterCategory('mojitos')" id="tab-mojitos" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-xs px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold whitespace-nowrap border border-white/10">
         🍹 Mojitos
       </button>
-      <button onclick="filterCategory('appetizers')" id="tab-appetizers" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-xs px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold whitespace-nowrap border border-white/10 transition">
+      <button onclick="filterCategory('appetizers')" id="tab-appetizers" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-xs px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl font-bold whitespace-nowrap border border-white/10">
         🍟 Appetizers
       </button>
     </div>
 
+    <!-- GOURMET BURGERS -->
     <div class="menu-group cat-burgers my-6 sm:my-8" data-category="burgers">
       <div class="border-l-4 border-brandGold pl-3 mb-4 sm:mb-5">
         <h3 class="font-luxury text-xl sm:text-2xl text-white font-bold tracking-wide">GOURMET BURGERS</h3>
@@ -324,7 +323,7 @@
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-        
+        <!-- Burger Cards -->
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Classic STREET BURGER Chicken" data-diet="nonveg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700&q=80" alt="Classic Street Burger Chicken" class="w-full h-full object-cover">
@@ -404,18 +403,16 @@
             <div id="card-action-Buffalo-Chicken-Burger"></div>
           </div>
         </div>
-
       </div>
     </div>
 
+    <!-- PANINI & SANDWICH -->
     <div class="menu-group cat-panini my-6 sm:my-8" data-category="panini">
       <div class="border-l-4 border-brandGold pl-3 mb-4 sm:mb-5">
         <h3 class="font-luxury text-xl sm:text-2xl text-white font-bold tracking-wide">PANINIO & SANDWICH</h3>
-        <p class="text-xs text-stone-400">Italian Toasted Panini & Grilled Sandwiches with Slow-Roasted Herbs</p>
+        <p class="text-xs text-stone-400">Italian Toasted Panini & Grilled Sandwiches</p>
       </div>
-
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-        
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Classic Veg Sandwich" data-diet="veg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700&q=80" alt="Classic Veg Sandwich" class="w-full h-full object-cover">
@@ -431,7 +428,6 @@
             <div id="card-action-Classic-Veg-Sandwich"></div>
           </div>
         </div>
-
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Classic Roasted Chicken Sandwich" data-diet="nonveg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700&q=80" alt="Classic Roasted Chicken Sandwich" class="w-full h-full object-cover">
@@ -447,15 +443,9 @@
             <div id="card-action-Classic-Roasted-Chicken-Sandwich"></div>
           </div>
         </div>
-
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Peri Peri Paneer Sandwich" data-diet="veg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&q=80" 
-              alt="Peri Peri Paneer Sandwich" 
-              class="w-full h-full object-cover"
-              onerror="this.src='https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700&q=80'"
-            >
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&q=80" alt="Peri Peri Paneer Sandwich" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700&q=80'">
             <span class="absolute top-3 left-3 bg-emerald-600/90 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Africa Peri Peri</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹100</span>
           </div>
@@ -468,7 +458,6 @@
             <div id="card-action-Peri-Peri-Paneer-Sandwich"></div>
           </div>
         </div>
-
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Mushroom Fajita Sandwich" data-diet="veg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=700&q=80" alt="Mushroom Fajita Sandwich" class="w-full h-full object-cover">
@@ -484,7 +473,6 @@
             <div id="card-action-Mushroom-Fajita-Sandwich"></div>
           </div>
         </div>
-
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Buffalo Chicken Sandwich" data-diet="nonveg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?w=700&q=80" alt="Buffalo Chicken Sandwich" class="w-full h-full object-cover">
@@ -500,18 +488,16 @@
             <div id="card-action-Buffalo-Chicken-Sandwich"></div>
           </div>
         </div>
-
       </div>
     </div>
 
+    <!-- MOJITOS -->
     <div class="menu-group cat-mojitos my-6 sm:my-8" data-category="mojitos">
       <div class="border-l-4 border-brandGold pl-3 mb-4 sm:mb-5">
         <h3 class="font-luxury text-xl sm:text-2xl text-white font-bold tracking-wide">FIZZ'S & MOJITOS</h3>
-        <p class="text-xs text-stone-400">Sparkling Chill, House-Crafted Syrups & 100% Natural Fresh Crush</p>
+        <p class="text-xs text-stone-400">Sparkling Chill & 100% Natural Fresh Crush</p>
       </div>
-
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-        
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Virgin Mojito" data-diet="cooler">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=700&q=80" alt="Virgin Mojito" class="w-full h-full object-cover">
@@ -527,7 +513,6 @@
             <div id="card-action-Virgin-Mojito"></div>
           </div>
         </div>
-
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Blue Curacao Mojito" data-diet="cooler">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=700&q=80" alt="Blue Curacao Mojito" class="w-full h-full object-cover">
@@ -543,7 +528,6 @@
             <div id="card-action-Blue-Curacao-Mojito"></div>
           </div>
         </div>
-
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Mint Mojito" data-diet="cooler">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1546171753-97d7676e4602?w=700&q=80" alt="Mint Mojito" class="w-full h-full object-cover">
@@ -559,7 +543,6 @@
             <div id="card-action-Mint-Mojito"></div>
           </div>
         </div>
-
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="The World's End" data-diet="cooler">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=700&q=80" alt="The World's End" class="w-full h-full object-cover">
@@ -575,7 +558,6 @@
             <div id="card-action-The-World-s-End"></div>
           </div>
         </div>
-
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Mermaid Beach" data-diet="cooler">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=700&q=80" alt="Mermaid Beach" class="w-full h-full object-cover">
@@ -591,10 +573,10 @@
             <div id="card-action-Mermaid-Beach"></div>
           </div>
         </div>
-
       </div>
     </div>
 
+    <!-- GLOBAL APPETIZERS -->
     <div class="menu-group cat-appetizers my-6 sm:my-8" data-category="appetizers">
       <div class="border-l-4 border-brandGold pl-3 mb-4 sm:mb-5">
         <h3 class="font-luxury text-xl sm:text-2xl text-white font-bold tracking-wide">GLOBAL APPETIZERS</h3>
@@ -602,7 +584,6 @@
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-        
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Classic French Fries" data-diet="veg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=700&q=80" alt="Classic French Fries" class="w-full h-full object-cover">
@@ -618,15 +599,9 @@
             <div id="card-action-Classic-French-Fries"></div>
           </div>
         </div>
-
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Peri Peri Fries" data-diet="veg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1576107232684-1279f3908594?w=700&q=80" 
-              alt="Peri Peri Fries" 
-              class="w-full h-full object-cover"
-              onerror="this.src='https://images.unsplash.com/photo-1585109649139-366815a0d713?w=700&q=80'"
-            >
+            <img src="https://images.unsplash.com/photo-1576107232684-1279f3908594?w=700&q=80" alt="Peri Peri Fries" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1585109649139-366815a0d713?w=700&q=80'">
             <span class="absolute top-3 left-3 bg-orange-600 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Africa Peri Peri</span>
             <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-base sm:text-lg font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹60</span>
           </div>
@@ -639,7 +614,6 @@
             <div id="card-action-Peri-Peri-Fries"></div>
           </div>
         </div>
-
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Cheesy Chicken Fries" data-diet="nonveg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1585109649139-366815a0d713?w=700&q=80" alt="Cheesy Chicken Fries" class="w-full h-full object-cover">
@@ -655,7 +629,6 @@
             <div id="card-action-Cheesy-Chicken-Fries"></div>
           </div>
         </div>
-
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Crumb Fried Chicken" data-diet="nonveg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=700&q=80" alt="Crumb Fried Chicken" class="w-full h-full object-cover">
@@ -671,7 +644,6 @@
             <div id="card-action-Crumb-Fried-Chicken"></div>
           </div>
         </div>
-
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Cheesy Jalapeno Fritters" data-diet="veg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=700&q=80" alt="Cheesy Jalapeno Fritters" class="w-full h-full object-cover">
@@ -687,7 +659,6 @@
             <div id="card-action-Cheesy-Jalapeno-Fritters"></div>
           </div>
         </div>
-
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Mac 'n Cheese Ball" data-diet="veg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?w=700&q=80" alt="Mac 'n Cheese Ball" class="w-full h-full object-cover">
@@ -703,7 +674,6 @@
             <div id="card-action-Mac--n-Cheese-Ball"></div>
           </div>
         </div>
-
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Corn Cheese Ball" data-diet="veg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=700&q=80" alt="Corn Cheese Ball" class="w-full h-full object-cover">
@@ -719,7 +689,6 @@
             <div id="card-action-Corn-Cheese-Ball"></div>
           </div>
         </div>
-
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Kentucky Fried Chicken" data-diet="nonveg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
             <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=700&q=80" alt="Kentucky Fried Chicken" class="w-full h-full object-cover">
@@ -736,41 +705,67 @@
           </div>
         </div>
 
-        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Fried Momos (Chicken / Veg)" data-diet="nonveg">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Chicken Momos (Fried)" data-diet="nonveg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=700&q=80" alt="Fried Momos" class="w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=700&q=80" alt="Chicken Momos" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-rose-600 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Tibet</span>
-            <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xs sm:text-sm font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹70 / ₹60</span>
+            <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xs sm:text-sm font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹70</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-[10px] font-bold text-amber-400 mb-1">▲ NON-VEG / ● VEG</div>
-              <h4 class="font-bold text-base text-white mb-1">Fried Momos (Chicken / Veg)</h4>
-              <p class="text-xs text-stone-400 font-tamil leading-relaxed mb-4">திபெத் நாட்டின் பாரம்பரியமான மொறுமொறுப்பாக பொரித்தெடுக்கப்பட்ட சுவையான மோமோஸ்!</p>
+              <div class="text-[10px] font-bold text-red-400 mb-1">▲ NON-VEG</div>
+              <h4 class="font-bold text-base text-white mb-1">Chicken Momos (Fried)</h4>
+              <p class="text-xs text-stone-400 font-tamil leading-relaxed mb-4">திபெத் நாட்டின் பாரம்பரியமான மொறுமொறுப்பாக பொரித்தெடுக்கப்பட்ட சுவையான சிக்கன் மோமோஸ்!</p>
             </div>
-            <div class="grid grid-cols-2 gap-2">
-              <div id="card-action-Chicken-Momos--Fried-"></div>
-              <div id="card-action-Veg-Momos--Fried-"></div>
-            </div>
+            <div id="card-action-Chicken-Momos--Fried-"></div>
           </div>
         </div>
 
-        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Crispy Nuggets (Chicken / Veg)" data-diet="nonveg">
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Veg Momos (Fried)" data-diet="veg">
           <div class="relative h-44 sm:h-48 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=700&q=80" alt="Nuggets" class="w-full h-full object-cover">
-            <span class="absolute top-3 left-3 bg-amber-600 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">USA</span>
-            <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xs sm:text-sm font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹70 / ₹60</span>
+            <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=700&q=80" alt="Veg Momos" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">Tibet</span>
+            <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xs sm:text-sm font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹60</span>
           </div>
           <div class="p-4 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-[10px] font-bold text-amber-400 mb-1">▲ NON-VEG / ● VEG</div>
-              <h4 class="font-bold text-base text-white mb-1">Crispy Nuggets (Chicken / Veg)</h4>
-              <p class="text-xs text-stone-400 font-tamil leading-relaxed mb-4">அமெரிக்க பாரம்பரிய உணவு; காரசாரமான சாஸுடன் பரிமாறப்படும் நக்கெட்ஸ்.</p>
+              <div class="text-[10px] font-bold text-emerald-400 mb-1">● PURE VEG</div>
+              <h4 class="font-bold text-base text-white mb-1">Veg Momos (Fried)</h4>
+              <p class="text-xs text-stone-400 font-tamil leading-relaxed mb-4">திபெத் நாட்டின் பாரம்பரியமான மொறுமொறுப்பாக பொரித்தெடுக்கப்பட்ட சுவையான வெஜ் மோமோஸ்!</p>
             </div>
-            <div class="grid grid-cols-2 gap-2">
-              <div id="card-action-Chicken-Nuggets"></div>
-              <div id="card-action-Veg-Nuggets"></div>
+            <div id="card-action-Veg-Momos--Fried-"></div>
+          </div>
+        </div>
+
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Chicken Nuggets" data-diet="nonveg">
+          <div class="relative h-44 sm:h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=700&q=80" alt="Chicken Nuggets" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-amber-600 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">USA</span>
+            <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xs sm:text-sm font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹70</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-[10px] font-bold text-red-400 mb-1">▲ NON-VEG</div>
+              <h4 class="font-bold text-base text-white mb-1">Chicken Nuggets</h4>
+              <p class="text-xs text-stone-400 font-tamil leading-relaxed mb-4">அமெரிக்க பாரம்பரிய உணவு; காரசாரமான சாஸுடன் பரிமாறப்படும் சிக்கன் நக்கெட்ஸ்.</p>
             </div>
+            <div id="card-action-Chicken-Nuggets"></div>
+          </div>
+        </div>
+
+        <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Veg Nuggets" data-diet="veg">
+          <div class="relative h-44 sm:h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=700&q=80" alt="Veg Nuggets" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[9px] sm:text-[10px] font-cyber px-2.5 py-1 rounded font-bold uppercase">USA</span>
+            <span class="absolute bottom-3 right-3 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xs sm:text-sm font-black px-2.5 py-1 rounded-lg border border-amber-400/30">₹60</span>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="text-[10px] font-bold text-emerald-400 mb-1">● PURE VEG</div>
+              <h4 class="font-bold text-base text-white mb-1">Veg Nuggets</h4>
+              <p class="text-xs text-stone-400 font-tamil leading-relaxed mb-4">அமெரிக்க பாரம்பரிய உணவு; காரசாரமான சாஸுடன் பரிமாறப்படும் வெஜ் நக்கெட்ஸ்.</p>
+            </div>
+            <div id="card-action-Veg-Nuggets"></div>
           </div>
         </div>
 
@@ -788,7 +783,7 @@
         <h4 class="font-luxury text-lg sm:text-xl text-white font-bold">SHARE YOUR DINING EXPERIENCE</h4>
         <p class="text-xs text-stone-400 font-tamil">உங்கள் கருத்து எங்களுக்கு முக்கியம்! கூகுள் மேப்பில் உங்கள் 5-ஸ்டார் மதிப்பீட்டை பகிருங்கள்.</p>
       </div>
-      <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="w-full md:w-auto text-center bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-amber-400 hover:to-yellow-300 text-black font-extrabold px-6 py-3 rounded-xl transition text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg">
+      <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="w-full md:w-auto text-center bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-amber-400 hover:to-yellow-300 text-black font-extrabold px-6 py-3 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg">
         <i class="fa-brands fa-google text-base"></i> Post Review on Google
       </a>
     </div>
@@ -804,7 +799,7 @@
           </h3>
           <p class="text-[10px] font-mono text-stone-400">Street Burger Valliyur Terminal</p>
         </div>
-        <button onclick="toggleCart()" class="w-8 h-8 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center text-stone-400 hover:text-white transition">✕</button>
+        <button onclick="toggleCart()" class="w-8 h-8 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center text-stone-400 hover:text-white">✕</button>
       </div>
 
       <div class="flex items-center justify-between bg-zinc-900/90 border border-white/10 px-3 py-2 rounded-xl mb-3 text-xs">
@@ -873,7 +868,7 @@
         </div>
       </div>
 
-      <button onclick="checkoutToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 sm:py-3.5 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm shadow-[0_0_20px_rgba(16,185,129,0.3)] transition">
+      <button onclick="checkoutToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 sm:py-3.5 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm shadow-[0_0_20px_rgba(16,185,129,0.3)]">
         <i class="fa-brands fa-whatsapp text-base sm:text-lg"></i> Send Order to WhatsApp (93425 41946)
       </button>
     </div>
@@ -892,7 +887,7 @@
         <div id="floatingTotalBadge" class="font-cyber font-bold text-brandNeon text-sm leading-tight">₹0</div>
       </div>
     </div>
-    <button onclick="toggleCart()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold text-xs px-4 sm:px-5 py-2.5 rounded-xl flex items-center gap-2 transition">
+    <button onclick="toggleCart()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold text-xs px-4 sm:px-5 py-2.5 rounded-xl flex items-center gap-2">
       <span>Review & Order</span>
       <i class="fa-solid fa-arrow-right text-[10px]"></i>
     </button>
@@ -952,10 +947,20 @@
       } catch(e) {}
     }
 
+    function bindGlobalInteractions() {
+      const interactables = document.querySelectorAll('button, a');
+      interactables.forEach(el => {
+        el.classList.add('interactive-tap');
+        el.removeEventListener('click', playBeep);
+        el.addEventListener('click', playBeep);
+      });
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       loadStorageData();
       renderCart();
       updateSessionDisplay();
+      bindGlobalInteractions();
     });
 
     function toggleCart() {
@@ -976,7 +981,6 @@
     }
 
     function addToCart(name, price) {
-      playBeep();
       const existing = cart.find(item => item.name === name);
       if (existing) {
         existing.qty += 1;
@@ -1099,19 +1103,19 @@
 
         if (!cartItem || cartItem.qty === 0) {
           container.innerHTML = `
-            <button onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price})" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-md">
+            <button onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price})" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 shadow-md">
               <i class="fa-solid fa-cart-plus"></i> Add To Order
             </button>
           `;
         } else {
           container.innerHTML = `
             <div class="flex items-center justify-between bg-zinc-900 border border-brandGold/60 rounded-xl p-1 shadow-lg">
-              <button onclick="updateItemQtyByName('${item.name.replace(/'/g, "\\'")}', -1)" class="w-8 h-8 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white font-black text-sm flex items-center justify-center transition">-</button>
+              <button onclick="updateItemQtyByName('${item.name.replace(/'/g, "\\'")}', -1)" class="w-8 h-8 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white font-black text-sm flex items-center justify-center">-</button>
               <div class="flex flex-col items-center leading-none">
                 <span class="text-xs font-black text-brandNeon">${cartItem.qty} in Cart</span>
                 <span class="text-[9px] text-stone-400">₹${cartItem.qty * item.price}</span>
               </div>
-              <button onclick="updateItemQtyByName('${item.name.replace(/'/g, "\\'")}', 1)" class="w-8 h-8 rounded-lg bg-brandRed hover:bg-red-500 text-white font-black text-sm flex items-center justify-center transition">+</button>
+              <button onclick="updateItemQtyByName('${item.name.replace(/'/g, "\\'")}', 1)" class="w-8 h-8 rounded-lg bg-brandRed hover:bg-red-500 text-white font-black text-sm flex items-center justify-center">+</button>
             </div>
           `;
         }
@@ -1150,32 +1154,33 @@
         deliveryEl.innerText = 'FREE';
         totalEl.innerText = '₹0';
         floatTotal.innerText = '₹0';
-        return;
+      } else {
+        cart.forEach((item, index) => {
+          const itemSum = item.price * item.qty;
+          container.innerHTML += `
+            <div class="flex items-center justify-between bg-zinc-900/80 p-2.5 rounded-xl border border-white/5">
+              <div class="truncate mr-2">
+                <div class="text-xs font-bold text-white truncate">${item.name}</div>
+                <div class="text-[10px] text-amber-400 font-mono">₹${item.price} × ${item.qty} = ₹${itemSum}</div>
+              </div>
+              <div class="flex items-center gap-1.5 bg-black/60 px-1.5 py-1 rounded-lg border border-white/10 shrink-0">
+                <button onclick="changeQty(${index}, -1)" class="w-6 h-6 rounded bg-zinc-800 hover:bg-zinc-700 text-xs text-white font-bold flex items-center justify-center">-</button>
+                <span class="text-xs font-black text-brandNeon px-2">${item.qty}</span>
+                <button onclick="changeQty(${index}, 1)" class="w-6 h-6 rounded bg-zinc-800 hover:bg-zinc-700 text-xs text-white font-bold flex items-center justify-center">+</button>
+              </div>
+            </div>
+          `;
+        });
+
+        const { subtotal, packaging, delivery, grandTotal, isDelivery } = calculateFinances();
+        subtotalEl.innerText = `₹${subtotal}`;
+        packEl.innerText = `₹${packaging}`;
+        deliveryEl.innerText = isDelivery ? `₹${delivery}` : 'FREE';
+        totalEl.innerText = `₹${grandTotal}`;
+        floatTotal.innerText = `₹${grandTotal}`;
       }
-
-      cart.forEach((item, index) => {
-        const itemSum = item.price * item.qty;
-        container.innerHTML += `
-          <div class="flex items-center justify-between bg-zinc-900/80 p-2.5 rounded-xl border border-white/5">
-            <div class="truncate mr-2">
-              <div class="text-xs font-bold text-white truncate">${item.name}</div>
-              <div class="text-[10px] text-amber-400 font-mono">₹${item.price} × ${item.qty} = ₹${itemSum}</div>
-            </div>
-            <div class="flex items-center gap-1.5 bg-black/60 px-1.5 py-1 rounded-lg border border-white/10 shrink-0">
-              <button onclick="changeQty(${index}, -1)" class="w-6 h-6 rounded bg-zinc-800 hover:bg-zinc-700 text-xs text-white font-bold flex items-center justify-center">-</button>
-              <span class="text-xs font-black text-brandNeon px-2">${item.qty}</span>
-              <button onclick="changeQty(${index}, 1)" class="w-6 h-6 rounded bg-zinc-800 hover:bg-zinc-700 text-xs text-white font-bold flex items-center justify-center">+</button>
-            </div>
-          </div>
-        `;
-      });
-
-      const { subtotal, packaging, delivery, grandTotal, isDelivery } = calculateFinances();
-      subtotalEl.innerText = `₹${subtotal}`;
-      packEl.innerText = `₹${packaging}`;
-      deliveryEl.innerText = isDelivery ? `₹${delivery}` : 'FREE';
-      totalEl.innerText = `₹${grandTotal}`;
-      floatTotal.innerText = `₹${grandTotal}`;
+      
+      bindGlobalInteractions();
     }
 
     function checkoutToWhatsApp() {

@@ -25,6 +25,21 @@
             luxury: ['"Cinzel"', 'serif'],
             sans: ['"Montserrat"', 'sans-serif'],
             tamil: ['"Mukta Malar"', 'sans-serif'],
+          },
+          animation: {
+            'pop': 'pop 0.3s ease-out',
+            'slide-down': 'slideDown 0.4s ease-out forwards'
+          },
+          keyframes: {
+            pop: {
+              '0%': { transform: 'scale(1)' },
+              '50%': { transform: 'scale(1.2)' },
+              '100%': { transform: 'scale(1)' },
+            },
+            slideDown: {
+              '0%': { transform: 'translateY(-100%)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            }
           }
         }
       }
@@ -50,6 +65,33 @@
     .enhanced-cart-img {
       filter: contrast(1.15) saturate(1.2) brightness(1.05);
     }
+    /* Modern Toast Notification Styles */
+    #toast-container {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: none;
+    }
+    .toast {
+      background: rgba(16, 185, 129, 0.95);
+      backdrop-filter: blur(8px);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: slideDown 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
     ::-webkit-scrollbar {
       width: 6px;
       height: 6px;
@@ -68,6 +110,9 @@
 </head>
 <body class="bg-cyberDark text-stone-100 font-sans antialiased pb-32 selection:bg-brandGold selection:text-black">
 
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
   <div class="bg-gradient-to-r from-red-950 via-zinc-950 to-amber-950 border-b border-amber-500/20 px-3 sm:px-4 py-2 text-xs flex flex-wrap justify-between items-center text-stone-300 gap-2">
     <div class="flex items-center gap-2">
       <span class="relative flex h-2.5 w-2.5 shrink-0">
@@ -84,13 +129,12 @@
     </div>
   </div>
 
-  <header class="sticky top-0 z-40 bg-cyberDark/95 backdrop-blur-md border-b border-white/10 px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 flex items-center justify-between">
+  <header class="sticky top-0 z-40 bg-cyberDark/95 backdrop-blur-xl border-b border-white/10 px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 flex items-center justify-between shadow-2xl transition-all">
     <div class="flex items-center gap-4 min-w-0">
       <div class="h-28 w-28 lg:h-36 lg:w-36 rounded-full border-2 border-brandNeon/80 p-1 shadow-[0_0_20px_rgba(245,158,11,0.6)] shrink-0 overflow-hidden bg-black flex items-center justify-center">
         <img src="1000428989logo.jpg" alt="Street Burger Logo" class="h-full w-full rounded-full object-cover">
       </div>
       <div>
-        <!-- FIXED: Made name extremely clear, removed truncate, added shadow and bright color -->
         <h1 class="font-cyber text-3xl lg:text-5xl font-black tracking-widest text-brandNeon drop-shadow-[0_4px_6px_rgba(0,0,0,0.9)] leading-none mt-1" style="text-shadow: 2px 2px 5px #000, 0 0 15px rgba(245,158,11,0.8);">
           STREET BURGER
         </h1>
@@ -99,21 +143,21 @@
     </div>
 
     <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-      <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="flex items-center gap-1.5 bg-zinc-900/90 hover:bg-zinc-800 text-amber-300 text-sm font-bold px-4 py-2.5 rounded-xl transition border border-amber-400/30">
+      <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="flex items-center gap-1.5 bg-zinc-900/90 hover:bg-zinc-800 text-amber-300 text-sm font-bold px-4 py-2.5 rounded-xl transition border border-amber-400/30 active:scale-95">
         <i class="fa-solid fa-star text-amber-400"></i> Review
       </a>
       
-      <a href="https://wa.me/919342541946" target="_blank" class="flex items-center gap-1.5 bg-emerald-700/90 hover:bg-emerald-600 text-white text-sm font-bold px-4 py-2.5 rounded-xl transition border border-emerald-400/40">
+      <a href="https://wa.me/919342541946" target="_blank" class="flex items-center gap-1.5 bg-emerald-700/90 hover:bg-emerald-600 text-white text-sm font-bold px-4 py-2.5 rounded-xl transition border border-emerald-400/40 active:scale-95">
         <i class="fa-brands fa-whatsapp text-lg"></i>
         <span>93425 41946</span>
       </a>
 
-      <button onclick="handleUserLogout()" title="Clear Session / Reset Cart" class="flex items-center gap-1.5 bg-zinc-900 hover:bg-red-950/80 text-stone-400 hover:text-red-400 px-4 py-2.5 rounded-xl border border-white/10 transition text-sm font-bold">
+      <button onclick="handleUserLogout()" title="Clear Session / Reset Cart" class="flex items-center gap-1.5 bg-zinc-900 hover:bg-red-950/80 text-stone-400 hover:text-red-400 px-4 py-2.5 rounded-xl border border-white/10 transition text-sm font-bold active:scale-95">
         <i class="fa-solid fa-power-off text-sm"></i>
         <span>Logout</span>
       </button>
 
-      <button onclick="toggleCart()" class="relative bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-500 hover:to-rose-600 text-white px-5 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 transition shadow-[0_0_15px_rgba(220,38,38,0.5)]">
+      <button id="headerCartBtn" onclick="toggleCart()" class="relative bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-500 hover:to-rose-600 text-white px-5 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 transition shadow-[0_0_15px_rgba(220,38,38,0.5)] active:scale-95">
         <i class="fa-solid fa-bag-shopping text-lg"></i>
         <span id="headerCartCount" class="bg-brandGold text-black font-extrabold text-sm px-2 py-0.5 rounded-full">0</span>
       </button>
@@ -121,7 +165,6 @@
   </header>
 
   <section class="relative py-14 px-4 border-b border-white/5 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-950/40 via-zinc-950 to-cyberDark">
-    <!-- FIXED: Changed layout to flex-col and perfectly centered everything -->
     <div class="max-w-5xl mx-auto flex flex-col items-center justify-center gap-10">
       
       <div class="flex flex-col items-center text-center w-full">
@@ -130,7 +173,7 @@
         </div>
         
         <h2 class="font-luxury text-5xl lg:text-6xl font-black tracking-wide text-white mb-5 text-center">
-          TASTE THE <br/><span class="shimmer-gold">STREET BURGER</span>
+          TASTE THE <br/><span class="shimmer-gold">STREET CRUNCH</span>
         </h2>
         
         <p class="text-sm lg:text-base text-stone-300 mb-8 font-tamil leading-relaxed max-w-2xl text-center">
@@ -138,13 +181,13 @@
         </p>
 
         <div class="flex flex-wrap items-center justify-center gap-4 mb-2 w-full">
-          <a href="#menuSection" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold px-6 py-3.5 rounded-xl transition text-sm flex items-center gap-2 shadow-[0_0_20px_rgba(245,158,11,0.35)]">
+          <a href="#menuSection" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold px-6 py-3.5 rounded-xl transition text-sm flex items-center gap-2 shadow-[0_0_20px_rgba(245,158,11,0.35)] active:scale-95">
             <i class="fa-solid fa-utensils"></i> Order From Menu
           </a>
-          <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="bg-zinc-900 hover:bg-zinc-800 border border-amber-400/40 text-amber-300 font-bold px-6 py-3.5 rounded-xl transition text-sm flex items-center gap-2">
+          <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="bg-zinc-900 hover:bg-zinc-800 border border-amber-400/40 text-amber-300 font-bold px-6 py-3.5 rounded-xl transition text-sm flex items-center gap-2 active:scale-95">
             <i class="fa-solid fa-star text-amber-400"></i> Review on Google
           </a>
-          <a href="https://maps.app.goo.gl/2y8oXRwLtySKuoNaA" target="_blank" class="bg-zinc-900 hover:bg-zinc-800 border border-white/20 text-stone-300 font-semibold px-6 py-3.5 rounded-xl transition text-sm flex items-center gap-2">
+          <a href="https://maps.app.goo.gl/2y8oXRwLtySKuoNaA" target="_blank" class="bg-zinc-900 hover:bg-zinc-800 border border-white/20 text-stone-300 font-semibold px-6 py-3.5 rounded-xl transition text-sm flex items-center gap-2 active:scale-95">
             <i class="fa-solid fa-location-dot text-red-500"></i> Get Directions
           </a>
         </div>
@@ -152,14 +195,13 @@
 
       <div class="w-full max-w-3xl">
         <div class="relative group rounded-3xl p-1.5 bg-gradient-to-tr from-amber-500/40 via-red-500/20 to-amber-400/40 shadow-[0_0_40px_rgba(245,158,11,0.4)]">
-          
           <div class="relative w-full overflow-hidden rounded-[22px] bg-black">
-            
             <img 
               src="./1000430339.png?v=1" 
               alt="Street Burger Valliyur Food Truck Counter" 
               class="w-full h-auto block enhanced-cart-img group-hover:scale-105 transition duration-500"
               onerror="this.src='./1000430339shop.png?v=1'"
+              loading="lazy"
             >
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none"></div>
             
@@ -173,50 +215,50 @@
               <p class="text-xs text-stone-300 font-mono mt-1">Good Food Brings People Together</p>
             </div>
           </div>
-
         </div>
       </div>
 
     </div>
 
     <div class="max-w-5xl mx-auto grid grid-cols-4 gap-4 text-center mt-12">
-      <div class="bg-zinc-900/60 border border-white/5 p-4 rounded-xl">
+      <div class="bg-zinc-900/60 border border-white/5 p-4 rounded-xl hover:bg-zinc-800 transition">
         <div class="text-brandGold text-2xl mb-2"><i class="fa-solid fa-bread-slice"></i></div>
         <div class="font-cyber text-xs font-bold text-white uppercase tracking-wider">Brioche Buns</div>
       </div>
-      <div class="bg-zinc-900/60 border border-white/5 p-4 rounded-xl">
+      <div class="bg-zinc-900/60 border border-white/5 p-4 rounded-xl hover:bg-zinc-800 transition">
         <div class="text-brandGold text-2xl mb-2"><i class="fa-solid fa-cheese"></i></div>
         <div class="font-cyber text-xs font-bold text-white uppercase tracking-wider">100% Real Cheese</div>
       </div>
-      <div class="bg-zinc-900/60 border border-white/5 p-4 rounded-xl">
+      <div class="bg-zinc-900/60 border border-white/5 p-4 rounded-xl hover:bg-zinc-800 transition">
         <div class="text-brandGold text-2xl mb-2"><i class="fa-solid fa-pepper-hot"></i></div>
         <div class="font-cyber text-xs font-bold text-white uppercase tracking-wider">Peri Peri Flavors</div>
       </div>
-      <div class="bg-zinc-900/60 border border-white/5 p-4 rounded-xl">
+      <div class="bg-zinc-900/60 border border-white/5 p-4 rounded-xl hover:bg-zinc-800 transition">
         <div class="text-brandGold text-2xl mb-2"><i class="fa-solid fa-motorcycle"></i></div>
         <div class="font-cyber text-xs font-bold text-white uppercase tracking-wider">Valliyur Parcel</div>
       </div>
     </div>
   </section>
 
-  <section class="max-w-6xl mx-auto px-4 -mt-6 relative z-20">
-    <div class="bg-zinc-900/95 backdrop-blur-md border border-amber-500/40 rounded-2xl p-5 shadow-2xl flex flex-row gap-4 items-center justify-between">
+  <!-- Sticky Modern Filter Bar -->
+  <section class="sticky top-[100px] z-30 bg-cyberDark/90 backdrop-blur-xl border-b border-white/10 py-3 shadow-lg -mt-6">
+    <div class="max-w-6xl mx-auto px-4 flex flex-row gap-4 items-center justify-between">
       <div class="relative w-96 shrink-0">
         <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 text-sm"></i>
-        <input type="text" id="menuSearchInput" oninput="applyFilters()" placeholder="Search Peri Peri, Burgers, Toast, Dips..." class="w-full bg-black/60 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-sm text-white placeholder-stone-400 outline-none focus:border-brandGold transition">
+        <input type="text" id="menuSearchInput" oninput="applyFilters()" placeholder="Search menu..." class="w-full bg-black/80 border border-white/10 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-stone-400 outline-none focus:border-brandGold transition">
       </div>
 
       <div class="flex items-center gap-2 overflow-x-auto w-full justify-end">
-        <button onclick="setDietFilter('all')" id="diet-all" class="diet-btn bg-brandGold text-black font-cyber text-xs font-bold px-5 py-2.5 rounded-xl whitespace-nowrap transition">
-          All Menu
+        <button onclick="setDietFilter('all')" id="diet-all" class="diet-btn bg-brandGold text-black font-cyber text-xs font-bold px-5 py-2.5 rounded-xl whitespace-nowrap transition active:scale-95">
+          All Diet
         </button>
-        <button onclick="setDietFilter('nonveg')" id="diet-nonveg" class="diet-btn bg-black/50 text-stone-300 font-cyber text-xs font-bold px-5 py-2.5 rounded-xl whitespace-nowrap border border-white/10 transition">
+        <button onclick="setDietFilter('nonveg')" id="diet-nonveg" class="diet-btn bg-black/50 text-stone-300 font-cyber text-xs font-bold px-5 py-2.5 rounded-xl whitespace-nowrap border border-white/10 transition active:scale-95 hover:bg-red-950/40">
           🍗 Non-Veg
         </button>
-        <button onclick="setDietFilter('veg')" id="diet-veg" class="diet-btn bg-black/50 text-stone-300 font-cyber text-xs font-bold px-5 py-2.5 rounded-xl whitespace-nowrap border border-white/10 transition">
+        <button onclick="setDietFilter('veg')" id="diet-veg" class="diet-btn bg-black/50 text-stone-300 font-cyber text-xs font-bold px-5 py-2.5 rounded-xl whitespace-nowrap border border-white/10 transition active:scale-95 hover:bg-emerald-950/40">
           🌿 Pure Veg
         </button>
-        <button onclick="setDietFilter('cooler')" id="diet-cooler" class="diet-btn bg-black/50 text-stone-300 font-cyber text-xs font-bold px-5 py-2.5 rounded-xl whitespace-nowrap border border-white/10 transition">
+        <button onclick="setDietFilter('cooler')" id="diet-cooler" class="diet-btn bg-black/50 text-stone-300 font-cyber text-xs font-bold px-5 py-2.5 rounded-xl whitespace-nowrap border border-white/10 transition active:scale-95 hover:bg-blue-950/40">
           🍹 Coolers
         </button>
       </div>
@@ -233,14 +275,14 @@
         <p class="text-sm text-stone-400 mt-1">Add layers of melted cheese, crunchy patties, or golden french fries</p>
       </div>
       <div class="flex items-center justify-end gap-3 w-full">
-        <button onclick="addToCart('Extra Cheese Slice', 20)" class="bg-black/70 hover:bg-amber-500 hover:text-black border border-amber-400/40 text-amber-300 font-bold px-5 py-3 rounded-xl text-sm transition">
-          🧀 + Extra Cheese Slice (₹20)
+        <button onclick="addToCart('Extra Cheese Slice', 20)" class="bg-black/70 hover:bg-amber-500 hover:text-black border border-amber-400/40 text-amber-300 font-bold px-5 py-3 rounded-xl text-sm transition active:scale-95">
+          🧀 + Extra Cheese (₹20)
         </button>
-        <button onclick="addToCart('Extra Crispy Chicken Patty', 60)" class="bg-black/70 hover:bg-red-600 hover:text-white border border-red-500/40 text-red-300 font-bold px-5 py-3 rounded-xl text-sm transition">
-          🍗 + Extra Crispy Patty (₹60)
+        <button onclick="addToCart('Extra Crispy Chicken Patty', 60)" class="bg-black/70 hover:bg-red-600 hover:text-white border border-red-500/40 text-red-300 font-bold px-5 py-3 rounded-xl text-sm transition active:scale-95">
+          🍗 + Extra Patty (₹60)
         </button>
-        <button onclick="addToCart('Add French Fries Combo', 40)" class="bg-black/70 hover:bg-yellow-400 hover:text-black border border-yellow-400/40 text-yellow-300 font-bold px-5 py-3 rounded-xl text-sm transition">
-          🍟 + French Fries Combo (₹40)
+        <button onclick="addToCart('Add French Fries Combo', 40)" class="bg-black/70 hover:bg-yellow-400 hover:text-black border border-yellow-400/40 text-yellow-300 font-bold px-5 py-3 rounded-xl text-sm transition active:scale-95">
+          🍟 + Fries Combo (₹40)
         </button>
       </div>
     </div>
@@ -257,31 +299,31 @@
       </div>
 
       <div class="grid grid-cols-5 gap-4">
-        <button onclick="addToCart('Smoky BBQ Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-red-950/60 p-4 rounded-xl text-center transition">
+        <button onclick="addToCart('Smoky BBQ Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-red-950/60 p-4 rounded-xl text-center transition active:scale-95">
           <div class="text-3xl mb-2">🥫</div>
           <div class="text-sm font-bold text-white">BBQ Sauce</div>
           <div class="text-xs text-amber-400 font-mono mt-1">+ ₹20</div>
         </button>
 
-        <button onclick="addToCart('Melted Cheese Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-amber-950/60 p-4 rounded-xl text-center transition">
+        <button onclick="addToCart('Melted Cheese Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-amber-950/60 p-4 rounded-xl text-center transition active:scale-95">
           <div class="text-3xl mb-2">🧀</div>
           <div class="text-sm font-bold text-white">Cheese Dip</div>
           <div class="text-xs text-amber-400 font-mono mt-1">+ ₹20</div>
         </button>
 
-        <button onclick="addToCart('Spicy Mayo Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-orange-950/60 p-4 rounded-xl text-center transition">
+        <button onclick="addToCart('Spicy Mayo Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-orange-950/60 p-4 rounded-xl text-center transition active:scale-95">
           <div class="text-3xl mb-2">🌶️</div>
           <div class="text-sm font-bold text-white">Spicy Mayo</div>
           <div class="text-xs text-amber-400 font-mono mt-1">+ ₹20</div>
         </button>
 
-        <button onclick="addToCart('Creamy Garlic Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-zinc-800 p-4 rounded-xl text-center transition">
+        <button onclick="addToCart('Creamy Garlic Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-zinc-800 p-4 rounded-xl text-center transition active:scale-95">
           <div class="text-3xl mb-2">🧄</div>
           <div class="text-sm font-bold text-white">Garlic Dip</div>
           <div class="text-xs text-amber-400 font-mono mt-1">+ ₹20</div>
         </button>
 
-        <button onclick="addToCart('Fiery Peri Peri Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-red-900/60 p-4 rounded-xl text-center transition">
+        <button onclick="addToCart('Fiery Peri Peri Dip', 20)" class="bg-black/50 hover:bg-zinc-800 border border-red-900/60 p-4 rounded-xl text-center transition active:scale-95">
           <div class="text-3xl mb-2">🔥</div>
           <div class="text-sm font-bold text-white">Peri Peri Dip</div>
           <div class="text-xs text-amber-400 font-mono mt-1">+ ₹20</div>
@@ -290,23 +332,33 @@
     </div>
   </section>
 
-  <section id="menuSection" class="max-w-6xl mx-auto px-4">
+  <section id="menuSection" class="max-w-6xl mx-auto px-4 pb-10">
     
     <div class="flex items-center justify-center gap-3 overflow-x-auto pb-4 pt-2">
-      <button onclick="filterCategory('all')" id="tab-all" class="cat-tab bg-brandGold text-black font-cyber text-sm px-6 py-3 rounded-xl font-bold whitespace-nowrap transition">
+      <button onclick="filterCategory('all')" id="tab-all" class="cat-tab bg-brandGold text-black font-cyber text-sm px-6 py-3 rounded-xl font-bold whitespace-nowrap transition active:scale-95">
         🌟 All Sections
       </button>
-      <button onclick="filterCategory('burgers')" id="tab-burgers" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-sm px-6 py-3 rounded-xl font-bold whitespace-nowrap border border-white/10 transition">
+      <button onclick="filterCategory('burgers')" id="tab-burgers" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-sm px-6 py-3 rounded-xl font-bold whitespace-nowrap border border-white/10 transition active:scale-95">
         🍔 Gourmet Burgers
       </button>
-      <button onclick="filterCategory('panini')" id="tab-panini" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-sm px-6 py-3 rounded-xl font-bold whitespace-nowrap border border-white/10 transition">
+      <button onclick="filterCategory('panini')" id="tab-panini" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-sm px-6 py-3 rounded-xl font-bold whitespace-nowrap border border-white/10 transition active:scale-95">
         🥪 Panini & Toast
       </button>
-      <button onclick="filterCategory('mojitos')" id="tab-mojitos" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-sm px-6 py-3 rounded-xl font-bold whitespace-nowrap border border-white/10 transition">
+      <button onclick="filterCategory('mojitos')" id="tab-mojitos" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-sm px-6 py-3 rounded-xl font-bold whitespace-nowrap border border-white/10 transition active:scale-95">
         🍹 Mojitos
       </button>
-      <button onclick="filterCategory('appetizers')" id="tab-appetizers" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-sm px-6 py-3 rounded-xl font-bold whitespace-nowrap border border-white/10 transition">
+      <button onclick="filterCategory('appetizers')" id="tab-appetizers" class="cat-tab bg-cyberCard text-stone-300 font-cyber text-sm px-6 py-3 rounded-xl font-bold whitespace-nowrap border border-white/10 transition active:scale-95">
         🍟 Appetizers
+      </button>
+    </div>
+
+    <!-- MODERN EMPTY STATE (Hidden by default) -->
+    <div id="emptyState" class="hidden text-center py-24 bg-zinc-900/40 rounded-2xl border border-white/5 my-8">
+      <div class="text-6xl mb-4">🔍</div>
+      <h3 class="font-cyber text-2xl text-brandGold font-bold mb-2">No Items Found</h3>
+      <p class="text-stone-400 mb-6">We couldn't find any items matching your current filters.</p>
+      <button onclick="resetAllFilters()" class="bg-brandRed hover:bg-red-500 text-white font-bold px-6 py-3 rounded-xl transition active:scale-95 shadow-lg">
+        Reset All Filters
       </button>
     </div>
 
@@ -321,13 +373,13 @@
         
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Classic STREET BURGER Chicken" data-diet="nonveg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700&q=80" alt="Classic Street Burger Chicken" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-red-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">USA Recipe • Must Try</span>
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700&q=80" alt="Classic Street Burger Chicken" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-red-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">USA Recipe • Must Try</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹110</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-red-400 mb-1.5">▲ NON-VEG</div>
+              <div class="text-xs font-bold text-red-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> NON-VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Classic STREET BURGER Chicken</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">எங்களது கடையின் பிரத்யேக அமெரிக்க பாரம்பரிய முறையில் சிறப்பான Signature Sauce சேர்த்து தயாரிக்கப்பட்டது.</p>
             </div>
@@ -337,13 +389,13 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Classic Tambaron Burger" data-diet="nonveg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&q=80" alt="Classic Tambaron Burger" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-amber-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">Philippines</span>
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&q=80" alt="Classic Tambaron Burger" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-amber-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">Philippines</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹90</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-red-400 mb-1.5">▲ NON-VEG</div>
+              <div class="text-xs font-bold text-red-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> NON-VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Classic Tambaron Burger</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">பிலிப்பைன்ஸ் நாட்டின் பாரம்பரிய முறையில் காரசாரமான மசாலாக்கள் மற்றும் பிரத்யேக சாஸ் சேர்க்கை.</p>
             </div>
@@ -353,13 +405,14 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Fried Chicken Burger" data-diet="nonveg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?w=700&q=80" alt="Fried Chicken Burger" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-rose-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">USA Crispy</span>
+            <!-- UPDATED EXACT IMAGE: Crispy fried chicken burger -->
+            <img src="https://images.unsplash.com/photo-1615297928064-24977384d0cb?w=700&q=80" alt="Fried Chicken Burger" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-rose-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">USA Crispy</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹100</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-red-400 mb-1.5">▲ NON-VEG</div>
+              <div class="text-xs font-bold text-red-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> NON-VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Fried Chicken Burger</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">பொரித்தெடுக்கப்பட்ட மொறுமொறுப்பான கோழி இறைச்சி மற்றும் கடையின் ஸ்பெஷல் சாஸ்.</p>
             </div>
@@ -369,13 +422,14 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Peri Peri Panneer Burger" data-diet="veg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1520072959219-c595dc870360?w=700&q=80" alt="Peri Peri Panneer Burger" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-emerald-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">Africa Special</span>
+            <!-- UPDATED EXACT IMAGE: Veggie/Paneer Burger style -->
+            <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=700&q=80" alt="Peri Peri Panneer Burger" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-emerald-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">Africa Special</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹100</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-emerald-400 mb-1.5">● PURE VEG</div>
+              <div class="text-xs font-bold text-emerald-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> PURE VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Peri Peri Panneer Burger</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">ஆப்பிரிக்க நாட்டின் காரசாரமான பெரி பெரி மசாலா தடவிய பனீர், பிரத்யேக சாஸ் சேர்க்கை.</p>
             </div>
@@ -385,13 +439,14 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Buffalo Chicken Burger" data-diet="nonveg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=700&q=80" alt="Buffalo Chicken Burger" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-red-700 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">USA Spicy</span>
+            <!-- UPDATED EXACT IMAGE: Spicy red buffalo chicken burger -->
+            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=700&q=80" alt="Buffalo Chicken Burger" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-red-700/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">USA Spicy</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹120</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-red-400 mb-1.5">▲ NON-VEG</div>
+              <div class="text-xs font-bold text-red-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> NON-VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Buffalo Chicken Burger</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">அமெரிக்க பாணியில் காரசாரமான ஃபயரி பஃபெலோ சாஸில் தோய்த்து தயாரிக்கப்பட்ட உணவு!</p>
             </div>
@@ -413,13 +468,13 @@
         
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Classic Veg Sandwich" data-diet="veg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700&q=80" alt="Classic Veg Sandwich" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-emerald-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">Italy Tradition</span>
+            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700&q=80" alt="Classic Veg Sandwich" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-emerald-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">Italy Tradition</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹80</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-emerald-400 mb-1.5">● PURE VEG</div>
+              <div class="text-xs font-bold text-emerald-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> PURE VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Classic Veg Sandwich</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">புதிதாக நறுக்கிய காய்கறிகள், நறுமண மசாலாக்கள் மற்றும் கடையின் ஸ்பெஷல் சாஸ் சேர்த்து வாட்டியது.</p>
             </div>
@@ -429,13 +484,13 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Classic Roasted Chicken Sandwich" data-diet="nonveg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700&q=80" alt="Classic Roasted Chicken Sandwich" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-red-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">Chef's Special</span>
+            <img src="https://images.unsplash.com/photo-1619881589316-56c7f9e6b587?w=700&q=80" alt="Classic Roasted Chicken Sandwich" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-red-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">Chef's Special</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹100</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-red-400 mb-1.5">▲ NON-VEG</div>
+              <div class="text-xs font-bold text-red-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> NON-VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Classic Roasted Chicken Sandwich</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">இத்தாலி பாரம்பரிய நறுமண மசாலாக்களுடன் சுடச்சுட வாட்டி தயாரிக்கப்பட்ட சீஸ் சிக்கன் சாண்ட்விச்.</p>
             </div>
@@ -445,18 +500,14 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Peri Peri Paneer Sandwich" data-diet="veg">
           <div class="relative h-56 overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&q=80" 
-              alt="Peri Peri Paneer Sandwich" 
-              class="w-full h-full object-cover"
-              onerror="this.src='https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700&q=80'"
-            >
-            <span class="absolute top-4 left-4 bg-emerald-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">Africa Peri Peri</span>
+            <!-- UPDATED EXACT IMAGE: Spicy grilled sandwich -->
+            <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=700&q=80" alt="Peri Peri Paneer Sandwich" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-emerald-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">Africa Peri Peri</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹100</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-emerald-400 mb-1.5">● PURE VEG</div>
+              <div class="text-xs font-bold text-emerald-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> PURE VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Peri Peri Paneer Sandwich</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">காரசாரமான பெரி பெரி மசாலா மற்றும் கடையின் ஸ்பெஷல் சாஸ் சேர்த்து டோஸ்ட் செய்யப்பட்டது.</p>
             </div>
@@ -466,13 +517,14 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Mushroom Fajita Sandwich" data-diet="veg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=700&q=80" alt="Mushroom Fajita Sandwich" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-amber-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">Mexico Fajita</span>
+            <!-- UPDATED EXACT IMAGE: Mushroom/fajita melt sandwich -->
+            <img src="https://images.unsplash.com/photo-1559561853-08451507cbe7?w=700&q=80" alt="Mushroom Fajita Sandwich" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-amber-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">Mexico Fajita</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹90</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-emerald-400 mb-1.5">● PURE VEG</div>
+              <div class="text-xs font-bold text-emerald-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> PURE VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Mushroom Fajita Sandwich</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">மெக்சிகன் மசாலாக்கள், குடைமிளகாய் மற்றும் வதக்கிய காளான் கலந்த சீஸி டோஸ்ட்.</p>
             </div>
@@ -482,13 +534,14 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Buffalo Chicken Sandwich" data-diet="nonveg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?w=700&q=80" alt="Buffalo Chicken Sandwich" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-red-700 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">Spicy Buffalo</span>
+            <!-- UPDATED EXACT IMAGE: Buffalo chicken sandwich styling -->
+            <img src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=700&q=80" alt="Buffalo Chicken Sandwich" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-red-700/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">Spicy Buffalo</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹120</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-red-400 mb-1.5">▲ NON-VEG</div>
+              <div class="text-xs font-bold text-red-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> NON-VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Buffalo Chicken Sandwich</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">காரசாரமான பஃபெலோ சாஸ் மற்றும் உருகிய சீஸ் சேர்த்து சுடச்சுட வாட்டப்பட்ட சாண்ட்விச்.</p>
             </div>
@@ -510,13 +563,13 @@
         
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Virgin Mojito" data-diet="cooler">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=700&q=80" alt="Virgin Mojito" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-emerald-600 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">Cuba Classic</span>
+            <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=700&q=80" alt="Virgin Mojito" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-emerald-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">Cuba Classic</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹50</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-emerald-400 mb-1.5">● FRESH CRUSH</div>
+              <div class="text-xs font-bold text-emerald-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> FRESH CRUSH</div>
               <h4 class="font-bold text-lg text-white mb-2">Virgin Mojito</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">புத்துணர்ச்சியூட்டும் புதினா, எலுமிச்சை சாறு, சோடா மற்றும் ஸ்பெஷல் சிரப் கலந்த பானம்.</p>
             </div>
@@ -526,13 +579,14 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Blue Curacao Mojito" data-diet="cooler">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=700&q=80" alt="Blue Curacao Mojito" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-blue-600 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">Tropical Hit</span>
+            <!-- UPDATED EXACT IMAGE: True blue curacao drink -->
+            <img src="https://images.unsplash.com/photo-1615887023516-9b6ca55882f0?w=700&q=80" alt="Blue Curacao Mojito" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-blue-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">Tropical Hit</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹60</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-cyan-400 mb-1.5">● TROPICAL FIZZ</div>
+              <div class="text-xs font-bold text-cyan-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> TROPICAL FIZZ</div>
               <h4 class="font-bold text-lg text-white mb-2">Blue Curacao Mojito</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">ஆரஞ்சு பழச் சுவை கொண்ட புத்துணர்ச்சியூட்டும் நீல நிற எலுமிச்சை சோடா குளிர்பானம்.</p>
             </div>
@@ -542,13 +596,13 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Mint Mojito" data-diet="cooler">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1546171753-97d7676e4602?w=700&q=80" alt="Mint Mojito" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-teal-600 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">Cuba Classic</span>
+            <img src="https://images.unsplash.com/photo-1546171753-97d7676e4602?w=700&q=80" alt="Mint Mojito" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-teal-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">Cuba Classic</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹70</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-teal-400 mb-1.5">● EXTRA MINT</div>
+              <div class="text-xs font-bold text-teal-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> EXTRA MINT</div>
               <h4 class="font-bold text-lg text-white mb-2">Mint Mojito</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">நறுமணமிக்க புதிய புதினா இலைகள், எலுமிச்சை மற்றும் பிரத்யேக சிரப் சேர்க்கை.</p>
             </div>
@@ -558,13 +612,13 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="The World's End" data-diet="cooler">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=700&q=80" alt="The World's End" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-rose-700 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">England Cooler</span>
+            <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=700&q=80" alt="The World's End" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-rose-700/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">England Cooler</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹80</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-rose-400 mb-1.5">● BERRY EXPLOSION</div>
+              <div class="text-xs font-bold text-rose-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> BERRY EXPLOSION</div>
               <h4 class="font-bold text-lg text-white mb-2">The World's End</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">இங்கிலாந்து நாட்டு பாரம்பரிய முறைப்படி பெர்ரி சாறுகள் மற்றும் புதினா கலந்த பானம்.</p>
             </div>
@@ -574,13 +628,13 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Mermaid Beach" data-diet="cooler">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=700&q=80" alt="Mermaid Beach" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-purple-600 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">Australia Fizz</span>
+            <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=700&q=80" alt="Mermaid Beach" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-purple-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">Australia Fizz</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹80</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-purple-400 mb-1.5">● COCONUT FIZZ</div>
+              <div class="text-xs font-bold text-purple-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> COCONUT FIZZ</div>
               <h4 class="font-bold text-lg text-white mb-2">Mermaid Beach</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">நீல நிற குராக்கோ, தேங்காய் சாறு, எலுமிச்சை மற்றும் புத்துணர்ச்சி தரும் நுரைத்த சோடா கலவை.</p>
             </div>
@@ -602,13 +656,13 @@
         
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Classic French Fries" data-diet="veg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=700&q=80" alt="Classic French Fries" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-amber-600 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">Belgium</span>
+            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=700&q=80" alt="Classic French Fries" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-amber-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">Belgium</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹50</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-emerald-400 mb-1.5">● PURE VEG</div>
+              <div class="text-xs font-bold text-emerald-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> PURE VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Classic French Fries</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">பெல்ஜியம் நாட்டு சுவையில் பொன்னிறமாக வறுத்தெடுக்கப்பட்ட மொறுமொறு உருளைக்கிழங்கு.</p>
             </div>
@@ -618,18 +672,13 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Peri Peri Fries" data-diet="veg">
           <div class="relative h-56 overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1576107232684-1279f3908594?w=700&q=80" 
-              alt="Peri Peri Fries" 
-              class="w-full h-full object-cover"
-              onerror="this.src='https://images.unsplash.com/photo-1585109649139-366815a0d713?w=700&q=80'"
-            >
-            <span class="absolute top-4 left-4 bg-orange-600 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">Africa Peri Peri</span>
+            <img src="https://images.unsplash.com/photo-1585109649139-366815a0d713?w=700&q=80" alt="Peri Peri Fries" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-orange-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">Africa Peri Peri</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹60</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-emerald-400 mb-1.5">● PURE VEG</div>
+              <div class="text-xs font-bold text-emerald-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> PURE VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Peri Peri Fries</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">ஆப்பிரிக்க நாட்டின் காரசாரமான பெரி பெரி மசாலா தூவப்பட்ட மொறுமொறு உருளைக்கிழங்கு.</p>
             </div>
@@ -639,13 +688,13 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Cheesy Chicken Fries" data-diet="nonveg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1585109649139-366815a0d713?w=700&q=80" alt="Cheesy Chicken Fries" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-red-600 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">Canada</span>
+            <img src="https://images.unsplash.com/photo-1593504049359-74330189a345?w=700&q=80" alt="Cheesy Chicken Fries" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-red-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">Canada</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹80</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-red-400 mb-1.5">▲ NON-VEG</div>
+              <div class="text-xs font-bold text-red-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> NON-VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Cheesy Chicken Fries</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">ஃபிரைஸ் மீது உருகிய பாலாடைக்கட்டியும் கோழி இறைச்சியும் தூவித் தரும் சுவை அட்டா!</p>
             </div>
@@ -655,13 +704,13 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Crumb Fried Chicken" data-diet="nonveg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=700&q=80" alt="Crumb Fried Chicken" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-amber-600 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">USA</span>
+            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=700&q=80" alt="Crumb Fried Chicken" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-amber-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">USA</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹80</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-red-400 mb-1.5">▲ NON-VEG</div>
+              <div class="text-xs font-bold text-red-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> NON-VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Crumb Fried Chicken</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">நறுமண மசாலாக்களுடன் மொறுமொறுப்பாக பொரித்தெடுக்கப்பட்ட அசல் க்ரம்ப் சிக்கன்.</p>
             </div>
@@ -671,13 +720,13 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Cheesy Jalapeno Fritters" data-diet="veg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=700&q=80" alt="Cheesy Jalapeno Fritters" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-emerald-600 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">Mexico Hit</span>
+            <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=700&q=80" alt="Cheesy Jalapeno Fritters" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-emerald-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">Mexico Hit</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹70</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-emerald-400 mb-1.5">● PURE VEG</div>
+              <div class="text-xs font-bold text-emerald-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> PURE VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Cheesy Jalapeno Fritters</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">காரசாரமான ஜலபெனோ மிளகாயில் உருகிய சீஸ் கலந்து பொரித்தெடுத்த ஃபிரிட்டர்ஸ்.</p>
             </div>
@@ -687,13 +736,14 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Mac 'n Cheese Ball" data-diet="veg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?w=700&q=80" alt="Mac 'n Cheese Ball" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-yellow-600 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">USA Tradition</span>
+            <!-- UPDATED EXACT IMAGE: Golden fried mac/cheese balls -->
+            <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=700&q=80" alt="Mac 'n Cheese Ball" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-yellow-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">USA Tradition</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹70</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-emerald-400 mb-1.5">● PURE VEG</div>
+              <div class="text-xs font-bold text-emerald-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> PURE VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Mac 'n Cheese Ball</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">பாலாடைக்கட்டி மற்றும் பாஸ்தா கலவையை உருண்டைகளாக்கி பொரித்தெடுத்த உணவு.</p>
             </div>
@@ -703,13 +753,14 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Corn Cheese Ball" data-diet="veg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=700&q=80" alt="Corn Cheese Ball" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-amber-500 text-black text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">USA Style</span>
+            <!-- UPDATED EXACT IMAGE: Fried corn croquettes/cheese balls -->
+            <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?w=700&q=80" alt="Corn Cheese Ball" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-amber-500/90 text-black text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">USA Style</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹70</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-emerald-400 mb-1.5">● PURE VEG</div>
+              <div class="text-xs font-bold text-emerald-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> PURE VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Corn Cheese Ball</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">இனிப்பு சோளம் மற்றும் சீஸ் கலவையை உருண்டையாக்கி மொறுமொறுப்பாக பொரித்தது.</p>
             </div>
@@ -719,13 +770,13 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Kentucky Fried Chicken" data-diet="nonveg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=700&q=80" alt="Kentucky Fried Chicken" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-red-600 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">Chef's Pick</span>
+            <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=700&q=80" alt="Kentucky Fried Chicken" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-red-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">Chef's Pick</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹80</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-red-400 mb-1.5">▲ NON-VEG</div>
+              <div class="text-xs font-bold text-red-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> NON-VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Kentucky Fried Chicken</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">நறுமண மசாலாக்களில் ஊறிய கோழி இறைச்சியை முறுக்கு போல மொறுமொறுப்பாய் பொரித்த உணவு!</p>
             </div>
@@ -735,13 +786,13 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Chicken Momos (Fried)" data-diet="nonveg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=700&q=80" alt="Chicken Momos" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-rose-600 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">Tibet</span>
+            <img src="https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?w=700&q=80" alt="Chicken Momos" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-rose-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">Tibet</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹70</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-red-400 mb-1.5">▲ NON-VEG</div>
+              <div class="text-xs font-bold text-red-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> NON-VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Chicken Momos (Fried)</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">திபெத் நாட்டின் பாரம்பரியமான மொறுமொறுப்பாக பொரித்தெடுக்கப்பட்ட சுவையான சிக்கன் மோமோஸ்!</p>
             </div>
@@ -751,13 +802,13 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Veg Momos (Fried)" data-diet="veg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=700&q=80" alt="Veg Momos" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-emerald-600 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">Tibet</span>
+            <img src="https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=700&q=80" alt="Veg Momos" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-emerald-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">Tibet</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹60</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-emerald-400 mb-1.5">● PURE VEG</div>
+              <div class="text-xs font-bold text-emerald-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> PURE VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Veg Momos (Fried)</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">திபெத் நாட்டின் பாரம்பரியமான மொறுமொறுப்பாக பொரித்தெடுக்கப்பட்ட சுவையான வெஜ் மோமோஸ்!</p>
             </div>
@@ -767,13 +818,13 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Chicken Nuggets" data-diet="nonveg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=700&q=80" alt="Chicken Nuggets" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-amber-600 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">USA</span>
+            <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=700&q=80" alt="Chicken Nuggets" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-amber-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">USA</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹70</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-red-400 mb-1.5">▲ NON-VEG</div>
+              <div class="text-xs font-bold text-red-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> NON-VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Chicken Nuggets</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">அமெரிக்க பாரம்பரிய உணவு; காரசாரமான சாஸுடன் பரிமாறப்படும் சிக்கன் நக்கெட்ஸ்.</p>
             </div>
@@ -783,13 +834,13 @@
 
         <div class="dish-card bg-cyberCard border border-white/10 rounded-2xl overflow-hidden luxury-card flex flex-col justify-between" data-name="Veg Nuggets" data-diet="veg">
           <div class="relative h-56 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=700&q=80" alt="Veg Nuggets" class="w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-emerald-600 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase">USA</span>
+            <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=700&q=80" alt="Veg Nuggets" class="w-full h-full object-cover" loading="lazy">
+            <span class="absolute top-4 left-4 bg-emerald-600/90 text-white text-[11px] font-cyber px-3 py-1.5 rounded font-bold uppercase backdrop-blur-sm">USA</span>
             <span class="absolute bottom-4 right-4 bg-black/85 backdrop-blur text-brandNeon font-cyber text-xl font-black px-3 py-1.5 rounded-lg border border-amber-400/30">₹60</span>
           </div>
           <div class="p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="text-xs font-bold text-emerald-400 mb-1.5">● PURE VEG</div>
+              <div class="text-xs font-bold text-emerald-400 mb-1.5 flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> PURE VEG</div>
               <h4 class="font-bold text-lg text-white mb-2">Veg Nuggets</h4>
               <p class="text-sm text-stone-400 font-tamil leading-relaxed mb-5">அமெரிக்க பாரம்பரிய உணவு; காரசாரமான சாஸுடன் பரிமாறப்படும் வெஜ் நக்கெட்ஸ்.</p>
             </div>
@@ -798,22 +849,6 @@
         </div>
 
       </div>
-    </div>
-  </section>
-
-  <section class="max-w-6xl mx-auto px-4 my-10">
-    <div class="bg-gradient-to-r from-zinc-900 via-neutral-900 to-zinc-900 border border-amber-400/40 rounded-2xl p-6 flex flex-row items-center justify-between gap-6 gold-glow">
-      <div class="text-left">
-        <div class="flex items-center justify-start gap-1 text-amber-400 text-sm mb-2">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-          <span class="text-white text-sm font-bold ml-2">Augstin's Street Counter</span>
-        </div>
-        <h4 class="font-luxury text-2xl text-white font-bold">SHARE YOUR DINING EXPERIENCE</h4>
-        <p class="text-sm text-stone-400 font-tamil mt-1">உங்கள் கருத்து எங்களுக்கு முக்கியம்! கூகுள் மேப்பில் உங்கள் 5-ஸ்டார் மதிப்பீட்டை பகிருங்கள்.</p>
-      </div>
-      <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="w-auto text-center bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-amber-400 hover:to-yellow-300 text-black font-extrabold px-8 py-4 rounded-xl transition text-base flex items-center justify-center gap-3 shadow-lg">
-        <i class="fa-brands fa-google text-xl"></i> Post Review on Google
-      </a>
     </div>
   </section>
 
@@ -827,7 +862,7 @@
           </h3>
           <p class="text-xs font-mono text-stone-400 mt-1">Street Burger Valliyur Terminal</p>
         </div>
-        <button onclick="toggleCart()" class="w-10 h-10 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center text-stone-400 hover:text-white transition text-lg">✕</button>
+        <button onclick="toggleCart()" class="w-10 h-10 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center text-stone-400 hover:text-white transition text-lg active:scale-95">✕</button>
       </div>
 
       <div class="flex items-center justify-between bg-zinc-900/90 border border-white/10 px-4 py-3 rounded-xl mb-4 text-sm">
@@ -835,7 +870,7 @@
           <i class="fa-solid fa-circle-user text-amber-400 text-base"></i>
           <span class="text-stone-300 truncate">Customer: <strong id="activeUserLabel" class="text-white">Guest</strong></span>
         </div>
-        <button onclick="handleUserLogout()" class="text-red-400 hover:text-red-300 font-bold text-xs flex items-center gap-1.5 shrink-0 ml-2">
+        <button onclick="handleUserLogout()" class="text-red-400 hover:text-red-300 font-bold text-xs flex items-center gap-1.5 shrink-0 ml-2 active:scale-95">
           <i class="fa-solid fa-right-from-bracket text-sm"></i> Reset / Logout
         </button>
       </div>
@@ -850,17 +885,17 @@
         
         <div>
           <label class="block text-xs text-stone-400 mb-1.5">Full Name *</label>
-          <input type="text" id="custName" oninput="persistCustomerData()" placeholder="Augstin" class="w-full bg-black/60 border border-white/20 rounded-lg px-4 py-3 text-sm text-white focus:border-brandGold outline-none">
+          <input type="text" id="custName" oninput="persistCustomerData()" placeholder="Augstin" class="w-full bg-black/60 border border-white/20 rounded-lg px-4 py-3 text-sm text-white focus:border-brandGold outline-none transition">
         </div>
 
         <div>
           <label class="block text-xs text-stone-400 mb-1.5">WhatsApp / Contact Phone *</label>
-          <input type="tel" id="custPhone" oninput="persistCustomerData()" placeholder="9342541946" class="w-full bg-black/60 border border-white/20 rounded-lg px-4 py-3 text-sm text-white focus:border-brandGold outline-none">
+          <input type="tel" id="custPhone" oninput="persistCustomerData()" placeholder="9342541946" class="w-full bg-black/60 border border-white/20 rounded-lg px-4 py-3 text-sm text-white focus:border-brandGold outline-none transition">
         </div>
 
         <div>
           <label class="block text-xs text-stone-400 mb-1.5">Order Mode</label>
-          <select id="custMode" onchange="handleModeChange()" class="w-full bg-black/60 border border-white/20 rounded-lg px-4 py-3 text-sm text-white focus:border-brandGold outline-none">
+          <select id="custMode" onchange="handleModeChange()" class="w-full bg-black/60 border border-white/20 rounded-lg px-4 py-3 text-sm text-white focus:border-brandGold outline-none transition">
             <option value="Takeaway / Shop Pickup">Takeaway / Shop Counter Pickup (Free)</option>
             <option value="Door Delivery (Valliyur Town)">Door Delivery (Valliyur Town +₹20)</option>
           </select>
@@ -868,12 +903,12 @@
 
         <div id="addressBox" class="hidden">
           <label class="block text-xs text-stone-400 mb-1.5">Valliyur Delivery Address *</label>
-          <textarea id="custAddress" oninput="persistCustomerData()" rows="2" placeholder="Street, Door No, Valliyur Landmark..." class="w-full bg-black/60 border border-white/20 rounded-lg px-4 py-3 text-sm text-white focus:border-brandGold outline-none"></textarea>
+          <textarea id="custAddress" oninput="persistCustomerData()" rows="2" placeholder="Street, Door No, Valliyur Landmark..." class="w-full bg-black/60 border border-white/20 rounded-lg px-4 py-3 text-sm text-white focus:border-brandGold outline-none transition"></textarea>
         </div>
 
         <div>
           <label class="block text-xs text-stone-400 mb-1.5">Chef Instructions</label>
-          <input type="text" id="custNotes" oninput="persistCustomerData()" placeholder="e.g. Less spicy, extra sauce" class="w-full bg-black/60 border border-white/20 rounded-lg px-4 py-3 text-sm text-white focus:border-brandGold outline-none">
+          <input type="text" id="custNotes" oninput="persistCustomerData()" placeholder="e.g. Less spicy, extra sauce" class="w-full bg-black/60 border border-white/20 rounded-lg px-4 py-3 text-sm text-white focus:border-brandGold outline-none transition">
         </div>
       </div>
 
@@ -896,27 +931,27 @@
         </div>
       </div>
 
-      <button onclick="checkoutToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 text-base shadow-[0_0_20px_rgba(16,185,129,0.3)] transition">
-        <i class="fa-brands fa-whatsapp text-xl"></i> Send Order to WhatsApp (93425 41946)
+      <button onclick="checkoutToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 text-base shadow-[0_0_20px_rgba(16,185,129,0.3)] transition active:scale-95">
+        <i class="fa-brands fa-whatsapp text-xl"></i> Send Order to WhatsApp
       </button>
     </div>
   </div>
 
-  <div id="stickyBottomBar" class="fixed bottom-0 inset-x-0 z-30 bg-zinc-950/95 backdrop-blur-md border-t border-amber-500/30 px-6 py-4 flex items-center justify-between max-w-4xl mx-auto rounded-t-2xl shadow-2xl transition duration-300">
+  <div id="stickyBottomBar" class="fixed bottom-0 inset-x-0 z-30 bg-zinc-950/95 backdrop-blur-xl border-t border-amber-500/30 px-6 py-4 flex items-center justify-between max-w-4xl mx-auto rounded-t-2xl shadow-2xl transition duration-300">
     <div class="flex items-center gap-4">
       <div class="relative">
-        <button onclick="toggleCart()" class="w-12 h-12 rounded-xl bg-brandRed flex items-center justify-center text-white text-xl shadow-lg">
+        <button onclick="toggleCart()" class="w-12 h-12 rounded-xl bg-brandRed flex items-center justify-center text-white text-xl shadow-lg active:scale-95 transition">
           <i class="fa-solid fa-bag-shopping"></i>
         </button>
-        <span id="floatingCountBadge" class="absolute -top-2 -right-2 bg-brandGold text-black font-extrabold text-xs w-6 h-6 rounded-full flex items-center justify-center">0</span>
+        <span id="floatingCountBadge" class="absolute -top-2 -right-2 bg-brandGold text-black font-extrabold text-xs w-6 h-6 rounded-full flex items-center justify-center transition-transform">0</span>
       </div>
       <div>
         <div class="text-xs text-stone-400 font-mono">Current Basket</div>
         <div id="floatingTotalBadge" class="font-cyber font-bold text-brandNeon text-lg leading-tight">₹0</div>
       </div>
     </div>
-    <button onclick="toggleCart()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold text-sm px-6 py-3.5 rounded-xl flex items-center gap-2 transition">
-      <span>Review & Order</span>
+    <button onclick="toggleCart()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold text-sm px-6 py-3.5 rounded-xl flex items-center gap-2 transition active:scale-95 shadow-lg">
+      <span>Review & Checkout</span>
       <i class="fa-solid fa-arrow-right text-xs"></i>
     </button>
   </div>
@@ -975,6 +1010,27 @@
       } catch(e) {}
     }
 
+    function showToast(message) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${message}`;
+      container.appendChild(toast);
+      
+      // Animate cart button
+      const cartBtn = document.getElementById('headerCartBtn');
+      cartBtn.classList.remove('animate-pop');
+      void cartBtn.offsetWidth; // trigger reflow
+      cartBtn.classList.add('animate-pop');
+
+      setTimeout(() => {
+        toast.style.animation = 'slideDown 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) reverse forwards';
+        setTimeout(() => {
+          toast.remove();
+        }, 400);
+      }, 2500);
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       loadStorageData();
       renderCart();
@@ -1008,6 +1064,7 @@
       }
       saveCart();
       renderCart();
+      showToast(`${name} added to order`);
     }
 
     function updateItemQtyByName(name, delta) {
@@ -1079,6 +1136,7 @@
       if (!drawer.classList.contains('hidden')) {
         drawer.classList.add('hidden');
       }
+      showToast("Session Cleared");
     }
 
     function loadStorageData() {
@@ -1122,19 +1180,19 @@
 
         if (!cartItem || cartItem.qty === 0) {
           container.innerHTML = `
-            <button onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price})" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-3 rounded-xl text-sm flex items-center justify-center gap-2 transition shadow-md">
+            <button onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price})" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-3 rounded-xl text-sm flex items-center justify-center gap-2 transition active:scale-95 shadow-md border border-white/5">
               <i class="fa-solid fa-cart-plus"></i> Add To Order
             </button>
           `;
         } else {
           container.innerHTML = `
-            <div class="flex items-center justify-between bg-zinc-900 border border-brandGold/60 rounded-xl p-1.5 shadow-lg">
-              <button onclick="updateItemQtyByName('${item.name.replace(/'/g, "\\'")}', -1)" class="w-10 h-10 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white font-black text-lg flex items-center justify-center transition">-</button>
+            <div class="flex items-center justify-between bg-zinc-900 border border-brandGold/60 rounded-xl p-1.5 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+              <button onclick="updateItemQtyByName('${item.name.replace(/'/g, "\\'")}', -1)" class="w-10 h-10 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white font-black text-lg flex items-center justify-center transition active:scale-95">-</button>
               <div class="flex flex-col items-center leading-none px-2">
                 <span class="text-sm font-black text-brandNeon">${cartItem.qty} in Cart</span>
                 <span class="text-[10px] text-stone-400 mt-1">₹${cartItem.qty * item.price}</span>
               </div>
-              <button onclick="updateItemQtyByName('${item.name.replace(/'/g, "\\'")}', 1)" class="w-10 h-10 rounded-lg bg-brandRed hover:bg-red-500 text-white font-black text-lg flex items-center justify-center transition">+</button>
+              <button onclick="updateItemQtyByName('${item.name.replace(/'/g, "\\'")}', 1)" class="w-10 h-10 rounded-lg bg-brandRed hover:bg-red-500 text-white font-black text-lg flex items-center justify-center transition active:scale-95">+</button>
             </div>
           `;
         }
@@ -1185,9 +1243,9 @@
               <div class="text-xs text-amber-400 font-mono mt-0.5">₹${item.price} × ${item.qty} = ₹${itemSum}</div>
             </div>
             <div class="flex items-center gap-2 bg-black/60 px-2 py-1.5 rounded-lg border border-white/10 shrink-0">
-              <button onclick="changeQty(${index}, -1)" class="w-8 h-8 rounded bg-zinc-800 hover:bg-zinc-700 text-sm text-white font-bold flex items-center justify-center">-</button>
+              <button onclick="changeQty(${index}, -1)" class="w-8 h-8 rounded bg-zinc-800 hover:bg-zinc-700 text-sm text-white font-bold flex items-center justify-center transition active:scale-95">-</button>
               <span class="text-sm font-black text-brandNeon px-3">${item.qty}</span>
-              <button onclick="changeQty(${index}, 1)" class="w-8 h-8 rounded bg-zinc-800 hover:bg-zinc-700 text-sm text-white font-bold flex items-center justify-center">+</button>
+              <button onclick="changeQty(${index}, 1)" class="w-8 h-8 rounded bg-brandRed hover:bg-red-500 text-sm text-white font-bold flex items-center justify-center transition active:scale-95">+</button>
             </div>
           </div>
         `;
@@ -1256,8 +1314,42 @@
       window.open(`https://wa.me/919342541946?text=${text}`, '_blank');
     }
 
+    // NEW: Function to reset all filters back to absolute defaults
+    function resetAllFilters() {
+      currentCategory = 'all';
+      currentDiet = 'all';
+      document.getElementById('menuSearchInput').value = '';
+      
+      document.querySelectorAll('.cat-tab').forEach(b => {
+        b.classList.remove('bg-brandGold', 'text-black');
+        b.classList.add('bg-cyberCard', 'text-stone-300');
+      });
+      document.getElementById('tab-all').classList.add('bg-brandGold', 'text-black');
+      document.getElementById('tab-all').classList.remove('bg-cyberCard', 'text-stone-300');
+
+      document.querySelectorAll('.diet-btn').forEach(b => {
+        b.classList.remove('bg-brandGold', 'text-black');
+        b.classList.add('bg-black/50', 'text-stone-300');
+      });
+      document.getElementById('diet-all').classList.add('bg-brandGold', 'text-black');
+      document.getElementById('diet-all').classList.remove('bg-black/50', 'text-stone-300');
+
+      applyFilters();
+    }
+
     function filterCategory(cat) {
       currentCategory = cat;
+      // If user clicks "All Sections", reset Diet as well for UX clarity
+      if (cat === 'all') {
+        currentDiet = 'all';
+        document.querySelectorAll('.diet-btn').forEach(b => {
+          b.classList.remove('bg-brandGold', 'text-black');
+          b.classList.add('bg-black/50', 'text-stone-300');
+        });
+        document.getElementById('diet-all').classList.add('bg-brandGold', 'text-black');
+        document.getElementById('diet-all').classList.remove('bg-black/50', 'text-stone-300');
+      }
+
       document.querySelectorAll('.cat-tab').forEach(b => {
         b.classList.remove('bg-brandGold', 'text-black');
         b.classList.add('bg-cyberCard', 'text-stone-300');
@@ -1272,6 +1364,17 @@
 
     function setDietFilter(diet) {
       currentDiet = diet;
+      // If user clicks "All Diet", reset Category as well to show everything
+      if (diet === 'all') {
+        currentCategory = 'all';
+        document.querySelectorAll('.cat-tab').forEach(b => {
+          b.classList.remove('bg-brandGold', 'text-black');
+          b.classList.add('bg-cyberCard', 'text-stone-300');
+        });
+        document.getElementById('tab-all').classList.add('bg-brandGold', 'text-black');
+        document.getElementById('tab-all').classList.remove('bg-cyberCard', 'text-stone-300');
+      }
+
       document.querySelectorAll('.diet-btn').forEach(b => {
         b.classList.remove('bg-brandGold', 'text-black');
         b.classList.add('bg-black/50', 'text-stone-300');
@@ -1287,6 +1390,7 @@
     function applyFilters() {
       const q = document.getElementById('menuSearchInput').value.toLowerCase().trim();
       const groups = document.querySelectorAll('.menu-group');
+      let totalVisibleDishes = 0;
 
       groups.forEach(group => {
         const groupCat = group.getAttribute('data-category');
@@ -1302,9 +1406,10 @@
           const matchesQuery = dishName.includes(q);
           const matchesDiet = (currentDiet === 'all' || currentDiet === dishDiet);
 
-          if (matchesQuery && matchesDiet) {
+          if (matchesQuery && matchesDiet && matchesCategory) {
             dish.style.display = 'flex';
             anyVisibleDish = true;
+            totalVisibleDishes++;
           } else {
             dish.style.display = 'none';
           }
@@ -1316,6 +1421,14 @@
           group.style.display = 'none';
         }
       });
+
+      // Show/Hide Empty State
+      const emptyState = document.getElementById('emptyState');
+      if (totalVisibleDishes === 0) {
+        emptyState.classList.remove('hidden');
+      } else {
+        emptyState.classList.add('hidden');
+      }
     }
   </script>
 </body>

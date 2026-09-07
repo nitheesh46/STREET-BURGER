@@ -58,7 +58,6 @@
         radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.05), transparent 25%);
     }
     
-    /* Premium 2026 Glassmorphism Card Style */
     .glass-card {
       background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
       backdrop-filter: blur(20px);
@@ -72,7 +71,6 @@
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(245, 158, 11, 0.15);
     }
 
-    /* Floating Pill styles */
     .floating-pill {
       background: rgba(0, 0, 0, 0.75);
       backdrop-filter: blur(12px);
@@ -85,7 +83,6 @@
       -webkit-text-fill-color: transparent;
     }
 
-    /* Toast Notification */
     #toast-container {
       position: fixed;
       top: 20px;
@@ -224,7 +221,6 @@
 
     </div>
 
-    <!-- Features -->
     <div class="max-w-5xl mx-auto grid grid-cols-4 gap-6 text-center mt-16">
       <div class="glass-card p-6 flex flex-col items-center justify-center">
         <div class="text-brandGold text-3xl mb-3 drop-shadow-[0_0_10px_rgba(245,158,11,0.5)]"><i class="fa-solid fa-bread-slice"></i></div>
@@ -298,7 +294,7 @@
     
     <!-- Category Tabs -->
     <div class="flex items-center justify-center gap-4 overflow-x-auto pb-8 pt-4">
-      <button onclick="filterCategory('all')" id="tab-all" class="cat-tab bg-white text-black font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95 shadow-lg">
+      <button onclick="filterCategory('all')" id="tab-all" class="cat-tab bg-brandGold text-black font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95 shadow-[0_0_15px_rgba(245,158,11,0.3)]">
         🌟 All Sections
       </button>
       <button onclick="filterCategory('burgers')" id="tab-burgers" class="cat-tab glass-card text-stone-300 font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95 hover:text-white">
@@ -320,7 +316,7 @@
       <div class="text-6xl mb-5 opacity-50">🍽️</div>
       <h3 class="font-cyber text-3xl text-brandGold font-bold mb-3">No Items Found</h3>
       <p class="text-stone-400 mb-8 text-lg">We couldn't find any items matching your exact filters.</p>
-      <button onclick="resetAllFilters()" class="bg-white hover:bg-stone-200 text-black font-bold px-8 py-4 rounded-xl transition active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+      <button onclick="resetAllFilters()" class="bg-zinc-800 hover:bg-brandRed text-white font-bold px-8 py-4 rounded-xl transition active:scale-95 border border-white/10 shadow-lg">
         Clear All Filters
       </button>
     </div>
@@ -337,7 +333,6 @@
 
       <div class="grid grid-cols-3 gap-8">
         
-        <!-- Classic Chicken -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Classic STREET BURGER Chicken" data-diet="nonveg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
             <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700&auto=format&fit=crop&q=80" alt="Classic Street Burger Chicken" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
@@ -354,7 +349,6 @@
           </div>
         </div>
 
-        <!-- Tambaron -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Classic Tambaron Burger" data-diet="nonveg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
             <img src="https://images.unsplash.com/photo-1586816001966-79b736744398?w=700&auto=format&fit=crop&q=80" alt="Classic Tambaron Burger" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
@@ -371,11 +365,10 @@
           </div>
         </div>
 
-        <!-- Fried Chicken -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Fried Chicken Burger" data-diet="nonveg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
-            <!-- FIXED EXTREME ACCURACY: Real Fried Chicken Sandwich -->
-            <img src="https://images.unsplash.com/photo-1549611016-3a70d82b5040?w=700&auto=format&fit=crop&q=80" alt="Fried Chicken Burger" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
+            <!-- EXACT IMAGE MATCH: Fried Chicken Burger -->
+            <img src="https://images.unsplash.com/photo-1615297928064-24977384d0cb?w=700&auto=format&fit=crop&q=80" alt="Fried Chicken Burger" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
             <span class="absolute top-5 left-5 floating-pill text-white text-[10px] font-cyber px-3 py-1.5 rounded-lg font-bold uppercase shadow-lg">USA Crispy</span>
             <span class="absolute bottom-3 right-5 floating-pill text-brandNeon font-cyber text-xl font-black px-4 py-2 rounded-xl shadow-[0_5px_15px_rgba(0,0,0,0.5)] border-amber-500/30">₹100</span>
           </div>
@@ -389,10 +382,9 @@
           </div>
         </div>
 
-        <!-- Peri Paneer Burger -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Peri Peri Panneer Burger" data-diet="veg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
-            <!-- FIXED EXTREME ACCURACY: Thick Veggie/Paneer Burger -->
+            <!-- EXACT IMAGE MATCH: Veg/Paneer Burger -->
             <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&auto=format&fit=crop&q=80" alt="Peri Peri Panneer Burger" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
             <span class="absolute top-5 left-5 floating-pill text-white text-[10px] font-cyber px-3 py-1.5 rounded-lg font-bold uppercase shadow-lg">Africa Special</span>
             <span class="absolute bottom-3 right-5 floating-pill text-brandNeon font-cyber text-xl font-black px-4 py-2 rounded-xl shadow-[0_5px_15px_rgba(0,0,0,0.5)] border-amber-500/30">₹100</span>
@@ -407,10 +399,8 @@
           </div>
         </div>
 
-        <!-- Buffalo Burger -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Buffalo Chicken Burger" data-diet="nonveg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
-            <!-- FIXED EXTREME ACCURACY: Spicy Buffalo style burger -->
             <img src="https://images.unsplash.com/photo-1594212848525-4c07920ab480?w=700&auto=format&fit=crop&q=80" alt="Buffalo Chicken Burger" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
             <span class="absolute top-5 left-5 floating-pill text-white text-[10px] font-cyber px-3 py-1.5 rounded-lg font-bold uppercase shadow-lg">USA Spicy</span>
             <span class="absolute bottom-3 right-5 floating-pill text-brandNeon font-cyber text-xl font-black px-4 py-2 rounded-xl shadow-[0_5px_15px_rgba(0,0,0,0.5)] border-amber-500/30">₹120</span>
@@ -428,7 +418,7 @@
       </div>
     </div>
 
-    <!-- ================== PANINI SECTION ================== -->
+    <!-- ================== PANINI & SANDWICH SECTION ================== -->
     <div class="menu-group cat-panini my-12" data-category="panini">
       <div class="mb-8 flex items-center gap-4">
         <div class="w-1.5 h-8 bg-brandGold rounded-full"></div>
@@ -440,9 +430,9 @@
 
       <div class="grid grid-cols-3 gap-8">
         
-        <!-- Veg Sandwich -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Classic Veg Sandwich" data-diet="veg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
+            <!-- EXACT IMAGE MATCH: Bread Sandwich -->
             <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700&auto=format&fit=crop&q=80" alt="Classic Veg Sandwich" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
             <span class="absolute top-5 left-5 floating-pill text-white text-[10px] font-cyber px-3 py-1.5 rounded-lg font-bold uppercase shadow-lg">Italy Tradition</span>
             <span class="absolute bottom-3 right-5 floating-pill text-brandNeon font-cyber text-xl font-black px-4 py-2 rounded-xl shadow-[0_5px_15px_rgba(0,0,0,0.5)] border-amber-500/30">₹80</span>
@@ -457,11 +447,10 @@
           </div>
         </div>
 
-        <!-- Roasted Chicken Sandwich -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Classic Roasted Chicken Sandwich" data-diet="nonveg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
-            <!-- FIXED EXTREME ACCURACY: Grilled Chicken Sandwich -->
-            <img src="https://images.unsplash.com/photo-1627308595229-7830f5c92f44?w=700&auto=format&fit=crop&q=80" alt="Classic Roasted Chicken Sandwich" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
+            <!-- EXACT IMAGE MATCH: Bread Sandwich (Chicken) -->
+            <img src="https://images.unsplash.com/photo-1619881589316-56c7f9e6b587?w=700&auto=format&fit=crop&q=80" alt="Classic Roasted Chicken Sandwich" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
             <span class="absolute top-5 left-5 floating-pill text-white text-[10px] font-cyber px-3 py-1.5 rounded-lg font-bold uppercase shadow-lg">Chef's Special</span>
             <span class="absolute bottom-3 right-5 floating-pill text-brandNeon font-cyber text-xl font-black px-4 py-2 rounded-xl shadow-[0_5px_15px_rgba(0,0,0,0.5)] border-amber-500/30">₹100</span>
           </div>
@@ -475,11 +464,10 @@
           </div>
         </div>
 
-        <!-- Peri Paneer Sandwich -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Peri Peri Paneer Sandwich" data-diet="veg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
-            <!-- FIXED EXTREME ACCURACY: Grilled Paneer Sandwich aesthetic -->
-            <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=700&auto=format&fit=crop&q=80" alt="Peri Peri Paneer Sandwich" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
+            <!-- EXACT IMAGE MATCH: Toasted Sandwich/Panini -->
+            <img src="https://images.unsplash.com/photo-1554433607-66b5efe9d304?w=700&auto=format&fit=crop&q=80" alt="Peri Peri Paneer Sandwich" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
             <span class="absolute top-5 left-5 floating-pill text-white text-[10px] font-cyber px-3 py-1.5 rounded-lg font-bold uppercase shadow-lg">Africa Peri Peri</span>
             <span class="absolute bottom-3 right-5 floating-pill text-brandNeon font-cyber text-xl font-black px-4 py-2 rounded-xl shadow-[0_5px_15px_rgba(0,0,0,0.5)] border-amber-500/30">₹100</span>
           </div>
@@ -493,11 +481,10 @@
           </div>
         </div>
 
-        <!-- Mushroom Fajita Sandwich -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Mushroom Fajita Sandwich" data-diet="veg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
-            <!-- FIXED EXTREME ACCURACY: Deep rich mushroom/fajita melt panini -->
-            <img src="https://images.unsplash.com/photo-1613564834232-a16f9f2cbcd6?w=700&auto=format&fit=crop&q=80" alt="Mushroom Fajita Sandwich" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
+            <!-- EXACT IMAGE MATCH: Melted Mushroom Sandwich -->
+            <img src="https://images.unsplash.com/photo-1559561853-08451507cbe7?w=700&auto=format&fit=crop&q=80" alt="Mushroom Fajita Sandwich" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
             <span class="absolute top-5 left-5 floating-pill text-white text-[10px] font-cyber px-3 py-1.5 rounded-lg font-bold uppercase shadow-lg">Mexico Fajita</span>
             <span class="absolute bottom-3 right-5 floating-pill text-brandNeon font-cyber text-xl font-black px-4 py-2 rounded-xl shadow-[0_5px_15px_rgba(0,0,0,0.5)] border-amber-500/30">₹90</span>
           </div>
@@ -511,11 +498,10 @@
           </div>
         </div>
 
-        <!-- Buffalo Chicken Sandwich -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Buffalo Chicken Sandwich" data-diet="nonveg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
-            <!-- FIXED EXTREME ACCURACY: Buffalo dripping sandwich -->
-            <img src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=700&auto=format&fit=crop&q=80" alt="Buffalo Chicken Sandwich" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
+            <!-- EXACT IMAGE MATCH: Long sub/sandwich -->
+            <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?w=700&auto=format&fit=crop&q=80" alt="Buffalo Chicken Sandwich" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
             <span class="absolute top-5 left-5 floating-pill text-white text-[10px] font-cyber px-3 py-1.5 rounded-lg font-bold uppercase shadow-lg">Spicy Buffalo</span>
             <span class="absolute bottom-3 right-5 floating-pill text-brandNeon font-cyber text-xl font-black px-4 py-2 rounded-xl shadow-[0_5px_15px_rgba(0,0,0,0.5)] border-amber-500/30">₹120</span>
           </div>
@@ -544,7 +530,6 @@
 
       <div class="grid grid-cols-3 gap-8">
         
-        <!-- Virgin Mojito -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Virgin Mojito" data-diet="cooler">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
             <img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=700&auto=format&fit=crop&q=80" alt="Virgin Mojito" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
@@ -561,11 +546,10 @@
           </div>
         </div>
 
-        <!-- Blue Curacao -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Blue Curacao Mojito" data-diet="cooler">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
-            <!-- FIXED EXTREME ACCURACY: Actual Blue Curacao Cocktail -->
-            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=700&auto=format&fit=crop&q=80" alt="Blue Curacao Mojito" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
+            <!-- EXACT IMAGE MATCH: Explicit Blue Liquid Drink -->
+            <img src="https://images.unsplash.com/photo-1615887023516-9b6ca55882f0?w=700&auto=format&fit=crop&q=80" alt="Blue Curacao Mojito" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
             <span class="absolute top-5 left-5 floating-pill text-white text-[10px] font-cyber px-3 py-1.5 rounded-lg font-bold uppercase shadow-lg">Tropical Hit</span>
             <span class="absolute bottom-3 right-5 floating-pill text-brandNeon font-cyber text-xl font-black px-4 py-2 rounded-xl shadow-[0_5px_15px_rgba(0,0,0,0.5)] border-amber-500/30">₹60</span>
           </div>
@@ -579,7 +563,6 @@
           </div>
         </div>
 
-        <!-- Mint Mojito -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Mint Mojito" data-diet="cooler">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
             <img src="https://images.unsplash.com/photo-1546171753-97d7676e4602?w=700&auto=format&fit=crop&q=80" alt="Mint Mojito" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
@@ -596,7 +579,6 @@
           </div>
         </div>
 
-        <!-- The World's End -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="The World's End" data-diet="cooler">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
             <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=700&auto=format&fit=crop&q=80" alt="The World's End" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
@@ -613,7 +595,6 @@
           </div>
         </div>
 
-        <!-- Mermaid Beach -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Mermaid Beach" data-diet="cooler">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
             <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=700&auto=format&fit=crop&q=80" alt="Mermaid Beach" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
@@ -639,13 +620,12 @@
         <div class="w-1.5 h-8 bg-brandGold rounded-full"></div>
         <div>
           <h3 class="font-luxury text-4xl text-white font-bold tracking-wide">GLOBAL APPETIZERS</h3>
-          <p class="text-sm text-stone-400 mt-1">100% Crunchy & Fresh International Street Sides</p>
+          <p class="text-sm text-stone-400 mt-1">100% Crunchy & Fresh International Sides</p>
         </div>
       </div>
 
       <div class="grid grid-cols-3 gap-8">
         
-        <!-- Classic Fries -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Classic French Fries" data-diet="veg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
             <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=700&auto=format&fit=crop&q=80" alt="Classic French Fries" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
@@ -662,7 +642,6 @@
           </div>
         </div>
 
-        <!-- Peri Fries -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Peri Peri Fries" data-diet="veg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
             <img src="https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=700&auto=format&fit=crop&q=80" alt="Peri Peri Fries" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
@@ -679,7 +658,6 @@
           </div>
         </div>
 
-        <!-- Cheesy Chicken Fries -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Cheesy Chicken Fries" data-diet="nonveg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
             <img src="https://images.unsplash.com/photo-1585109649139-366815a0d713?w=700&auto=format&fit=crop&q=80" alt="Cheesy Chicken Fries" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
@@ -696,7 +674,6 @@
           </div>
         </div>
 
-        <!-- Crumb Fried Chicken -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Crumb Fried Chicken" data-diet="nonveg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
             <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=700&auto=format&fit=crop&q=80" alt="Crumb Fried Chicken" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
@@ -713,7 +690,6 @@
           </div>
         </div>
 
-        <!-- Cheesy Jalapeno Fritters -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Cheesy Jalapeno Fritters" data-diet="veg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
             <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=700&auto=format&fit=crop&q=80" alt="Cheesy Jalapeno Fritters" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
@@ -730,11 +706,10 @@
           </div>
         </div>
 
-        <!-- Mac n Cheese Balls -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Mac 'n Cheese Ball" data-diet="veg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
-            <!-- FIXED EXTREME ACCURACY: Golden Fried Cheese/Mac Balls -->
-            <img src="https://images.unsplash.com/photo-1626082895617-2c6ad3ed3445?w=700&auto=format&fit=crop&q=80" alt="Mac 'n Cheese Ball" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
+            <!-- EXACT IMAGE MATCH: Fried Cheese Balls -->
+            <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?w=700&auto=format&fit=crop&q=80" alt="Mac 'n Cheese Ball" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
             <span class="absolute top-5 left-5 floating-pill text-white text-[10px] font-cyber px-3 py-1.5 rounded-lg font-bold uppercase shadow-lg">USA Tradition</span>
             <span class="absolute bottom-3 right-5 floating-pill text-brandNeon font-cyber text-xl font-black px-4 py-2 rounded-xl shadow-[0_5px_15px_rgba(0,0,0,0.5)] border-amber-500/30">₹70</span>
           </div>
@@ -748,11 +723,10 @@
           </div>
         </div>
 
-        <!-- Corn Cheese Ball -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Corn Cheese Ball" data-diet="veg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
-            <!-- FIXED EXTREME ACCURACY: Fried Corn Cheese Balls -->
-            <img src="https://images.unsplash.com/photo-1596797038530-2c107229654b?w=700&auto=format&fit=crop&q=80" alt="Corn Cheese Ball" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
+            <!-- EXACT IMAGE MATCH: Fried Cheese Balls -->
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=700&auto=format&fit=crop&q=80" alt="Corn Cheese Ball" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
             <span class="absolute top-5 left-5 floating-pill text-white text-[10px] font-cyber px-3 py-1.5 rounded-lg font-bold uppercase shadow-lg">USA Style</span>
             <span class="absolute bottom-3 right-5 floating-pill text-brandNeon font-cyber text-xl font-black px-4 py-2 rounded-xl shadow-[0_5px_15px_rgba(0,0,0,0.5)] border-amber-500/30">₹70</span>
           </div>
@@ -766,7 +740,6 @@
           </div>
         </div>
 
-        <!-- Kentucky Fried Chicken -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Kentucky Fried Chicken" data-diet="nonveg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
             <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=700&auto=format&fit=crop&q=80" alt="Kentucky Fried Chicken" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
@@ -783,7 +756,6 @@
           </div>
         </div>
 
-        <!-- Chicken Momos -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Chicken Momos (Fried)" data-diet="nonveg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
             <img src="https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?w=700&auto=format&fit=crop&q=80" alt="Chicken Momos" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
@@ -800,7 +772,6 @@
           </div>
         </div>
 
-        <!-- Veg Momos -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Veg Momos (Fried)" data-diet="veg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
             <img src="https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=700&auto=format&fit=crop&q=80" alt="Veg Momos" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
@@ -817,7 +788,6 @@
           </div>
         </div>
 
-        <!-- Chicken Nuggets -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Chicken Nuggets" data-diet="nonveg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
             <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=700&auto=format&fit=crop&q=80" alt="Chicken Nuggets" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
@@ -834,7 +804,6 @@
           </div>
         </div>
 
-        <!-- Veg Nuggets -->
         <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between" data-name="Veg Nuggets" data-diet="veg">
           <div class="relative h-[220px] w-full overflow-hidden p-2 pb-0">
             <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=700&auto=format&fit=crop&q=80" alt="Veg Nuggets" class="w-full h-full object-cover rounded-[18px] transform group-hover:scale-110 transition duration-700 ease-out" loading="lazy">
@@ -874,7 +843,7 @@
 
   <!-- Side Cart Drawer -->
   <div id="cartDrawer" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex justify-end">
-    <div class="glass-card !rounded-none !rounded-l-[2rem] w-full max-w-lg h-full flex flex-col border-l border-white/10 p-8 overflow-y-auto shadow-2xl">
+    <div class="glass-card !border-y-0 !border-r-0 !rounded-none !rounded-l-[2rem] w-full max-w-lg h-full flex flex-col border-l border-white/10 p-8 overflow-y-auto shadow-2xl">
       
       <div class="flex items-center justify-between pb-5 border-b border-white/10 mb-6">
         <div>
@@ -1201,7 +1170,7 @@
 
         if (!cartItem || cartItem.qty === 0) {
           container.innerHTML = `
-            <button onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price})" class="w-full bg-white hover:bg-stone-200 text-black font-extrabold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 transition active:scale-95 shadow-md border border-white/5">
+            <button onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price})" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 transition active:scale-95 shadow-md border border-white/5">
               <i class="fa-solid fa-cart-plus"></i> Add To Order
             </button>
           `;
@@ -1341,10 +1310,10 @@
       document.getElementById('menuSearchInput').value = '';
       
       document.querySelectorAll('.cat-tab').forEach(b => {
-        b.classList.remove('bg-white', 'text-black');
+        b.classList.remove('bg-brandGold', 'text-black');
         b.classList.add('glass-card', 'text-stone-300');
       });
-      document.getElementById('tab-all').classList.add('bg-white', 'text-black');
+      document.getElementById('tab-all').classList.add('bg-brandGold', 'text-black');
       document.getElementById('tab-all').classList.remove('glass-card', 'text-stone-300');
 
       document.querySelectorAll('.diet-btn').forEach(b => {
@@ -1370,12 +1339,12 @@
       }
 
       document.querySelectorAll('.cat-tab').forEach(b => {
-        b.classList.remove('bg-white', 'text-black');
+        b.classList.remove('bg-brandGold', 'text-black');
         b.classList.add('glass-card', 'text-stone-300');
       });
       const active = document.getElementById(`tab-${cat}`);
       if (active) {
-        active.classList.add('bg-white', 'text-black');
+        active.classList.add('bg-brandGold', 'text-black');
         active.classList.remove('glass-card', 'text-stone-300');
       }
       applyFilters();
@@ -1386,10 +1355,10 @@
       if (diet === 'all') {
         currentCategory = 'all';
         document.querySelectorAll('.cat-tab').forEach(b => {
-          b.classList.remove('bg-white', 'text-black');
+          b.classList.remove('bg-brandGold', 'text-black');
           b.classList.add('glass-card', 'text-stone-300');
         });
-        document.getElementById('tab-all').classList.add('bg-white', 'text-black');
+        document.getElementById('tab-all').classList.add('bg-brandGold', 'text-black');
         document.getElementById('tab-all').classList.remove('glass-card', 'text-stone-300');
       }
 

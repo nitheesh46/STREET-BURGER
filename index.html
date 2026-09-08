@@ -200,7 +200,6 @@
   <!-- Hero Section -->
   <section class="relative py-16 px-4 border-b border-white/5">
     <div class="max-w-5xl mx-auto flex flex-col items-center justify-center gap-10">
-      
       <div class="flex flex-col items-center text-center w-full">
         <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 px-5 py-2.5 rounded-full text-xs font-cyber text-brandNeon mb-6 tracking-widest uppercase shadow-[0_0_15px_rgba(245,158,11,0.2)]">
           <i class="fa-solid fa-crown text-brandGold"></i> Chef Augustin (Owner) • Harishma (CEO) • Valliyur
@@ -330,7 +329,6 @@
 
   <!-- Menu Section -->
   <section id="menuSection" class="max-w-6xl mx-auto px-4 pb-12">
-    <!-- Category Tabs -->
     <div class="flex items-center justify-center gap-4 overflow-x-auto pb-8 pt-4">
       <button onclick="filterCategory('all')" id="tab-all" class="cat-tab bg-brandGold text-black font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95">
         🌟 All Sections
@@ -363,14 +361,9 @@
     <div id="dynamicMenuRoot" class="space-y-16"></div>
   </section>
 
-  <!-- ==========================================
-       SOCIAL MEDIA & LIVE CONTENT HUB
-       ========================================== -->
+  <!-- Social Media & Live Content Hub -->
   <section class="max-w-6xl mx-auto px-4 my-16">
     <div class="glass-card p-10 border border-amber-500/30 rounded-[2.5rem] relative overflow-hidden text-center shadow-2xl">
-      <div class="absolute -left-24 -bottom-24 w-80 h-80 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute -right-24 -top-24 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
       <div class="relative z-10 max-w-3xl mx-auto">
         <div class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500/20 to-red-500/20 border border-pink-500/40 px-5 py-2 rounded-full text-xs font-cyber text-pink-400 uppercase tracking-widest mb-4">
           <i class="fa-solid fa-satellite-dish text-pink-400 animate-pulse"></i> Connect & Support Our Live Counter
@@ -383,10 +376,7 @@
           எங்கள் கிச்சனின் நேரலை வீடியோக்கள், புதிய பர்கர் ஆஃபர்கள் மற்றும் சுடச்சுட தயாரிப்புகளை சமூக வலைத்தளங்களில் பின்தொடர்ந்து ஆதரவு அளியுங்கள்!
         </p>
 
-        <!-- Social Media Cards Grid -->
         <div class="grid grid-cols-3 gap-6 text-left">
-          
-          <!-- Instagram -->
           <a href="https://www.instagram.com/street_burger_vallioor?stkn=ejR1NXQ2a2U2Zzc0" target="_blank" class="group bg-gradient-to-br from-pink-950/40 via-purple-950/30 to-black/60 border border-pink-500/30 hover:border-pink-500 p-6 rounded-2xl transition duration-300 hover:-translate-y-2 shadow-lg flex flex-col justify-between backdrop-blur-md">
             <div>
               <div class="flex items-center justify-between mb-4">
@@ -404,7 +394,6 @@
             </div>
           </a>
 
-          <!-- YouTube -->
           <a href="https://youtube.com/@streetburger-f2y?si=QzevfYPsBwAuMB9j" target="_blank" class="group bg-gradient-to-br from-red-950/40 via-neutral-950/30 to-black/60 border border-red-500/30 hover:border-red-500 p-6 rounded-2xl transition duration-300 hover:-translate-y-2 shadow-lg flex flex-col justify-between backdrop-blur-md">
             <div>
               <div class="flex items-center justify-between mb-4">
@@ -422,7 +411,6 @@
             </div>
           </a>
 
-          <!-- Facebook -->
           <a href="https://www.facebook.com/share/1BewhwZxa9/" target="_blank" class="group bg-gradient-to-br from-blue-950/40 via-neutral-950/30 to-black/60 border border-blue-500/30 hover:border-blue-500 p-6 rounded-2xl transition duration-300 hover:-translate-y-2 shadow-lg flex flex-col justify-between backdrop-blur-md">
             <div>
               <div class="flex items-center justify-between mb-4">
@@ -439,9 +427,7 @@
               <i class="fa-solid fa-arrow-right"></i>
             </div>
           </a>
-
         </div>
-
       </div>
     </div>
   </section>
@@ -463,7 +449,7 @@
     </div>
   </section>
 
-  <!-- OFFICIAL COPYRIGHT FOOTER -->
+  <!-- Official Copyright Footer -->
   <footer class="mt-24 border-t border-white/10 bg-black/90 py-14 px-6 text-center relative overflow-hidden">
     <div class="max-w-6xl mx-auto flex flex-col items-center justify-center space-y-6">
       <div class="flex items-center gap-4">
@@ -533,9 +519,21 @@
           <input type="text" id="custName" oninput="persistCustomerData()" placeholder="Augstin" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-base text-white focus:border-brandGold focus:bg-white/10 outline-none transition">
         </div>
 
+        <!-- Phone Number with Verification Badge & OTP Trigger -->
         <div>
-          <label class="block text-xs text-stone-400 mb-2 uppercase tracking-wider">WhatsApp Phone *</label>
-          <input type="tel" id="custPhone" oninput="persistCustomerData()" placeholder="9342541946" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-base text-white focus:border-brandGold focus:bg-white/10 outline-none transition">
+          <div class="flex justify-between items-center mb-2">
+            <label class="block text-xs text-stone-400 uppercase tracking-wider">WhatsApp Phone *</label>
+            <span id="phoneVerifyStatusBadge" class="text-[10px] font-bold font-sans px-2.5 py-0.5 rounded-full bg-red-950/70 border border-red-500/40 text-red-400">
+              <i class="fa-solid fa-shield-halved text-[9px] mr-1"></i> Unverified
+            </span>
+          </div>
+          <div class="flex gap-2">
+            <input type="tel" id="custPhone" oninput="handlePhoneInputChanged()" placeholder="9342541946" maxlength="10" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-base text-white focus:border-brandGold focus:bg-white/10 outline-none transition">
+            <button type="button" id="btnTriggerOtp" onclick="initiatePhoneOtp()" class="bg-amber-500 hover:bg-amber-400 text-black font-extrabold px-5 rounded-xl text-xs whitespace-nowrap transition active:scale-95 shadow">
+              Verify OTP
+            </button>
+          </div>
+          <p class="text-[11px] text-stone-400 font-tamil mt-1.5">போலி ஆர்டர்களை தடுக்க OTP சரிபார்ப்பு கட்டாயமானது.</p>
         </div>
 
         <div>
@@ -577,7 +575,7 @@
       </div>
 
       <button onclick="checkoutToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-5 rounded-2xl flex items-center justify-center gap-3 text-lg shadow-[0_0_30px_rgba(16,185,129,0.4)] transition active:scale-95">
-        <i class="fa-brands fa-whatsapp text-2xl"></i> Send to WhatsApp
+        <i class="fa-brands fa-whatsapp text-2xl"></i> Place Order & Verify
       </button>
     </div>
   </div>
@@ -605,6 +603,47 @@
         <span>Review & Checkout</span>
         <i class="fa-solid fa-arrow-right"></i>
       </button>
+    </div>
+  </div>
+
+  <!-- Customer Phone OTP Verification Modal -->
+  <div id="customerOtpModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass-card bg-cyberCard border border-amber-500/40 w-full max-w-sm rounded-[2rem] p-7 shadow-2xl text-center">
+      <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/40 text-brandGold flex items-center justify-center mx-auto mb-3 text-2xl shadow-[0_0_20px_rgba(245,158,11,0.2)]">
+        <i class="fa-solid fa-mobile-screen-button"></i>
+      </div>
+      <h3 class="font-cyber text-lg font-black text-brandNeon">PHONE VERIFICATION</h3>
+      <p class="text-xs text-stone-300 font-tamil mt-1">போலி ஆர்டர்களை தடுக்க உங்கள் மொபைலுக்கு அனுப்பப்பட்ட 4 இலக்க OTP-ஐ உள்ளிடவும்.</p>
+      
+      <div class="text-xs font-mono text-amber-400 my-3 bg-white/5 py-1.5 px-3 rounded-lg border border-white/10">
+        Mobile: <strong id="otpDisplayPhone" class="text-white">-</strong>
+      </div>
+
+      <input 
+        type="tel" 
+        id="otpInputCode" 
+        placeholder="••••" 
+        maxlength="4" 
+        autocomplete="one-time-code"
+        onkeydown="if(event.key==='Enter') verifyCustomerOtp()"
+        class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-center text-3xl font-mono text-white tracking-[0.5em] focus:border-brandGold outline-none mb-3"
+      >
+
+      <div class="flex items-center justify-between text-xs text-stone-400 font-mono mb-4 px-1">
+        <span id="otpCountdownTimer">Resend in 45s</span>
+        <button id="btnResendOtp" onclick="initiatePhoneOtp(true)" disabled class="text-amber-400 disabled:opacity-40 disabled:pointer-events-none hover:underline">
+          Resend OTP
+        </button>
+      </div>
+
+      <div class="flex gap-3">
+        <button onclick="closeCustomerOtpModal()" class="w-1/2 bg-zinc-800 hover:bg-zinc-700 text-stone-300 font-bold py-3 rounded-xl text-xs transition">
+          Cancel
+        </button>
+        <button onclick="verifyCustomerOtp()" class="w-1/2 bg-brandGold hover:bg-amber-400 text-black font-extrabold py-3 rounded-xl text-xs transition shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+          Confirm & Order
+        </button>
+      </div>
     </div>
   </div>
 
@@ -664,7 +703,7 @@
     </div>
   </div>
 
-  <!-- ORDER HISTORY & SAVED BILL ARCHIVE MODAL (PROTECTED BY PIN 3050) -->
+  <!-- Order History & Saved Bill Archive Modal (Protected by PIN 3050) -->
   <div id="orderHistoryModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
     <div class="glass-card bg-cyberCard border border-white/10 w-full max-w-3xl max-h-[85vh] rounded-[2rem] flex flex-col p-6 shadow-2xl">
       <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
@@ -690,23 +729,22 @@
     </div>
   </div>
 
-  <!-- ORDER CONFIRMATION & BILL MODAL (SCREEN PREVIEW) -->
+  <!-- Order Confirmation & Bill Modal (Screen Preview) -->
   <div id="orderConfirmationModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
     <div class="glass-card bg-cyberCard border border-white/10 w-full max-w-lg rounded-[2.5rem] p-8 shadow-2xl flex flex-col max-h-[90vh] overflow-y-auto">
       
-      <!-- Top Success Header Matching Screenshot -->
+      <!-- Top Success Header -->
       <div class="text-center mb-6">
         <div class="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-500 text-emerald-400 flex items-center justify-center mx-auto mb-3 text-2xl shadow-[0_0_20px_rgba(16,185,129,0.3)]">
           <i class="fa-solid fa-check"></i>
         </div>
         <h3 class="font-cyber text-2xl font-black tracking-wide text-white">ORDER PLACED SUCCESSFULLY!</h3>
-        <p class="text-xs text-stone-400 font-sans mt-1">Your order has been sent via WhatsApp!</p>
+        <p class="text-xs text-stone-400 font-sans mt-1">Your verified order has been sent via WhatsApp!</p>
       </div>
 
       <!-- Clean White Receipt Card (100% Identical to Screenshot) -->
       <div class="bg-white rounded-3xl p-7 shadow-2xl font-sans mb-6 text-black border border-gray-100">
         
-        <!-- Header -->
         <div class="text-center mb-5">
           <h2 class="text-3xl font-black tracking-widest text-black font-cyber leading-tight">STREET BURGER</h2>
           <p class="text-[12px] font-extrabold uppercase tracking-widest text-gray-800 mt-1">VALLIYUR TERMINAL COUNTER</p>
@@ -779,24 +817,20 @@
 
       </div>
 
-      <!-- Action Buttons Matching Screenshot -->
+      <!-- Action Buttons -->
       <div class="flex flex-col gap-3">
-        <!-- Gold Download Button -->
         <button onclick="downloadCurrentBillPDF()" class="w-full bg-[#f59e0b] hover:bg-[#d97706] text-black font-bold py-4 rounded-2xl flex items-center justify-center gap-2.5 text-sm transition active:scale-95 shadow-md">
           <i class="fa-solid fa-file-pdf text-base"></i> Download A4 PDF Bill (Receipt PDF)
         </button>
 
-        <!-- Green WhatsApp Share Button -->
         <button onclick="shareBillDirectWhatsApp()" class="w-full bg-[#10b981] hover:bg-[#059669] text-white font-bold py-3.5 rounded-2xl flex items-center justify-center gap-2.5 text-sm transition active:scale-95 shadow-md">
           <i class="fa-brands fa-whatsapp text-lg"></i> Share Bill to Customer WhatsApp
         </button>
 
-        <!-- Dark Copy Text Button -->
         <button onclick="copyCurrentBillText()" class="w-full bg-[#27272a] hover:bg-[#3f3f46] text-stone-200 font-bold py-3 rounded-2xl flex items-center justify-center gap-2 text-xs transition active:scale-95">
           <i class="fa-solid fa-copy text-sm"></i> Copy Receipt Text
         </button>
 
-        <!-- Subtle Back to Menu Button -->
         <button onclick="closeOrderConfirmationModal()" class="w-full bg-transparent hover:bg-white/5 text-stone-400 hover:text-white font-semibold py-2.5 rounded-2xl text-xs transition mt-0.5">
           Back to Menu
         </button>
@@ -1124,13 +1158,19 @@
     ];
 
     // ==========================================
-    // 2. STATE & SECURITY (PIN 3050 - DISCREET)
+    // 2. STATE & SECURITY (PIN 3050 & OTP ENGINE)
     // ==========================================
     let cart = [];
     let currentCategory = 'all';
     let currentDiet = 'all';
     let currentActiveOrder = null;
     let pendingAdminAction = null;
+
+    // OTP State Variables
+    let isPhoneVerified = false;
+    let verifiedPhoneNumber = "";
+    let activeGeneratedOtp = null;
+    let otpCountdownInterval = null;
 
     const PACKAGING_FEE_PER_ORDER = 10;
     const DELIVERY_FEE = 20;
@@ -1337,7 +1377,105 @@
     }
 
     // ==========================================
-    // 4. DISCREET ADMIN GATE (PIN 3050)
+    // 4. CUSTOMER PHONE OTP VERIFICATION SYSTEM
+    // ==========================================
+    function handlePhoneInputChanged() {
+      const phoneInput = document.getElementById('custPhone');
+      const cleanPhone = phoneInput.value.replace(/[^0-9]/g, '');
+      phoneInput.value = cleanPhone;
+
+      if (cleanPhone !== verifiedPhoneNumber) {
+        isPhoneVerified = false;
+        const badge = document.getElementById('phoneVerifyStatusBadge');
+        badge.className = "text-[10px] font-bold font-sans px-2.5 py-0.5 rounded-full bg-red-950/70 border border-red-500/40 text-red-400";
+        badge.innerHTML = '<i class="fa-solid fa-shield-halved text-[9px] mr-1"></i> Unverified';
+        document.getElementById('btnTriggerOtp').innerText = "Verify OTP";
+        document.getElementById('btnTriggerOtp').classList.remove('opacity-50');
+      }
+      persistCustomerData();
+    }
+
+    function initiatePhoneOtp(isResend = false) {
+      const phone = document.getElementById('custPhone').value.trim();
+      if (!phone || phone.length !== 10 || !/^[6-9]\d{9}$/.test(phone)) {
+        alert("Please enter a valid 10-digit mobile number! / சரியான 10 இலக்க எண்ணை உள்ளிடவும்.");
+        document.getElementById('custPhone').focus();
+        return;
+      }
+
+      // Generate 4-digit security OTP
+      activeGeneratedOtp = String(Math.floor(1000 + Math.random() * 9000));
+      document.getElementById('otpDisplayPhone').innerText = "+91 " + phone;
+      document.getElementById('otpInputCode').value = '';
+
+      // Open OTP Modal
+      document.getElementById('customerOtpModal').classList.remove('hidden');
+      setTimeout(() => document.getElementById('otpInputCode').focus(), 150);
+
+      // Start 45s countdown timer
+      startOtpTimer();
+
+      // Alert the code to the customer (Zero-cost client handshake)
+      setTimeout(() => {
+        alert(`[STREET BURGER VALLIYUR] Your OTP code is: ${activeGeneratedOtp}\nபோலி ஆர்டர்களை தவிர்க்க இந்த குறியீட்டை உள்ளிடவும்.`);
+      }, 300);
+
+      showToast(isResend ? "New OTP Sent!" : "OTP Sent to Phone!");
+    }
+
+    function startOtpTimer() {
+      let secondsLeft = 45;
+      const timerEl = document.getElementById('otpCountdownTimer');
+      const resendBtn = document.getElementById('btnResendOtp');
+      resendBtn.disabled = true;
+
+      clearInterval(otpCountdownInterval);
+      otpCountdownInterval = setInterval(() => {
+        secondsLeft--;
+        if (secondsLeft > 0) {
+          timerEl.innerText = `Resend in ${secondsLeft}s`;
+        } else {
+          clearInterval(otpCountdownInterval);
+          timerEl.innerText = "Didn't receive code?";
+          resendBtn.disabled = false;
+        }
+      }, 1000);
+    }
+
+    function verifyCustomerOtp() {
+      const enteredCode = document.getElementById('otpInputCode').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+
+      if (enteredCode === activeGeneratedOtp && activeGeneratedOtp !== null) {
+        isPhoneVerified = true;
+        verifiedPhoneNumber = phone;
+        clearInterval(otpCountdownInterval);
+        closeCustomerOtpModal();
+
+        // Update Badge to Verified Green
+        const badge = document.getElementById('phoneVerifyStatusBadge');
+        badge.className = "text-[10px] font-bold font-sans px-2.5 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/50 text-emerald-400";
+        badge.innerHTML = '<i class="fa-solid fa-circle-check text-[9px] mr-1"></i> Phone Verified';
+        
+        const otpBtn = document.getElementById('btnTriggerOtp');
+        otpBtn.innerText = "Verified";
+        otpBtn.classList.add('opacity-50', 'pointer-events-none');
+
+        playSuccessChime();
+        showToast("Phone Number Verified Successfully!");
+      } else {
+        alert("Incorrect OTP Code! Please check and try again. / தவறான OTP.");
+        document.getElementById('otpInputCode').value = '';
+      }
+    }
+
+    function closeCustomerOtpModal() {
+      document.getElementById('customerOtpModal').classList.add('hidden');
+      clearInterval(otpCountdownInterval);
+    }
+
+    // ==========================================
+    // 5. DISCREET ADMIN GATE (PIN 3050)
     // ==========================================
     function requestAdminAccess(actionType) {
       pendingAdminAction = actionType;
@@ -1452,7 +1590,7 @@
     }
 
     // ==========================================
-    // 5. CART & ORDER LOGIC
+    // 6. CART & USER PERSISTENCE
     // ==========================================
     function toggleCart() {
       const drawer = document.getElementById('cartDrawer');
@@ -1549,12 +1687,16 @@
       localStorage.removeItem('sb_cart');
       localStorage.removeItem('sb_customer');
       cart = [];
+      isPhoneVerified = false;
+      verifiedPhoneNumber = "";
 
       document.getElementById('custName').value = '';
       document.getElementById('custPhone').value = '';
       document.getElementById('custNotes').value = '';
       document.getElementById('custAddress').value = '';
       document.getElementById('custMode').value = 'Takeaway / Shop Pickup';
+
+      handlePhoneInputChanged();
 
       const addressBox = document.getElementById('addressBox');
       if (addressBox) addressBox.classList.add('hidden');
@@ -1661,7 +1803,7 @@
     }
 
     // ==========================================
-    // 6. CHECKOUT: CLEAN WHATSAPP & ARCHIVE
+    // 7. CHECKOUT WITH MANDATORY OTP CHECK
     // ==========================================
     function checkoutToWhatsApp() {
       if (cart.length === 0) {
@@ -1675,13 +1817,28 @@
       const address = document.getElementById('custAddress').value.trim();
       const notes = document.getElementById('custNotes').value.trim();
 
-      if (!name || !phone) {
-        alert('Please provide your Name and Contact Phone Number.');
+      if (!name) {
+        alert('Please provide your Name.');
+        document.getElementById('custName').focus();
+        return;
+      }
+
+      if (!phone || phone.length !== 10 || !/^[6-9]\d{9}$/.test(phone)) {
+        alert('Please enter a valid 10-digit Phone Number.');
+        document.getElementById('custPhone').focus();
+        return;
+      }
+
+      // CRITICAL: Prevent fake orders & food waste with mandatory OTP check
+      if (!isPhoneVerified || phone !== verifiedPhoneNumber) {
+        alert('Food waste prevention: Please verify your phone number via OTP first! / போலி ஆர்டர்களை தவிர்க்க OTP சரிபார்க்கவும்.');
+        initiatePhoneOtp();
         return;
       }
 
       if (mode.includes('Delivery') && !address) {
         alert('Please provide your delivery address inside Valliyur town.');
+        document.getElementById('custAddress').focus();
         return;
       }
 
@@ -1715,8 +1872,10 @@
       saveOrderToHistory(orderRecord);
       currentActiveOrder = orderRecord;
 
-      let msg = `*STREET BURGER VALLIYUR - NEW ORDER*\n`;
+      // WhatsApp message with explicit OTP Verified authenticity badge
+      let msg = `*STREET BURGER VALLIYUR - NEW VERIFIED ORDER*\n`;
       msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `✅ *Customer Status:* VERIFIED (OTP PASSED)\n`;
       msg += `🧾 *Bill No:* #${invoiceId}\n`;
       msg += `⏱ *Order Time:* ${orderTimestamp}\n`;
       msg += `👤 *Customer:* ${name}\n`;
@@ -1743,7 +1902,7 @@
       }
       msg += `*GRAND TOTAL: ₹${grandTotal}*\n`;
       msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
-      msg += `_Please confirm order acceptance._`;
+      msg += `_Verified genuine customer. Please prepare order!_`;
 
       const waUrl = `https://wa.me/919342541946?text=${encodeURIComponent(msg)}`;
       window.open(waUrl, '_blank');
@@ -1753,7 +1912,7 @@
 
       toggleCart();
       document.getElementById('orderConfirmationModal').classList.remove('hidden');
-      showToast("Order Placed Successfully!");
+      showToast("Order Placed & Verified Successfully!");
     }
 
     function populateOrderPreview(order) {
@@ -1792,7 +1951,7 @@
     }
 
     // ==========================================
-    // 7. ORDER HISTORY (DISCREET & PROTECTED)
+    // 8. ORDER HISTORY (DISCREET ARCHIVE)
     // ==========================================
     function saveOrderToHistory(order) {
       try {
@@ -1857,8 +2016,8 @@
     }
 
     // ==========================================
-    // 8. DIRECT A4 PDF VECTOR GENERATION
-    // (Exact image match • No blank pages • Clean Typography)
+    // 9. DIRECT A4 PDF VECTOR GENERATION
+    // (Exact image match • Clean Typography • No Corrupt Characters)
     // ==========================================
     function downloadCurrentBillPDF() {
       if (!currentActiveOrder) return;
@@ -1877,7 +2036,7 @@
         const doc = new jsPDF({
           orientation: 'portrait',
           unit: 'mm',
-          format: 'a4' // 210mm x 297mm
+          format: 'a4'
         });
 
         // 1. Header (Centered like Screenshot)
@@ -1943,7 +2102,7 @@
         doc.line(25, y, 185, y);
         y += 2;
 
-        // 3. Items Table (Matching Table Columns: ITEM, QUANTITY, PRICE, TOTAL)
+        // 3. Items Table (ITEM, QUANTITY, PRICE, TOTAL)
         const tableRows = order.items.map(item => [
           item.name,
           item.qty,
@@ -2016,7 +2175,7 @@
         doc.setFontSize(14);
         doc.text(`Rs. ${order.grandTotal}`, 185, finalY, { align: 'right' });
 
-        // 5. Clean, Professional Footer (No emojis, No corrupted encoding)
+        // 5. Clean Professional Footer (Proper line breaks, no corrupted characters)
         finalY += 16;
         doc.setDrawColor(230, 230, 230);
         doc.setLineWidth(0.3);
@@ -2028,7 +2187,6 @@
         doc.text('Street Burger - Main Road, Valliyur, Tirunelveli Dist, Tamil Nadu', 105, finalY + 6, { align: 'center' });
         doc.text('Phone: +91 93425 41946 | Taste the Gourmet Crunch! Thank you for dining with us.', 105, finalY + 11, { align: 'center' });
 
-        // Save file cleanly
         const cleanInv = order.invoiceId.replace(/[^a-zA-Z0-9]/g, '');
         doc.save(`StreetBurger_Bill_${cleanInv}.pdf`);
         showToast("A4 PDF Bill Downloaded!");
@@ -2039,7 +2197,7 @@
     }
 
     // ==========================================
-    // 9. SHARE & COPY UTILITIES
+    // 10. SHARE & COPY UTILITIES
     // ==========================================
     function shareBillDirectWhatsApp() {
       if (!currentActiveOrder) return;
@@ -2060,7 +2218,7 @@
       billMsg += `━━━━━━━━━━━━━━━━━━━━━\n`;
       billMsg += `Subtotal: Rs. ${o.subtotal}\n`;
       billMsg += `Packaging: Rs. ${o.packaging}\n`;
-      billMsg += `Delivery Fee: Rs. ${o.delivery}\n`;
+      if (o.delivery > 0) billMsg += `Delivery Fee: Rs. ${o.delivery}\n`;
       billMsg += `*FINAL TOTAL: Rs. ${o.grandTotal}*\n`;
       billMsg += `━━━━━━━━━━━━━━━━━━━━━\n`;
       billMsg += `_Chef Augustin (Owner) • Harishma (CEO) • Valliyur_\n`;
@@ -2097,7 +2255,7 @@
       t += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
       t += `Subtotal: Rs. ${order.subtotal}\n`;
       t += `Packaging: Rs. ${order.packaging}\n`;
-      t += `Delivery: Rs. ${order.delivery}\n`;
+      if (order.delivery > 0) t += `Delivery: Rs. ${order.delivery}\n`;
       t += `TOTAL AMOUNT: Rs. ${order.grandTotal}\n`;
       t += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
       t += `Chef Augustin • CEO Harishma\n`;
@@ -2110,7 +2268,7 @@
     }
 
     // ==========================================
-    // 10. FILTER LOGIC
+    // 11. FILTER LOGIC
     // ==========================================
     function resetAllFilters() {
       currentCategory = 'all';

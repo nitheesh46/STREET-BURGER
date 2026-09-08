@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Orbitron:wght@600;800;900&family=Montserrat:wght@300;400;500;600;700;800&family=Mukta+Malar:wght@400;600;700&display=swap" rel="stylesheet">
   
-  <!-- Direct Vector A4 PDF Generation Engine (No Blank Canvas Bugs) -->
+  <!-- Direct Vector A4 PDF Generation Engine -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
 
@@ -594,101 +594,110 @@
   <div id="orderConfirmationModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
     <div class="glass-card bg-cyberCard border border-white/10 w-full max-w-lg rounded-[2.5rem] p-8 shadow-2xl flex flex-col max-h-[90vh] overflow-y-auto">
       
-      <div class="text-center mb-5">
-        <div class="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-500 text-emerald-400 flex items-center justify-center mx-auto mb-2 text-2xl shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+      <!-- Top Success Header Matching Screenshot -->
+      <div class="text-center mb-6">
+        <div class="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-500 text-emerald-400 flex items-center justify-center mx-auto mb-3 text-2xl shadow-[0_0_20px_rgba(16,185,129,0.3)]">
           <i class="fa-solid fa-check"></i>
         </div>
-        <h3 class="font-cyber text-xl font-bold text-white">ORDER PLACED SUCCESSFULLY!</h3>
-        <p class="text-xs text-stone-300 font-tamil mt-0.5">உங்கள் ஆர்டர் WhatsApp மூலம் அனுப்பப்பட்டது!</p>
+        <h3 class="font-cyber text-2xl font-black tracking-wide text-white">ORDER PLACED SUCCESSFULLY!</h3>
+        <p class="text-xs text-stone-400 font-sans mt-1">Your order has been sent via WhatsApp!</p>
       </div>
 
-      <!-- High-Contrast Pure White Bill Display (Never blank) -->
-      <div class="bg-white rounded-2xl p-6 shadow-2xl font-sans mb-5 border border-gray-300" style="color: #000000 !important; background-color: #ffffff !important;">
-        <div class="text-center border-b border-gray-300 pb-3 mb-3">
-          <h2 class="text-2xl font-black tracking-widest text-black font-cyber" style="color:#000000 !important;">STREET BURGER</h2>
-          <p class="text-[11px] font-bold uppercase text-gray-700 mt-0.5" style="color:#333333 !important;">Valliyur Terminal Counter</p>
-          <p class="text-[10px] text-gray-600" style="color:#555555 !important;">Chef Augustin (Owner) • Harishma (CEO)</p>
-          <p class="text-[10px] font-bold text-black" style="color:#000000 !important;">📞 +91 93425 41946</p>
+      <!-- Clean White Receipt Card (100% Identical to Screenshot) -->
+      <div class="bg-white rounded-3xl p-7 shadow-2xl font-sans mb-6 text-black border border-gray-100">
+        
+        <!-- Header -->
+        <div class="text-center mb-5">
+          <h2 class="text-3xl font-black tracking-widest text-black font-cyber leading-tight">STREET BURGER</h2>
+          <p class="text-[12px] font-extrabold uppercase tracking-widest text-gray-800 mt-1">VALLIYUR TERMINAL COUNTER</p>
+          <p class="text-[11px] text-gray-600 mt-0.5">Chef Augustin (Owner) · Harishma (CEO)</p>
+          <p class="text-[11px] font-bold text-gray-900 mt-1 flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-phone text-[10px]"></i> +91 93425 41946
+          </p>
         </div>
 
-        <div class="text-xs space-y-1 border-b border-gray-300 pb-3 mb-3 font-mono" style="color: #000000 !important;">
-          <div class="flex justify-between">
-            <span style="color:#555555 !important;">Bill No:</span>
-            <strong id="previewInvoiceId" style="color:#000000 !important;">-</strong>
+        <!-- Meta Information -->
+        <div class="text-[12px] space-y-1.5 border-t border-b border-gray-200 py-3.5 mb-4 font-mono">
+          <div class="flex justify-between items-center">
+            <span class="text-gray-500 font-sans">Bill No:</span>
+            <strong id="previewInvoiceId" class="text-black font-bold">#SB000000</strong>
           </div>
-          <div class="flex justify-between">
-            <span style="color:#555555 !important;">Order Time:</span>
-            <strong id="previewOrderTime" style="color:#000000 !important;">-</strong>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-500 font-sans">Order Time:</span>
+            <strong id="previewOrderTime" class="text-black font-semibold">-</strong>
           </div>
-          <div class="flex justify-between">
-            <span style="color:#555555 !important;">Customer:</span>
-            <strong id="previewCustomerName" style="color:#000000 !important;">-</strong>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-500 font-sans">Customer:</span>
+            <strong id="previewCustomerName" class="text-black font-semibold">-</strong>
           </div>
-          <div class="flex justify-between">
-            <span style="color:#555555 !important;">Phone:</span>
-            <strong id="previewCustomerPhone" style="color:#000000 !important;">-</strong>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-500 font-sans">Phone:</span>
+            <strong id="previewCustomerPhone" class="text-black font-semibold">-</strong>
           </div>
-          <div class="flex justify-between">
-            <span style="color:#555555 !important;">Mode:</span>
-            <strong id="previewCustomerMode" style="color:#000000 !important;">-</strong>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-500 font-sans">Mode:</span>
+            <strong id="previewCustomerMode" class="text-black font-semibold">-</strong>
           </div>
-          <div id="previewAddressRow" class="flex justify-between hidden">
-            <span style="color:#555555 !important;">Address:</span>
-            <strong id="previewCustomerAddress" class="text-right max-w-[200px] truncate" style="color:#000000 !important;">-</strong>
+          <div id="previewAddressRow" class="flex justify-between items-start hidden pt-0.5">
+            <span class="text-gray-500 font-sans">Address:</span>
+            <strong id="previewCustomerAddress" class="text-black font-semibold text-right max-w-[210px] leading-tight">-</strong>
           </div>
         </div>
 
-        <!-- Table -->
-        <table class="w-full text-xs mb-3" style="color:#000000 !important;">
+        <!-- Table Columns -->
+        <table class="w-full text-[12px] mb-4">
           <thead>
-            <tr class="border-b border-gray-300 text-gray-600 uppercase text-[10px]">
-              <th class="text-left py-1" style="color:#444444 !important;">Item</th>
-              <th class="text-center py-1" style="color:#444444 !important;">Qty</th>
-              <th class="text-right py-1" style="color:#444444 !important;">Price</th>
-              <th class="text-right py-1" style="color:#444444 !important;">Total</th>
+            <tr class="text-gray-500 uppercase text-[10px] tracking-wider border-b border-gray-200">
+              <th class="text-left py-2 font-bold">ITEM</th>
+              <th class="text-center py-2 font-bold">QUANTITY</th>
+              <th class="text-right py-2 font-bold">PRICE</th>
+              <th class="text-right py-2 font-bold">TOTAL</th>
             </tr>
           </thead>
-          <tbody id="previewItemsBody" class="divide-y divide-gray-200"></tbody>
+          <tbody id="previewItemsBody" class="divide-y divide-gray-100"></tbody>
         </table>
 
-        <!-- Totals -->
-        <div class="border-t border-gray-300 pt-2 space-y-1 text-xs font-mono" style="color:#000000 !important;">
-          <div class="flex justify-between">
-            <span style="color:#555555 !important;">Subtotal:</span>
-            <span id="previewSubtotal" style="color:#000000 !important;">₹0</span>
+        <!-- Summary Totals -->
+        <div class="border-t border-gray-200 pt-3 space-y-1 text-[12px] font-mono">
+          <div class="flex justify-between text-gray-600">
+            <span>Subtotal:</span>
+            <span id="previewSubtotal" class="font-bold text-gray-900">₹0</span>
           </div>
-          <div class="flex justify-between">
-            <span style="color:#555555 !important;">Packaging:</span>
-            <span id="previewPackaging" style="color:#000000 !important;">₹0</span>
+          <div class="flex justify-between text-gray-600">
+            <span>Packaging:</span>
+            <span id="previewPackaging" class="font-bold text-gray-900">₹0</span>
           </div>
-          <div class="flex justify-between">
-            <span style="color:#555555 !important;">Delivery:</span>
-            <span id="previewDelivery" style="color:#000000 !important;">FREE</span>
+          <div class="flex justify-between text-gray-600">
+            <span>Delivery:</span>
+            <span id="previewDelivery" class="font-bold text-gray-900">₹0</span>
           </div>
-          <div class="border-t-2 border-gray-900 pt-2 mt-1 flex justify-between items-center text-sm font-black" style="color:#000000 !important;">
-            <span>TOTAL AMOUNT:</span>
-            <span id="previewGrandTotal" class="text-lg font-black" style="color:#000000 !important;">₹0</span>
+          <div class="border-t-2 border-black pt-3 mt-2 flex justify-between items-center text-[15px] font-black text-black">
+            <span class="tracking-wider">TOTAL AMOUNT:</span>
+            <span id="previewGrandTotal" class="text-xl font-black">₹0</span>
           </div>
         </div>
+
       </div>
 
-      <!-- Action Buttons -->
-      <div class="flex flex-col gap-2.5">
-        <!-- Direct A4 PDF Vector Download (Guaranteed Not Blank) -->
-        <button onclick="downloadCurrentBillPDF()" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold py-3.5 rounded-2xl flex items-center justify-center gap-3 text-sm transition shadow-[0_0_20px_rgba(245,158,11,0.3)] active:scale-95">
-          <i class="fa-solid fa-file-pdf text-lg"></i> Download A4 PDF Bill (ரசீது PDF)
+      <!-- Action Buttons Matching Screenshot -->
+      <div class="flex flex-col gap-3">
+        <!-- Gold Download Button -->
+        <button onclick="downloadCurrentBillPDF()" class="w-full bg-[#f59e0b] hover:bg-[#d97706] text-black font-bold py-4 rounded-2xl flex items-center justify-center gap-2.5 text-sm transition active:scale-95 shadow-md">
+          <i class="fa-solid fa-file-pdf text-base"></i> Download A4 PDF Bill (Receipt PDF)
         </button>
 
-        <!-- Direct WhatsApp Bill Share -->
-        <button onclick="shareBillDirectWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-2xl flex items-center justify-center gap-2 text-xs transition active:scale-95 shadow">
-          <i class="fa-brands fa-whatsapp text-base"></i> Share Bill to Customer WhatsApp
+        <!-- Green WhatsApp Share Button -->
+        <button onclick="shareBillDirectWhatsApp()" class="w-full bg-[#10b981] hover:bg-[#059669] text-white font-bold py-3.5 rounded-2xl flex items-center justify-center gap-2.5 text-sm transition active:scale-95 shadow-md">
+          <i class="fa-brands fa-whatsapp text-lg"></i> Share Bill to Customer WhatsApp
         </button>
 
-        <button onclick="copyCurrentBillText()" class="w-full bg-zinc-800 hover:bg-zinc-700 text-stone-200 font-bold py-3 rounded-2xl flex items-center justify-center gap-2 text-xs transition border border-white/10 active:scale-95">
-          <i class="fa-solid fa-copy text-sm"></i> Copy Receipt Text (நகல் எடுக்க)
+        <!-- Dark Copy Text Button -->
+        <button onclick="copyCurrentBillText()" class="w-full bg-[#27272a] hover:bg-[#3f3f46] text-stone-200 font-bold py-3 rounded-2xl flex items-center justify-center gap-2 text-xs transition active:scale-95">
+          <i class="fa-solid fa-copy text-sm"></i> Copy Receipt Text
         </button>
 
-        <button onclick="closeOrderConfirmationModal()" class="w-full bg-white/5 hover:bg-white/10 text-stone-400 font-bold py-2.5 rounded-2xl text-xs transition mt-1">
+        <!-- Subtle Back to Menu Button -->
+        <button onclick="closeOrderConfirmationModal()" class="w-full bg-transparent hover:bg-white/5 text-stone-400 hover:text-white font-semibold py-2.5 rounded-2xl text-xs transition mt-0.5">
           Back to Menu
         </button>
       </div>
@@ -1015,7 +1024,7 @@
     ];
 
     // ==========================================
-    // 2. STATE & SECURITY (PIN 3050 - DISCREET)
+    // 2. STATE & PIN SECURITY (PIN 3050 - DISCREET)
     // ==========================================
     let cart = [];
     let currentCategory = 'all';
@@ -1578,8 +1587,12 @@
 
       const now = new Date();
       const orderTimestamp = now.toLocaleString('en-IN', {
-        dateStyle: 'medium',
-        timeStyle: 'short'
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
       });
       const invoiceId = 'SB' + Math.floor(100000 + Math.random() * 900000);
 
@@ -1660,17 +1673,17 @@
 
       const tableBody = document.getElementById('previewItemsBody');
       tableBody.innerHTML = order.items.map(item => `
-        <tr class="py-1">
-          <td class="py-1 text-black font-semibold">${item.name}</td>
-          <td class="py-1 text-center font-bold text-black">${item.qty}</td>
-          <td class="py-1 text-right text-gray-800">₹${item.price}</td>
-          <td class="py-1 text-right font-bold text-black">₹${item.price * item.qty}</td>
+        <tr class="text-[12px] py-1">
+          <td class="py-2 text-black font-semibold">${item.name}</td>
+          <td class="py-2 text-center font-bold text-black">${item.qty}</td>
+          <td class="py-2 text-right text-gray-700">₹${item.price}</td>
+          <td class="py-2 text-right font-bold text-black">₹${item.price * item.qty}</td>
         </tr>
       `).join('');
 
       document.getElementById('previewSubtotal').innerText = `₹${order.subtotal}`;
       document.getElementById('previewPackaging').innerText = `₹${order.packaging}`;
-      document.getElementById('previewDelivery').innerText = order.delivery > 0 ? `₹${order.delivery}` : 'FREE';
+      document.getElementById('previewDelivery').innerText = `₹${order.delivery}`;
       document.getElementById('previewGrandTotal').innerText = `₹${order.grandTotal}`;
     }
 
@@ -1724,7 +1737,7 @@
             </div>
           </div>
           <div class="flex items-center gap-2 shrink-0">
-            <button onclick="generatePdfFromData(${idx})" class="bg-stone-200 hover:bg-white text-black px-3.5 py-2 rounded-lg font-bold text-xs flex items-center gap-1.5 transition active:scale-95">
+            <button onclick="generatePdfFromData(${idx})" class="bg-[#f59e0b] hover:bg-[#d97706] text-black px-3.5 py-2 rounded-lg font-bold text-xs flex items-center gap-1.5 transition active:scale-95 shadow">
               <i class="fa-solid fa-file-pdf"></i> A4 PDF
             </button>
             <button onclick="copyBillTextFromHistory(${idx})" class="bg-zinc-800 hover:bg-zinc-700 text-stone-200 px-3 py-2 rounded-lg text-xs font-bold transition active:scale-95">
@@ -1744,8 +1757,8 @@
     }
 
     // ==========================================
-    // 8. DIRECT VECTOR A4 PDF GENERATION ENGINE
-    // (Never Blank • Crisp Vector • International A4)
+    // 8. DIRECT A4 PDF VECTOR GENERATION
+    // (Exact image match • No blank pages • Pure Typography)
     // ==========================================
     function downloadCurrentBillPDF() {
       if (!currentActiveOrder) return;
@@ -1764,70 +1777,74 @@
         const doc = new jsPDF({
           orientation: 'portrait',
           unit: 'mm',
-          format: 'a4' // Standard 210mm x 297mm
+          format: 'a4' // 210mm x 297mm
         });
 
-        // Top Brand Header Bar
-        doc.setFillColor(15, 15, 17);
-        doc.rect(0, 0, 210, 32, 'F');
-
-        // Gold Stripe
-        doc.setFillColor(245, 158, 11);
-        doc.rect(0, 32, 210, 2.5, 'F');
-
-        // Brand Title
-        doc.setTextColor(251, 191, 36);
+        // 1. Header (Centered like Screenshot)
+        doc.setTextColor(0, 0, 0);
         doc.setFont('helvetica', 'bold');
-        doc.setFontSize(22);
-        doc.text('STREET BURGER', 15, 16);
+        doc.setFontSize(24);
+        doc.text('STREET BURGER', 105, 24, { align: 'center' });
 
-        doc.setFontSize(9);
-        doc.setFont('helvetica', 'normal');
-        doc.setTextColor(220, 220, 220);
-        doc.text('VALLIYUR TERMINAL COUNTER • ULTRA MODERN GOURMET CRUNCH', 15, 22);
-        doc.text('Chef Augustin (Owner)  |  Harishma (CEO)  |  Phone: +91 93425 41946', 15, 27);
-
-        // Tax Invoice Header Text
-        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(11);
         doc.setFont('helvetica', 'bold');
-        doc.setFontSize(13);
-        doc.text('TAX INVOICE / BILL', 195, 19, { align: 'right' });
+        doc.setTextColor(50, 50, 50);
+        doc.text('VALLIYUR TERMINAL COUNTER', 105, 31, { align: 'center' });
 
-        // Bill Information Grid
-        doc.setTextColor(20, 20, 20);
         doc.setFontSize(9.5);
-        doc.setFont('helvetica', 'bold');
-
-        let y = 44;
-        doc.text('BILLED TO (CUSTOMER):', 15, y);
-        doc.text('ORDER INFORMATION:', 120, y);
-
         doc.setFont('helvetica', 'normal');
-        y += 6;
-        doc.text(`Customer Name: ${order.name}`, 15, y);
-        doc.text(`Invoice No: ${order.invoiceId}`, 120, y);
+        doc.setTextColor(90, 90, 90);
+        doc.text('Chef Augustin (Owner) - Harishma (CEO)', 105, 36.5, { align: 'center' });
 
-        y += 5.5;
-        doc.text(`Phone Number: ${order.phone}`, 15, y);
-        doc.text(`Order Time: ${order.orderTimestamp}`, 120, y);
+        doc.setFont('helvetica', 'bold');
+        doc.setTextColor(20, 20, 20);
+        doc.text('Phone: +91 93425 41946', 105, 41.5, { align: 'center' });
 
-        y += 5.5;
-        doc.text(`Order Mode: ${order.mode}`, 15, y);
-        doc.text(`Outlet: Valliyur Counter Hub`, 120, y);
+        // Divider Line
+        doc.setDrawColor(220, 220, 220);
+        doc.setLineWidth(0.4);
+        doc.line(25, 46, 185, 46);
+
+        // 2. Metadata Grid (Matching Screenshot layout)
+        doc.setFontSize(9.5);
+        let y = 53;
+
+        const printRow = (label, val) => {
+          doc.setFont('helvetica', 'normal');
+          doc.setTextColor(110, 110, 110);
+          doc.text(label, 25, y);
+
+          doc.setFont('helvetica', 'bold');
+          doc.setTextColor(15, 15, 15);
+          doc.text(String(val), 185, y, { align: 'right' });
+          y += 6;
+        };
+
+        printRow('Bill No:', order.invoiceId);
+        printRow('Order Time:', order.orderTimestamp);
+        printRow('Customer:', order.name);
+        printRow('Phone:', order.phone);
+        printRow('Mode:', order.mode);
 
         if (order.address) {
-          y += 5.5;
-          doc.text(`Delivery Address: ${order.address}`, 15, y, { maxWidth: 95 });
-        }
-        if (order.notes) {
-          y += 5.5;
-          doc.text(`Chef Notes: ${order.notes}`, 15, y, { maxWidth: 95 });
+          doc.setFont('helvetica', 'normal');
+          doc.setTextColor(110, 110, 110);
+          doc.text('Address:', 25, y);
+
+          doc.setFont('helvetica', 'bold');
+          doc.setTextColor(15, 15, 15);
+          doc.text(order.address, 185, y, { align: 'right', maxWidth: 100 });
+          y += 7;
         }
 
-        // Table Data Generation
-        const tableStartY = Math.max(y + 8, 70);
-        const tableRows = order.items.map((item, idx) => [
-          idx + 1,
+        // Divider Line before table
+        doc.setDrawColor(220, 220, 220);
+        doc.setLineWidth(0.4);
+        doc.line(25, y, 185, y);
+        y += 2;
+
+        // 3. Items Table (Matching Table Columns: ITEM, QUANTITY, PRICE, TOTAL)
+        const tableRows = order.items.map(item => [
           item.name,
           item.qty,
           `Rs. ${item.price}`,
@@ -1835,90 +1852,94 @@
         ]);
 
         doc.autoTable({
-          startY: tableStartY,
-          head: [['#', 'Item Description', 'Qty', 'Unit Rate', 'Amount']],
+          startY: y,
+          head: [['ITEM', 'QUANTITY', 'PRICE', 'TOTAL']],
           body: tableRows,
-          theme: 'striped',
+          theme: 'plain',
           headStyles: {
-            fillColor: [15, 15, 17],
-            textColor: [251, 191, 36],
+            textColor: [120, 120, 120],
+            fontSize: 8.5,
             fontStyle: 'bold',
-            fontSize: 9.5,
-            halign: 'left'
+            halign: 'left',
+            lineWidth: { bottom: 0.3 },
+            lineColor: [220, 220, 220]
           },
           bodyStyles: {
-            textColor: [10, 10, 10],
-            fontSize: 9
+            textColor: [15, 15, 15],
+            fontSize: 9.5,
+            cellPadding: { top: 3.5, bottom: 3.5 }
           },
           columnStyles: {
-            0: { halign: 'center', cellWidth: 12 },
-            1: { halign: 'left' },
-            2: { halign: 'center', cellWidth: 20 },
-            3: { halign: 'right', cellWidth: 32 },
-            4: { halign: 'right', cellWidth: 35 }
+            0: { halign: 'left' },
+            1: { halign: 'center', cellWidth: 28 },
+            2: { halign: 'right', cellWidth: 32 },
+            3: { halign: 'right', cellWidth: 35, fontStyle: 'bold' }
           },
-          margin: { left: 15, right: 15 }
+          margin: { left: 25, right: 25 }
         });
 
-        // Totals Calculation Area
-        const finalY = doc.lastAutoTable.finalY + 8;
-
-        doc.setFontSize(9.5);
-        doc.setFont('helvetica', 'normal');
-        doc.setTextColor(60, 60, 60);
-
-        doc.text('Items Subtotal:', 125, finalY);
-        doc.text(`Rs. ${order.subtotal}`, 195, finalY, { align: 'right' });
-
-        doc.text('Eco Box Packaging:', 125, finalY + 6);
-        doc.text(`Rs. ${order.packaging}`, 195, finalY + 6, { align: 'right' });
-
-        doc.text('Town Delivery Fee:', 125, finalY + 12);
-        doc.text(order.delivery > 0 ? `Rs. ${order.delivery}` : 'FREE', 195, finalY + 12, { align: 'right' });
-
-        doc.setDrawColor(200, 200, 200);
-        doc.line(125, finalY + 15, 195, finalY + 15);
-
-        doc.setFont('helvetica', 'bold');
-        doc.setFontSize(13);
-        doc.setTextColor(180, 83, 9);
-        doc.text('TOTAL AMOUNT:', 125, finalY + 22);
-        doc.text(`Rs. ${order.grandTotal}`, 195, finalY + 22, { align: 'right' });
-
-        doc.setDrawColor(180, 83, 9);
-        doc.setLineWidth(0.6);
-        doc.line(125, finalY + 25, 195, finalY + 25);
-
-        // Security & Authenticity Notes
-        doc.setFontSize(8.5);
-        doc.setFont('helvetica', 'italic');
-        doc.setTextColor(90, 90, 90);
-        doc.text('Payment: To be settled upon counter pickup or doorstep delivery.', 15, finalY + 6);
-        doc.text('100% Real Cheese, Fresh Patties & Hygiene Guaranteed.', 15, finalY + 11);
-
-        // Footer Divider & Disclaimer
+        // 4. Totals Breakdown
+        let finalY = doc.lastAutoTable.finalY + 4;
         doc.setDrawColor(220, 220, 220);
+        doc.setLineWidth(0.4);
+        doc.line(25, finalY, 185, finalY);
+        finalY += 6;
+
+        const printTotalRow = (label, val) => {
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(9.5);
+          doc.setTextColor(110, 110, 110);
+          doc.text(label, 25, finalY);
+
+          doc.setFont('helvetica', 'bold');
+          doc.setTextColor(20, 20, 20);
+          doc.text(`Rs. ${val}`, 185, finalY, { align: 'right' });
+          finalY += 5.5;
+        };
+
+        printTotalRow('Subtotal:', order.subtotal);
+        printTotalRow('Packaging:', order.packaging);
+        printTotalRow('Delivery:', order.delivery);
+
+        // Bold Total Border Line
+        finalY += 1;
+        doc.setDrawColor(0, 0, 0);
+        doc.setLineWidth(0.6);
+        doc.line(25, finalY, 185, finalY);
+        finalY += 7;
+
+        // Grand Total Amount
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(12);
+        doc.setTextColor(0, 0, 0);
+        doc.text('TOTAL AMOUNT:', 25, finalY);
+        doc.setFontSize(14);
+        doc.text(`Rs. ${order.grandTotal}`, 185, finalY, { align: 'right' });
+
+        // 5. Clean, Professional Footer (No emojis, No corrupted encoding)
+        finalY += 16;
+        doc.setDrawColor(230, 230, 230);
         doc.setLineWidth(0.3);
-        doc.line(15, 275, 195, 275);
+        doc.line(25, finalY, 185, finalY);
 
         doc.setFont('helvetica', 'normal');
-        doc.setFontSize(8);
-        doc.setTextColor(110, 110, 110);
-        doc.text('Street Burger • Main Road, Valliyur, Tirunelveli Dist, Tamil Nadu • 📞 +91 93425 41946', 105, 281, { align: 'center' });
-        doc.text('Taste the Gourmet Crunch! Thank you for dining with us.', 105, 286, { align: 'center' });
+        doc.setFontSize(8.5);
+        doc.setTextColor(120, 120, 120);
+        doc.text('Street Burger - Main Road, Valliyur, Tirunelveli Dist, Tamil Nadu', 105, finalY + 6, { align: 'center' });
+        doc.text('Phone: +91 93425 41946 | Taste the Gourmet Crunch! Thank you for dining with us.', 105, finalY + 11, { align: 'center' });
 
-        // Save PDF File directly to customer's downloads
-        const cleanInvoice = order.invoiceId.replace(/[^a-zA-Z0-9]/g, '');
-        doc.save(`StreetBurger_Bill_${cleanInvoice}.pdf`);
+        // Save file cleanly
+        const cleanInv = order.invoiceId.replace(/[^a-zA-Z0-9]/g, '');
+        doc.save(`StreetBurger_Bill_${cleanInv}.pdf`);
         showToast("A4 PDF Bill Downloaded!");
-      } catch (err) {
+      } catch(err) {
         console.error(err);
-        alert("PDF error: " + err.message);
+        alert("PDF Generation Error: " + err.message);
       }
     }
 
     // ==========================================
-    // 9. SHARE & COPY TOOLS
+    // 9. SHARE & COPY UTILITIES
     // ==========================================
     function shareBillDirectWhatsApp() {
       if (!currentActiveOrder) return;
@@ -1939,11 +1960,11 @@
       billMsg += `━━━━━━━━━━━━━━━━━━━━━\n`;
       billMsg += `Subtotal: Rs. ${o.subtotal}\n`;
       billMsg += `Packaging: Rs. ${o.packaging}\n`;
-      if (o.delivery > 0) billMsg += `Delivery Fee: Rs. ${o.delivery}\n`;
+      billMsg += `Delivery Fee: Rs. ${o.delivery}\n`;
       billMsg += `*FINAL TOTAL: Rs. ${o.grandTotal}*\n`;
       billMsg += `━━━━━━━━━━━━━━━━━━━━━\n`;
-      billMsg += `_Chef Augustin • CEO Harishma • Valliyur_\n`;
-      billMsg += `_Contact: +91 93425 41946_`;
+      billMsg += `_Chef Augustin (Owner) • Harishma (CEO) • Valliyur_\n`;
+      billMsg += `_Phone: +91 93425 41946_`;
 
       const cleanPhone = o.phone.replace(/[^0-9]/g, '');
       const targetPhone = cleanPhone.length === 10 ? ('91' + cleanPhone) : cleanPhone;
@@ -1976,7 +1997,7 @@
       t += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
       t += `Subtotal: Rs. ${order.subtotal}\n`;
       t += `Packaging: Rs. ${order.packaging}\n`;
-      if (order.delivery > 0) t += `Delivery: Rs. ${order.delivery}\n`;
+      t += `Delivery: Rs. ${order.delivery}\n`;
       t += `TOTAL AMOUNT: Rs. ${order.grandTotal}\n`;
       t += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
       t += `Chef Augustin • CEO Harishma\n`;

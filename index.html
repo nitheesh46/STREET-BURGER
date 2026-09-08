@@ -108,23 +108,6 @@
       gap: 12px;
       animation: slideDown 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     }
-
-    /* PURE WHITE BILL STYLES FOR PDF */
-    .pure-white-receipt {
-      background-color: #ffffff !important;
-      color: #111827 !important;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
-    }
-    .pure-white-receipt * {
-      color: #111827 !important;
-    }
-    .pure-white-receipt .receipt-mute {
-      color: #4b5563 !important;
-    }
-    .pure-white-receipt .receipt-gold {
-      color: #b45309 !important;
-    }
-
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: #050505; }
     ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 9999px; }
@@ -149,9 +132,16 @@
       </span>
     </div>
     <div class="flex items-center gap-3">
+      <!-- Owner Bill Records Button -->
+      <button onclick="openHistoryModal()" class="bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/40 text-blue-400 px-3 py-1 rounded-full text-[11px] font-cyber tracking-wider flex items-center gap-1.5 transition active:scale-95">
+        <i class="fa-solid fa-receipt"></i> Bill Records
+      </button>
+
+      <!-- Chef Stock Manager Button -->
       <button onclick="toggleStockModal()" class="bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/40 text-brandGold px-3.5 py-1 rounded-full text-[11px] font-cyber tracking-wider flex items-center gap-1.5 transition active:scale-95">
         <i class="fa-solid fa-lock text-brandGold"></i> Chef Stock Manager
       </button>
+
       <div class="inline-flex items-center gap-1.5 bg-red-950/60 border border-red-500/40 px-3 py-0.5 rounded-full text-[11px] text-yellow-300 font-bold">
         <i class="fa-solid fa-motorcycle text-red-400"></i> Town Delivery Active
       </div>
@@ -393,8 +383,6 @@
 
         <!-- Social Media 3 Cards Grid -->
         <div class="grid grid-cols-3 gap-6 text-left">
-          
-          <!-- Instagram -->
           <a href="https://www.instagram.com/street_burger_vallioor?stkn=ejR1NXQ2a2U2Zzc0" target="_blank" class="group bg-gradient-to-br from-pink-950/40 via-purple-950/30 to-black/60 border border-pink-500/30 hover:border-pink-500 p-6 rounded-2xl transition duration-300 hover:-translate-y-2 shadow-lg flex flex-col justify-between backdrop-blur-md">
             <div>
               <div class="flex items-center justify-between mb-4">
@@ -412,7 +400,6 @@
             </div>
           </a>
 
-          <!-- YouTube -->
           <a href="https://youtube.com/@streetburger-f2y?si=QzevfYPsBwAuMB9j" target="_blank" class="group bg-gradient-to-br from-red-950/40 via-neutral-950/30 to-black/60 border border-red-500/30 hover:border-red-500 p-6 rounded-2xl transition duration-300 hover:-translate-y-2 shadow-lg flex flex-col justify-between backdrop-blur-md">
             <div>
               <div class="flex items-center justify-between mb-4">
@@ -430,7 +417,6 @@
             </div>
           </a>
 
-          <!-- Facebook -->
           <a href="https://www.facebook.com/share/1BewhwZxa9/" target="_blank" class="group bg-gradient-to-br from-blue-950/40 via-neutral-950/30 to-black/60 border border-blue-500/30 hover:border-blue-500 p-6 rounded-2xl transition duration-300 hover:-translate-y-2 shadow-lg flex flex-col justify-between backdrop-blur-md">
             <div>
               <div class="flex items-center justify-between mb-4">
@@ -447,7 +433,6 @@
               <i class="fa-solid fa-arrow-right"></i>
             </div>
           </a>
-
         </div>
       </div>
     </div>
@@ -473,7 +458,6 @@
   <!-- OFFICIAL COPYRIGHT FOOTER -->
   <footer class="mt-24 border-t border-white/10 bg-black/90 py-14 px-6 text-center relative overflow-hidden">
     <div class="max-w-6xl mx-auto flex flex-col items-center justify-center space-y-6">
-      
       <div class="flex items-center gap-4">
         <div class="h-12 w-12 rounded-full border border-brandGold/40 p-0.5 overflow-hidden">
           <img src="1000428989logo.jpg" alt="Logo" class="h-full w-full rounded-full object-cover" onerror="handleImgFallback(this, 'SB')">
@@ -501,7 +485,6 @@
           <a href="tel:+919342541946" class="hover:text-brandGold transition">📞 +91 93425 41946</a>
         </div>
       </div>
-
     </div>
   </footer>
 
@@ -617,14 +600,14 @@
     </div>
   </div>
 
-  <!-- Admin PIN Verification Modal (Masked Password 3050) -->
+  <!-- Admin PIN Verification Modal -->
   <div id="adminAuthModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
     <div class="glass-card bg-cyberCard border border-amber-500/40 w-full max-w-sm rounded-[2rem] p-6 shadow-2xl text-center">
       <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/40 text-brandGold flex items-center justify-center mx-auto mb-3 text-2xl shadow-[0_0_15px_rgba(245,158,11,0.2)]">
         <i class="fa-solid fa-lock"></i>
       </div>
       <h3 class="font-cyber text-lg font-black text-brandNeon">CHEF AUTHENTICATION</h3>
-      <p class="text-xs text-stone-400 font-tamil mt-1 mb-4">உரிமையாளர் PIN உள்ளிடவும் (Hidden PIN Format)</p>
+      <p class="text-xs text-stone-400 font-tamil mt-1 mb-4">உரிமையாளர் PIN உள்ளிடவும் (Default: 3050)</p>
       
       <input 
         type="password" 
@@ -678,7 +661,33 @@
     </div>
   </div>
 
-  <!-- ORDER CONFIRMATION & PURE WHITE BILL MODAL -->
+  <!-- ORDER HISTORY & BILL ARCHIVE MODAL (FOR SHOP OWNER) -->
+  <div id="orderHistoryModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass-card bg-cyberCard border border-blue-500/40 w-full max-w-3xl max-h-[85vh] rounded-[2rem] flex flex-col p-6 shadow-2xl">
+      <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+        <div>
+          <h3 class="font-cyber text-xl font-black text-blue-400 flex items-center gap-2">
+            <i class="fa-solid fa-receipt"></i> ORDER RECORDS & BILL ARCHIVE
+          </h3>
+          <p class="text-xs text-stone-400 font-tamil mt-1">வாடிக்கையாளர் ஆர்டர்கள் மற்றும் ரசீது நகல்கள் இங்கே சேமிக்கப்பட்டுள்ளன.</p>
+        </div>
+        <button onclick="closeHistoryModal()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition">✕</button>
+      </div>
+
+      <div id="historyListContainer" class="flex-1 overflow-y-auto space-y-3 pr-2 min-h-[200px]"></div>
+
+      <div class="pt-4 border-t border-white/10 mt-4 flex items-center justify-between">
+        <button onclick="clearOrderHistory()" class="text-xs text-red-400 hover:underline">
+          <i class="fa-solid fa-trash-can mr-1"></i> Clear Old Records
+        </button>
+        <button onclick="closeHistoryModal()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-2.5 rounded-xl text-xs font-cyber">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORDER CONFIRMATION & BILL PREVIEW MODAL -->
   <div id="orderConfirmationModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
     <div class="glass-card bg-cyberCard border border-emerald-500/40 w-full max-w-lg rounded-[2.5rem] p-8 shadow-2xl flex flex-col max-h-[90vh] overflow-y-auto">
       
@@ -690,96 +699,85 @@
         <p class="text-xs text-stone-300 font-tamil mt-1">உங்கள் ஆர்டர் WhatsApp மூலம் வெற்றிகரமாக அனுப்பப்பட்டது!</p>
       </div>
 
-      <!-- Printable Pure White Invoice Area -->
-      <div id="printableBillArea" class="pure-white-receipt bg-white text-gray-900 rounded-2xl p-7 shadow-2xl font-sans mb-6 border border-gray-200">
-        
-        <div class="text-center border-b border-gray-300 pb-4 mb-4">
-          <h2 class="text-3xl font-black tracking-widest text-black font-cyber">STREET BURGER</h2>
-          <p class="text-xs font-bold uppercase tracking-widest receipt-mute mt-1">Valliyur Terminal Counter</p>
-          <p class="text-[11px] receipt-mute mt-0.5">Chef Augustin (Owner) • Harishma (CEO)</p>
-          <p class="text-[11px] font-mono receipt-gold font-bold mt-0.5">📞 +91 93425 41946</p>
+      <!-- Visible Preview on Screen -->
+      <div class="bg-white rounded-2xl p-6 shadow-2xl font-sans mb-6 border border-gray-300" style="color: #000000 !important;">
+        <div class="text-center border-b border-gray-300 pb-3 mb-3">
+          <h2 class="text-2xl font-black tracking-widest text-black font-cyber">STREET BURGER</h2>
+          <p class="text-[11px] font-bold uppercase text-gray-700 mt-0.5">Valliyur Terminal Counter</p>
+          <p class="text-[10px] text-gray-600">Chef Augustin • CEO Harishma • 📞 93425 41946</p>
         </div>
 
-        <div class="text-xs space-y-1.5 border-b border-gray-200 pb-4 mb-4 font-mono">
-          <div class="flex justify-between items-center">
-            <span class="receipt-mute">Invoice No:</span>
-            <span id="billInvoiceId" class="font-black text-black text-sm">#SB-0000</span>
+        <div class="text-xs space-y-1 border-b border-gray-300 pb-3 mb-3 font-mono text-gray-800">
+          <div class="flex justify-between">
+            <span class="text-gray-600">Bill No:</span>
+            <span id="previewInvoiceId" class="font-bold text-black">-</span>
           </div>
-          <div class="flex justify-between items-center">
-            <span class="receipt-mute">Order Placed:</span>
-            <span id="billOrderTime" class="font-bold text-black">-</span>
+          <div class="flex justify-between">
+            <span class="text-gray-600">Time:</span>
+            <span id="previewOrderTime" class="font-bold text-black">-</span>
           </div>
-          <div class="flex justify-between items-center">
-            <span class="receipt-mute">Customer:</span>
-            <span id="billCustomerName" class="font-bold text-black">-</span>
+          <div class="flex justify-between">
+            <span class="text-gray-600">Customer:</span>
+            <span id="previewCustomerName" class="font-bold text-black">-</span>
           </div>
-          <div class="flex justify-between items-center">
-            <span class="receipt-mute">WhatsApp Phone:</span>
-            <span id="billCustomerPhone" class="font-bold text-black">-</span>
+          <div class="flex justify-between">
+            <span class="text-gray-600">Phone:</span>
+            <span id="previewCustomerPhone" class="font-bold text-black">-</span>
           </div>
-          <div class="flex justify-between items-center">
-            <span class="receipt-mute">Order Mode:</span>
-            <span id="billCustomerMode" class="font-bold text-black">-</span>
+          <div class="flex justify-between">
+            <span class="text-gray-600">Mode:</span>
+            <span id="previewCustomerMode" class="font-bold text-black">-</span>
           </div>
-          <div id="billAddressRow" class="flex justify-between items-start hidden pt-1">
-            <span class="receipt-mute">Delivery Addr:</span>
-            <span id="billCustomerAddress" class="font-bold text-black text-right max-w-[210px] leading-tight">-</span>
+          <div id="previewAddressRow" class="flex justify-between hidden">
+            <span class="text-gray-600">Address:</span>
+            <span id="previewCustomerAddress" class="font-bold text-black text-right max-w-[200px] truncate">-</span>
           </div>
         </div>
 
         <!-- Table -->
-        <table class="w-full text-xs mb-4">
+        <table class="w-full text-xs mb-3 text-black">
           <thead>
-            <tr class="border-b-2 border-gray-800 receipt-mute uppercase text-[10px] font-bold">
-              <th class="text-left py-1.5">Item Description</th>
-              <th class="text-center py-1.5">Qty</th>
-              <th class="text-right py-1.5">Rate</th>
-              <th class="text-right py-1.5">Total</th>
+            <tr class="border-b border-gray-300 text-gray-600 uppercase text-[10px]">
+              <th class="text-left py-1">Item</th>
+              <th class="text-center py-1">Qty</th>
+              <th class="text-right py-1">Price</th>
+              <th class="text-right py-1">Total</th>
             </tr>
           </thead>
-          <tbody id="billItemsTableBody" class="divide-y divide-gray-200"></tbody>
+          <tbody id="previewItemsBody" class="divide-y divide-gray-200"></tbody>
         </table>
 
         <!-- Totals -->
-        <div class="border-t border-gray-300 pt-3 space-y-1.5 text-xs font-mono">
-          <div class="flex justify-between receipt-mute">
-            <span>Items Subtotal:</span>
-            <span id="billSubtotal" class="text-black font-bold">₹0</span>
+        <div class="border-t border-gray-300 pt-2 space-y-1 text-xs font-mono text-gray-800">
+          <div class="flex justify-between">
+            <span>Subtotal:</span>
+            <span id="previewSubtotal">₹0</span>
           </div>
-          <div class="flex justify-between receipt-mute">
-            <span>Eco Box Packaging:</span>
-            <span id="billPackaging" class="text-black font-bold">₹0</span>
+          <div class="flex justify-between">
+            <span>Packaging:</span>
+            <span id="previewPackaging">₹0</span>
           </div>
-          <div class="flex justify-between receipt-mute">
-            <span>Town Delivery Fee:</span>
-            <span id="billDelivery" class="text-black font-bold">FREE</span>
+          <div class="flex justify-between">
+            <span>Delivery:</span>
+            <span id="previewDelivery">FREE</span>
           </div>
-          <div class="border-t-2 border-gray-900 pt-2.5 mt-2.5 flex justify-between items-center text-base font-black text-black">
-            <span>TOTAL AMOUNT:</span>
-            <span id="billGrandTotal" class="text-xl font-black receipt-gold">₹0</span>
+          <div class="border-t-2 border-gray-900 pt-2 mt-1 flex justify-between items-center text-sm font-black text-black">
+            <span>TOTAL:</span>
+            <span id="previewGrandTotal" class="text-lg text-amber-600 font-bold">₹0</span>
           </div>
-        </div>
-
-        <div class="text-center text-[10px] receipt-mute mt-6 pt-3 border-t border-gray-200 leading-relaxed font-tamil">
-          Street Burger Valliyur - சுவைக்கு எங்கள் உத்தரவாதம்!<br/>
-          நன்றி, மீண்டும் வருக! (Thank you, Visit Again!)
         </div>
       </div>
 
       <!-- Action Buttons -->
       <div class="flex flex-col gap-2.5">
-        
-        <!-- Copy Bill Text -->
-        <button onclick="copyBillText()" class="w-full bg-zinc-800 hover:bg-zinc-700 text-amber-400 font-bold py-3.5 rounded-2xl flex items-center justify-center gap-2.5 text-xs transition border border-amber-500/30 active:scale-95 shadow">
-          <i class="fa-solid fa-copy text-base"></i> Copy Bill Receipt Text (நகல் எடுக்க)
-        </button>
-
-        <!-- Download Pure White PDF -->
-        <button onclick="downloadBillPDF()" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold py-4 rounded-2xl flex items-center justify-center gap-3 text-sm transition shadow-[0_0_20px_rgba(245,158,11,0.3)] active:scale-95">
+        <button onclick="downloadCurrentBillPDF()" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold py-4 rounded-2xl flex items-center justify-center gap-3 text-sm transition shadow-[0_0_20px_rgba(245,158,11,0.3)] active:scale-95">
           <i class="fa-solid fa-file-pdf text-lg"></i> Download PDF Bill (ரசீது PDF)
         </button>
 
-        <!-- Back to Menu -->
+        <button onclick="copyCurrentBillText()" class="w-full bg-zinc-800 hover:bg-zinc-700 text-amber-400 font-bold py-3.5 rounded-2xl flex items-center justify-center gap-2.5 text-xs transition border border-amber-500/30 active:scale-95">
+          <i class="fa-solid fa-copy text-base"></i> Copy Receipt Text (நகல் எடுக்க)
+        </button>
+
         <button onclick="closeOrderConfirmationModal()" class="w-full bg-white/5 hover:bg-white/10 text-stone-400 font-bold py-3 rounded-2xl text-xs transition mt-1">
           Back to Menu
         </button>
@@ -1112,7 +1110,7 @@
     let cart = [];
     let currentCategory = 'all';
     let currentDiet = 'all';
-    let lastOrderDetails = null; // Stored for copy and PDF export
+    let currentActiveOrder = null;
 
     const PACKAGING_FEE_PER_ORDER = 10;
     const DELIVERY_FEE = 20;
@@ -1445,7 +1443,7 @@
     }
 
     // ==========================================
-    // 5. CART & CHECKOUT WITH EXACT WHATSAPP & COPY
+    // 5. CART & ORDER ARCHIVE LOGIC
     // ==========================================
     function toggleCart() {
       const drawer = document.getElementById('cartDrawer');
@@ -1653,7 +1651,9 @@
       floatTotal.innerText = `₹${grandTotal}`;
     }
 
-    // CHECKOUT: COMPLETE TEXT BUILDER + PURE WHITE BILL
+    // ==========================================
+    // 6. CHECKOUT: FULL WHATSAPP & AUTO-ARCHIVE
+    // ==========================================
     function checkoutToWhatsApp() {
       if (cart.length === 0) {
         alert('Please add items to your cart before proceeding.');
@@ -1676,165 +1676,365 @@
         return;
       }
 
-      // Live Timestamp capture
       const now = new Date();
       const orderTimestamp = now.toLocaleString('en-IN', {
         dateStyle: 'medium',
         timeStyle: 'short'
       });
-      const invoiceId = '#SB-' + Math.floor(100000 + Math.random() * 900000);
+      const invoiceId = 'SB-' + Math.floor(100000 + Math.random() * 900000);
 
       const { subtotal, packaging, delivery, grandTotal } = calculateFinances();
 
-      // Store Order Details for Copy & PDF Generation
-      lastOrderDetails = {
-        invoiceId,
+      // Store Order Record in History
+      const orderRecord = {
+        invoiceId: '#' + invoiceId,
         orderTimestamp,
         name,
         phone,
         mode,
         address,
         notes,
-        cart: JSON.parse(JSON.stringify(cart)),
+        items: JSON.parse(JSON.stringify(cart)),
         subtotal,
         packaging,
         delivery,
         grandTotal
       };
+      saveOrderToHistory(orderRecord);
+      currentActiveOrder = orderRecord;
 
-      // Full, completely formatted WhatsApp message
-      let text = `*STREET BURGER VALLIYUR - NEW ORDER*%0A`;
-      text += `━━━━━━━━━━━━━━━━━━━━━%0A`;
-      text += `🧾 *Bill No:* ${invoiceId}%0A`;
-      text += `⏱ *Order Time:* ${encodeURIComponent(orderTimestamp)}%0A`;
-      text += `👤 *Customer Name:* ${encodeURIComponent(name)}%0A`;
-      text += `📞 *Phone:* ${encodeURIComponent(phone)}%0A`;
-      text += `🛵 *Order Mode:* ${encodeURIComponent(mode)}%0A`;
+      // Complete WhatsApp Text string with clean line breaks
+      let msg = `*STREET BURGER VALLIYUR - NEW ORDER*\n`;
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `🧾 *Bill No:* #${invoiceId}\n`;
+      msg += `⏱ *Order Time:* ${orderTimestamp}\n`;
+      msg += `👤 *Customer:* ${name}\n`;
+      msg += `📞 *Phone:* ${phone}\n`;
+      msg += `🛵 *Mode:* ${mode}\n`;
       if (mode.includes('Delivery')) {
-        text += `📍 *Delivery Address:* ${encodeURIComponent(address)}%0A`;
+        msg += `📍 *Address:* ${address}\n`;
       }
       if (notes) {
-        text += `📝 *Chef Notes:* ${encodeURIComponent(notes)}%0A`;
+        msg += `📝 *Notes:* ${notes}\n`;
       }
-      text += `━━━━━━━━━━━━━━━━━━━━━%0A`;
-      text += `*ORDERED ITEMS:*%0A`;
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `*ORDERED ITEMS:*\n`;
 
       cart.forEach((item, i) => {
-        text += `${i + 1}. ${encodeURIComponent(item.name)} (x${item.qty}) - ₹${item.price * item.qty}%0A`;
+        msg += `${i + 1}. ${item.name} (x${item.qty}) - ₹${item.price * item.qty}\n`;
       });
 
-      text += `━━━━━━━━━━━━━━━━━━━━━%0A`;
-      text += `Items Subtotal: ₹${subtotal}%0A`;
-      text += `Eco Packaging: ₹${packaging}%0A`;
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `Items Subtotal: ₹${subtotal}\n`;
+      msg += `Eco Packaging: ₹${packaging}\n`;
       if (delivery > 0) {
-        text += `Valliyur Delivery: ₹${delivery}%0A`;
+        msg += `Town Delivery: ₹${delivery}\n`;
       }
-      text += `*GRAND TOTAL: ₹${grandTotal}*%0A`;
-      text += `━━━━━━━━━━━━━━━━━━━━━%0A`;
-      text += `_Please confirm preparation!_`;
+      msg += `*GRAND TOTAL: ₹${grandTotal}*\n`;
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `_Please confirm order acceptance._`;
 
-      // 1. Open WhatsApp
-      window.open(`https://wa.me/919342541946?text=${text}`, '_blank');
+      // Open WhatsApp cleanly using encodeURIComponent
+      const waUrl = `https://wa.me/919342541946?text=${encodeURIComponent(msg)}`;
+      window.open(waUrl, '_blank');
 
-      // 2. Play sound
+      // Play Sound
       playSuccessChime();
 
-      // 3. Populate pure white receipt
-      document.getElementById('billInvoiceId').innerText = invoiceId;
-      document.getElementById('billOrderTime').innerText = orderTimestamp;
-      document.getElementById('billCustomerName').innerText = name;
-      document.getElementById('billCustomerPhone').innerText = phone;
-      document.getElementById('billCustomerMode').innerText = mode;
+      // Populate Visual Preview
+      populateOrderPreview(orderRecord);
 
-      const addrRow = document.getElementById('billAddressRow');
-      if (mode.includes('Delivery') && address) {
-        document.getElementById('billCustomerAddress').innerText = address;
+      // Hide Cart Drawer & Show Confirmation Modal
+      toggleCart();
+      document.getElementById('orderConfirmationModal').classList.remove('hidden');
+      showToast("Order Placed Successfully!");
+    }
+
+    function populateOrderPreview(order) {
+      document.getElementById('previewInvoiceId').innerText = order.invoiceId;
+      document.getElementById('previewOrderTime').innerText = order.orderTimestamp;
+      document.getElementById('previewCustomerName').innerText = order.name;
+      document.getElementById('previewCustomerPhone').innerText = order.phone;
+      document.getElementById('previewCustomerMode').innerText = order.mode;
+
+      const addrRow = document.getElementById('previewAddressRow');
+      if (order.mode.includes('Delivery') && order.address) {
+        document.getElementById('previewCustomerAddress').innerText = order.address;
         addrRow.classList.remove('hidden');
       } else {
         addrRow.classList.add('hidden');
       }
 
-      const tableBody = document.getElementById('billItemsTableBody');
-      tableBody.innerHTML = cart.map(item => `
-        <tr class="py-1 text-xs">
-          <td class="py-1.5 font-bold text-gray-900">${item.name}</td>
-          <td class="py-1.5 text-center font-bold text-gray-800">${item.qty}</td>
-          <td class="py-1.5 text-right font-mono text-gray-700">₹${item.price}</td>
-          <td class="py-1.5 text-right font-mono font-black text-black">₹${item.price * item.qty}</td>
+      const tableBody = document.getElementById('previewItemsBody');
+      tableBody.innerHTML = order.items.map(item => `
+        <tr class="py-1">
+          <td class="py-1 text-black font-semibold">${item.name}</td>
+          <td class="py-1 text-center font-bold text-black">${item.qty}</td>
+          <td class="py-1 text-right text-gray-800">₹${item.price}</td>
+          <td class="py-1 text-right font-bold text-black">₹${item.price * item.qty}</td>
         </tr>
       `).join('');
 
-      document.getElementById('billSubtotal').innerText = `₹${subtotal}`;
-      document.getElementById('billPackaging').innerText = `₹${packaging}`;
-      document.getElementById('billDelivery').innerText = delivery > 0 ? `₹${delivery}` : 'FREE';
-      document.getElementById('billGrandTotal').innerText = `₹${grandTotal}`;
-
-      // 4. Hide Drawer, Display Confirmation Modal
-      toggleCart();
-      document.getElementById('orderConfirmationModal').classList.remove('hidden');
-      showToast("Order Placed Successfully!");
+      document.getElementById('previewSubtotal').innerText = `₹${order.subtotal}`;
+      document.getElementById('previewPackaging').innerText = `₹${order.packaging}`;
+      document.getElementById('previewDelivery').innerText = order.delivery > 0 ? `₹${order.delivery}` : 'FREE';
+      document.getElementById('previewGrandTotal').innerText = `₹${order.grandTotal}`;
     }
 
     function closeOrderConfirmationModal() {
       document.getElementById('orderConfirmationModal').classList.add('hidden');
     }
 
-    // COPY BILL TEXT TO CLIPBOARD
-    function copyBillText() {
-      if (!lastOrderDetails) return;
-
-      const d = lastOrderDetails;
-      let billText = `STREET BURGER VALLIYUR - OFFICIAL RECEIPT\n`;
-      billText += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-      billText += `Bill No: ${d.invoiceId}\n`;
-      billText += `Order Time: ${d.orderTimestamp}\n`;
-      billText += `Customer: ${d.name} (${d.phone})\n`;
-      billText += `Order Mode: ${d.mode}\n`;
-      if (d.address) billText += `Address: ${d.address}\n`;
-      billText += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-      billText += `ITEMS:\n`;
-      d.cart.forEach((item, idx) => {
-        billText += `${idx + 1}. ${item.name} x ${item.qty} = ₹${item.price * item.qty}\n`;
-      });
-      billText += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-      billText += `Subtotal: ₹${d.subtotal}\n`;
-      billText += `Packaging: ₹${d.packaging}\n`;
-      if (d.delivery > 0) billText += `Delivery Fee: ₹${d.delivery}\n`;
-      billText += `TOTAL AMOUNT: ₹${d.grandTotal}\n`;
-      billText += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-      billText += `Chef Augustin • CEO Harishma • Valliyur\n`;
-
-      navigator.clipboard.writeText(billText).then(() => {
-        showToast("Bill Copied to Clipboard!");
-      }).catch(() => {
-        alert(billText);
-      });
+    // ==========================================
+    // 7. ORDER HISTORY & BILL ARCHIVE (OWNER COPY)
+    // ==========================================
+    function saveOrderToHistory(order) {
+      try {
+        let history = JSON.parse(localStorage.getItem('sb_orders_history') || '[]');
+        history.unshift(order); // Add newest first
+        if (history.length > 50) history.pop(); // Keep recent 50
+        localStorage.setItem('sb_orders_history', JSON.stringify(history));
+      } catch(e) {}
     }
 
-    // PURE WHITE PDF DOWNLOAD
-    function downloadBillPDF() {
-      const element = document.getElementById('printableBillArea');
-      const invoiceId = document.getElementById('billInvoiceId').innerText.replace('#', '');
-      
+    function openHistoryModal() {
+      renderHistoryList();
+      document.getElementById('orderHistoryModal').classList.remove('hidden');
+    }
+
+    function closeHistoryModal() {
+      document.getElementById('orderHistoryModal').classList.add('hidden');
+    }
+
+    function renderHistoryList() {
+      const container = document.getElementById('historyListContainer');
+      const history = JSON.parse(localStorage.getItem('sb_orders_history') || '[]');
+
+      if (history.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 text-stone-500 bg-white/5 rounded-2xl border border-white/5">
+            <i class="fa-solid fa-receipt text-5xl mb-3 opacity-40"></i>
+            <p class="text-base font-bold text-white">No Order Records Yet</p>
+            <p class="text-xs text-stone-400 mt-1">Orders placed on this device will be archived here automatically.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = history.map((order, idx) => `
+        <div class="bg-white/5 border border-white/10 p-4 rounded-xl flex items-center justify-between gap-4">
+          <div class="truncate">
+            <div class="flex items-center gap-2">
+              <span class="font-cyber text-amber-400 font-black text-sm">${order.invoiceId}</span>
+              <span class="text-xs text-stone-300 font-bold">• ${order.name} (${order.phone})</span>
+            </div>
+            <div class="text-[11px] text-stone-400 mt-0.5">
+              ${order.orderTimestamp} • <strong class="text-brandNeon">₹${order.grandTotal}</strong> • ${order.mode}
+            </div>
+            <div class="text-[10px] text-stone-500 truncate mt-1">
+              ${order.items.map(i => `${i.name} (x${i.qty})`).join(', ')}
+            </div>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <button onclick="generatePdfFromData(${idx})" class="bg-amber-500 hover:bg-amber-400 text-black px-3.5 py-2 rounded-lg font-bold text-xs flex items-center gap-1.5 transition active:scale-95 shadow">
+              <i class="fa-solid fa-file-pdf"></i> PDF Bill
+            </button>
+            <button onclick="copyBillTextFromHistory(${idx})" class="bg-zinc-800 hover:bg-zinc-700 text-stone-200 px-3 py-2 rounded-lg text-xs font-bold transition active:scale-95">
+              <i class="fa-solid fa-copy"></i> Copy
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function clearOrderHistory() {
+      if (confirm("Are you sure you want to clear the archived order history?")) {
+        localStorage.removeItem('sb_orders_history');
+        renderHistoryList();
+        showToast("Records Cleared");
+      }
+    }
+
+    // ==========================================
+    // 8. PURE WHITE PDF GENERATOR ENGINE
+    // ==========================================
+    function downloadCurrentBillPDF() {
+      if (!currentActiveOrder) return;
+      executeIsolatedPdfPrint(currentActiveOrder);
+    }
+
+    function generatePdfFromData(historyIndex) {
+      const history = JSON.parse(localStorage.getItem('sb_orders_history') || '[]');
+      const order = history[historyIndex];
+      if (order) executeIsolatedPdfPrint(order);
+    }
+
+    function executeIsolatedPdfPrint(order) {
+      // Build a dedicated, isolated HTML canvas strictly styled with black text & white background
+      const billContainer = document.createElement('div');
+      billContainer.style.cssText = `
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+        width: 480px;
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        font-family: Arial, Helvetica, sans-serif !important;
+        padding: 24px;
+        box-sizing: border-box;
+      `;
+
+      billContainer.innerHTML = `
+        <div style="text-align: center; border-bottom: 2px solid #000000; padding-bottom: 12px; margin-bottom: 14px;">
+          <h1 style="margin: 0; font-size: 26px; font-weight: 900; letter-spacing: 2px; color: #000000;">STREET BURGER</h1>
+          <p style="margin: 3px 0 0 0; font-size: 11px; font-weight: bold; text-transform: uppercase; color: #444444;">Valliyur Terminal Counter</p>
+          <p style="margin: 2px 0 0 0; font-size: 10px; color: #666666;">Chef Augustin (Owner) • Harishma (CEO)</p>
+          <p style="margin: 2px 0 0 0; font-size: 11px; font-weight: bold; color: #b45309;">📞 +91 93425 41946</p>
+        </div>
+
+        <div style="font-size: 11px; line-height: 1.5; border-bottom: 1px dashed #777777; padding-bottom: 10px; margin-bottom: 12px; color: #000000;">
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: #555555;">Bill No:</span>
+            <strong style="color: #000000;">${order.invoiceId}</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: #555555;">Order Date & Time:</span>
+            <strong style="color: #000000;">${order.orderTimestamp}</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: #555555;">Customer Name:</span>
+            <strong style="color: #000000;">${order.name}</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: #555555;">Phone:</span>
+            <strong style="color: #000000;">${order.phone}</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: #555555;">Mode:</span>
+            <strong style="color: #000000;">${order.mode}</strong>
+          </div>
+          ${order.address ? `
+            <div style="display: flex; justify-content: space-between; margin-top: 3px;">
+              <span style="color: #555555;">Address:</span>
+              <strong style="color: #000000; text-align: right; max-width: 260px;">${order.address}</strong>
+            </div>
+          ` : ''}
+        </div>
+
+        <table style="width: 100%; font-size: 11px; border-collapse: collapse; margin-bottom: 12px;">
+          <thead>
+            <tr style="border-bottom: 1px solid #000000; color: #444444; text-transform: uppercase; font-size: 9px;">
+              <th style="text-align: left; padding: 4px 0;">Item Description</th>
+              <th style="text-align: center; padding: 4px 0;">Qty</th>
+              <th style="text-align: right; padding: 4px 0;">Rate</th>
+              <th style="text-align: right; padding: 4px 0;">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${order.items.map(item => `
+              <tr style="border-bottom: 1px solid #eeeeee; color: #000000;">
+                <td style="padding: 6px 0; font-weight: bold;">${item.name}</td>
+                <td style="padding: 6px 0; text-align: center;">${item.qty}</td>
+                <td style="padding: 6px 0; text-align: right;">₹${item.price}</td>
+                <td style="padding: 6px 0; text-align: right; font-weight: bold;">₹${item.price * item.qty}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+
+        <div style="font-size: 11px; line-height: 1.6; border-top: 1px solid #000000; padding-top: 8px; color: #000000;">
+          <div style="display: flex; justify-content: space-between; color: #444444;">
+            <span>Items Subtotal:</span>
+            <span>₹${order.subtotal}</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; color: #444444;">
+            <span>Packaging Charge:</span>
+            <span>₹${order.packaging}</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; color: #444444;">
+            <span>Town Delivery Fee:</span>
+            <span>${order.delivery > 0 ? `₹${order.delivery}` : 'FREE'}</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 15px; font-weight: 900; border-top: 2px solid #000000; padding-top: 6px; margin-top: 6px;">
+            <span>TOTAL AMOUNT:</span>
+            <span style="color: #b45309;">₹${order.grandTotal}</span>
+          </div>
+        </div>
+
+        <div style="text-align: center; font-size: 10px; color: #666666; margin-top: 16px; padding-top: 8px; border-top: 1px dashed #aaaaaa;">
+          Street Burger Valliyur • Taste the Gourmet Crunch!<br/>
+          நன்றி, மீண்டும் வருக! (Thank you, Visit Again!)
+        </div>
+      `;
+
+      document.body.appendChild(billContainer);
+
+      const cleanFileName = `StreetBurger_${order.invoiceId.replace(/[^a-zA-Z0-9]/g, '')}.pdf`;
       const opt = {
-        margin:       8,
-        filename:     `StreetBurger_Bill_${invoiceId}.pdf`,
+        margin:       5,
+        filename:     cleanFileName,
         image:        { type: 'jpeg', quality: 0.99 },
         html2canvas:  { 
-          scale: 3, 
+          scale: 2, 
           useCORS: true,
           backgroundColor: '#ffffff'
         },
         jsPDF:        { unit: 'mm', format: 'a5', orientation: 'portrait' }
       };
 
-      html2pdf().set(opt).from(element).save().then(() => {
+      html2pdf().set(opt).from(billContainer).save().then(() => {
+        document.body.removeChild(billContainer);
         showToast("PDF Bill Downloaded!");
+      }).catch(() => {
+        document.body.removeChild(billContainer);
+        showToast("PDF error. Opening print preview...");
+        window.print();
       });
     }
 
     // ==========================================
-    // 6. FILTER LOGIC
+    // 9. COPY BILL TEXT
+    // ==========================================
+    function copyCurrentBillText() {
+      if (!currentActiveOrder) return;
+      copyReceiptString(currentActiveOrder);
+    }
+
+    function copyBillTextFromHistory(idx) {
+      const history = JSON.parse(localStorage.getItem('sb_orders_history') || '[]');
+      if (history[idx]) copyReceiptString(history[idx]);
+    }
+
+    function copyReceiptString(order) {
+      let t = `STREET BURGER VALLIYUR - RECEIPT\n`;
+      t += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+      t += `Bill No: ${order.invoiceId}\n`;
+      t += `Order Time: ${order.orderTimestamp}\n`;
+      t += `Customer: ${order.name} (${order.phone})\n`;
+      t += `Order Mode: ${order.mode}\n`;
+      if (order.address) t += `Address: ${order.address}\n`;
+      t += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+      t += `ORDERED ITEMS:\n`;
+      order.items.forEach((item, i) => {
+        t += `${i + 1}. ${item.name} x ${item.qty} = ₹${item.price * item.qty}\n`;
+      });
+      t += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+      t += `Subtotal: ₹${order.subtotal}\n`;
+      t += `Packaging: ₹${order.packaging}\n`;
+      if (order.delivery > 0) t += `Delivery: ₹${order.delivery}\n`;
+      t += `TOTAL: ₹${order.grandTotal}\n`;
+      t += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+      t += `Chef Augustin • CEO Harishma\n`;
+
+      navigator.clipboard.writeText(t).then(() => {
+        showToast("Receipt Text Copied!");
+      }).catch(() => {
+        alert(t);
+      });
+    }
+
+    // ==========================================
+    // 10. FILTER LOGIC
     // ==========================================
     function resetAllFilters() {
       currentCategory = 'all';

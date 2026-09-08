@@ -125,8 +125,8 @@
       <span class="font-cyber text-[10px] text-brandNeon tracking-widest uppercase">LIVE KITCHEN ACTIVE • VALLIYUR</span>
     </div>
     <div class="flex items-center gap-4">
-      <button onclick="toggleStockModal()" class="bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/40 text-brandGold px-3 py-1 rounded-full text-[11px] font-cyber tracking-wider flex items-center gap-1.5 transition">
-        <i class="fa-solid fa-sliders"></i> Chef Stock Manager
+      <button onclick="toggleStockModal()" class="bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/40 text-brandGold px-3.5 py-1 rounded-full text-[11px] font-cyber tracking-wider flex items-center gap-1.5 transition active:scale-95">
+        <i class="fa-solid fa-lock text-brandGold"></i> Chef Stock Manager
       </button>
       <div class="inline-flex items-center gap-1.5 bg-red-950/60 border border-red-500/40 px-3 py-0.5 rounded-full text-[11px] text-yellow-300 font-bold">
         <i class="fa-solid fa-motorcycle text-red-400"></i> Town Delivery Active
@@ -201,6 +201,7 @@
         </div>
       </div>
 
+      <!-- Hero Banner Image with Self-Healing Fallback -->
       <div class="w-full max-w-4xl">
         <div class="glass-card p-2 rounded-[2rem]">
           <div class="relative w-full overflow-hidden rounded-[1.5rem] bg-black">
@@ -208,7 +209,7 @@
               src="./1000430339.png?v=1" 
               alt="Street Burger Food Truck" 
               class="w-full h-auto block hover:scale-105 transition duration-700 ease-in-out"
-              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?w=1200&auto=format&fit=crop&q=80';"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?w=1200&auto=format&fit=crop&q=80';"
             >
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none"></div>
             
@@ -459,6 +460,37 @@
     </button>
   </div>
 
+  <!-- Admin PIN Verification Modal (Masked Password 3050) -->
+  <div id="adminAuthModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass-card bg-cyberCard border border-amber-500/40 w-full max-w-sm rounded-[2rem] p-6 shadow-2xl text-center">
+      <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/40 text-brandGold flex items-center justify-center mx-auto mb-3 text-2xl shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <h3 class="font-cyber text-lg font-black text-brandNeon">CHEF AUTHENTICATION</h3>
+      <p class="text-xs text-stone-400 font-tamil mt-1 mb-4">உரிமையாளர் PIN உள்ளிடவும் (Hidden PIN Format)</p>
+      
+      <!-- Auto-saving masked hidden password input -->
+      <input 
+        type="password" 
+        id="adminPinInput" 
+        placeholder="••••" 
+        maxlength="10" 
+        autocomplete="current-password"
+        onkeydown="if(event.key==='Enter') verifyAdminPin()"
+        class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-center text-xl font-mono text-white tracking-[0.4em] focus:border-brandGold outline-none mb-4"
+      >
+
+      <div class="flex gap-3">
+        <button onclick="closeAuthModal()" class="w-1/2 bg-zinc-800 hover:bg-zinc-700 text-stone-300 font-bold py-3 rounded-xl text-xs transition">
+          Cancel
+        </button>
+        <button onclick="verifyAdminPin()" class="w-1/2 bg-brandGold hover:bg-amber-400 text-black font-extrabold py-3 rounded-xl text-xs transition shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+          Unlock
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Chef Stock Controller Modal -->
   <div id="stockModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
     <div class="glass-card bg-cyberCard border border-amber-500/40 w-full max-w-2xl max-h-[85vh] rounded-[2rem] flex flex-col p-6 shadow-2xl">
@@ -467,17 +499,22 @@
           <h3 class="font-cyber text-xl font-black text-brandNeon flex items-center gap-2">
             <i class="fa-solid fa-sliders text-brandGold"></i> CHEF STOCK MANAGER
           </h3>
-          <p class="text-xs text-stone-400 font-tamil mt-1">பொருளின் இருப்பு நிலையை மாற்ற ஒரு கிளிக் செய்யவும் (In Stock / Sold Out).</p>
+          <p class="text-xs text-stone-400 font-tamil mt-1">இருப்பு நிலையை மாற்ற கிளிக் செய்யவும் (In Stock / Sold Out).</p>
         </div>
         <button onclick="toggleStockModal()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition">✕</button>
       </div>
 
-      <div id="stockModalList" class="flex-1 overflow-y-auto space-y-2 pr-2"></div>
+      <div id="stockModalList" class="flex-1 overflow-y-auto space-y-2.5 pr-2"></div>
 
       <div class="pt-4 border-t border-white/10 mt-4 flex items-center justify-between">
-        <button onclick="resetAllStock()" class="text-xs text-amber-400 hover:underline">
-          <i class="fa-solid fa-rotate-left"></i> Make All Items In-Stock
-        </button>
+        <div class="flex items-center gap-4">
+          <button onclick="resetAllStock()" class="text-xs text-amber-400 hover:underline flex items-center gap-1">
+            <i class="fa-solid fa-rotate-left"></i> Make All In-Stock
+          </button>
+          <button onclick="changeAdminPin()" class="text-xs text-stone-400 hover:text-white transition flex items-center gap-1">
+            <i class="fa-solid fa-key text-brandGold"></i> Change Password
+          </button>
+        </div>
         <button onclick="toggleStockModal()" class="bg-brandGold text-black font-bold px-6 py-2.5 rounded-xl text-xs font-cyber">
           Close Manager
         </button>
@@ -804,7 +841,7 @@
     ];
 
     // ==========================================
-    // 2. STATE & INITIALIZATION
+    // 2. STATE & PIN INITIALIZATION (PASSWORD 3050)
     // ==========================================
     let cart = [];
     let currentCategory = 'all';
@@ -812,8 +849,19 @@
 
     const PACKAGING_FEE_PER_ORDER = 10;
     const DELIVERY_FEE = 20;
+    const DEFAULT_ADMIN_PIN = "3050";
 
-    // Beep synthesizer
+    // Auto-save hidden format PIN retriever
+    function getAdminPin() {
+      let pin = localStorage.getItem('sb_admin_pin');
+      if (!pin) {
+        pin = DEFAULT_ADMIN_PIN;
+        localStorage.setItem('sb_admin_pin', pin);
+      }
+      return pin;
+    }
+
+    // Audio synthesizer
     function playBeep() {
       try {
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -864,6 +912,7 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
+      getAdminPin(); // Ensure PIN is initialized to 3050 in localStorage
       loadStockOverrides();
       loadStorageData();
       renderMenuCards();
@@ -872,7 +921,7 @@
     });
 
     // ==========================================
-    // 3. DYNAMIC MENU RENDERING
+    // 3. DYNAMIC MENU RENDERING WITH OUT-OF-STOCK
     // ==========================================
     function renderMenuCards() {
       const container = document.getElementById('dynamicMenuRoot');
@@ -988,17 +1037,64 @@
     }
 
     // ==========================================
-    // 4. CHEF STOCK CONTROLLER (ADMIN)
+    // 4. PASSWORD 3050 & STOCK MANAGER LOGIC
     // ==========================================
     function toggleStockModal() {
       const modal = document.getElementById('stockModal');
       const isHidden = modal.classList.contains('hidden');
-      if (isHidden) {
+
+      if (!isHidden) {
+        modal.classList.add('hidden');
+        return;
+      }
+
+      // Check session authentication
+      if (sessionStorage.getItem('sb_admin_auth') === 'true') {
         renderStockManagerRows();
         modal.classList.remove('hidden');
       } else {
-        modal.classList.add('hidden');
+        const input = document.getElementById('adminPinInput');
+        input.value = '';
+        document.getElementById('adminAuthModal').classList.remove('hidden');
+        setTimeout(() => input.focus(), 150);
       }
+    }
+
+    function closeAuthModal() {
+      document.getElementById('adminAuthModal').classList.add('hidden');
+    }
+
+    function verifyAdminPin() {
+      const entered = document.getElementById('adminPinInput').value.trim();
+      const currentPin = getAdminPin();
+
+      if (entered === currentPin) {
+        sessionStorage.setItem('sb_admin_auth', 'true');
+        closeAuthModal();
+        renderStockManagerRows();
+        document.getElementById('stockModal').classList.remove('hidden');
+        showToast("Kitchen Unlocked");
+      } else {
+        alert("Incorrect PIN! / தவறான கடவுச்சொல்");
+        document.getElementById('adminPinInput').value = '';
+      }
+    }
+
+    function changeAdminPin() {
+      const current = prompt("Enter current PIN:");
+      if (current !== getAdminPin()) {
+        alert("Incorrect current PIN!");
+        return;
+      }
+
+      const newPin = prompt("Enter new PIN (4 to 8 digits):");
+      if (!newPin || newPin.trim().length < 4) {
+        alert("PIN must be at least 4 characters!");
+        return;
+      }
+
+      localStorage.setItem('sb_admin_pin', newPin.trim());
+      showToast("PIN Updated Successfully");
     }
 
     function renderStockManagerRows() {
@@ -1027,7 +1123,6 @@
       if (item) {
         item.inStock = !item.inStock;
         
-        // Remove item from cart if switched to Sold Out
         if (!item.inStock) {
           const cIdx = cart.findIndex(c => c.name === item.name);
           if (cIdx !== -1) cart.splice(cIdx, 1);
@@ -1069,7 +1164,7 @@
     }
 
     // ==========================================
-    // 5. CART & USER OPERATIONS
+    // 5. CART & CHECKOUT OPERATIONS
     // ==========================================
     function toggleCart() {
       const drawer = document.getElementById('cartDrawer');

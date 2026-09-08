@@ -9,8 +9,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Orbitron:wght@600;800;900&family=Montserrat:wght@300;400;500;600;700;800&family=Mukta+Malar:wght@400;600;700&display=swap" rel="stylesheet">
   
-  <!-- Client-side PDF Generation Engine -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <!-- Direct Vector A4 PDF Generation Engine (No Blank Canvas Bugs) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
 
   <script>
     tailwind.config = {
@@ -118,8 +119,8 @@
 
   <div id="toast-container"></div>
 
-  <!-- Top Info Bar -->
-  <div class="bg-black/90 border-b border-white/10 px-6 py-2 text-xs flex justify-between items-center text-stone-300">
+  <!-- Top Info Bar (Discreet, un-highlighted admin triggers) -->
+  <div class="bg-black/90 border-b border-white/10 px-6 py-2 text-xs flex justify-between items-center text-stone-400">
     <div class="flex items-center gap-2">
       <span class="relative flex h-2.5 w-2.5 shrink-0">
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -128,22 +129,23 @@
       <span class="font-cyber text-[10px] text-brandNeon tracking-widest uppercase">LIVE KITCHEN ACTIVE • VALLIYUR</span>
       <span class="hidden lg:inline text-stone-600">|</span>
       <span class="hidden lg:inline text-[11px] text-stone-400">
-        Owner: <strong class="text-stone-200">Chef Augustin</strong> • CEO: <strong class="text-stone-200">Harishma</strong>
+        Owner: <strong class="text-stone-300">Chef Augustin</strong> • CEO: <strong class="text-stone-300">Harishma</strong>
       </span>
     </div>
     
-    <!-- Discreet Controls (Un-highlighted) -->
     <div class="flex items-center gap-3">
-      <button onclick="requestAdminAccess('history')" class="text-stone-400 hover:text-stone-200 text-[11px] font-sans px-2.5 py-1 rounded-lg border border-white/10 transition active:scale-95 flex items-center gap-1">
+      <!-- Discreet Records Button -->
+      <button onclick="requestAdminAccess('history')" class="text-stone-400 hover:text-stone-200 text-[11px] font-sans px-2.5 py-1 rounded-lg border border-white/10 transition active:scale-95 flex items-center gap-1.5">
         <i class="fa-solid fa-receipt text-stone-500 text-[10px]"></i> Bill Records
       </button>
 
-      <button onclick="requestAdminAccess('stock')" class="text-stone-400 hover:text-stone-200 text-[11px] font-sans px-2.5 py-1 rounded-lg border border-white/10 transition active:scale-95 flex items-center gap-1">
+      <!-- Discreet Stock Manager Button -->
+      <button onclick="requestAdminAccess('stock')" class="text-stone-400 hover:text-stone-200 text-[11px] font-sans px-2.5 py-1 rounded-lg border border-white/10 transition active:scale-95 flex items-center gap-1.5">
         <i class="fa-solid fa-sliders text-stone-500 text-[10px]"></i> Stock Manager
       </button>
 
       <div class="inline-flex items-center gap-1 bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-full text-[11px] text-stone-300">
-        <i class="fa-solid fa-motorcycle text-red-400"></i> Delivery
+        <i class="fa-solid fa-motorcycle text-red-400"></i> Town Delivery
       </div>
       <div class="text-[11px] font-mono text-stone-400 hidden md:block">
         ⏱ 4 PM – 12 AM
@@ -506,14 +508,14 @@
     </div>
   </div>
 
-  <!-- Discreet Admin Password Modal (PIN 3050 - No Highlight / No Revealed Text) -->
+  <!-- Discreet Admin Password Modal (PIN 3050 - Masked & Un-highlighted) -->
   <div id="adminAuthModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
     <div class="glass-card bg-cyberCard border border-white/10 w-full max-w-sm rounded-[2rem] p-6 shadow-2xl text-center">
       <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 text-stone-400 flex items-center justify-center mx-auto mb-3 text-xl">
         <i class="fa-solid fa-lock"></i>
       </div>
       <h3 class="font-sans text-sm font-bold text-stone-200 tracking-wider uppercase">Authentication Required</h3>
-      <p class="text-xs text-stone-400 font-tamil mt-1 mb-4">அங்கீகரிக்கப்பட்ட PIN உள்ளிடவும்</p>
+      <p class="text-xs text-stone-400 font-tamil mt-1 mb-4">உரிமையாளர் PIN உள்ளிடவும்</p>
       
       <input 
         type="password" 
@@ -546,18 +548,16 @@
           </h3>
           <p class="text-xs text-stone-400 font-tamil mt-1">இருப்பு நிலையை மாற்ற கிளிக் செய்யவும் (In Stock / Sold Out).</p>
         </div>
-        <button onclick="toggleStockModal()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition">✕</button>
+        <button onclick="closeStockModal()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition">✕</button>
       </div>
 
       <div id="stockModalList" class="flex-1 overflow-y-auto space-y-2.5 pr-2"></div>
 
       <div class="pt-4 border-t border-white/10 mt-4 flex items-center justify-between">
-        <div class="flex items-center gap-4">
-          <button onclick="resetAllStock()" class="text-xs text-amber-400 hover:underline flex items-center gap-1">
-            <i class="fa-solid fa-rotate-left"></i> Make All In-Stock
-          </button>
-        </div>
-        <button onclick="toggleStockModal()" class="bg-white/10 hover:bg-white/20 text-white font-bold px-6 py-2 rounded-xl text-xs font-cyber">
+        <button onclick="resetAllStock()" class="text-xs text-amber-400 hover:underline flex items-center gap-1">
+          <i class="fa-solid fa-rotate-left"></i> Make All In-Stock
+        </button>
+        <button onclick="closeStockModal()" class="bg-white/10 hover:bg-white/20 text-white font-bold px-6 py-2 rounded-xl text-xs font-cyber">
           Close
         </button>
       </div>
@@ -674,8 +674,14 @@
 
       <!-- Action Buttons -->
       <div class="flex flex-col gap-2.5">
+        <!-- Direct A4 PDF Vector Download (Guaranteed Not Blank) -->
         <button onclick="downloadCurrentBillPDF()" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold py-3.5 rounded-2xl flex items-center justify-center gap-3 text-sm transition shadow-[0_0_20px_rgba(245,158,11,0.3)] active:scale-95">
-          <i class="fa-solid fa-file-pdf text-lg"></i> Download PDF Bill (ரசீது PDF)
+          <i class="fa-solid fa-file-pdf text-lg"></i> Download A4 PDF Bill (ரசீது PDF)
+        </button>
+
+        <!-- Direct WhatsApp Bill Share -->
+        <button onclick="shareBillDirectWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-2xl flex items-center justify-center gap-2 text-xs transition active:scale-95 shadow">
+          <i class="fa-brands fa-whatsapp text-base"></i> Share Bill to Customer WhatsApp
         </button>
 
         <button onclick="copyCurrentBillText()" class="w-full bg-zinc-800 hover:bg-zinc-700 text-stone-200 font-bold py-3 rounded-2xl flex items-center justify-center gap-2 text-xs transition border border-white/10 active:scale-95">
@@ -1009,13 +1015,13 @@
     ];
 
     // ==========================================
-    // 2. STATE & PIN SECURITY (PIN 3050 - DISCREET)
+    // 2. STATE & SECURITY (PIN 3050 - DISCREET)
     // ==========================================
     let cart = [];
     let currentCategory = 'all';
     let currentDiet = 'all';
     let currentActiveOrder = null;
-    let pendingAdminAction = null; // 'stock' or 'history'
+    let pendingAdminAction = null;
 
     const PACKAGING_FEE_PER_ORDER = 10;
     const DELIVERY_FEE = 20;
@@ -1268,14 +1274,8 @@
       pendingAdminAction = null;
     }
 
-    // Direct toggles
-    function toggleStockModal() {
-      const modal = document.getElementById('stockModal');
-      if (!modal.classList.contains('hidden')) {
-        modal.classList.add('hidden');
-      } else {
-        requestAdminAccess('stock');
-      }
+    function closeStockModal() {
+      document.getElementById('stockModal').classList.add('hidden');
     }
 
     function renderStockManagerRows() {
@@ -1343,7 +1343,7 @@
     }
 
     // ==========================================
-    // 5. CART & USER OPERATIONS
+    // 5. CART & ORDER LOGIC
     // ==========================================
     function toggleCart() {
       const drawer = document.getElementById('cartDrawer');
@@ -1581,7 +1581,7 @@
         dateStyle: 'medium',
         timeStyle: 'short'
       });
-      const invoiceId = 'SB-' + Math.floor(100000 + Math.random() * 900000);
+      const invoiceId = 'SB' + Math.floor(100000 + Math.random() * 900000);
 
       const { subtotal, packaging, delivery, grandTotal } = calculateFinances();
 
@@ -1602,7 +1602,6 @@
       saveOrderToHistory(orderRecord);
       currentActiveOrder = orderRecord;
 
-      // Fully encoded clean WhatsApp text
       let msg = `*STREET BURGER VALLIYUR - NEW ORDER*\n`;
       msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
       msg += `🧾 *Bill No:* #${invoiceId}\n`;
@@ -1725,8 +1724,8 @@
             </div>
           </div>
           <div class="flex items-center gap-2 shrink-0">
-            <button onclick="generatePdfFromData(${idx})" class="bg-amber-500 hover:bg-amber-400 text-black px-3.5 py-2 rounded-lg font-bold text-xs flex items-center gap-1.5 transition active:scale-95 shadow">
-              <i class="fa-solid fa-file-pdf"></i> PDF Bill
+            <button onclick="generatePdfFromData(${idx})" class="bg-stone-200 hover:bg-white text-black px-3.5 py-2 rounded-lg font-bold text-xs flex items-center gap-1.5 transition active:scale-95">
+              <i class="fa-solid fa-file-pdf"></i> A4 PDF
             </button>
             <button onclick="copyBillTextFromHistory(${idx})" class="bg-zinc-800 hover:bg-zinc-700 text-stone-200 px-3 py-2 rounded-lg text-xs font-bold transition active:scale-95">
               <i class="fa-solid fa-copy"></i> Copy
@@ -1745,133 +1744,212 @@
     }
 
     // ==========================================
-    // 8. 100% VISIBLE & SHARP PDF GENERATOR
+    // 8. DIRECT VECTOR A4 PDF GENERATION ENGINE
+    // (Never Blank • Crisp Vector • International A4)
     // ==========================================
     function downloadCurrentBillPDF() {
       if (!currentActiveOrder) return;
-      executeIsolatedPdfPrint(currentActiveOrder);
+      generateDirectA4Pdf(currentActiveOrder);
     }
 
     function generatePdfFromData(historyIndex) {
       const history = JSON.parse(localStorage.getItem('sb_orders_history') || '[]');
       const order = history[historyIndex];
-      if (order) executeIsolatedPdfPrint(order);
+      if (order) generateDirectA4Pdf(order);
     }
 
-    function executeIsolatedPdfPrint(order) {
-      showToast("Generating PDF...");
-
-      // Dedicated, fully-styled print container placed in DOM
-      let billContainer = document.getElementById('activePdfPrintNode');
-      if (!billContainer) {
-        billContainer = document.createElement('div');
-        billContainer.id = 'activePdfPrintNode';
-        document.body.appendChild(billContainer);
-      }
-
-      // Explicit solid styling so html2canvas never outputs blank white
-      billContainer.style.cssText = `
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 480px;
-        background-color: #ffffff !important;
-        color: #000000 !important;
-        z-index: 999999;
-        font-family: Arial, Helvetica, sans-serif !important;
-        padding: 24px;
-        box-sizing: border-box;
-        box-shadow: 0 0 40px rgba(0,0,0,0.8);
-      `;
-
-      billContainer.innerHTML = `
-        <div style="background:#ffffff; color:#000000; font-family:Arial,Helvetica,sans-serif; width:100%; box-sizing:border-box;">
-          
-          <div style="text-align:center; border-bottom:2px solid #000000; padding-bottom:12px; margin-bottom:14px;">
-            <h1 style="margin:0; font-size:24px; font-weight:900; letter-spacing:2px; color:#000000;">STREET BURGER</h1>
-            <p style="margin:3px 0 0 0; font-size:11px; font-weight:bold; text-transform:uppercase; color:#333333;">Valliyur Terminal Counter</p>
-            <p style="margin:2px 0 0 0; font-size:10px; color:#555555;">Chef Augustin (Owner) • Harishma (CEO)</p>
-            <p style="margin:3px 0 0 0; font-size:11px; font-weight:bold; color:#000000;">Phone: +91 93425 41946</p>
-          </div>
-
-          <div style="font-size:11px; line-height:1.6; border-bottom:1px dashed #666666; padding-bottom:10px; margin-bottom:12px; color:#000000;">
-            <div style="display:flex; justify-content:space-between;"><span style="color:#444444;">Bill No:</span><strong style="color:#000000;">${order.invoiceId}</strong></div>
-            <div style="display:flex; justify-content:space-between;"><span style="color:#444444;">Date & Time:</span><strong style="color:#000000;">${order.orderTimestamp}</strong></div>
-            <div style="display:flex; justify-content:space-between;"><span style="color:#444444;">Customer Name:</span><strong style="color:#000000;">${order.name}</strong></div>
-            <div style="display:flex; justify-content:space-between;"><span style="color:#444444;">Phone Number:</span><strong style="color:#000000;">${order.phone}</strong></div>
-            <div style="display:flex; justify-content:space-between;"><span style="color:#444444;">Order Type:</span><strong style="color:#000000;">${order.mode}</strong></div>
-            ${order.address ? `<div style="display:flex; justify-content:space-between; margin-top:2px;"><span style="color:#444444;">Address:</span><strong style="color:#000000; text-align:right; max-width:260px;">${order.address}</strong></div>` : ''}
-          </div>
-
-          <table style="width:100%; font-size:11px; border-collapse:collapse; margin-bottom:12px; color:#000000;">
-            <thead>
-              <tr style="border-bottom:1.5px solid #000000; color:#222222; text-transform:uppercase; font-size:9px;">
-                <th style="text-align:left; padding:5px 0;">Item Description</th>
-                <th style="text-align:center; padding:5px 0;">Qty</th>
-                <th style="text-align:right; padding:5px 0;">Rate</th>
-                <th style="text-align:right; padding:5px 0;">Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${order.items.map(item => `
-                <tr style="border-bottom:1px solid #eeeeee; color:#000000;">
-                  <td style="padding:6px 0; font-weight:bold; color:#000000;">${item.name}</td>
-                  <td style="padding:6px 0; text-align:center; color:#000000;">${item.qty}</td>
-                  <td style="padding:6px 0; text-align:right; color:#000000;">₹${item.price}</td>
-                  <td style="padding:6px 0; text-align:right; font-weight:bold; color:#000000;">₹${item.price * item.qty}</td>
-                </tr>
-              `).join('')}
-            </tbody>
-          </table>
-
-          <div style="font-size:11px; line-height:1.7; border-top:1px solid #000000; padding-top:8px; color:#000000;">
-            <div style="display:flex; justify-content:space-between; color:#333333;"><span>Subtotal:</span><strong style="color:#000000;">₹${order.subtotal}</strong></div>
-            <div style="display:flex; justify-content:space-between; color:#333333;"><span>Packaging:</span><strong style="color:#000000;">₹${order.packaging}</strong></div>
-            <div style="display:flex; justify-content:space-between; color:#333333;"><span>Delivery Fee:</span><strong style="color:#000000;">${order.delivery > 0 ? `₹${order.delivery}` : 'FREE'}</strong></div>
-            <div style="display:flex; justify-content:space-between; font-size:15px; font-weight:900; border-top:2px solid #000000; padding-top:6px; margin-top:6px; color:#000000;">
-              <span>TOTAL AMOUNT:</span>
-              <span style="color:#000000;">₹${order.grandTotal}</span>
-            </div>
-          </div>
-
-          <div style="text-align:center; font-size:10px; color:#555555; margin-top:16px; padding-top:8px; border-top:1px dashed #888888;">
-            Street Burger Valliyur • Taste the Gourmet Crunch!<br/>
-            Thank you for your order. Visit Again!
-          </div>
-        </div>
-      `;
-
-      // 150ms timeout ensures layout engine renders pixels completely
-      setTimeout(() => {
-        const cleanFileName = `StreetBurger_${order.invoiceId.replace(/[^a-zA-Z0-9]/g, '')}.pdf`;
-        const opt = {
-          margin: 6,
-          filename: cleanFileName,
-          image: { type: 'jpeg', quality: 0.99 },
-          html2canvas: { 
-            scale: 2, 
-            useCORS: true,
-            scrollY: 0,
-            scrollX: 0,
-            backgroundColor: '#ffffff'
-          },
-          jsPDF: { unit: 'mm', format: 'a5', orientation: 'portrait' }
-        };
-
-        html2pdf().set(opt).from(billContainer).save().then(() => {
-          billContainer.style.display = 'none';
-          showToast("PDF Bill Downloaded!");
-        }).catch(err => {
-          billContainer.style.display = 'none';
-          console.error(err);
-          showToast("Download completed");
+    function generateDirectA4Pdf(order) {
+      try {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF({
+          orientation: 'portrait',
+          unit: 'mm',
+          format: 'a4' // Standard 210mm x 297mm
         });
-      }, 150);
+
+        // Top Brand Header Bar
+        doc.setFillColor(15, 15, 17);
+        doc.rect(0, 0, 210, 32, 'F');
+
+        // Gold Stripe
+        doc.setFillColor(245, 158, 11);
+        doc.rect(0, 32, 210, 2.5, 'F');
+
+        // Brand Title
+        doc.setTextColor(251, 191, 36);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(22);
+        doc.text('STREET BURGER', 15, 16);
+
+        doc.setFontSize(9);
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor(220, 220, 220);
+        doc.text('VALLIYUR TERMINAL COUNTER • ULTRA MODERN GOURMET CRUNCH', 15, 22);
+        doc.text('Chef Augustin (Owner)  |  Harishma (CEO)  |  Phone: +91 93425 41946', 15, 27);
+
+        // Tax Invoice Header Text
+        doc.setTextColor(255, 255, 255);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(13);
+        doc.text('TAX INVOICE / BILL', 195, 19, { align: 'right' });
+
+        // Bill Information Grid
+        doc.setTextColor(20, 20, 20);
+        doc.setFontSize(9.5);
+        doc.setFont('helvetica', 'bold');
+
+        let y = 44;
+        doc.text('BILLED TO (CUSTOMER):', 15, y);
+        doc.text('ORDER INFORMATION:', 120, y);
+
+        doc.setFont('helvetica', 'normal');
+        y += 6;
+        doc.text(`Customer Name: ${order.name}`, 15, y);
+        doc.text(`Invoice No: ${order.invoiceId}`, 120, y);
+
+        y += 5.5;
+        doc.text(`Phone Number: ${order.phone}`, 15, y);
+        doc.text(`Order Time: ${order.orderTimestamp}`, 120, y);
+
+        y += 5.5;
+        doc.text(`Order Mode: ${order.mode}`, 15, y);
+        doc.text(`Outlet: Valliyur Counter Hub`, 120, y);
+
+        if (order.address) {
+          y += 5.5;
+          doc.text(`Delivery Address: ${order.address}`, 15, y, { maxWidth: 95 });
+        }
+        if (order.notes) {
+          y += 5.5;
+          doc.text(`Chef Notes: ${order.notes}`, 15, y, { maxWidth: 95 });
+        }
+
+        // Table Data Generation
+        const tableStartY = Math.max(y + 8, 70);
+        const tableRows = order.items.map((item, idx) => [
+          idx + 1,
+          item.name,
+          item.qty,
+          `Rs. ${item.price}`,
+          `Rs. ${item.price * item.qty}`
+        ]);
+
+        doc.autoTable({
+          startY: tableStartY,
+          head: [['#', 'Item Description', 'Qty', 'Unit Rate', 'Amount']],
+          body: tableRows,
+          theme: 'striped',
+          headStyles: {
+            fillColor: [15, 15, 17],
+            textColor: [251, 191, 36],
+            fontStyle: 'bold',
+            fontSize: 9.5,
+            halign: 'left'
+          },
+          bodyStyles: {
+            textColor: [10, 10, 10],
+            fontSize: 9
+          },
+          columnStyles: {
+            0: { halign: 'center', cellWidth: 12 },
+            1: { halign: 'left' },
+            2: { halign: 'center', cellWidth: 20 },
+            3: { halign: 'right', cellWidth: 32 },
+            4: { halign: 'right', cellWidth: 35 }
+          },
+          margin: { left: 15, right: 15 }
+        });
+
+        // Totals Calculation Area
+        const finalY = doc.lastAutoTable.finalY + 8;
+
+        doc.setFontSize(9.5);
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor(60, 60, 60);
+
+        doc.text('Items Subtotal:', 125, finalY);
+        doc.text(`Rs. ${order.subtotal}`, 195, finalY, { align: 'right' });
+
+        doc.text('Eco Box Packaging:', 125, finalY + 6);
+        doc.text(`Rs. ${order.packaging}`, 195, finalY + 6, { align: 'right' });
+
+        doc.text('Town Delivery Fee:', 125, finalY + 12);
+        doc.text(order.delivery > 0 ? `Rs. ${order.delivery}` : 'FREE', 195, finalY + 12, { align: 'right' });
+
+        doc.setDrawColor(200, 200, 200);
+        doc.line(125, finalY + 15, 195, finalY + 15);
+
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(13);
+        doc.setTextColor(180, 83, 9);
+        doc.text('TOTAL AMOUNT:', 125, finalY + 22);
+        doc.text(`Rs. ${order.grandTotal}`, 195, finalY + 22, { align: 'right' });
+
+        doc.setDrawColor(180, 83, 9);
+        doc.setLineWidth(0.6);
+        doc.line(125, finalY + 25, 195, finalY + 25);
+
+        // Security & Authenticity Notes
+        doc.setFontSize(8.5);
+        doc.setFont('helvetica', 'italic');
+        doc.setTextColor(90, 90, 90);
+        doc.text('Payment: To be settled upon counter pickup or doorstep delivery.', 15, finalY + 6);
+        doc.text('100% Real Cheese, Fresh Patties & Hygiene Guaranteed.', 15, finalY + 11);
+
+        // Footer Divider & Disclaimer
+        doc.setDrawColor(220, 220, 220);
+        doc.setLineWidth(0.3);
+        doc.line(15, 275, 195, 275);
+
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8);
+        doc.setTextColor(110, 110, 110);
+        doc.text('Street Burger • Main Road, Valliyur, Tirunelveli Dist, Tamil Nadu • 📞 +91 93425 41946', 105, 281, { align: 'center' });
+        doc.text('Taste the Gourmet Crunch! Thank you for dining with us.', 105, 286, { align: 'center' });
+
+        // Save PDF File directly to customer's downloads
+        const cleanInvoice = order.invoiceId.replace(/[^a-zA-Z0-9]/g, '');
+        doc.save(`StreetBurger_Bill_${cleanInvoice}.pdf`);
+        showToast("A4 PDF Bill Downloaded!");
+      } catch (err) {
+        console.error(err);
+        alert("PDF error: " + err.message);
+      }
     }
 
     // ==========================================
-    // 9. COPY BILL TEXT
+    // 9. SHARE & COPY TOOLS
     // ==========================================
+    function shareBillDirectWhatsApp() {
+      if (!currentActiveOrder) return;
+      const o = currentActiveOrder;
+      
+      let billMsg = `*STREET BURGER VALLIYUR - OFFICIAL INVOICE*\n`;
+      billMsg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      billMsg += `🧾 *Bill No:* ${o.invoiceId}\n`;
+      billMsg += `⏱ *Time:* ${o.orderTimestamp}\n`;
+      billMsg += `👤 *Customer:* ${o.name} (${o.phone})\n`;
+      billMsg += `🛵 *Order Mode:* ${o.mode}\n`;
+      if (o.address) billMsg += `📍 *Address:* ${o.address}\n`;
+      billMsg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      billMsg += `*ITEMS BILLED:*\n`;
+      o.items.forEach((item, i) => {
+        billMsg += `${i + 1}. ${item.name} x ${item.qty} = Rs. ${item.price * item.qty}\n`;
+      });
+      billMsg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      billMsg += `Subtotal: Rs. ${o.subtotal}\n`;
+      billMsg += `Packaging: Rs. ${o.packaging}\n`;
+      if (o.delivery > 0) billMsg += `Delivery Fee: Rs. ${o.delivery}\n`;
+      billMsg += `*FINAL TOTAL: Rs. ${o.grandTotal}*\n`;
+      billMsg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      billMsg += `_Chef Augustin • CEO Harishma • Valliyur_\n`;
+      billMsg += `_Contact: +91 93425 41946_`;
+
+      const cleanPhone = o.phone.replace(/[^0-9]/g, '');
+      const targetPhone = cleanPhone.length === 10 ? ('91' + cleanPhone) : cleanPhone;
+      window.open(`https://wa.me/${targetPhone}?text=${encodeURIComponent(billMsg)}`, '_blank');
+    }
+
     function copyCurrentBillText() {
       if (!currentActiveOrder) return;
       copyReceiptString(currentActiveOrder);
@@ -1893,13 +1971,13 @@
       t += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
       t += `ORDERED ITEMS:\n`;
       order.items.forEach((item, i) => {
-        t += `${i + 1}. ${item.name} x ${item.qty} = ₹${item.price * item.qty}\n`;
+        t += `${i + 1}. ${item.name} x ${item.qty} = Rs. ${item.price * item.qty}\n`;
       });
       t += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-      t += `Subtotal: ₹${order.subtotal}\n`;
-      t += `Packaging: ₹${order.packaging}\n`;
-      if (order.delivery > 0) t += `Delivery: ₹${order.delivery}\n`;
-      t += `TOTAL: ₹${order.grandTotal}\n`;
+      t += `Subtotal: Rs. ${order.subtotal}\n`;
+      t += `Packaging: Rs. ${order.packaging}\n`;
+      if (order.delivery > 0) t += `Delivery: Rs. ${order.delivery}\n`;
+      t += `TOTAL AMOUNT: Rs. ${order.grandTotal}\n`;
       t += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
       t += `Chef Augustin • CEO Harishma\n`;
 

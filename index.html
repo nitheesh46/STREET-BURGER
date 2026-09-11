@@ -2,12 +2,14 @@
 <html lang="ta" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
+  <!-- FORCING DESKTOP VIEW ON MOBILE: Fixed width to 1200px -->
   <meta name="viewport" content="width=1200" />
   <title>STREET BURGER 2026 | Ultra Modern Gourmet Crunch</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Orbitron:wght@600;800;900&family=Montserrat:wght@300;400;500;600;700;800&family=Mukta+Malar:wght@400;600;700&display=swap" rel="stylesheet">
   
+  <!-- Direct Vector A4 PDF Generation Engine -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
 
@@ -117,7 +119,7 @@
 
   <div id="toast-container"></div>
 
-  <!-- Top Info Bar -->
+  <!-- Top Info Bar (Discreet Admin Triggers) -->
   <div class="bg-black/90 border-b border-white/10 px-6 py-2 text-xs flex justify-between items-center text-stone-400">
     <div class="flex items-center gap-2">
       <span class="relative flex h-2.5 w-2.5 shrink-0">
@@ -132,20 +134,26 @@
     </div>
     
     <div class="flex items-center gap-3">
+      <!-- Discreet Records Button -->
       <button onclick="requestAdminAccess('history')" class="text-stone-400 hover:text-stone-200 text-[11px] font-sans px-2.5 py-1 rounded-lg border border-white/10 transition active:scale-95 flex items-center gap-1.5">
         <i class="fa-solid fa-receipt text-stone-500 text-[10px]"></i> Bill Records
       </button>
 
+      <!-- Discreet Stock Manager Button -->
       <button onclick="requestAdminAccess('stock')" class="text-stone-400 hover:text-stone-200 text-[11px] font-sans px-2.5 py-1 rounded-lg border border-white/10 transition active:scale-95 flex items-center gap-1.5">
         <i class="fa-solid fa-sliders text-stone-500 text-[10px]"></i> Menu & Stock
       </button>
 
-      <button onclick="openAddMenuModal()" class="text-brandGold hover:text-amber-300 text-[11px] font-sans px-2.5 py-1 rounded-lg border border-amber-500/30 transition active:scale-95 flex items-center gap-1.5 bg-brandGold/10">
+      <!-- Discreet Add Menu Button -->
+      <button onclick="requestAdminAccess('add_menu')" class="text-brandGold hover:text-amber-300 text-[11px] font-sans px-2.5 py-1 rounded-lg border border-amber-500/30 bg-brandGold/10 transition active:scale-95 flex items-center gap-1.5">
         <i class="fa-solid fa-plus text-amber-500 text-[10px]"></i> Add Item
       </button>
 
       <div class="inline-flex items-center gap-1 bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-full text-[11px] text-stone-300">
         <i class="fa-solid fa-motorcycle text-red-400"></i> Town Delivery
+      </div>
+      <div class="text-[11px] font-mono text-stone-400 hidden md:block">
+        ⏱ 4 PM – 12 AM
       </div>
     </div>
   </div>
@@ -154,7 +162,12 @@
   <header class="sticky top-0 z-40 bg-black/70 backdrop-blur-2xl border-b border-white/5 px-6 lg:px-8 py-3 flex items-center justify-between shadow-2xl">
     <div class="flex items-center gap-5 min-w-0">
       <div class="h-24 w-24 lg:h-28 lg:w-28 rounded-full border border-brandNeon/50 p-1 shadow-[0_0_30px_rgba(245,158,11,0.4)] shrink-0 overflow-hidden bg-black flex items-center justify-center animate-glow-pulse">
-        <img src="1000428989logo.jpg" alt="Logo" class="h-full w-full rounded-full object-cover" onerror="handleImgFallback(this, 'STREET BURGER')">
+        <img 
+          src="1000428989logo.jpg" 
+          alt="Street Burger Logo" 
+          class="h-full w-full rounded-full object-cover" 
+          onerror="handleImgFallback(this, 'STREET BURGER')"
+        >
       </div>
       <div>
         <h1 class="font-cyber text-4xl lg:text-5xl font-black tracking-widest text-brandNeon leading-none drop-shadow-[0_4px_6px_rgba(0,0,0,0.9)]" style="text-shadow: 2px 2px 5px #000, 0 0 20px rgba(245,158,11,0.6);">
@@ -166,10 +179,20 @@
       </div>
     </div>
 
+    <!-- Actions -->
     <div class="flex items-center gap-2.5 shrink-0">
       <a href="tel:+919342541946" class="flex items-center gap-2 bg-white/5 hover:bg-white/10 text-stone-200 text-sm font-bold px-4 py-3 rounded-xl transition border border-white/10 active:scale-95 backdrop-blur-md">
         <i class="fa-solid fa-phone text-base text-amber-400"></i>
         <span>Call</span>
+      </a>
+
+      <a href="https://wa.me/919342541946" target="_blank" class="flex items-center gap-2 bg-emerald-600/20 hover:bg-emerald-600/40 text-emerald-400 text-sm font-bold px-5 py-3 rounded-xl transition border border-emerald-500/30 active:scale-95 backdrop-blur-md">
+        <i class="fa-brands fa-whatsapp text-lg"></i>
+        <span>93425 41946</span>
+      </a>
+
+      <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="flex items-center gap-2 bg-white/5 hover:bg-white/10 text-amber-300 text-sm font-bold px-4 py-3 rounded-xl transition border border-white/10 active:scale-95 backdrop-blur-md">
+        <i class="fa-solid fa-star text-amber-400"></i> Review
       </a>
 
       <button id="headerCartBtn" onclick="toggleCart()" class="relative bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-500 hover:to-rose-600 text-white px-5 py-3 rounded-xl font-bold text-sm flex items-center gap-2 transition shadow-[0_0_20px_rgba(225,29,72,0.6)] active:scale-95">
@@ -183,17 +206,76 @@
   <section class="relative py-16 px-4 border-b border-white/5">
     <div class="max-w-5xl mx-auto flex flex-col items-center justify-center gap-10">
       <div class="flex flex-col items-center text-center w-full">
+        <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 px-5 py-2.5 rounded-full text-xs font-cyber text-brandNeon mb-6 tracking-widest uppercase shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+          <i class="fa-solid fa-crown text-brandGold"></i> Chef Augustin (Owner) • Harishma (CEO) • Valliyur
+        </div>
+        
         <h2 class="font-luxury text-5xl lg:text-7xl font-black tracking-wide text-white mb-6 text-center leading-tight">
           TASTE THE <br/><span class="shimmer-gold">STREET BURGER</span>
         </h2>
+        
         <p class="text-sm lg:text-base text-stone-400 mb-8 font-tamil leading-relaxed max-w-2xl text-center">
-          நேரடியாக கடைக்கு வந்து சுடச்சுட சாப்பிட்டு மகிழுங்கள்! அசல் சமையல் குறிப்புகளுடன் பிரத்யேக சீஸ் சாஸ் மற்றும் கைவினை ரொட்டிகளுடன் தயாரிக்கப்படும் உலகத்தரம் வாய்ந்த பர்கர்கள்.
+          நேரடியாக கடைக்கு வந்து சுடச்சுட சாப்பிட்டு மகிழுங்கள்! அசல் சமையல் குறிப்புகளுடன் பிரத்யேக சீஸ் சாஸ் மற்றும் கைவினை ரொட்டிகளுடன் தயாரிக்கப்படும் உலகத்தரம் வாய்ந்த பர்கர்கள், டோஸ்ட் சாண்ட்விச்கள் & குளிர்பானங்கள்.
         </p>
+
         <div class="flex flex-wrap items-center justify-center gap-4 mb-2 w-full">
           <a href="#menuSection" class="bg-gradient-to-r from-amber-500 to-amber-600 text-black font-extrabold px-8 py-4 rounded-xl transition text-sm flex items-center gap-3 shadow-[0_0_25px_rgba(245,158,11,0.4)] active:scale-95 hover:scale-105">
             <i class="fa-solid fa-utensils text-lg"></i> Explore Menu
           </a>
+          <a href="tel:+919342541946" class="glass-card hover:bg-white/10 text-brandGold font-bold px-8 py-4 rounded-xl transition text-sm flex items-center gap-3 active:scale-95 border border-amber-500/30">
+            <i class="fa-solid fa-phone text-amber-400 text-lg"></i> Call Kitchen
+          </a>
+          <a href="https://maps.app.goo.gl/2y8oXRwLtySKuoNaA" target="_blank" class="glass-card hover:bg-white/5 text-stone-200 font-bold px-8 py-4 rounded-xl transition text-sm flex items-center gap-3 active:scale-95">
+            <i class="fa-solid fa-location-dot text-red-500 text-lg"></i> Get Directions
+          </a>
         </div>
+      </div>
+
+      <!-- Shop Outlet Showcase Image -->
+      <div class="w-full max-w-4xl">
+        <div class="glass-card p-2 rounded-[2rem]">
+          <div class="relative w-full overflow-hidden rounded-[1.5rem] bg-black">
+            <img 
+              src="1000430339shop.png" 
+              alt="Street Burger Outlet Valliyur" 
+              class="w-full h-auto block hover:scale-105 transition duration-700 ease-in-out"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?w=1200&auto=format&fit=crop&q=80';"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none"></div>
+            
+            <div class="absolute top-5 right-5 floating-pill text-white font-cyber text-xs px-4 py-2 rounded-full uppercase tracking-wider font-bold z-10 flex items-center gap-2">
+              <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+              Open 4 PM – 12 AM
+            </div>
+
+            <div class="absolute bottom-6 inset-x-6 text-left z-10">
+              <span class="text-xs font-cyber text-brandNeon uppercase font-bold tracking-widest bg-black/60 px-3.5 py-1.5 rounded-lg backdrop-blur-md border border-amber-500/30">
+                Chef Augustin • CEO Harishma
+              </span>
+              <p class="text-2xl text-white font-bold mt-3 drop-shadow-lg">Authentic Gourmet Grill & Fresh Coolers</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="max-w-5xl mx-auto grid grid-cols-4 gap-6 text-center mt-16">
+      <div class="glass-card p-6 flex flex-col items-center justify-center">
+        <div class="text-brandGold text-3xl mb-3"><i class="fa-solid fa-bread-slice"></i></div>
+        <div class="font-cyber text-xs font-bold text-stone-200 uppercase tracking-wider">Brioche Buns</div>
+      </div>
+      <div class="glass-card p-6 flex flex-col items-center justify-center">
+        <div class="text-brandGold text-3xl mb-3"><i class="fa-solid fa-cheese"></i></div>
+        <div class="font-cyber text-xs font-bold text-stone-200 uppercase tracking-wider">100% Real Cheese</div>
+      </div>
+      <div class="glass-card p-6 flex flex-col items-center justify-center">
+        <div class="text-brandGold text-3xl mb-3"><i class="fa-solid fa-pepper-hot"></i></div>
+        <div class="font-cyber text-xs font-bold text-stone-200 uppercase tracking-wider">Peri Flavors</div>
+      </div>
+      <div class="glass-card p-6 flex flex-col items-center justify-center">
+        <div class="text-brandGold text-3xl mb-3"><i class="fa-solid fa-motorcycle"></i></div>
+        <div class="font-cyber text-xs font-bold text-stone-200 uppercase tracking-wider">Fast Parcel</div>
       </div>
     </div>
   </section>
@@ -203,12 +285,49 @@
     <div class="max-w-6xl mx-auto px-4 flex flex-row gap-6 items-center justify-between">
       <div class="relative w-[400px] shrink-0">
         <i class="fa-solid fa-magnifying-glass absolute left-5 top-1/2 -translate-y-1/2 text-stone-400 text-sm"></i>
-        <input type="text" id="menuSearchInput" oninput="applyFilters()" placeholder="Search exactly what you crave..." class="w-full bg-white/5 border border-white/10 rounded-2xl pl-12 pr-5 py-3.5 text-sm text-white placeholder-stone-500 outline-none focus:border-brandGold focus:bg-white/10 transition-all shadow-inner backdrop-blur-md">
+        <input 
+          type="text" 
+          id="menuSearchInput" 
+          oninput="applyFilters()" 
+          placeholder="Search exactly what you crave..." 
+          class="w-full bg-white/5 border border-white/10 rounded-2xl pl-12 pr-5 py-3.5 text-sm text-white placeholder-stone-500 outline-none focus:border-brandGold focus:bg-white/10 transition-all shadow-inner backdrop-blur-md"
+        >
       </div>
+
       <div class="flex items-center gap-3 overflow-x-auto w-full justify-end pb-1">
-        <button onclick="setDietFilter('all')" id="diet-all" class="diet-btn bg-brandGold text-black font-cyber text-xs font-bold px-6 py-3 rounded-xl whitespace-nowrap transition active:scale-95">All Menu</button>
-        <button onclick="setDietFilter('nonveg')" id="diet-nonveg" class="diet-btn glass-card hover:bg-red-950/40 text-stone-300 font-cyber text-xs font-bold px-6 py-3 rounded-xl whitespace-nowrap transition active:scale-95"><span class="text-red-400 mr-1">▲</span> Non-Veg</button>
-        <button onclick="setDietFilter('veg')" id="diet-veg" class="diet-btn glass-card hover:bg-emerald-950/40 text-stone-300 font-cyber text-xs font-bold px-6 py-3 rounded-xl whitespace-nowrap transition active:scale-95"><span class="text-emerald-400 mr-1">●</span> Pure Veg</button>
+        <button onclick="setDietFilter('all')" id="diet-all" class="diet-btn bg-brandGold text-black font-cyber text-xs font-bold px-6 py-3 rounded-xl whitespace-nowrap transition active:scale-95">
+          All Menu
+        </button>
+        <button onclick="setDietFilter('nonveg')" id="diet-nonveg" class="diet-btn glass-card hover:bg-red-950/40 text-stone-300 font-cyber text-xs font-bold px-6 py-3 rounded-xl whitespace-nowrap transition active:scale-95">
+          <span class="text-red-400 mr-1">▲</span> Non-Veg
+        </button>
+        <button onclick="setDietFilter('veg')" id="diet-veg" class="diet-btn glass-card hover:bg-emerald-950/40 text-stone-300 font-cyber text-xs font-bold px-6 py-3 rounded-xl whitespace-nowrap transition active:scale-95">
+          <span class="text-emerald-400 mr-1">●</span> Pure Veg
+        </button>
+        <button onclick="setDietFilter('cooler')" id="diet-cooler" class="diet-btn glass-card hover:bg-blue-950/40 text-stone-300 font-cyber text-xs font-bold px-6 py-3 rounded-xl whitespace-nowrap transition active:scale-95">
+          🍹 Coolers
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upgrades Customizer -->
+  <section class="max-w-6xl mx-auto px-4 my-12">
+    <div class="glass-card p-8 flex flex-row items-center justify-between gap-8 relative overflow-hidden">
+      <div class="shrink-0 relative z-10">
+        <div class="flex items-center gap-2 text-brandNeon font-cyber text-xs tracking-widest uppercase mb-2">
+          <i class="fa-solid fa-bolt"></i> Upgrades
+        </div>
+        <h3 class="font-luxury text-3xl text-white font-bold">CUSTOMIZE YOUR BITE</h3>
+        <p class="text-sm text-stone-400 mt-2">Add layers of melted cheese or extra crunchy patties.</p>
+      </div>
+      <div class="flex items-center justify-end gap-4 w-full relative z-10">
+        <button onclick="addUpgradeToCart('Extra Cheese Slice', 20)" class="bg-black/60 border border-amber-500/30 hover:bg-amber-500 hover:text-black hover:border-amber-500 text-amber-400 font-bold px-6 py-4 rounded-xl text-sm transition-all active:scale-95 backdrop-blur-md">
+          🧀 + Extra Cheese (₹20)
+        </button>
+        <button onclick="addUpgradeToCart('Extra Crispy Patty', 60)" class="bg-black/60 border border-red-500/30 hover:bg-red-600 hover:text-white hover:border-red-600 text-red-400 font-bold px-6 py-4 rounded-xl text-sm transition-all active:scale-95 backdrop-blur-md">
+          🍗 + Extra Patty (₹60)
+        </button>
       </div>
     </div>
   </section>
@@ -216,11 +335,21 @@
   <!-- Menu Section -->
   <section id="menuSection" class="max-w-6xl mx-auto px-4 pb-12">
     <div class="flex items-center justify-center gap-4 overflow-x-auto pb-8 pt-4">
-      <button onclick="filterCategory('all')" id="tab-all" class="cat-tab bg-brandGold text-black font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95">🌟 All Sections</button>
-      <button onclick="filterCategory('burgers')" id="tab-burgers" class="cat-tab glass-card text-stone-300 font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95 hover:text-white">🍔 Gourmet Burgers</button>
-      <button onclick="filterCategory('panini')" id="tab-panini" class="cat-tab glass-card text-stone-300 font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95 hover:text-white">🥪 Panini & Toast</button>
-      <button onclick="filterCategory('mojitos')" id="tab-mojitos" class="cat-tab glass-card text-stone-300 font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95 hover:text-white">🍹 Mojitos</button>
-      <button onclick="filterCategory('appetizers')" id="tab-appetizers" class="cat-tab glass-card text-stone-300 font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95 hover:text-white">🍟 Appetizers</button>
+      <button onclick="filterCategory('all')" id="tab-all" class="cat-tab bg-brandGold text-black font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95">
+        🌟 All Sections
+      </button>
+      <button onclick="filterCategory('burgers')" id="tab-burgers" class="cat-tab glass-card text-stone-300 font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95 hover:text-white">
+        🍔 Gourmet Burgers
+      </button>
+      <button onclick="filterCategory('panini')" id="tab-panini" class="cat-tab glass-card text-stone-300 font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95 hover:text-white">
+        🥪 Panini & Toast
+      </button>
+      <button onclick="filterCategory('mojitos')" id="tab-mojitos" class="cat-tab glass-card text-stone-300 font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95 hover:text-white">
+        🍹 Mojitos
+      </button>
+      <button onclick="filterCategory('appetizers')" id="tab-appetizers" class="cat-tab glass-card text-stone-300 font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95 hover:text-white">
+        🍟 Appetizers
+      </button>
     </div>
 
     <!-- Empty State -->
@@ -228,16 +357,140 @@
       <div class="text-6xl mb-5 opacity-50">🍽️</div>
       <h3 class="font-cyber text-3xl text-brandGold font-bold mb-3">No Items Found</h3>
       <p class="text-stone-400 mb-8 text-lg">We couldn't find any items matching your exact filters.</p>
-      <button onclick="resetAllFilters()" class="bg-zinc-800 hover:bg-brandRed text-white font-bold px-8 py-4 rounded-xl transition active:scale-95 border border-white/10 shadow-lg">Clear All Filters</button>
+      <button onclick="resetAllFilters()" class="bg-zinc-800 hover:bg-brandRed text-white font-bold px-8 py-4 rounded-xl transition active:scale-95 border border-white/10 shadow-lg">
+        Clear All Filters
+      </button>
     </div>
 
     <!-- Dynamic Menu Grid Container -->
     <div id="dynamicMenuRoot" class="space-y-16"></div>
   </section>
 
-  <!-- Side Cart Drawer (Bottom UI) -->
+  <!-- Social Media & Live Content Hub -->
+  <section class="max-w-6xl mx-auto px-4 my-16">
+    <div class="glass-card p-10 border border-amber-500/30 rounded-[2.5rem] relative overflow-hidden text-center shadow-2xl">
+      <div class="relative z-10 max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500/20 to-red-500/20 border border-pink-500/40 px-5 py-2 rounded-full text-xs font-cyber text-pink-400 uppercase tracking-widest mb-4">
+          <i class="fa-solid fa-satellite-dish text-pink-400 animate-pulse"></i> Connect & Support Our Live Counter
+        </div>
+        
+        <h3 class="font-luxury text-3xl lg:text-4xl font-black text-white mb-3 tracking-wide">
+          FOLLOW US FOR MORE LIVE CONTENT & REELS
+        </h3>
+        <p class="text-sm lg:text-base text-stone-400 font-tamil leading-relaxed mb-8">
+          எங்கள் கிச்சனின் நேரலை வீடியோக்கள், புதிய பர்கர் ஆஃபர்கள் மற்றும் சுடச்சுட தயாரிப்புகளை சமூக வலைத்தளங்களில் பின்தொடர்ந்து ஆதரவு அளியுங்கள்!
+        </p>
+
+        <div class="grid grid-cols-3 gap-6 text-left">
+          <a href="https://www.instagram.com/street_burger_vallioor?stkn=ejR1NXQ2a2U2Zzc0" target="_blank" class="group bg-gradient-to-br from-pink-950/40 via-purple-950/30 to-black/60 border border-pink-500/30 hover:border-pink-500 p-6 rounded-2xl transition duration-300 hover:-translate-y-2 shadow-lg flex flex-col justify-between backdrop-blur-md">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-yellow-500 via-pink-600 to-purple-600 flex items-center justify-center text-white text-2xl shadow-[0_0_15px_rgba(219,39,119,0.5)]">
+                  <i class="fa-brands fa-instagram"></i>
+                </div>
+                <span class="text-[10px] font-cyber tracking-widest text-pink-400 uppercase bg-pink-950/60 px-2.5 py-1 rounded-full border border-pink-500/30">Reels</span>
+              </div>
+              <h4 class="font-bold text-lg text-white group-hover:text-pink-300 transition">Instagram</h4>
+              <p class="text-xs text-stone-400 font-mono mt-1">@street_burger_vallioor</p>
+            </div>
+            <div class="mt-6 flex items-center justify-between text-xs font-bold text-pink-400 group-hover:translate-x-1 transition">
+              <span>Watch Daily Reels</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <a href="https://youtube.com/@streetburger-f2y?si=QzevfYPsBwAuMB9j" target="_blank" class="group bg-gradient-to-br from-red-950/40 via-neutral-950/30 to-black/60 border border-red-500/30 hover:border-red-500 p-6 rounded-2xl transition duration-300 hover:-translate-y-2 shadow-lg flex flex-col justify-between backdrop-blur-md">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 rounded-xl bg-red-600 flex items-center justify-center text-white text-2xl shadow-[0_0_15px_rgba(220,38,38,0.5)]">
+                  <i class="fa-brands fa-youtube"></i>
+                </div>
+                <span class="text-[10px] font-cyber tracking-widest text-red-400 uppercase bg-red-950/60 px-2.5 py-1 rounded-full border border-red-500/30">Subscribe</span>
+              </div>
+              <h4 class="font-bold text-lg text-white group-hover:text-red-300 transition">YouTube</h4>
+              <p class="text-xs text-stone-400 font-mono mt-1">@streetburger-f2y</p>
+            </div>
+            <div class="mt-6 flex items-center justify-between text-xs font-bold text-red-400 group-hover:translate-x-1 transition">
+              <span>Subscribe Channel</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+
+          <a href="https://www.facebook.com/share/1BewhwZxa9/" target="_blank" class="group bg-gradient-to-br from-blue-950/40 via-neutral-950/30 to-black/60 border border-blue-500/30 hover:border-blue-500 p-6 rounded-2xl transition duration-300 hover:-translate-y-2 shadow-lg flex flex-col justify-between backdrop-blur-md">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center text-white text-2xl shadow-[0_0_15px_rgba(37,99,235,0.5)]">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </div>
+                <span class="text-[10px] font-cyber tracking-widest text-blue-400 uppercase bg-blue-950/60 px-2.5 py-1 rounded-full border border-blue-500/30">Community</span>
+              </div>
+              <h4 class="font-bold text-lg text-white group-hover:text-blue-300 transition">Facebook</h4>
+              <p class="text-xs text-stone-400 font-mono mt-1">Street Burger Vallioor</p>
+            </div>
+            <div class="mt-6 flex items-center justify-between text-xs font-bold text-blue-400 group-hover:translate-x-1 transition">
+              <span>Follow & Share</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Review Area -->
+  <section class="max-w-6xl mx-auto px-4 my-16">
+    <div class="bg-gradient-to-r from-zinc-900 via-neutral-900 to-zinc-900 border border-amber-500/40 rounded-[2rem] p-10 flex flex-row items-center justify-between gap-8 shadow-[0_0_40px_rgba(245,158,11,0.1)]">
+      <div class="text-left">
+        <div class="flex items-center justify-start gap-1 text-amber-400 text-sm mb-3">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <span class="text-white text-sm font-bold ml-3 tracking-widest uppercase">Chef Augustin's Street Counter • CEO Harishma</span>
+        </div>
+        <h4 class="font-luxury text-3xl text-white font-bold">SHARE YOUR DINING EXPERIENCE</h4>
+        <p class="text-base text-stone-400 font-tamil mt-2">உங்கள் கருத்து எங்களுக்கு முக்கியம்! கூகுள் மேப்பில் உங்கள் 5-ஸ்டார் மதிப்பீட்டை பகிருங்கள்.</p>
+      </div>
+      <a href="https://g.page/r/CW_IpATr1QKUEBI/review" target="_blank" class="w-auto text-center bg-white hover:bg-gray-200 text-black font-extrabold px-10 py-5 rounded-2xl transition text-lg flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(255,255,255,0.2)] active:scale-95">
+        <i class="fa-brands fa-google text-2xl"></i> Post Review on Google
+      </a>
+    </div>
+  </section>
+
+  <!-- Official Copyright Footer -->
+  <footer class="mt-24 border-t border-white/10 bg-black/90 py-14 px-6 text-center relative overflow-hidden">
+    <div class="max-w-6xl mx-auto flex flex-col items-center justify-center space-y-6">
+      <div class="flex items-center gap-4">
+        <div class="h-12 w-12 rounded-full border border-brandGold/40 p-0.5 overflow-hidden">
+          <img src="1000428989logo.jpg" alt="Logo" class="h-full w-full rounded-full object-cover" onerror="handleImgFallback(this, 'SB')">
+        </div>
+        <span class="font-cyber text-2xl font-black tracking-widest text-brandNeon">STREET BURGER</span>
+      </div>
+
+      <div class="text-sm font-cyber text-stone-300 space-x-3 tracking-wider">
+        <span>Chef Augustin <strong class="text-brandGold">(Founder & Kitchen Head)</strong></span>
+        <span class="text-red-500">•</span>
+        <span>Harishma <strong class="text-brandGold">(Chief Executive Officer)</strong></span>
+      </div>
+
+      <p class="text-xs text-stone-400 font-tamil max-w-xl leading-relaxed">
+        வள்ளியூர் டெர்மினல் அருகிலுள்ள தலைசிறந்த அமெரிக்க கைவினை ரொட்டி பர்கர் உணவகம். சுடச்சுட சுவையான உணவுகளுக்கு உங்கள் ஆதரவுக்கு நன்றி!
+      </p>
+
+      <div class="pt-6 border-t border-white/5 w-full flex flex-col md:flex-row items-center justify-between text-xs text-stone-500 font-mono gap-4">
+        <div>
+          © 2026 <strong class="text-stone-300">STREET BURGER VALLIYUR</strong>. All Rights Reserved.
+        </div>
+        <div class="flex items-center gap-4 text-stone-400">
+          <span><i class="fa-solid fa-location-dot text-red-500 mr-1"></i> Valliyur, Tamil Nadu</span>
+          <span>•</span>
+          <a href="tel:+919342541946" class="hover:text-brandGold transition">📞 +91 93425 41946</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Side Cart Drawer -->
   <div id="cartDrawer" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex justify-end">
     <div class="glass-card !border-y-0 !border-r-0 !rounded-none !rounded-l-[2rem] w-full max-w-lg h-full flex flex-col border-l border-white/10 p-8 overflow-y-auto shadow-2xl bg-cyberDark">
+      
       <div class="flex items-center justify-between pb-5 border-b border-white/10 mb-6">
         <div>
           <h3 class="font-luxury text-3xl text-brandGold font-bold flex items-center gap-3">
@@ -248,33 +501,184 @@
         <button onclick="toggleCart()" class="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white transition text-xl active:scale-95">✕</button>
       </div>
 
+      <div class="flex items-center justify-between bg-black/40 border border-white/10 px-5 py-4 rounded-xl mb-6 text-sm backdrop-blur-md">
+        <div class="flex items-center gap-3 truncate">
+          <i class="fa-solid fa-circle-user text-amber-400 text-lg"></i>
+          <span class="text-stone-300 truncate text-base">Customer: <strong id="activeUserLabel" class="text-white">Guest</strong></span>
+        </div>
+        <button onclick="handleUserLogout()" class="text-red-400 hover:text-red-300 font-bold text-sm flex items-center gap-2 shrink-0 ml-2 active:scale-95">
+          <i class="fa-solid fa-right-from-bracket text-base"></i> Reset
+        </button>
+      </div>
+
       <div id="cartItemsContainer" class="flex-1 overflow-y-auto space-y-4 mb-6 pr-2 min-h-[160px]"></div>
 
       <div class="bg-black/40 border border-white/10 p-6 rounded-2xl mb-6 space-y-5 backdrop-blur-md">
+        <div class="flex items-center justify-between">
+          <h4 class="font-cyber text-sm text-brandNeon tracking-wider uppercase font-bold">Delivery Info</h4>
+          <span class="text-xs text-amber-400 font-mono"><i class="fa-solid fa-cloud-arrow-up"></i> Autosaved</span>
+        </div>
+        
         <div>
           <label class="block text-xs text-stone-400 mb-2 uppercase tracking-wider">Full Name *</label>
-          <input type="text" id="custName" oninput="persistCustomerData()" placeholder="Your Name" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-base text-white focus:border-brandGold focus:bg-white/10 outline-none transition">
+          <input type="text" id="custName" oninput="persistCustomerData()" placeholder="Augstin" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-base text-white focus:border-brandGold focus:bg-white/10 outline-none transition">
         </div>
+
+        <!-- Phone Number with Verification Badge & OTP Trigger -->
         <div>
-          <label class="block text-xs text-stone-400 mb-2 uppercase tracking-wider">WhatsApp Phone *</label>
-          <input type="tel" id="custPhone" oninput="persistCustomerData()" placeholder="9342541946" maxlength="10" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-base text-white focus:border-brandGold focus:bg-white/10 outline-none transition">
+          <div class="flex justify-between items-center mb-2">
+            <label class="block text-xs text-stone-400 uppercase tracking-wider">WhatsApp Phone *</label>
+            <span id="phoneVerifyStatusBadge" class="text-[10px] font-bold font-sans px-2.5 py-0.5 rounded-full bg-red-950/70 border border-red-500/40 text-red-400">
+              <i class="fa-solid fa-shield-halved text-[9px] mr-1"></i> Unverified
+            </span>
+          </div>
+          <div class="flex gap-2">
+            <input type="tel" id="custPhone" oninput="handlePhoneInputChanged()" placeholder="9342541946" maxlength="10" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-base text-white focus:border-brandGold focus:bg-white/10 outline-none transition">
+            <button type="button" id="btnTriggerOtp" onclick="initiatePhoneOtp()" class="bg-amber-500 hover:bg-amber-400 text-black font-extrabold px-5 rounded-xl text-xs whitespace-nowrap transition active:scale-95 shadow">
+              Verify OTP
+            </button>
+          </div>
+          <p class="text-[11px] text-stone-400 font-tamil mt-1.5">போலி ஆர்டர்களை தடுக்க OTP சரிபார்ப்பு கட்டாயமானது.</p>
         </div>
+
         <div>
           <label class="block text-xs text-stone-400 mb-2 uppercase tracking-wider">Order Mode</label>
-          <select id="custMode" onchange="handleModeChange()" class="w-full bg-zinc-900 border border-white/10 rounded-xl px-5 py-4 text-base text-white focus:border-brandGold outline-none transition">
+          <select id="custMode" onchange="handleModeChange()" class="w-full bg-zinc-900 border border-white/10 rounded-xl px-5 py-4 text-base text-white focus:border-brandGold focus:bg-white/10 outline-none transition">
             <option value="Takeaway / Shop Pickup" class="bg-zinc-900">Takeaway / Shop Counter Pickup (Free)</option>
             <option value="Door Delivery (Valliyur Town)" class="bg-zinc-900">Door Delivery (Valliyur Town +₹20)</option>
           </select>
         </div>
+
         <div id="addressBox" class="hidden">
-          <label class="block text-xs text-stone-400 mb-2 uppercase tracking-wider">Delivery Address *</label>
-          <textarea id="custAddress" oninput="persistCustomerData()" rows="2" placeholder="Valliyur Landmark..." class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-base text-white focus:border-brandGold outline-none transition"></textarea>
+          <label class="block text-xs text-stone-400 mb-2 uppercase tracking-wider">Valliyur Delivery Address *</label>
+          <textarea id="custAddress" oninput="persistCustomerData()" rows="2" placeholder="Street, Door No, Valliyur Landmark..." class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-base text-white focus:border-brandGold focus:bg-white/10 outline-none transition"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-xs text-stone-400 mb-2 uppercase tracking-wider">Chef Instructions</label>
+          <input type="text" id="custNotes" oninput="persistCustomerData()" placeholder="e.g. Less spicy, extra sauce" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-base text-white focus:border-brandGold focus:bg-white/10 outline-none transition">
+        </div>
+      </div>
+
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 mb-6 text-sm space-y-3 font-mono">
+        <div class="flex justify-between text-stone-400">
+          <span>Items Subtotal:</span>
+          <span id="subtotalVal" class="text-white">₹0</span>
+        </div>
+        <div class="flex justify-between text-stone-400">
+          <span>Eco Box Packaging:</span>
+          <span id="packVal" class="text-white">₹0</span>
+        </div>
+        <div class="flex justify-between text-stone-400">
+          <span>Town Delivery:</span>
+          <span id="deliveryVal" class="text-emerald-400">FREE</span>
+        </div>
+        <div class="border-t border-white/10 pt-4 mt-4 flex justify-between items-center font-sans font-bold">
+          <span class="text-white text-lg">Total Amount:</span>
+          <span id="cartTotal" class="font-cyber font-black text-3xl text-brandNeon drop-shadow-md">₹0</span>
         </div>
       </div>
 
       <button onclick="checkoutToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-5 rounded-2xl flex items-center justify-center gap-3 text-lg shadow-[0_0_30px_rgba(16,185,129,0.4)] transition active:scale-95">
-        <i class="fa-brands fa-whatsapp text-2xl"></i> Send Order to WhatsApp
+        <i class="fa-brands fa-whatsapp text-2xl"></i> Place Order & Verify
       </button>
+    </div>
+  </div>
+
+  <!-- Sticky Bottom Checkout Bar -->
+  <div id="stickyBottomBar" class="fixed bottom-0 inset-x-0 z-30 bg-black/80 backdrop-blur-2xl border-t border-amber-500/30 px-8 py-5 flex items-center justify-between max-w-5xl mx-auto rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.5)] transition duration-300">
+    <div class="flex items-center gap-5">
+      <div class="relative">
+        <button onclick="toggleCart()" class="w-14 h-14 rounded-2xl bg-brandRed hover:bg-red-500 flex items-center justify-center text-white text-2xl shadow-[0_0_15px_rgba(225,29,72,0.5)] active:scale-95 transition">
+          <i class="fa-solid fa-bag-shopping"></i>
+        </button>
+        <span id="floatingCountBadge" class="absolute -top-2 -right-2 bg-brandGold text-black font-black text-sm w-7 h-7 rounded-full flex items-center justify-center border-2 border-black">0</span>
+      </div>
+      <div>
+        <div class="text-sm text-stone-400 font-mono mb-0.5">Current Basket</div>
+        <div id="floatingTotalBadge" class="font-cyber font-bold text-brandNeon text-2xl leading-tight">₹0</div>
+      </div>
+    </div>
+    
+    <div class="flex items-center gap-3">
+      <a href="tel:+919342541946" class="bg-white/10 hover:bg-white/20 text-stone-200 font-bold text-sm px-6 py-4 rounded-2xl flex items-center gap-2 transition active:scale-95 border border-white/10">
+        <i class="fa-solid fa-phone"></i> Call
+      </a>
+      <button onclick="toggleCart()" class="bg-white text-black hover:bg-stone-200 font-extrabold text-base px-8 py-4 rounded-2xl flex items-center gap-3 transition active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+        <span>Review & Checkout</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Customer Phone OTP Verification Modal -->
+  <div id="customerOtpModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass-card bg-cyberCard border border-amber-500/40 w-full max-w-sm rounded-[2rem] p-7 shadow-2xl text-center">
+      <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/40 text-brandGold flex items-center justify-center mx-auto mb-3 text-2xl shadow-[0_0_20px_rgba(245,158,11,0.2)]">
+        <i class="fa-solid fa-mobile-screen-button"></i>
+      </div>
+      <h3 class="font-cyber text-lg font-black text-brandNeon">PHONE VERIFICATION</h3>
+      <p class="text-xs text-stone-300 font-tamil mt-1">போலி ஆர்டர்களை தடுக்க உங்கள் மொபைலுக்கு அனுப்பப்பட்ட 4 இலக்க OTP-ஐ உள்ளிடவும்.</p>
+      
+      <div class="text-xs font-mono text-amber-400 my-3 bg-white/5 py-1.5 px-3 rounded-lg border border-white/10">
+        Mobile: <strong id="otpDisplayPhone" class="text-white">-</strong>
+      </div>
+
+      <input 
+        type="tel" 
+        id="otpInputCode" 
+        placeholder="••••" 
+        maxlength="4" 
+        autocomplete="one-time-code"
+        onkeydown="if(event.key==='Enter') verifyCustomerOtp()"
+        class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-center text-3xl font-mono text-white tracking-[0.5em] focus:border-brandGold outline-none mb-3"
+      >
+
+      <div class="flex items-center justify-between text-xs text-stone-400 font-mono mb-4 px-1">
+        <span id="otpCountdownTimer">Resend in 45s</span>
+        <button id="btnResendOtp" onclick="initiatePhoneOtp(true)" disabled class="text-amber-400 disabled:opacity-40 disabled:pointer-events-none hover:underline">
+          Resend OTP
+        </button>
+      </div>
+
+      <div class="flex gap-3">
+        <button onclick="closeCustomerOtpModal()" class="w-1/2 bg-zinc-800 hover:bg-zinc-700 text-stone-300 font-bold py-3 rounded-xl text-xs transition">
+          Cancel
+        </button>
+        <button onclick="verifyCustomerOtp()" class="w-1/2 bg-brandGold hover:bg-amber-400 text-black font-extrabold py-3 rounded-xl text-xs transition shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+          Confirm & Order
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Discreet Admin Password Modal -->
+  <div id="adminAuthModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass-card bg-cyberCard border border-white/10 w-full max-w-sm rounded-[2rem] p-6 shadow-2xl text-center">
+      <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 text-stone-400 flex items-center justify-center mx-auto mb-3 text-xl">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <h3 class="font-sans text-sm font-bold text-stone-200 tracking-wider uppercase">Authentication Required</h3>
+      <p class="text-xs text-stone-400 font-tamil mt-1 mb-4">அங்கீகரிக்கப்பட்ட PIN உள்ளிடவும்</p>
+      
+      <input 
+        type="password" 
+        id="adminPinInput" 
+        placeholder="••••" 
+        maxlength="10" 
+        autocomplete="current-password"
+        onkeydown="if(event.key==='Enter') verifyAdminPin()"
+        class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-center text-xl font-mono text-white tracking-[0.4em] focus:border-brandGold outline-none mb-4"
+      >
+
+      <div class="flex gap-3">
+        <button onclick="closeAuthModal()" class="w-1/2 bg-zinc-800 hover:bg-zinc-700 text-stone-300 font-bold py-2.5 rounded-xl text-xs transition">
+          Cancel
+        </button>
+        <button onclick="verifyAdminPin()" class="w-1/2 bg-stone-200 hover:bg-white text-black font-bold py-2.5 rounded-xl text-xs transition">
+          Verify
+        </button>
+      </div>
     </div>
   </div>
 
@@ -301,6 +705,142 @@
           Close Manager
         </button>
       </div>
+    </div>
+  </div>
+
+  <!-- ORDER HISTORY & SAVED BILL ARCHIVE MODAL -->
+  <div id="orderHistoryModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass-card bg-cyberCard border border-white/10 w-full max-w-3xl max-h-[85vh] rounded-[2rem] flex flex-col p-6 shadow-2xl">
+      <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+        <div>
+          <h3 class="font-cyber text-lg font-bold text-white flex items-center gap-2">
+            <i class="fa-solid fa-receipt text-amber-400"></i> SAVED BILL ARCHIVE & ORDER RECORDS
+          </h3>
+          <p class="text-xs text-stone-400 font-tamil mt-1">வாடிக்கையாளர் ஆர்டர் ரசீது நகல்கள் இங்கே பாதுகாப்பாக சேமிக்கப்பட்டுள்ளன.</p>
+        </div>
+        <button onclick="closeHistoryModal()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition">✕</button>
+      </div>
+
+      <div id="historyListContainer" class="flex-1 overflow-y-auto space-y-3 pr-2 min-h-[200px]"></div>
+
+      <div class="pt-4 border-t border-white/10 mt-4 flex items-center justify-between">
+        <button onclick="clearOrderHistory()" class="text-xs text-red-400 hover:underline">
+          <i class="fa-solid fa-trash-can mr-1"></i> Clear Old Records
+        </button>
+        <button onclick="closeHistoryModal()" class="bg-white/10 hover:bg-white/20 text-white font-bold px-6 py-2 rounded-xl text-xs font-cyber">
+          Close Archive
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORDER CONFIRMATION & BILL MODAL (SCREEN PREVIEW) -->
+  <div id="orderConfirmationModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass-card bg-cyberCard border border-white/10 w-full max-w-lg rounded-[2.5rem] p-8 shadow-2xl flex flex-col max-h-[90vh] overflow-y-auto">
+      
+      <!-- Top Success Header -->
+      <div class="text-center mb-6">
+        <div class="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-500 text-emerald-400 flex items-center justify-center mx-auto mb-3 text-2xl shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h3 class="font-cyber text-2xl font-black tracking-wide text-white">ORDER PLACED SUCCESSFULLY!</h3>
+        <p class="text-xs text-stone-400 font-sans mt-1">Your verified order has been sent via WhatsApp!</p>
+      </div>
+
+      <!-- Clean White Receipt Card -->
+      <div class="bg-white rounded-3xl p-7 shadow-2xl font-sans mb-6 text-black border border-gray-100">
+        
+        <div class="text-center mb-5">
+          <h2 class="text-3xl font-black tracking-widest text-black font-cyber leading-tight">STREET BURGER</h2>
+          <p class="text-[12px] font-extrabold uppercase tracking-widest text-gray-800 mt-1">VALLIYUR TERMINAL COUNTER</p>
+          <p class="text-[11px] text-gray-600 mt-0.5">Chef Augustin (Owner) · Harishma (CEO)</p>
+          <p class="text-[11px] font-bold text-gray-900 mt-1 flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-phone text-[10px]"></i> +91 93425 41946
+          </p>
+        </div>
+
+        <!-- Meta Information -->
+        <div class="text-[12px] space-y-1.5 border-t border-b border-gray-200 py-3.5 mb-4 font-mono">
+          <div class="flex justify-between items-center">
+            <span class="text-gray-500 font-sans">Bill No:</span>
+            <strong id="previewInvoiceId" class="text-black font-bold">#SB000000</strong>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-500 font-sans">Order Time:</span>
+            <strong id="previewOrderTime" class="text-black font-semibold">-</strong>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-500 font-sans">Customer:</span>
+            <strong id="previewCustomerName" class="text-black font-semibold">-</strong>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-500 font-sans">Phone:</span>
+            <strong id="previewCustomerPhone" class="text-black font-semibold">-</strong>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-500 font-sans">Mode:</span>
+            <strong id="previewCustomerMode" class="text-black font-semibold">-</strong>
+          </div>
+          <div id="previewAddressRow" class="flex justify-between items-start hidden pt-0.5">
+            <span class="text-gray-500 font-sans">Address:</span>
+            <strong id="previewCustomerAddress" class="text-black font-semibold text-right max-w-[210px] leading-tight">-</strong>
+          </div>
+        </div>
+
+        <!-- Table Columns -->
+        <table class="w-full text-[12px] mb-4">
+          <thead>
+            <tr class="text-gray-500 uppercase text-[10px] tracking-wider border-b border-gray-200">
+              <th class="text-left py-2 font-bold">ITEM</th>
+              <th class="text-center py-2 font-bold">QUANTITY</th>
+              <th class="text-right py-2 font-bold">PRICE</th>
+              <th class="text-right py-2 font-bold">TOTAL</th>
+            </tr>
+          </thead>
+          <tbody id="previewItemsBody" class="divide-y divide-gray-100"></tbody>
+        </table>
+
+        <!-- Summary Totals -->
+        <div class="border-t border-gray-200 pt-3 space-y-1 text-[12px] font-mono">
+          <div class="flex justify-between text-gray-600">
+            <span>Subtotal:</span>
+            <span id="previewSubtotal" class="font-bold text-gray-900">₹0</span>
+          </div>
+          <div class="flex justify-between text-gray-600">
+            <span>Packaging:</span>
+            <span id="previewPackaging" class="font-bold text-gray-900">₹0</span>
+          </div>
+          <div class="flex justify-between text-gray-600">
+            <span>Delivery:</span>
+            <span id="previewDelivery" class="font-bold text-gray-900">₹0</span>
+          </div>
+          <div class="border-t-2 border-black pt-3 mt-2 flex justify-between items-center text-[15px] font-black text-black">
+            <span class="tracking-wider">TOTAL AMOUNT:</span>
+            <span id="previewGrandTotal" class="text-xl font-black">₹0</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col gap-3">
+        <button onclick="downloadCurrentBillPDF()" class="w-full bg-[#f59e0b] hover:bg-[#d97706] text-black font-bold py-4 rounded-2xl flex items-center justify-center gap-2.5 text-sm transition active:scale-95 shadow-md">
+          <i class="fa-solid fa-file-pdf text-base"></i> Download A4 PDF Bill (Receipt PDF)
+        </button>
+
+        <button onclick="shareBillDirectWhatsApp()" class="w-full bg-[#10b981] hover:bg-[#059669] text-white font-bold py-3.5 rounded-2xl flex items-center justify-center gap-2.5 text-sm transition active:scale-95 shadow-md">
+          <i class="fa-brands fa-whatsapp text-lg"></i> Share Bill to Customer WhatsApp
+        </button>
+
+        <button onclick="copyCurrentBillText()" class="w-full bg-[#27272a] hover:bg-[#3f3f46] text-stone-200 font-bold py-3 rounded-2xl flex items-center justify-center gap-2 text-xs transition active:scale-95">
+          <i class="fa-solid fa-copy text-sm"></i> Copy Receipt Text
+        </button>
+
+        <button onclick="closeOrderConfirmationModal()" class="w-full bg-transparent hover:bg-white/5 text-stone-400 hover:text-white font-semibold py-2.5 rounded-2xl text-xs transition mt-0.5">
+          Back to Menu
+        </button>
+      </div>
+
     </div>
   </div>
 
@@ -359,7 +899,7 @@
           <textarea id="newItemDesc" rows="2" placeholder="Brief details about the food..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-brandGold outline-none"></textarea>
         </div>
 
-        <!-- NEW: LOCAL IMAGE UPLOAD OR URL -->
+        <!-- LOCAL IMAGE UPLOAD OR URL -->
         <div class="bg-black/30 p-4 rounded-xl border border-white/10">
           <label class="block text-xs text-brandGold mb-2 uppercase font-bold tracking-wider">
             <i class="fa-solid fa-camera"></i> Upload Photo (Recommended)
@@ -380,20 +920,6 @@
     </div>
   </div>
 
-  <!-- Discreet Admin Password Modal -->
-  <div id="adminAuthModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
-    <div class="glass-card bg-cyberCard border border-white/10 w-full max-w-sm rounded-[2rem] p-6 shadow-2xl text-center">
-      <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 text-stone-400 flex items-center justify-center mx-auto mb-3 text-xl"><i class="fa-solid fa-lock"></i></div>
-      <h3 class="font-sans text-sm font-bold text-stone-200 tracking-wider uppercase">Authentication Required</h3>
-      <p class="text-xs text-stone-400 mt-1 mb-4">Enter Admin PIN</p>
-      <input type="password" id="adminPinInput" placeholder="••••" maxlength="10" onkeydown="if(event.key==='Enter') verifyAdminPin()" class="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-center text-xl font-mono text-white tracking-[0.4em] focus:border-brandGold outline-none mb-4">
-      <div class="flex gap-3">
-        <button onclick="closeAuthModal()" class="w-1/2 bg-zinc-800 hover:bg-zinc-700 text-stone-300 font-bold py-2.5 rounded-xl text-xs transition">Cancel</button>
-        <button onclick="verifyAdminPin()" class="w-1/2 bg-stone-200 hover:bg-white text-black font-bold py-2.5 rounded-xl text-xs transition">Verify</button>
-      </div>
-    </div>
-  </div>
-
   <script>
     // ==========================================
     // 1. DATA-DRIVEN MENU REGISTRY
@@ -406,36 +932,384 @@
     };
 
     let defaultMenuRegistry = [
-      { id: "Classic-STREET-BURGER-Chicken", name: "Classic STREET BURGER Chicken", category: "burgers", diet: "nonveg", price: 110, tag: "USA Recipe", desc: "Our signature original recipe.", img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700&auto=format&fit=crop&q=80", inStock: true },
-      { id: "Peri-Peri-Panneer-Burger", name: "Peri Peri Panneer Burger", category: "burgers", diet: "veg", price: 100, tag: "Africa Special", desc: "Spicy peri peri paneer perfection.", img: "https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&auto=format&fit=crop&q=80", inStock: true },
-      { id: "Classic-Veg-Sandwich", name: "Classic Veg Sandwich", category: "panini", diet: "veg", price: 80, tag: "Italy Tradition", desc: "Fresh veggies and secret sauce toast.", img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700&auto=format&fit=crop&q=80", inStock: true },
-      { id: "Virgin-Mojito", name: "Virgin Mojito", category: "mojitos", diet: "cooler", price: 50, tag: "Cuba Classic", desc: "Refreshing mint and lime sparkler.", img: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=700&auto=format&fit=crop&q=80", inStock: true },
-      { id: "Classic-French-Fries", name: "Classic French Fries", category: "appetizers", diet: "veg", price: 50, tag: "Belgium", desc: "Crispy golden salted fries.", img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=700&auto=format&fit=crop&q=80", inStock: true }
+      // BURGERS
+      {
+        id: "Classic-STREET-BURGER-Chicken",
+        name: "Classic STREET BURGER Chicken",
+        category: "burgers",
+        diet: "nonveg",
+        price: 110,
+        tag: "USA Recipe",
+        desc: "எங்களது கடையின் பிரத்யேக அமெரிக்க பாரம்பரிய முறையில் சிறப்பான Signature Sauce சேர்த்து தயாரிக்கப்பட்டது.",
+        img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Classic-Tambaron-Burger",
+        name: "Classic Tambaron Burger",
+        category: "burgers",
+        diet: "nonveg",
+        price: 90,
+        tag: "Philippines",
+        desc: "பிலிப்பைன்ஸ் நாட்டின் பாரம்பரிய முறையில் காரசாரமான மசாலாக்கள் மற்றும் பிரத்யேக சாஸ் சேர்க்கை.",
+        img: "https://images.unsplash.com/photo-1586816001966-79b736744398?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Fried-Chicken-Burger",
+        name: "Fried Chicken Burger",
+        category: "burgers",
+        diet: "nonveg",
+        price: 100,
+        tag: "USA Crispy",
+        desc: "பொரித்தெடுக்கப்பட்ட மொறுமொறுப்பான கோழி இறைச்சி மற்றும் கடையின் ஸ்பெஷல் சாஸ்.",
+        img: "https://images.unsplash.com/photo-1615297928064-24977384d0cb?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Peri-Peri-Panneer-Burger",
+        name: "Peri Peri Panneer Burger",
+        category: "burgers",
+        diet: "veg",
+        price: 100,
+        tag: "Africa Special",
+        desc: "ஆப்பிரிக்க நாட்டின் காரசாரமான பெரி பெரி மசாலா தடவிய பனீர், பிரத்யேக சாஸ் சேர்க்கை.",
+        img: "https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Buffalo-Chicken-Burger",
+        name: "Buffalo Chicken Burger",
+        category: "burgers",
+        diet: "nonveg",
+        price: 120,
+        tag: "USA Spicy",
+        desc: "அமெரிக்க பாணியில் காரசாரமான ஃபயரி பஃபெலோ சாஸில் தோய்த்து தயாரிக்கப்பட்ட உணவு!",
+        img: "https://images.unsplash.com/photo-1594212848525-4c07920ab480?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+
+      // PANINI & SANDWICHES
+      {
+        id: "Classic-Veg-Sandwich",
+        name: "Classic Veg Sandwich",
+        category: "panini",
+        diet: "veg",
+        price: 80,
+        tag: "Italy Tradition",
+        desc: "புதிதாக நறுக்கிய காய்கறிகள், நறுமண மசாலாக்கள் மற்றும் கடையின் ஸ்பெஷல் சாஸ் சேர்த்து வாட்டியது.",
+        img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Classic-Roasted-Chicken-Sandwich",
+        name: "Classic Roasted Chicken Sandwich",
+        category: "panini",
+        diet: "nonveg",
+        price: 100,
+        tag: "Chef's Special",
+        desc: "இத்தாலி பாரம்பரிய நறுமண மசாலாக்களுடன் சுடச்சுட வாட்டி தயாரிக்கப்பட்ட சீஸ் சிக்கன் சாண்ட்விச்.",
+        img: "https://images.unsplash.com/photo-1619881589316-56c7f9e6b587?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Peri-Peri-Paneer-Sandwich",
+        name: "Peri Peri Paneer Sandwich",
+        category: "panini",
+        diet: "veg",
+        price: 100,
+        tag: "Africa Peri Peri",
+        desc: "காரசாரமான பெரி பெரி மசாலா மற்றும் கடையின் ஸ்பெஷல் சாஸ் சேர்த்து டோஸ்ட் செய்யப்பட்டது.",
+        img: "https://images.unsplash.com/photo-1554433607-66b5efe9d304?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Mushroom-Fajita-Sandwich",
+        name: "Mushroom Fajita Sandwich",
+        category: "panini",
+        diet: "veg",
+        price: 90,
+        tag: "Mexico Fajita",
+        desc: "மெக்சிகன் மசாலாக்கள், குடைமிளகாய் மற்றும் வதக்கிய காளான் கலந்த சீஸி டோஸ்ட்.",
+        img: "https://images.unsplash.com/photo-1559561853-08451507cbe7?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Buffalo-Chicken-Sandwich",
+        name: "Buffalo Chicken Sandwich",
+        category: "panini",
+        diet: "nonveg",
+        price: 120,
+        tag: "Spicy Buffalo",
+        desc: "காரசாரமான பஃபெலோ சாஸ் மற்றும் உருகிய சீஸ் சேர்த்து சுடச்சுட வாட்டப்பட்ட சாண்ட்விச்.",
+        img: "https://images.unsplash.com/photo-1509722747041-616f39b57569?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+
+      // MOJITOS
+      {
+        id: "Virgin-Mojito",
+        name: "Virgin Mojito",
+        category: "mojitos",
+        diet: "cooler",
+        price: 50,
+        tag: "Cuba Classic",
+        desc: "புத்துணர்ச்சியூட்டும் புதினா, எலுமிச்சை சாறு, சோடா மற்றும் ஸ்பெஷல் சிரப் கலந்த பானம்.",
+        img: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Blue-Curacao-Mojito",
+        name: "Blue Curacao Mojito",
+        category: "mojitos",
+        diet: "cooler",
+        price: 60,
+        tag: "Tropical Hit",
+        desc: "ஆரஞ்சு பழச் சுவை கொண்ட புத்துணர்ச்சியூட்டும் நீல நிற எலுமிச்சை சோடா குளிர்பானம்.",
+        img: "https://images.unsplash.com/photo-1615887023516-9b6ca55882f0?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Mint-Mojito",
+        name: "Mint Mojito",
+        category: "mojitos",
+        diet: "cooler",
+        price: 70,
+        tag: "Cuba Classic",
+        desc: "நறுமணமிக்க புதிய புதினா இலைகள், எலுமிச்சை மற்றும் பிரத்யேக சிரப் சேர்க்கை.",
+        img: "https://images.unsplash.com/photo-1546171753-97d7676e4602?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "The-World-s-End",
+        name: "The World's End",
+        category: "mojitos",
+        diet: "cooler",
+        price: 80,
+        tag: "England Cooler",
+        desc: "இங்கிலாந்து நாட்டு பாரம்பரிய முறைப்படி பெர்ரி சாறுகள் மற்றும் புதினா கலந்த பானம்.",
+        img: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Mermaid-Beach",
+        name: "Mermaid Beach",
+        category: "mojitos",
+        diet: "cooler",
+        price: 80,
+        tag: "Australia Fizz",
+        desc: "நீல நிற குராக்கோ, தேங்காய் சாறு, எலுமிச்சை மற்றும் புத்துணர்ச்சி தரும் நுரைத்த சோடா கலவை.",
+        img: "https://images.unsplash.com/photo-1536935338788-846bb9981813?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+
+      // APPETIZERS
+      {
+        id: "Classic-French-Fries",
+        name: "Classic French Fries",
+        category: "appetizers",
+        diet: "veg",
+        price: 50,
+        tag: "Belgium",
+        desc: "பெல்ஜியம் நாட்டு சுவையில் பொன்னிறமாக வறுத்தெடுக்கப்பட்ட மொறுமொறு உருளைக்கிழங்கு.",
+        img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Peri-Peri-Fries",
+        name: "Peri Peri Fries",
+        category: "appetizers",
+        diet: "veg",
+        price: 60,
+        tag: "Africa Peri Peri",
+        desc: "ஆப்பிரிக்க நாட்டின் காரசாரமான பெரி பெரி மசாலா தூவப்பட்ட மொறுமொறு உருளைக்கிழங்கு.",
+        img: "https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Cheesy-Chicken-Fries",
+        name: "Cheesy Chicken Fries",
+        category: "appetizers",
+        diet: "nonveg",
+        price: 80,
+        tag: "Canada",
+        desc: "ஃபிரைஸ் மீது உருகிய பாலாடைக்கட்டியும் கோழி இறைச்சியும் தூவித் தரும் சுவை அட்டா!",
+        img: "https://images.unsplash.com/photo-1585109649139-366815a0d713?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Crumb-Fried-Chicken",
+        name: "Crumb Fried Chicken",
+        category: "appetizers",
+        diet: "nonveg",
+        price: 80,
+        tag: "USA",
+        desc: "நறுமண மசாலாக்களுடன் மொறுமொறுப்பாக பொரித்தெடுக்கப்பட்ட அசல் க்ரம்ப் சிக்கன்.",
+        img: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Cheesy-Jalapeno-Fritters",
+        name: "Cheesy Jalapeno Fritters",
+        category: "appetizers",
+        diet: "veg",
+        price: 70,
+        tag: "Mexico Hit",
+        desc: "காரசாரமான ஜலபெனோ மிளகாயில் உருகிய சீஸ் கலந்து பொரித்தெடுத்த ஃபிரிட்டர்ஸ்.",
+        img: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Mac--n-Cheese-Ball",
+        name: "Mac 'n Cheese Ball",
+        category: "appetizers",
+        diet: "veg",
+        price: 70,
+        tag: "USA Tradition",
+        desc: "பாலாடைக்கட்டி மற்றும் பாஸ்தா கலவையை உருண்டைகளாக்கி பொரித்தெடுத்த உணவு.",
+        img: "https://images.unsplash.com/photo-1626082895617-2c6ad3ed3445?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Corn-Cheese-Ball",
+        name: "Corn Cheese Ball",
+        category: "appetizers",
+        diet: "veg",
+        price: 70,
+        tag: "USA Style",
+        desc: "இனிப்பு சோளம் மற்றும் சீஸ் கலவையை உருண்டையாக்கி மொறுமொறுப்பாக பொரித்தது.",
+        img: "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Kentucky-Fried-Chicken",
+        name: "Kentucky Fried Chicken",
+        category: "appetizers",
+        diet: "nonveg",
+        price: 80,
+        tag: "Chef's Pick",
+        desc: "நறுமண மசாலாக்களில் ஊறிய கோழி இறைச்சியை முறுக்கு போல மொறுமொறுப்பாய் பொரித்த உணவு!",
+        img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Chicken-Momos--Fried-",
+        name: "Chicken Momos (Fried)",
+        category: "appetizers",
+        diet: "nonveg",
+        price: 70,
+        tag: "Tibet",
+        desc: "திபெத் நாட்டின் பாரம்பரியமான மொறுமொறுப்பாக பொரித்தெடுக்கப்பட்ட சுவையான சிக்கன் மோமோஸ்!",
+        img: "https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Veg-Momos--Fried-",
+        name: "Veg Momos (Fried)",
+        category: "appetizers",
+        diet: "veg",
+        price: 60,
+        tag: "Tibet",
+        desc: "திபெத் நாட்டின் பாரம்பரியமான மொறுமொறுப்பாக பொரித்தெடுக்கப்பட்ட சுவையான வெஜ் மோமோஸ்!",
+        img: "https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Chicken-Nuggets",
+        name: "Chicken Nuggets",
+        category: "appetizers",
+        diet: "nonveg",
+        price: 70,
+        tag: "USA",
+        desc: "அமெரிக்க பாரம்பரிய உணவு; காரசாரமான சாஸுடன் பரிமாறப்படும் சிக்கன் நக்கெட்ஸ்.",
+        img: "https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      },
+      {
+        id: "Veg-Nuggets",
+        name: "Veg Nuggets",
+        category: "appetizers",
+        diet: "veg",
+        price: 60,
+        tag: "USA",
+        desc: "அமெரிக்க பாரம்பரிய உணவு; காரசாரமான சாஸுடன் பரிமாறப்படும் வெஜ் நக்கெட்ஸ்.",
+        img: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      }
     ];
 
-    let menuRegistry = []; 
+    let menuRegistry = []; // Will hold default + custom items
 
     // ==========================================
-    // 2. STATE & CORE UTILS
+    // 2. STATE & SECURITY (PIN 3050 & OTP ENGINE)
     // ==========================================
     let cart = [];
     let currentCategory = 'all';
     let currentDiet = 'all';
+    let currentActiveOrder = null;
     let pendingAdminAction = null;
-    let editingItemId = null; // Tracks if we are editing an item
+    let editingItemId = null; 
+
+    let isPhoneVerified = false;
+    let verifiedPhoneNumber = "";
+    let activeGeneratedOtp = null;
+    let otpCountdownInterval = null;
+
+    const PACKAGING_FEE_PER_ORDER = 10;
+    const DELIVERY_FEE = 20;
+    const DEFAULT_ADMIN_PIN = "3050";
 
     function getAdminPin() {
       let pin = localStorage.getItem('sb_admin_pin');
-      if (!pin) { pin = "3050"; localStorage.setItem('sb_admin_pin', pin); }
+      if (!pin) {
+        pin = DEFAULT_ADMIN_PIN;
+        localStorage.setItem('sb_admin_pin', pin);
+      }
       return pin;
+    }
+
+    function playBeep() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(800, ctx.currentTime);
+        gain.gain.setValueAtTime(0.06, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.12);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.12);
+      } catch(e) {}
+    }
+
+    function playSuccessChime() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const notes = [523.25, 659.25, 783.99, 1046.50];
+        notes.forEach((freq, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.frequency.setValueAtTime(freq, ctx.currentTime + (idx * 0.08));
+          gain.gain.setValueAtTime(0.05, ctx.currentTime + (idx * 0.08));
+          gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + (idx * 0.08) + 0.2);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(ctx.currentTime + (idx * 0.08));
+          osc.stop(ctx.currentTime + (idx * 0.08) + 0.2);
+        });
+      } catch(e) {}
     }
 
     function handleImgFallback(img, title) {
       const svg = `
         <svg xmlns="http://www.w3.org/2000/svg" width="700" height="400" viewBox="0 0 700 400">
           <rect width="700" height="400" fill="#0f0f13"/>
-          <text x="350" y="195" font-size="50" fill="#f59e0b" text-anchor="middle">🍔</text>
-          <text x="350" y="275" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="bold">${title}</text>
+          <circle cx="350" cy="180" r="60" fill="#1f1f26"/>
+          <text x="350" y="195" font-size="50" fill="#f59e0b" text-anchor="middle" font-family="sans-serif">🍔</text>
+          <text x="350" y="275" font-size="22" fill="#ffffff" text-anchor="middle" font-family="sans-serif" font-weight="bold">${title}</text>
+          <text x="350" y="305" font-size="14" fill="#fbbf24" text-anchor="middle" font-family="sans-serif">STREET BURGER VALLIYUR</text>
         </svg>
       `;
       img.onerror = null;
@@ -448,6 +1322,12 @@
       toast.className = 'toast';
       toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${message}`;
       container.appendChild(toast);
+      
+      const cartBtn = document.getElementById('headerCartBtn');
+      cartBtn.classList.remove('animate-pop');
+      void cartBtn.offsetWidth; 
+      cartBtn.classList.add('animate-pop');
+
       setTimeout(() => {
         toast.style.animation = 'slideDown 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) reverse forwards';
         setTimeout(() => toast.remove(), 400);
@@ -456,15 +1336,16 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       getAdminPin();
-      loadCustomMenu(); 
+      loadCustomMenu(); // Load defaults + newly added items
       loadStockOverrides();
       loadStorageData();
       renderMenuCards();
       renderCart();
+      updateSessionDisplay();
     });
 
     // ==========================================
-    // 3. MENU RENDERING
+    // 3. DYNAMIC MENU RENDERING WITH OUT-OF-STOCK
     // ==========================================
     function renderMenuCards() {
       const container = document.getElementById('dynamicMenuRoot');
@@ -487,39 +1368,80 @@
         totalVisible += items.length;
 
         return `
-          <div class="menu-group mb-12">
-            <div class="mb-6 flex items-center gap-4">
+          <div class="menu-group cat-${cat}" data-category="${cat}">
+            <div class="mb-8 flex items-center gap-4">
               <div class="w-1.5 h-8 bg-brandGold rounded-full"></div>
               <div>
-                <h3 class="font-luxury text-3xl text-white font-bold">${meta.title}</h3>
+                <h3 class="font-luxury text-4xl text-white font-bold tracking-wide">${meta.title}</h3>
+                <p class="text-sm text-stone-400 mt-1">${meta.sub}</p>
               </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+
+            <div class="grid grid-cols-2 gap-8">
               ${items.map(item => {
                 const isOut = !item.inStock;
                 const cartItem = cart.find(c => c.name === item.name);
                 const qty = cartItem ? cartItem.qty : 0;
-                
+
+                const dietBadge = item.diet === 'veg' 
+                  ? `<div class="inline-flex items-center gap-1.5 bg-emerald-950/50 border border-emerald-500/50 text-emerald-400 text-[11px] font-bold px-3 py-1.5 rounded uppercase tracking-widest mb-3"><i class="fa-solid fa-circle text-[9px]"></i> PURE VEG</div>`
+                  : (item.diet === 'cooler' 
+                      ? `<div class="inline-flex items-center gap-1.5 bg-cyan-950/50 border border-cyan-500/50 text-cyan-400 text-[11px] font-bold px-3 py-1.5 rounded uppercase tracking-widest mb-3"><i class="fa-solid fa-snowflake text-[10px]"></i> FRESH CRUSH</div>`
+                      : `<div class="inline-flex items-center gap-1.5 bg-red-950/50 border border-red-500/50 text-red-400 text-[11px] font-bold px-3 py-1.5 rounded uppercase tracking-widest mb-3"><i class="fa-solid fa-play text-[9px] rotate-[-90deg]"></i> NON-VEG</div>`);
+
                 return `
                   <div class="dish-card glass-card overflow-hidden group flex flex-col justify-between ${isOut ? 'opacity-55' : ''}">
-                    <div class="relative h-[240px] w-full overflow-hidden p-2 pb-0">
-                      <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover rounded-[18px] transition duration-700 ${isOut ? 'grayscale contrast-125' : 'group-hover:scale-105'}" onerror="handleImgFallback(this, '${item.name}')">
-                      <span class="absolute top-4 left-4 bg-brandGold text-black text-xs font-cyber px-3 py-1 rounded-md font-bold uppercase shadow-lg">${item.tag}</span>
-                      ${isOut ? `<div class="absolute inset-0 flex items-center justify-center"><span class="bg-red-600 text-white font-cyber text-xs px-4 py-1.5 rounded-full font-bold">Sold Out</span></div>` : `<span class="absolute bottom-3 right-4 floating-pill text-brandNeon font-cyber text-xl font-bold px-3 py-1.5 rounded-xl shadow-lg">₹${item.price}</span>`}
+                    <div class="relative h-[260px] w-full overflow-hidden p-2 pb-0">
+                      <img 
+                        src="${item.img}" 
+                        alt="${item.name}" 
+                        class="w-full h-full object-cover rounded-[18px] transform transition duration-700 ease-out ${isOut ? 'grayscale contrast-125' : 'group-hover:scale-110'}" 
+                        loading="lazy"
+                        onerror="handleImgFallback(this, '${item.name}')"
+                      >
+                      <span class="absolute top-5 left-5 bg-brandGold text-black text-xs font-cyber px-3 py-1.5 rounded-md font-extrabold uppercase shadow-[0_4px_10px_rgba(245,158,11,0.4)]">
+                        ${item.tag}
+                      </span>
+
+                      ${isOut ? `
+                        <div class="absolute inset-0 m-auto flex items-center justify-center pointer-events-none">
+                          <span class="bg-red-600 text-white font-cyber text-xs uppercase px-5 py-2 rounded-full font-black tracking-widest border border-red-400 shadow-2xl backdrop-blur-md">
+                            Sold Out • தீர்ந்துவிட்டது
+                          </span>
+                        </div>
+                      ` : `
+                        <span class="absolute bottom-3 right-5 floating-pill text-brandNeon font-cyber text-2xl font-black px-4 py-2 rounded-xl shadow-[0_5px_15px_rgba(0,0,0,0.5)] border-amber-500/30">
+                          ₹${item.price}
+                        </span>
+                      `}
                     </div>
-                    <div class="p-5 flex-1 flex flex-col justify-between">
+
+                    <div class="p-6 flex-1 flex flex-col justify-between">
                       <div>
-                        <h4 class="font-bold text-xl text-white mb-2 leading-tight">${item.name}</h4>
-                        <p class="text-sm text-stone-400 font-tamil mb-5">${item.desc}</p>
+                        ${dietBadge}
+                        <h4 class="font-bold text-2xl text-white mb-2 leading-tight">${item.name}</h4>
+                        <p class="text-[15px] text-stone-400 font-tamil leading-relaxed mb-6">${item.desc}</p>
                       </div>
+
                       <div>
-                        ${isOut ? `<button disabled class="w-full bg-zinc-900 border border-white/10 text-stone-500 font-bold py-3 rounded-xl text-sm cursor-not-allowed">Sold Out</button>` 
-                        : (qty === 0 ? `<button onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price})" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-3 rounded-xl text-sm transition shadow-md border border-white/5"><i class="fa-solid fa-cart-plus"></i> Add To Order</button>` 
-                        : `<div class="flex items-center justify-between bg-black/50 border border-brandGold/60 rounded-xl p-1.5 shadow-md">
-                            <button onclick="updateItemQtyByName('${item.name.replace(/'/g, "\\'")}', -1)" class="w-10 h-10 rounded-lg bg-zinc-800 text-white font-black text-xl">-</button>
-                            <span class="text-sm font-black text-brandNeon">${qty} Added</span>
-                            <button onclick="updateItemQtyByName('${item.name.replace(/'/g, "\\'")}', 1)" class="w-10 h-10 rounded-lg bg-brandRed text-white font-black text-xl">+</button>
-                          </div>`)}
+                        ${isOut ? `
+                          <button disabled class="w-full bg-zinc-900 border border-white/10 text-stone-500 font-bold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 cursor-not-allowed">
+                            <i class="fa-solid fa-clock text-red-500"></i> Sold Out For Today
+                          </button>
+                        ` : (qty === 0 ? `
+                          <button onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price})" class="w-full bg-zinc-800 hover:bg-brandRed text-white font-bold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 transition active:scale-95 shadow-md border border-white/5">
+                            <i class="fa-solid fa-cart-plus"></i> Add To Order
+                          </button>
+                        ` : `
+                          <div class="flex items-center justify-between bg-black/50 border border-brandGold/60 rounded-xl p-1.5 shadow-[0_0_20px_rgba(245,158,11,0.25)] backdrop-blur-md">
+                            <button onclick="updateItemQtyByName('${item.name.replace(/'/g, "\\'")}', -1)" class="w-12 h-10 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white font-black text-xl flex items-center justify-center transition active:scale-95">-</button>
+                            <div class="flex flex-col items-center leading-none px-3">
+                              <span class="text-sm font-black text-brandNeon">${qty} Added</span>
+                              <span class="text-xs text-stone-300 mt-1">₹${qty * item.price}</span>
+                            </div>
+                            <button onclick="updateItemQtyByName('${item.name.replace(/'/g, "\\'")}', 1)" class="w-12 h-10 rounded-lg bg-brandRed hover:bg-red-500 text-white font-black text-xl flex items-center justify-center transition active:scale-95">+</button>
+                          </div>
+                        `)}
                       </div>
                     </div>
                   </div>
@@ -530,57 +1452,70 @@
         `;
       }).join('');
 
-      document.getElementById('emptyState').classList.toggle('hidden', totalVisible > 0);
+      const emptyEl = document.getElementById('emptyState');
+      if (totalVisible === 0) {
+        emptyEl.classList.remove('hidden');
+      } else {
+        emptyEl.classList.add('hidden');
+      }
     }
 
     // ==========================================
-    // 4. ADMIN & MODAL LOGIC (ADD/EDIT/DELETE)
+    // 4. DISCREET ADMIN GATE & CUSTOM MENU
     // ==========================================
     function requestAdminAccess(actionType) {
       pendingAdminAction = actionType;
-      if (sessionStorage.getItem('sb_admin_auth') === 'true') executeAdminAction();
-      else {
-        document.getElementById('adminPinInput').value = '';
+      
+      if (sessionStorage.getItem('sb_admin_auth') === 'true') {
+        executeAdminAction();
+      } else {
+        const input = document.getElementById('adminPinInput');
+        input.value = '';
         document.getElementById('adminAuthModal').classList.remove('hidden');
-        setTimeout(() => document.getElementById('adminPinInput').focus(), 150);
+        setTimeout(() => input.focus(), 150);
       }
     }
 
     function verifyAdminPin() {
-      if (document.getElementById('adminPinInput').value.trim() === getAdminPin()) {
+      const entered = document.getElementById('adminPinInput').value.trim();
+      const currentPin = getAdminPin();
+
+      if (entered === currentPin) {
         sessionStorage.setItem('sb_admin_auth', 'true');
         closeAuthModal();
         executeAdminAction();
         showToast("Authenticated");
       } else {
         alert("Incorrect PIN");
+        document.getElementById('adminPinInput').value = '';
       }
     }
 
-    function closeAuthModal() { document.getElementById('adminAuthModal').classList.add('hidden'); }
+    function closeAuthModal() {
+      document.getElementById('adminAuthModal').classList.add('hidden');
+      pendingAdminAction = null;
+    }
 
     function executeAdminAction() {
       if (pendingAdminAction === 'stock') {
         renderStockManagerRows();
         document.getElementById('stockModal').classList.remove('hidden');
       } else if (pendingAdminAction === 'history') {
-        // Assume history logic is intact elsewhere
+        renderHistoryList();
+        document.getElementById('orderHistoryModal').classList.remove('hidden');
       } else if (pendingAdminAction === 'add_menu') {
         openAddMenuModal();
       }
       pendingAdminAction = null;
     }
 
-    // --- Core Master Menu Logic ---
+    // --- CUSTOM MENU LOGIC ---
     function loadCustomMenu() {
       try {
         const customItems = JSON.parse(localStorage.getItem('sb_custom_menu') || '[]');
         const deletedIds = JSON.parse(localStorage.getItem('sb_deleted_ids') || '[]');
         
-        // Remove deleted items from defaults
         let activeDefaults = defaultMenuRegistry.filter(item => !deletedIds.includes(item.id));
-        
-        // Remove defaults that are overridden by a custom item editing it
         const customIds = customItems.map(c => c.id);
         activeDefaults = activeDefaults.filter(item => !customIds.includes(item.id));
 
@@ -600,18 +1535,16 @@
             const canvas = document.createElement('canvas');
             let width = img.width;
             let height = img.height;
-
             if (width > height) {
               if (width > maxSize) { height = Math.round(height *= maxSize / width); width = maxSize; }
             } else {
               if (height > maxSize) { width = Math.round(width *= maxSize / height); height = maxSize; }
             }
-            
             canvas.width = width;
             canvas.height = height;
             const ctx = canvas.getContext('2d');
             ctx.drawImage(img, 0, 0, width, height);
-            resolve(canvas.toDataURL('image/jpeg', 0.6)); // Compress to base64 JPEG
+            resolve(canvas.toDataURL('image/jpeg', 0.6));
           };
           img.onerror = () => reject("Invalid image");
           img.src = e.target.result;
@@ -622,9 +1555,9 @@
     }
 
     function openAddMenuModal() {
-      editingItemId = null; // Reset
+      editingItemId = null;
       document.getElementById('addMenuModalTitle').innerHTML = '<i class="fa-solid fa-plus-circle"></i> ADD MENU ITEM';
-      document.getElementById('btnSaveMenuItem').innerHTML = '<i class="fa-solid fa-check"></i> Add to Menu';
+      document.getElementById('btnSaveMenuItem').innerHTML = '<i class="fa-solid fa-check"></i> Save Item';
       
       document.getElementById('newItemName').value = '';
       document.getElementById('newItemPrice').value = '';
@@ -632,7 +1565,7 @@
       document.getElementById('newItemDesc').value = '';
       document.getElementById('newItemImgUrl').value = '';
       document.getElementById('newItemImgFile').value = '';
-
+      
       document.getElementById('addMenuItemModal').classList.remove('hidden');
     }
 
@@ -651,7 +1584,6 @@
       document.getElementById('newItemDiet').value = item.diet;
       document.getElementById('newItemDesc').value = item.desc;
       
-      // If the image is a massive Base64 string, don't show it in the text box to avoid lag
       if(item.img.length > 500) {
          document.getElementById('newItemImgUrl').value = '';
          document.getElementById('newItemImgUrl').placeholder = '(Custom Image Loaded) Leave empty to keep it';
@@ -667,21 +1599,28 @@
     function deleteMenuItem(id) {
       if(!confirm("Are you sure you want to PERMANENTLY delete this item from your menu?")) return;
       
-      // Remove from custom list if it's there
       let customItems = JSON.parse(localStorage.getItem('sb_custom_menu') || '[]');
       customItems = customItems.filter(item => item.id !== id);
       localStorage.setItem('sb_custom_menu', JSON.stringify(customItems));
 
-      // Add to deleted IDs so it hides defaults
       let deletedIds = JSON.parse(localStorage.getItem('sb_deleted_ids') || '[]');
       if (!deletedIds.includes(id)) {
         deletedIds.push(id);
         localStorage.setItem('sb_deleted_ids', JSON.stringify(deletedIds));
       }
 
+      // Check cart and remove if exists
+      const itemMeta = menuRegistry.find(i => i.id === id);
+      if(itemMeta) {
+         const cIdx = cart.findIndex(c => c.name === itemMeta.name);
+         if (cIdx !== -1) cart.splice(cIdx, 1);
+         saveCart();
+      }
+
       loadCustomMenu();
       renderStockManagerRows();
       renderMenuCards();
+      renderCart();
       showToast("Item successfully deleted.");
     }
 
@@ -694,8 +1633,8 @@
       const price = parseFloat(document.getElementById('newItemPrice').value);
       const category = document.getElementById('newItemCategory').value;
       const diet = document.getElementById('newItemDiet').value;
-      const tag = document.getElementById('newItemTag').value.trim() || "Chef Special";
-      const desc = document.getElementById('newItemDesc').value.trim() || "Delicious craft dish.";
+      const tag = document.getElementById('newItemTag').value.trim() || "New Arrival";
+      const desc = document.getElementById('newItemDesc').value.trim() || "Delicious new item added by the chef.";
       let urlInput = document.getElementById('newItemImgUrl').value.trim();
       const fileInput = document.getElementById('newItemImgFile');
 
@@ -705,24 +1644,20 @@
       }
 
       document.getElementById('btnSaveMenuItem').innerText = "Processing Image...";
-
       let finalImg = urlInput;
 
-      // 1. If File Uploaded, convert to Base64
       if (fileInput.files && fileInput.files[0]) {
         try {
-          finalImg = await resizeImageFile(fileInput.files[0], 700); // 700px max width
+          finalImg = await resizeImageFile(fileInput.files[0], 700); 
         } catch(e) {
           alert("Failed to process image file. " + e);
           return;
         }
       } 
-      // 2. If editing and no new image provided, keep the old one
       else if (!finalImg && editingItemId) {
         const existing = menuRegistry.find(i => i.id === editingItemId);
         if(existing) finalImg = existing.img;
       } 
-      // 3. Fallback placeholder
       else if (!finalImg) {
         finalImg = "https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&auto=format&fit=crop&q=80";
       }
@@ -747,9 +1682,8 @@
         if (editingItemId) {
            const idx = customItems.findIndex(i => i.id === editingItemId);
            if (idx >= 0) customItems[idx] = newItem;
-           else customItems.push(newItem); // Overriding a default item
+           else customItems.push(newItem); 
            
-           // Retain stock status if editing
            const oldItem = menuRegistry.find(i => i.id === editingItemId);
            if(oldItem) newItem.inStock = oldItem.inStock;
         } else {
@@ -772,8 +1706,10 @@
       showToast(name + " saved successfully!");
     }
 
-    // --- Stock Manager List Rendering ---
-    function closeStockModal() { document.getElementById('stockModal').classList.add('hidden'); }
+    // --- STOCK LOGIC ---
+    function closeStockModal() {
+      document.getElementById('stockModal').classList.add('hidden');
+    }
 
     function renderStockManagerRows() {
       const list = document.getElementById('stockModalList');
@@ -787,7 +1723,6 @@
             </div>
           </div>
           
-          <!-- NEW: Edit, Delete, Stock Controls -->
           <div class="flex items-center gap-1.5 shrink-0">
             <button onclick="editMenuItem('${item.id}')" class="w-9 h-9 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 flex items-center justify-center transition border border-blue-500/30" title="Edit">
               <i class="fa-solid fa-pen"></i>
@@ -837,69 +1772,876 @@
         const saved = localStorage.getItem('sb_stock_disabled');
         if (saved) {
           const disabledSet = new Set(JSON.parse(saved));
-          menuRegistry.forEach(item => { if (disabledSet.has(item.id)) item.inStock = false; });
+          menuRegistry.forEach(item => {
+            if (disabledSet.has(item.id)) {
+              item.inStock = false;
+            }
+          });
         }
       } catch(e) {}
     }
 
     // ==========================================
-    // 5. CART LOGIC (Condensed for brevity)
+    // 5. CUSTOMER PHONE OTP INITIATION
     // ==========================================
-    function toggleCart() { document.getElementById('cartDrawer').classList.toggle('hidden'); }
+    const SMS_GATEWAY_API_KEY = "PASTE_YOUR_2FACTOR_OR_FAST2SMS_KEY_HERE";
+
+    async function sendRealCellularOtpSms(phoneNumber, otpValue) {
+      if (SMS_GATEWAY_API_KEY && !SMS_GATEWAY_API_KEY.includes("PASTE_YOUR")) {
+        try {
+          const endpoint = `https://2factor.in/API/V1/${SMS_GATEWAY_API_KEY}/SMS/${phoneNumber}/${otpValue}/StreetBurgerOTP`;
+          await fetch(endpoint, { method: "GET" });
+          showToast("SMS sent to your mobile!");
+          return;
+        } catch (e) {
+          console.log("Cellular Gateway call attempted");
+        }
+      }
+
+      const customerWaMsg = `*STREET BURGER VALLIYUR*\nYour security OTP is: *${otpValue}*\nபோலி ஆர்டர்களை தவிர்க்க இந்த குறியீட்டை உள்ளிடவும்.`;
+      const cleanPhone = phoneNumber.replace(/[^0-9]/g, '');
+      const targetPhone = cleanPhone.length === 10 ? ('91' + cleanPhone) : cleanPhone;
+      window.open(`https://wa.me/${targetPhone}?text=${encodeURIComponent(customerWaMsg)}`, '_blank');
+    }
+
+    function handlePhoneInputChanged() {
+      const phoneInput = document.getElementById('custPhone');
+      const cleanPhone = phoneInput.value.replace(/[^0-9]/g, '');
+      phoneInput.value = cleanPhone;
+
+      if (cleanPhone !== verifiedPhoneNumber) {
+        isPhoneVerified = false;
+        const badge = document.getElementById('phoneVerifyStatusBadge');
+        badge.className = "text-[10px] font-bold font-sans px-2.5 py-0.5 rounded-full bg-red-950/70 border border-red-500/40 text-red-400";
+        badge.innerHTML = '<i class="fa-solid fa-shield-halved text-[9px] mr-1"></i> Unverified';
+        document.getElementById('btnTriggerOtp').innerText = "Verify OTP";
+        document.getElementById('btnTriggerOtp').classList.remove('opacity-50', 'pointer-events-none');
+      }
+      persistCustomerData();
+    }
+
+    function initiatePhoneOtp(isResend = false) {
+      const phone = document.getElementById('custPhone').value.trim();
+      if (!phone || phone.length !== 10 || !/^[6-9]\d{9}$/.test(phone)) {
+        alert("Please enter a valid 10-digit mobile number! / சரியான 10 இலக்க எண்ணை உள்ளிடவும்.");
+        document.getElementById('custPhone').focus();
+        return;
+      }
+
+      activeGeneratedOtp = String(Math.floor(1000 + Math.random() * 9000));
+      document.getElementById('otpDisplayPhone').innerText = "+91 " + phone;
+      document.getElementById('otpInputCode').value = '';
+
+      document.getElementById('customerOtpModal').classList.remove('hidden');
+      setTimeout(() => document.getElementById('otpInputCode').focus(), 150);
+
+      sendRealCellularOtpSms(phone, activeGeneratedOtp);
+
+      startOtpTimer();
+      showToast(isResend ? "New OTP sent to mobile!" : "OTP sent to your mobile!");
+    }
+
+    function startOtpTimer() {
+      let secondsLeft = 45;
+      const timerEl = document.getElementById('otpCountdownTimer');
+      const resendBtn = document.getElementById('btnResendOtp');
+      resendBtn.disabled = true;
+
+      clearInterval(otpCountdownInterval);
+      otpCountdownInterval = setInterval(() => {
+        secondsLeft--;
+        if (secondsLeft > 0) {
+          timerEl.innerText = `Resend in ${secondsLeft}s`;
+        } else {
+          clearInterval(otpCountdownInterval);
+          timerEl.innerText = "Didn't receive code?";
+          resendBtn.disabled = false;
+        }
+      }, 1000);
+    }
+
+    function verifyCustomerOtp() {
+      const enteredCode = document.getElementById('otpInputCode').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+
+      if (enteredCode === activeGeneratedOtp && activeGeneratedOtp !== null) {
+        isPhoneVerified = true;
+        verifiedPhoneNumber = phone;
+        clearInterval(otpCountdownInterval);
+        closeCustomerOtpModal();
+
+        const badge = document.getElementById('phoneVerifyStatusBadge');
+        badge.className = "text-[10px] font-bold font-sans px-2.5 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/50 text-emerald-400";
+        badge.innerHTML = '<i class="fa-solid fa-circle-check text-[9px] mr-1"></i> Phone Verified';
+        
+        const otpBtn = document.getElementById('btnTriggerOtp');
+        otpBtn.innerText = "Verified";
+        otpBtn.classList.add('opacity-50', 'pointer-events-none');
+
+        playSuccessChime();
+        showToast("Phone Verified Successfully!");
+      } else {
+        alert("Incorrect OTP Code! Please check your mobile and enter correctly.");
+        document.getElementById('otpInputCode').value = '';
+      }
+    }
+
+    function closeCustomerOtpModal() {
+      document.getElementById('customerOtpModal').classList.add('hidden');
+      clearInterval(otpCountdownInterval);
+    }
+
+    // ==========================================
+    // 6. CART & USER OPERATIONS
+    // ==========================================
+    function toggleCart() {
+      const drawer = document.getElementById('cartDrawer');
+      drawer.classList.toggle('hidden');
+    }
+
+    function handleModeChange() {
+      const mode = document.getElementById('custMode').value;
+      const addressBox = document.getElementById('addressBox');
+      if (mode.includes('Delivery')) {
+        addressBox.classList.remove('hidden');
+      } else {
+        addressBox.classList.add('hidden');
+      }
+      persistCustomerData();
+      renderCart();
+    }
 
     function addToCart(name, price) {
-      const item = menuRegistry.find(m => m.name === name);
-      if (!item.inStock) return alert("Sold out for today.");
-      const existing = cart.find(c => c.name === name);
-      if (existing) existing.qty += 1; else cart.push({ name, price, qty: 1 });
-      saveCart(); renderCart(); renderMenuCards(); showToast(`${name} added`);
+      const itemMeta = menuRegistry.find(m => m.name === name);
+      if (itemMeta && !itemMeta.inStock) {
+        alert("This item is currently sold out for today.");
+        return;
+      }
+
+      playBeep();
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name, price, qty: 1 });
+      }
+      saveCart();
+      renderCart();
+      renderMenuCards();
+      showToast(`${name} added`);
+    }
+
+    function addUpgradeToCart(name, price) {
+      addToCart(name, price);
     }
 
     function updateItemQtyByName(name, delta) {
-      const idx = cart.findIndex(c => c.name === name);
-      if (idx !== -1) {
-        cart[idx].qty += delta;
-        if (cart[idx].qty <= 0) cart.splice(idx, 1);
-        saveCart(); renderCart(); renderMenuCards();
+      const index = cart.findIndex(item => item.name === name);
+      if (index !== -1) {
+        cart[index].qty += delta;
+        if (cart[index].qty <= 0) {
+          cart.splice(index, 1);
+        }
+        saveCart();
+        renderCart();
+        renderMenuCards();
       }
     }
 
-    function saveCart() { localStorage.setItem('sb_cart', JSON.stringify(cart)); }
-
-    function renderCart() {
-      const container = document.getElementById('cartItemsContainer');
-      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
-      document.getElementById('headerCartCount').innerText = totalCount;
-      
-      container.innerHTML = '';
-      if(cart.length === 0) {
-         container.innerHTML = `<div class="text-center py-10 text-stone-500">Your basket is clear.</div>`;
-         return;
+    function changeQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
       }
-      cart.forEach((item) => {
-        container.innerHTML += `<div class="flex items-center justify-between text-sm text-white mb-2">${item.name} (x${item.qty}) - ₹${item.price * item.qty}</div>`;
-      });
+      saveCart();
+      renderCart();
+      renderMenuCards();
+    }
+
+    function saveCart() {
+      localStorage.setItem('sb_cart', JSON.stringify(cart));
+    }
+
+    function updateSessionDisplay() {
+      const name = document.getElementById('custName').value.trim();
+      const userLabel = document.getElementById('activeUserLabel');
+      if (userLabel) {
+        userLabel.innerText = name ? name : 'Guest';
+      }
+    }
+
+    function persistCustomerData() {
+      const data = {
+        name: document.getElementById('custName').value,
+        phone: document.getElementById('custPhone').value,
+        mode: document.getElementById('custMode').value,
+        address: document.getElementById('custAddress').value,
+        notes: document.getElementById('custNotes').value,
+      };
+      localStorage.setItem('sb_customer', JSON.stringify(data));
+      updateSessionDisplay();
+    }
+
+    function handleUserLogout() {
+      const confirmed = confirm("Clear your basket and saved details?");
+      if (!confirmed) return;
+
+      localStorage.removeItem('sb_cart');
+      localStorage.removeItem('sb_customer');
+      cart = [];
+      isPhoneVerified = false;
+      verifiedPhoneNumber = "";
+
+      document.getElementById('custName').value = '';
+      document.getElementById('custPhone').value = '';
+      document.getElementById('custNotes').value = '';
+      document.getElementById('custAddress').value = '';
+      document.getElementById('custMode').value = 'Takeaway / Shop Pickup';
+
+      handlePhoneInputChanged();
+
+      const addressBox = document.getElementById('addressBox');
+      if (addressBox) addressBox.classList.add('hidden');
+
+      renderCart();
+      renderMenuCards();
+      updateSessionDisplay();
+
+      const drawer = document.getElementById('cartDrawer');
+      if (!drawer.classList.contains('hidden')) {
+        drawer.classList.add('hidden');
+      }
+      showToast("Session Cleared");
     }
 
     function loadStorageData() {
       try {
         const savedCart = localStorage.getItem('sb_cart');
         if (savedCart) cart = JSON.parse(savedCart);
+
+        const savedCust = localStorage.getItem('sb_customer');
+        if (savedCust) {
+          const c = JSON.parse(savedCust);
+          if (c.name) document.getElementById('custName').value = c.name;
+          if (c.phone) document.getElementById('custPhone').value = c.phone;
+          if (c.mode) {
+            document.getElementById('custMode').value = c.mode;
+            if (c.mode.includes('Delivery')) {
+              document.getElementById('addressBox').classList.remove('hidden');
+            }
+          }
+          if (c.address) document.getElementById('custAddress').value = c.address;
+          if (c.notes) document.getElementById('custNotes').value = c.notes;
+        }
       } catch(e) {}
     }
 
-    function checkoutToWhatsApp() {
-      if(cart.length === 0) return alert("Cart is empty");
-      const name = document.getElementById('custName').value || "Guest";
-      let msg = `*NEW ORDER* from ${name}\n`;
-      cart.forEach(c => msg += `${c.name} x${c.qty}\n`);
-      window.open(`https://wa.me/919342541946?text=${encodeURIComponent(msg)}`, '_blank');
-      cart = []; saveCart(); renderCart(); renderMenuCards(); toggleCart();
+    function calculateFinances() {
+      const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+      const isDelivery = document.getElementById('custMode').value.includes('Delivery');
+      const packaging = cart.length > 0 ? PACKAGING_FEE_PER_ORDER : 0;
+      const delivery = (cart.length > 0 && isDelivery) ? DELIVERY_FEE : 0;
+      const grandTotal = subtotal + packaging + delivery;
+
+      return { subtotal, packaging, delivery, grandTotal, isDelivery };
     }
-    
-    function setDietFilter(diet) { currentDiet = diet; renderMenuCards(); }
-    function filterCategory(cat) { currentCategory = cat; renderMenuCards(); }
-    function applyFilters() { renderMenuCards(); }
+
+    function renderCart() {
+      const container = document.getElementById('cartItemsContainer');
+      const totalEl = document.getElementById('cartTotal');
+      const subtotalEl = document.getElementById('subtotalVal');
+      const packEl = document.getElementById('packVal');
+      const deliveryEl = document.getElementById('deliveryVal');
+      
+      const headerBadge = document.getElementById('headerCartCount');
+      const floatBadge = document.getElementById('floatingCountBadge');
+      const floatTotal = document.getElementById('floatingTotalBadge');
+
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      headerBadge.innerText = totalCount;
+      floatBadge.innerText = totalCount;
+
+      container.innerHTML = '';
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-20 text-stone-500 bg-white/5 rounded-2xl border border-white/5">
+            <i class="fa-solid fa-burger text-6xl mb-5 opacity-50"></i>
+            <p class="text-lg font-bold text-white">Your basket is clear.</p>
+            <p class="text-sm text-stone-400 mt-2">Explore the menu and pick your food</p>
+          </div>
+        `;
+        subtotalEl.innerText = '₹0';
+        packEl.innerText = '₹0';
+        deliveryEl.innerText = 'FREE';
+        totalEl.innerText = '₹0';
+        floatTotal.innerText = '₹0';
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        const itemSum = item.price * item.qty;
+        container.innerHTML += `
+          <div class="flex items-center justify-between bg-white/5 p-4 rounded-xl border border-white/10 shadow-sm">
+            <div class="truncate mr-3">
+              <div class="text-base font-bold text-white truncate">${item.name}</div>
+              <div class="text-xs text-amber-400 font-mono mt-1">₹${item.price} × ${item.qty} = ₹${itemSum}</div>
+            </div>
+            <div class="flex items-center gap-2 bg-black/60 px-2 py-1.5 rounded-lg border border-white/10 shrink-0 backdrop-blur-sm">
+              <button onclick="changeQty(${index}, -1)" class="w-8 h-8 rounded bg-zinc-800 hover:bg-zinc-700 text-sm text-white font-bold flex items-center justify-center transition active:scale-95">-</button>
+              <span class="text-sm font-black text-brandNeon px-3">${item.qty}</span>
+              <button onclick="changeQty(${index}, 1)" class="w-8 h-8 rounded bg-brandRed hover:bg-red-500 text-sm text-white font-bold flex items-center justify-center transition active:scale-95">+</button>
+            </div>
+          </div>
+        `;
+      });
+
+      const { subtotal, packaging, delivery, grandTotal, isDelivery } = calculateFinances();
+      subtotalEl.innerText = `₹${subtotal}`;
+      packEl.innerText = `₹${packaging}`;
+      deliveryEl.innerText = isDelivery ? `₹${delivery}` : 'FREE';
+      totalEl.innerText = `₹${grandTotal}`;
+      floatTotal.innerText = `₹${grandTotal}`;
+    }
+
+    // ==========================================
+    // 7. CHECKOUT WITH MANDATORY OTP CHECK
+    // ==========================================
+    function checkoutToWhatsApp() {
+      if (cart.length === 0) {
+        alert('Please add items to your cart before proceeding.');
+        return;
+      }
+
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const mode = document.getElementById('custMode').value;
+      const address = document.getElementById('custAddress').value.trim();
+      const notes = document.getElementById('custNotes').value.trim();
+
+      if (!name) {
+        alert('Please provide your Name.');
+        document.getElementById('custName').focus();
+        return;
+      }
+
+      if (!phone || phone.length !== 10 || !/^[6-9]\d{9}$/.test(phone)) {
+        alert('Please enter a valid 10-digit Phone Number.');
+        document.getElementById('custPhone').focus();
+        return;
+      }
+
+      if (!isPhoneVerified || phone !== verifiedPhoneNumber) {
+        alert('Food waste prevention: Please verify your phone number via OTP first! / போலி ஆர்டர்களை தவிர்க்க OTP சரிபார்க்கவும்.');
+        initiatePhoneOtp();
+        return;
+      }
+
+      if (mode.includes('Delivery') && !address) {
+        alert('Please provide your delivery address inside Valliyur town.');
+        document.getElementById('custAddress').focus();
+        return;
+      }
+
+      const now = new Date();
+      const orderTimestamp = now.toLocaleString('en-IN', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      });
+      const invoiceId = 'SB' + Math.floor(100000 + Math.random() * 900000);
+
+      const { subtotal, packaging, delivery, grandTotal } = calculateFinances();
+
+      const orderRecord = {
+        invoiceId: '#' + invoiceId,
+        orderTimestamp,
+        name,
+        phone,
+        mode,
+        address,
+        notes,
+        items: JSON.parse(JSON.stringify(cart)),
+        subtotal,
+        packaging,
+        delivery,
+        grandTotal
+      };
+      saveOrderToHistory(orderRecord);
+      currentActiveOrder = orderRecord;
+
+      let msg = `*STREET BURGER VALLIYUR - NEW VERIFIED ORDER*\n`;
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `✅ *Customer Status:* VERIFIED (OTP PASSED)\n`;
+      msg += `🧾 *Bill No:* #${invoiceId}\n`;
+      msg += `⏱ *Order Time:* ${orderTimestamp}\n`;
+      msg += `👤 *Customer:* ${name}\n`;
+      msg += `📞 *Phone:* ${phone}\n`;
+      msg += `🛵 *Mode:* ${mode}\n`;
+      if (mode.includes('Delivery')) {
+        msg += `📍 *Address:* ${address}\n`;
+      }
+      if (notes) {
+        msg += `📝 *Notes:* ${notes}\n`;
+      }
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `*ORDERED ITEMS:*\n`;
+
+      cart.forEach((item, i) => {
+        msg += `${i + 1}. ${item.name} (x${item.qty}) - ₹${item.price * item.qty}\n`;
+      });
+
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `Items Subtotal: ₹${subtotal}\n`;
+      msg += `Eco Packaging: ₹${packaging}\n`;
+      if (delivery > 0) {
+        msg += `Town Delivery: ₹${delivery}\n`;
+      }
+      msg += `*GRAND TOTAL: ₹${grandTotal}*\n`;
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `_Verified genuine customer. Please prepare order!_`;
+
+      const waUrl = `https://wa.me/919342541946?text=${encodeURIComponent(msg)}`;
+      window.open(waUrl, '_blank');
+
+      playSuccessChime();
+      populateOrderPreview(orderRecord);
+
+      toggleCart();
+      document.getElementById('orderConfirmationModal').classList.remove('hidden');
+      showToast("Order Placed & Verified Successfully!");
+    }
+
+    function populateOrderPreview(order) {
+      document.getElementById('previewInvoiceId').innerText = order.invoiceId;
+      document.getElementById('previewOrderTime').innerText = order.orderTimestamp;
+      document.getElementById('previewCustomerName').innerText = order.name;
+      document.getElementById('previewCustomerPhone').innerText = order.phone;
+      document.getElementById('previewCustomerMode').innerText = order.mode;
+
+      const addrRow = document.getElementById('previewAddressRow');
+      if (order.mode.includes('Delivery') && order.address) {
+        document.getElementById('previewCustomerAddress').innerText = order.address;
+        addrRow.classList.remove('hidden');
+      } else {
+        addrRow.classList.add('hidden');
+      }
+
+      const tableBody = document.getElementById('previewItemsBody');
+      tableBody.innerHTML = order.items.map(item => `
+        <tr class="text-[12px] py-1">
+          <td class="py-2 text-black font-semibold">${item.name}</td>
+          <td class="py-2 text-center font-bold text-black">${item.qty}</td>
+          <td class="py-2 text-right text-gray-700">₹${item.price}</td>
+          <td class="py-2 text-right font-bold text-black">₹${item.price * item.qty}</td>
+        </tr>
+      `).join('');
+
+      document.getElementById('previewSubtotal').innerText = `₹${order.subtotal}`;
+      document.getElementById('previewPackaging').innerText = `₹${order.packaging}`;
+      document.getElementById('previewDelivery').innerText = `₹${order.delivery}`;
+      document.getElementById('previewGrandTotal').innerText = `₹${order.grandTotal}`;
+    }
+
+    function closeOrderConfirmationModal() {
+      document.getElementById('orderConfirmationModal').classList.add('hidden');
+    }
+
+    // ==========================================
+    // 8. ORDER HISTORY (DISCREET ARCHIVE)
+    // ==========================================
+    function saveOrderToHistory(order) {
+      try {
+        let history = JSON.parse(localStorage.getItem('sb_orders_history') || '[]');
+        history.unshift(order);
+        if (history.length > 50) history.pop();
+        localStorage.setItem('sb_orders_history', JSON.stringify(history));
+      } catch(e) {}
+    }
+
+    function closeHistoryModal() {
+      document.getElementById('orderHistoryModal').classList.add('hidden');
+    }
+
+    function renderHistoryList() {
+      const container = document.getElementById('historyListContainer');
+      const history = JSON.parse(localStorage.getItem('sb_orders_history') || '[]');
+
+      if (history.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 text-stone-500 bg-white/5 rounded-2xl border border-white/5">
+            <i class="fa-solid fa-receipt text-5xl mb-3 opacity-40"></i>
+            <p class="text-base font-bold text-white">No Order Records Yet</p>
+            <p class="text-xs text-stone-400 mt-1">Orders placed on this device are automatically saved here.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = history.map((order, idx) => `
+        <div class="bg-white/5 border border-white/10 p-4 rounded-xl flex items-center justify-between gap-4">
+          <div class="truncate">
+            <div class="flex items-center gap-2">
+              <span class="font-cyber text-amber-400 font-black text-sm">${order.invoiceId}</span>
+              <span class="text-xs text-stone-300 font-bold">• ${order.name} (${order.phone})</span>
+            </div>
+            <div class="text-[11px] text-stone-400 mt-0.5">
+              ${order.orderTimestamp} • <strong class="text-brandNeon">₹${order.grandTotal}</strong> • ${order.mode}
+            </div>
+            <div class="text-[10px] text-stone-500 truncate mt-1">
+              ${order.items.map(i => `${i.name} (x${i.qty})`).join(', ')}
+            </div>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <button onclick="generatePdfFromData(${idx})" class="bg-[#f59e0b] hover:bg-[#d97706] text-black px-3.5 py-2 rounded-lg font-bold text-xs flex items-center gap-1.5 transition active:scale-95 shadow">
+              <i class="fa-solid fa-file-pdf"></i> A4 PDF
+            </button>
+            <button onclick="copyBillTextFromHistory(${idx})" class="bg-zinc-800 hover:bg-zinc-700 text-stone-200 px-3 py-2 rounded-lg text-xs font-bold transition active:scale-95">
+              <i class="fa-solid fa-copy"></i> Copy
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function clearOrderHistory() {
+      if (confirm("Clear archived order history?")) {
+        localStorage.removeItem('sb_orders_history');
+        renderHistoryList();
+        showToast("Records Cleared");
+      }
+    }
+
+    // ==========================================
+    // 9. DIRECT A4 PDF VECTOR GENERATION
+    // ==========================================
+    function downloadCurrentBillPDF() {
+      if (!currentActiveOrder) return;
+      generateDirectA4Pdf(currentActiveOrder);
+    }
+
+    function generatePdfFromData(historyIndex) {
+      const history = JSON.parse(localStorage.getItem('sb_orders_history') || '[]');
+      const order = history[historyIndex];
+      if (order) generateDirectA4Pdf(order);
+    }
+
+    function generateDirectA4Pdf(order) {
+      try {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF({
+          orientation: 'portrait',
+          unit: 'mm',
+          format: 'a4'
+        });
+
+        // 1. Header 
+        doc.setTextColor(0, 0, 0);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(24);
+        doc.text('STREET BURGER', 105, 24, { align: 'center' });
+
+        doc.setFontSize(11);
+        doc.setFont('helvetica', 'bold');
+        doc.setTextColor(50, 50, 50);
+        doc.text('VALLIYUR TERMINAL COUNTER', 105, 31, { align: 'center' });
+
+        doc.setFontSize(9.5);
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor(90, 90, 90);
+        doc.text('Chef Augustin (Owner) - Harishma (CEO)', 105, 36.5, { align: 'center' });
+
+        doc.setFont('helvetica', 'bold');
+        doc.setTextColor(20, 20, 20);
+        doc.text('Phone: +91 93425 41946', 105, 41.5, { align: 'center' });
+
+        // Divider Line
+        doc.setDrawColor(220, 220, 220);
+        doc.setLineWidth(0.4);
+        doc.line(25, 46, 185, 46);
+
+        // 2. Metadata Grid 
+        doc.setFontSize(9.5);
+        let y = 53;
+
+        const printRow = (label, val) => {
+          doc.setFont('helvetica', 'normal');
+          doc.setTextColor(110, 110, 110);
+          doc.text(label, 25, y);
+
+          doc.setFont('helvetica', 'bold');
+          doc.setTextColor(15, 15, 15);
+          doc.text(String(val), 185, y, { align: 'right' });
+          y += 6;
+        };
+
+        printRow('Bill No:', order.invoiceId);
+        printRow('Order Time:', order.orderTimestamp);
+        printRow('Customer:', order.name);
+        printRow('Phone:', order.phone);
+        printRow('Mode:', order.mode);
+
+        if (order.address) {
+          doc.setFont('helvetica', 'normal');
+          doc.setTextColor(110, 110, 110);
+          doc.text('Address:', 25, y);
+
+          doc.setFont('helvetica', 'bold');
+          doc.setTextColor(15, 15, 15);
+          doc.text(order.address, 185, y, { align: 'right', maxWidth: 100 });
+          y += 7;
+        }
+
+        // Divider Line before table
+        doc.setDrawColor(220, 220, 220);
+        doc.setLineWidth(0.4);
+        doc.line(25, y, 185, y);
+        y += 2;
+
+        // 3. Items Table 
+        const tableRows = order.items.map(item => [
+          item.name,
+          item.qty,
+          `Rs. ${item.price}`,
+          `Rs. ${item.price * item.qty}`
+        ]);
+
+        doc.autoTable({
+          startY: y,
+          head: [['ITEM', 'QUANTITY', 'PRICE', 'TOTAL']],
+          body: tableRows,
+          theme: 'plain',
+          headStyles: {
+            textColor: [120, 120, 120],
+            fontSize: 8.5,
+            fontStyle: 'bold',
+            halign: 'left',
+            lineWidth: { bottom: 0.3 },
+            lineColor: [220, 220, 220]
+          },
+          bodyStyles: {
+            textColor: [15, 15, 15],
+            fontSize: 9.5,
+            cellPadding: { top: 3.5, bottom: 3.5 }
+          },
+          columnStyles: {
+            0: { halign: 'left' },
+            1: { halign: 'center', cellWidth: 28 },
+            2: { halign: 'right', cellWidth: 32 },
+            3: { halign: 'right', cellWidth: 35, fontStyle: 'bold' }
+          },
+          margin: { left: 25, right: 25 }
+        });
+
+        // 4. Totals Breakdown
+        let finalY = doc.lastAutoTable.finalY + 4;
+        doc.setDrawColor(220, 220, 220);
+        doc.setLineWidth(0.4);
+        doc.line(25, finalY, 185, finalY);
+        finalY += 6;
+
+        const printTotalRow = (label, val) => {
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(9.5);
+          doc.setTextColor(110, 110, 110);
+          doc.text(label, 25, finalY);
+
+          doc.setFont('helvetica', 'bold');
+          doc.setTextColor(20, 20, 20);
+          doc.text(`Rs. ${val}`, 185, finalY, { align: 'right' });
+          finalY += 5.5;
+        };
+
+        printTotalRow('Subtotal:', order.subtotal);
+        printTotalRow('Packaging:', order.packaging);
+        printTotalRow('Delivery:', order.delivery);
+
+        // Bold Total Border Line
+        finalY += 1;
+        doc.setDrawColor(0, 0, 0);
+        doc.setLineWidth(0.6);
+        doc.line(25, finalY, 185, finalY);
+        finalY += 7;
+
+        // Grand Total Amount
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(12);
+        doc.setTextColor(0, 0, 0);
+        doc.text('TOTAL AMOUNT:', 25, finalY);
+        doc.setFontSize(14);
+        doc.text(`Rs. ${order.grandTotal}`, 185, finalY, { align: 'right' });
+
+        // 5. Clean Professional Footer
+        finalY += 16;
+        doc.setDrawColor(230, 230, 230);
+        doc.setLineWidth(0.3);
+        doc.line(25, finalY, 185, finalY);
+
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8.5);
+        doc.setTextColor(120, 120, 120);
+        doc.text('Street Burger - Main Road, Valliyur, Tirunelveli Dist, Tamil Nadu', 105, finalY + 6, { align: 'center' });
+        doc.text('Phone: +91 93425 41946 | Taste the Gourmet Crunch! Thank you for dining with us.', 105, finalY + 11, { align: 'center' });
+
+        const cleanInv = order.invoiceId.replace(/[^a-zA-Z0-9]/g, '');
+        doc.save(`StreetBurger_Bill_${cleanInv}.pdf`);
+        showToast("A4 PDF Bill Downloaded!");
+      } catch(err) {
+        console.error(err);
+        alert("PDF Generation Error: " + err.message);
+      }
+    }
+
+    // ==========================================
+    // 10. SHARE & COPY UTILITIES
+    // ==========================================
+    function shareBillDirectWhatsApp() {
+      if (!currentActiveOrder) return;
+      const o = currentActiveOrder;
+      
+      let billMsg = `*STREET BURGER VALLIYUR - OFFICIAL INVOICE*\n`;
+      billMsg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      billMsg += `🧾 *Bill No:* ${o.invoiceId}\n`;
+      billMsg += `⏱ *Time:* ${o.orderTimestamp}\n`;
+      billMsg += `👤 *Customer:* ${o.name} (${o.phone})\n`;
+      billMsg += `🛵 *Order Mode:* ${o.mode}\n`;
+      if (o.address) billMsg += `📍 *Address:* ${o.address}\n`;
+      billMsg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      billMsg += `*ITEMS BILLED:*\n`;
+      o.items.forEach((item, i) => {
+        billMsg += `${i + 1}. ${item.name} x ${item.qty} = Rs. ${item.price * item.qty}\n`;
+      });
+      billMsg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      billMsg += `Subtotal: Rs. ${o.subtotal}\n`;
+      billMsg += `Packaging: Rs. ${o.packaging}\n`;
+      if (o.delivery > 0) billMsg += `Delivery Fee: Rs. ${o.delivery}\n`;
+      billMsg += `*FINAL TOTAL: Rs. ${o.grandTotal}*\n`;
+      billMsg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      billMsg += `_Chef Augustin (Owner) • Harishma (CEO) • Valliyur_\n`;
+      billMsg += `_Phone: +91 93425 41946_`;
+
+      const cleanPhone = o.phone.replace(/[^0-9]/g, '');
+      const targetPhone = cleanPhone.length === 10 ? ('91' + cleanPhone) : cleanPhone;
+      window.open(`https://wa.me/${targetPhone}?text=${encodeURIComponent(billMsg)}`, '_blank');
+    }
+
+    function copyCurrentBillText() {
+      if (!currentActiveOrder) return;
+      copyReceiptString(currentActiveOrder);
+    }
+
+    function copyBillTextFromHistory(idx) {
+      const history = JSON.parse(localStorage.getItem('sb_orders_history') || '[]');
+      if (history[idx]) copyReceiptString(history[idx]);
+    }
+
+    function copyReceiptString(order) {
+      let t = `STREET BURGER VALLIYUR - RECEIPT\n`;
+      t += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+      t += `Bill No: ${order.invoiceId}\n`;
+      t += `Order Time: ${order.orderTimestamp}\n`;
+      t += `Customer: ${order.name} (${order.phone})\n`;
+      t += `Order Mode: ${order.mode}\n`;
+      if (order.address) t += `Address: ${order.address}\n`;
+      t += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+      t += `ORDERED ITEMS:\n`;
+      order.items.forEach((item, i) => {
+        t += `${i + 1}. ${item.name} x ${item.qty} = Rs. ${item.price * item.qty}\n`;
+      });
+      t += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+      t += `Subtotal: Rs. ${order.subtotal}\n`;
+      t += `Packaging: Rs. ${order.packaging}\n`;
+      if (order.delivery > 0) t += `Delivery: Rs. ${order.delivery}\n`;
+      t += `TOTAL AMOUNT: Rs. ${order.grandTotal}\n`;
+      t += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+      t += `Chef Augustin • CEO Harishma\n`;
+
+      navigator.clipboard.writeText(t).then(() => {
+        showToast("Receipt Text Copied!");
+      }).catch(() => {
+        alert(t);
+      });
+    }
+
+    // ==========================================
+    // 11. FILTER LOGIC
+    // ==========================================
+    function resetAllFilters() {
+      currentCategory = 'all';
+      currentDiet = 'all';
+      document.getElementById('menuSearchInput').value = '';
+      
+      document.querySelectorAll('.cat-tab').forEach(b => {
+        b.classList.remove('bg-brandGold', 'text-black');
+        b.classList.add('glass-card', 'text-stone-300');
+      });
+      document.getElementById('tab-all').classList.add('bg-brandGold', 'text-black');
+      document.getElementById('tab-all').classList.remove('glass-card', 'text-stone-300');
+
+      document.querySelectorAll('.diet-btn').forEach(b => {
+        b.classList.remove('bg-brandGold', 'text-black');
+        b.classList.add('glass-card', 'text-stone-300');
+      });
+      document.getElementById('diet-all').classList.add('bg-brandGold', 'text-black');
+      document.getElementById('diet-all').classList.remove('glass-card', 'text-stone-300');
+
+      renderMenuCards();
+    }
+
+    function filterCategory(cat) {
+      currentCategory = cat;
+      if (cat === 'all') {
+        currentDiet = 'all';
+        document.querySelectorAll('.diet-btn').forEach(b => {
+          b.classList.remove('bg-brandGold', 'text-black');
+          b.classList.add('glass-card', 'text-stone-300');
+        });
+        document.getElementById('diet-all').classList.add('bg-brandGold', 'text-black');
+        document.getElementById('diet-all').classList.remove('glass-card', 'text-stone-300');
+      }
+
+      document.querySelectorAll('.cat-tab').forEach(b => {
+        b.classList.remove('bg-brandGold', 'text-black');
+        b.classList.add('glass-card', 'text-stone-300');
+      });
+      const active = document.getElementById(`tab-${cat}`);
+      if (active) {
+        active.classList.add('bg-brandGold', 'text-black');
+        active.classList.remove('glass-card', 'text-stone-300');
+      }
+      renderMenuCards();
+    }
+
+    function setDietFilter(diet) {
+      currentDiet = diet;
+      if (diet === 'all') {
+        currentCategory = 'all';
+        document.querySelectorAll('.cat-tab').forEach(b => {
+          b.classList.remove('bg-brandGold', 'text-black');
+          b.classList.add('glass-card', 'text-stone-300');
+        });
+        document.getElementById('tab-all').classList.add('bg-brandGold', 'text-black');
+        document.getElementById('tab-all').classList.remove('glass-card', 'text-stone-300');
+      }
+
+      document.querySelectorAll('.diet-btn').forEach(b => {
+        b.classList.remove('bg-brandGold', 'text-black');
+        b.classList.add('glass-card', 'text-stone-300');
+      });
+      const active = document.getElementById(`diet-${diet}`);
+      if (active) {
+        active.classList.add('bg-brandGold', 'text-black');
+        active.classList.remove('glass-card', 'text-stone-300');
+      }
+      renderMenuCards();
+    }
+
+    function applyFilters() {
+      renderMenuCards();
+    }
   </script>
 </body>
 </html>

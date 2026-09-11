@@ -144,6 +144,11 @@
         <i class="fa-solid fa-sliders text-stone-500 text-[10px]"></i> Stock Manager
       </button>
 
+      <!-- NEW: Discreet Add Menu Button -->
+      <button onclick="requestAdminAccess('add_menu')" class="text-brandGold hover:text-amber-300 text-[11px] font-sans px-2.5 py-1 rounded-lg border border-amber-500/30 transition active:scale-95 flex items-center gap-1.5">
+        <i class="fa-solid fa-plus text-amber-500 text-[10px]"></i> Add Item
+      </button>
+
       <div class="inline-flex items-center gap-1 bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-full text-[11px] text-stone-300">
         <i class="fa-solid fa-motorcycle text-red-400"></i> Town Delivery
       </div>
@@ -226,7 +231,7 @@
         </div>
       </div>
 
-      <!-- Shop Outlet Showcase Image (1000430339shop.png) -->
+      <!-- Shop Outlet Showcase Image -->
       <div class="w-full max-w-4xl">
         <div class="glass-card p-2 rounded-[2rem]">
           <div class="relative w-full overflow-hidden rounded-[1.5rem] bg-black">
@@ -357,7 +362,7 @@
       </button>
     </div>
 
-    <!-- Dynamic Menu Grid Container (Restored) -->
+    <!-- Dynamic Menu Grid Container -->
     <div id="dynamicMenuRoot" class="space-y-16"></div>
   </section>
 
@@ -519,7 +524,6 @@
           <input type="text" id="custName" oninput="persistCustomerData()" placeholder="Augstin" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-base text-white focus:border-brandGold focus:bg-white/10 outline-none transition">
         </div>
 
-        <!-- Phone Number with Verification Badge & OTP Trigger -->
         <div>
           <div class="flex justify-between items-center mb-2">
             <label class="block text-xs text-stone-400 uppercase tracking-wider">WhatsApp Phone *</label>
@@ -647,7 +651,7 @@
     </div>
   </div>
 
-  <!-- Discreet Admin Password Modal (PIN 3050 - Masked & Un-highlighted) -->
+  <!-- Discreet Admin Password Modal -->
   <div id="adminAuthModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
     <div class="glass-card bg-cyberCard border border-white/10 w-full max-w-sm rounded-[2rem] p-6 shadow-2xl text-center">
       <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 text-stone-400 flex items-center justify-center mx-auto mb-3 text-xl">
@@ -703,7 +707,7 @@
     </div>
   </div>
 
-  <!-- ORDER HISTORY & SAVED BILL ARCHIVE MODAL (PROTECTED BY PIN 3050) -->
+  <!-- ORDER HISTORY & SAVED BILL ARCHIVE MODAL -->
   <div id="orderHistoryModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
     <div class="glass-card bg-cyberCard border border-white/10 w-full max-w-3xl max-h-[85vh] rounded-[2rem] flex flex-col p-6 shadow-2xl">
       <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
@@ -729,11 +733,9 @@
     </div>
   </div>
 
-  <!-- ORDER CONFIRMATION & BILL MODAL (SCREEN PREVIEW) -->
+  <!-- ORDER CONFIRMATION & BILL MODAL -->
   <div id="orderConfirmationModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
     <div class="glass-card bg-cyberCard border border-white/10 w-full max-w-lg rounded-[2.5rem] p-8 shadow-2xl flex flex-col max-h-[90vh] overflow-y-auto">
-      
-      <!-- Top Success Header -->
       <div class="text-center mb-6">
         <div class="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-500 text-emerald-400 flex items-center justify-center mx-auto mb-3 text-2xl shadow-[0_0_20px_rgba(16,185,129,0.3)]">
           <i class="fa-solid fa-check"></i>
@@ -742,9 +744,7 @@
         <p class="text-xs text-stone-400 font-sans mt-1">Your verified order has been sent via WhatsApp!</p>
       </div>
 
-      <!-- Clean White Receipt Card (100% Identical to Screenshot) -->
       <div class="bg-white rounded-3xl p-7 shadow-2xl font-sans mb-6 text-black border border-gray-100">
-        
         <div class="text-center mb-5">
           <h2 class="text-3xl font-black tracking-widest text-black font-cyber leading-tight">STREET BURGER</h2>
           <p class="text-[12px] font-extrabold uppercase tracking-widest text-gray-800 mt-1">VALLIYUR TERMINAL COUNTER</p>
@@ -754,7 +754,6 @@
           </p>
         </div>
 
-        <!-- Meta Information -->
         <div class="text-[12px] space-y-1.5 border-t border-b border-gray-200 py-3.5 mb-4 font-mono">
           <div class="flex justify-between items-center">
             <span class="text-gray-500 font-sans">Bill No:</span>
@@ -782,7 +781,6 @@
           </div>
         </div>
 
-        <!-- Table Columns -->
         <table class="w-full text-[12px] mb-4">
           <thead>
             <tr class="text-gray-500 uppercase text-[10px] tracking-wider border-b border-gray-200">
@@ -795,7 +793,6 @@
           <tbody id="previewItemsBody" class="divide-y divide-gray-100"></tbody>
         </table>
 
-        <!-- Summary Totals -->
         <div class="border-t border-gray-200 pt-3 space-y-1 text-[12px] font-mono">
           <div class="flex justify-between text-gray-600">
             <span>Subtotal:</span>
@@ -814,10 +811,8 @@
             <span id="previewGrandTotal" class="text-xl font-black">₹0</span>
           </div>
         </div>
-
       </div>
 
-      <!-- Action Buttons -->
       <div class="flex flex-col gap-3">
         <button onclick="downloadCurrentBillPDF()" class="w-full bg-[#f59e0b] hover:bg-[#d97706] text-black font-bold py-4 rounded-2xl flex items-center justify-center gap-2.5 text-sm transition active:scale-95 shadow-md">
           <i class="fa-solid fa-file-pdf text-base"></i> Download A4 PDF Bill (Receipt PDF)
@@ -835,13 +830,83 @@
           Back to Menu
         </button>
       </div>
+    </div>
+  </div>
 
+  <!-- ADD NEW MENU ITEM MODAL -->
+  <div id="addMenuItemModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass-card bg-cyberCard border border-brandGold/40 w-full max-w-lg max-h-[90vh] rounded-[2rem] flex flex-col p-6 shadow-2xl overflow-y-auto">
+      <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+        <div>
+          <h3 class="font-cyber text-lg font-bold text-brandNeon flex items-center gap-2">
+            <i class="fa-solid fa-plus-circle"></i> ADD MENU ITEM
+          </h3>
+          <p class="text-xs text-stone-400 font-tamil mt-1">புதிய உணவு வகையை மெனுவில் சேர்க்கவும்.</p>
+        </div>
+        <button onclick="closeAddMenuModal()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition">✕</button>
+      </div>
+
+      <div class="space-y-4">
+        <div>
+          <label class="block text-xs text-stone-400 mb-1 uppercase tracking-wider">Item Name *</label>
+          <input type="text" id="newItemName" placeholder="e.g. Double Smash Burger" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-brandGold outline-none">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs text-stone-400 mb-1 uppercase tracking-wider">Price (₹) *</label>
+            <input type="number" id="newItemPrice" placeholder="150" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-brandGold outline-none">
+          </div>
+          <div>
+            <label class="block text-xs text-stone-400 mb-1 uppercase tracking-wider">Highlight Tag</label>
+            <input type="text" id="newItemTag" placeholder="e.g. Chef's Pick" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-brandGold outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs text-stone-400 mb-1 uppercase tracking-wider">Category *</label>
+            <select id="newItemCategory" class="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-brandGold outline-none">
+              <option value="burgers">Gourmet Burgers</option>
+              <option value="panini">Panini & Sandwich</option>
+              <option value="mojitos">Fizz's & Mojitos</option>
+              <option value="appetizers">Global Appetizers</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs text-stone-400 mb-1 uppercase tracking-wider">Diet Type *</label>
+            <select id="newItemDiet" class="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-brandGold outline-none">
+              <option value="nonveg">Non-Veg (Meat)</option>
+              <option value="veg">Pure Veg</option>
+              <option value="cooler">Cooler / Drink</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs text-stone-400 mb-1 uppercase tracking-wider">Description</label>
+          <textarea id="newItemDesc" rows="2" placeholder="உணவின் சுருக்கமான விளக்கம்..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-brandGold outline-none"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-xs text-stone-400 mb-1 uppercase tracking-wider">Image URL (Optional)</label>
+          <input type="text" id="newItemImg" placeholder="https://..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-brandGold outline-none">
+          <p class="text-[10px] text-stone-500 mt-1">Leave empty to use a default placeholder image.</p>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-white/10 mt-6 flex gap-3">
+        <button onclick="closeAddMenuModal()" class="w-1/3 bg-zinc-800 hover:bg-zinc-700 text-stone-300 font-bold py-3 rounded-xl text-xs transition">Cancel</button>
+        <button onclick="saveNewMenuItem()" class="w-2/3 bg-brandGold hover:bg-amber-400 text-black font-extrabold py-3 rounded-xl text-sm transition shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+          <i class="fa-solid fa-check mr-1"></i> Save Item to Menu
+        </button>
+      </div>
     </div>
   </div>
 
   <script>
     // ==========================================
-    // 1. DATA-DRIVEN MENU REGISTRY (27 ITEMS)
+    // 1. DATA-DRIVEN MENU REGISTRY
     // ==========================================
     const categoriesMeta = {
       burgers: { title: "GOURMET BURGERS", sub: "Artisan Brioche Buns & Signature Cheese Sauce" },
@@ -850,8 +915,7 @@
       appetizers: { title: "GLOBAL APPETIZERS", sub: "100% Crunchy & Fresh International Sides" }
     };
 
-    const menuRegistry = [
-      // BURGERS
+    let defaultMenuRegistry = [
       {
         id: "Classic-STREET-BURGER-Chicken",
         name: "Classic STREET BURGER Chicken",
@@ -907,8 +971,6 @@
         img: "https://images.unsplash.com/photo-1594212848525-4c07920ab480?w=700&auto=format&fit=crop&q=80",
         inStock: true
       },
-
-      // PANINI & SANDWICHES
       {
         id: "Classic-Veg-Sandwich",
         name: "Classic Veg Sandwich",
@@ -964,8 +1026,6 @@
         img: "https://images.unsplash.com/photo-1509722747041-616f39b57569?w=700&auto=format&fit=crop&q=80",
         inStock: true
       },
-
-      // MOJITOS
       {
         id: "Virgin-Mojito",
         name: "Virgin Mojito",
@@ -1021,8 +1081,6 @@
         img: "https://images.unsplash.com/photo-1536935338788-846bb9981813?w=700&auto=format&fit=crop&q=80",
         inStock: true
       },
-
-      // APPETIZERS
       {
         id: "Classic-French-Fries",
         name: "Classic French Fries",
@@ -1157,6 +1215,8 @@
       }
     ];
 
+    let menuRegistry = []; // Will hold default + custom items
+
     // ==========================================
     // 2. STATE & SECURITY (PIN 3050 & OTP ENGINE)
     // ==========================================
@@ -1252,6 +1312,7 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       getAdminPin();
+      loadCustomMenu(); // Load defaults + newly added items
       loadStockOverrides();
       loadStorageData();
       renderMenuCards();
@@ -1418,10 +1479,79 @@
       } else if (pendingAdminAction === 'history') {
         renderHistoryList();
         document.getElementById('orderHistoryModal').classList.remove('hidden');
+      } else if (pendingAdminAction === 'add_menu') {
+        document.getElementById('addMenuItemModal').classList.remove('hidden');
       }
       pendingAdminAction = null;
     }
 
+    // --- CUSTOM MENU LOGIC ---
+    function loadCustomMenu() {
+      try {
+        const customItems = JSON.parse(localStorage.getItem('sb_custom_menu') || '[]');
+        // Combine default items and custom items
+        menuRegistry = [...defaultMenuRegistry, ...customItems];
+      } catch(e) {
+        menuRegistry = [...defaultMenuRegistry];
+      }
+    }
+
+    function closeAddMenuModal() {
+      document.getElementById('addMenuItemModal').classList.add('hidden');
+      // Clear inputs
+      document.getElementById('newItemName').value = '';
+      document.getElementById('newItemPrice').value = '';
+      document.getElementById('newItemTag').value = '';
+      document.getElementById('newItemDesc').value = '';
+      document.getElementById('newItemImg').value = '';
+    }
+
+    function saveNewMenuItem() {
+      const name = document.getElementById('newItemName').value.trim();
+      const price = parseFloat(document.getElementById('newItemPrice').value);
+      const category = document.getElementById('newItemCategory').value;
+      const diet = document.getElementById('newItemDiet').value;
+      const tag = document.getElementById('newItemTag').value.trim() || "New Arrival";
+      const desc = document.getElementById('newItemDesc').value.trim() || "Delicious new item added by the chef.";
+      const img = document.getElementById('newItemImg').value.trim();
+
+      if (!name || isNaN(price)) {
+        alert("Please provide a valid Name and Price.");
+        return;
+      }
+
+      // Format ID
+      const id = name.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '') + '-' + Date.now();
+
+      const newItem = {
+        id: id,
+        name: name,
+        category: category,
+        diet: diet,
+        price: price,
+        tag: tag,
+        desc: desc,
+        img: img || "https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&auto=format&fit=crop&q=80",
+        inStock: true
+      };
+
+      try {
+        const customItems = JSON.parse(localStorage.getItem('sb_custom_menu') || '[]');
+        customItems.push(newItem);
+        localStorage.setItem('sb_custom_menu', JSON.stringify(customItems));
+      } catch(e) {
+        console.error("Failed to save custom item");
+      }
+
+      loadCustomMenu();
+      loadStockOverrides(); 
+      renderMenuCards();
+      
+      closeAddMenuModal();
+      showToast(name + " added to menu!");
+    }
+
+    // --- STOCK LOGIC ---
     function closeStockModal() {
       document.getElementById('stockModal').classList.add('hidden');
     }
@@ -1507,7 +1637,6 @@
         }
       }
 
-      // Default Free WhatsApp Dispatch to customer's mobile
       const customerWaMsg = `*STREET BURGER VALLIYUR*\nYour security OTP is: *${otpValue}*\nபோலி ஆர்டர்களை தவிர்க்க இந்த குறியீட்டை உள்ளிடவும்.`;
       const cleanPhone = phoneNumber.replace(/[^0-9]/g, '');
       const targetPhone = cleanPhone.length === 10 ? ('91' + cleanPhone) : cleanPhone;
@@ -2027,7 +2156,6 @@
 
     // ==========================================
     // 9. DIRECT A4 PDF VECTOR GENERATION
-    // (Exact image match • Clean Typography • No Corrupt Characters)
     // ==========================================
     function downloadCurrentBillPDF() {
       if (!currentActiveOrder) return;
@@ -2049,7 +2177,7 @@
           format: 'a4'
         });
 
-        // 1. Header (Centered like Screenshot)
+        // 1. Header 
         doc.setTextColor(0, 0, 0);
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(24);
@@ -2069,12 +2197,11 @@
         doc.setTextColor(20, 20, 20);
         doc.text('Phone: +91 93425 41946', 105, 41.5, { align: 'center' });
 
-        // Divider Line
         doc.setDrawColor(220, 220, 220);
         doc.setLineWidth(0.4);
         doc.line(25, 46, 185, 46);
 
-        // 2. Metadata Grid (Matching Screenshot layout)
+        // 2. Metadata Grid
         doc.setFontSize(9.5);
         let y = 53;
 
@@ -2106,13 +2233,12 @@
           y += 7;
         }
 
-        // Divider Line before table
         doc.setDrawColor(220, 220, 220);
         doc.setLineWidth(0.4);
         doc.line(25, y, 185, y);
         y += 2;
 
-        // 3. Items Table (ITEM, QUANTITY, PRICE, TOTAL)
+        // 3. Items Table 
         const tableRows = order.items.map(item => [
           item.name,
           item.qty,
@@ -2170,14 +2296,12 @@
         printTotalRow('Packaging:', order.packaging);
         printTotalRow('Delivery:', order.delivery);
 
-        // Bold Total Border Line
         finalY += 1;
         doc.setDrawColor(0, 0, 0);
         doc.setLineWidth(0.6);
         doc.line(25, finalY, 185, finalY);
         finalY += 7;
 
-        // Grand Total Amount
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(12);
         doc.setTextColor(0, 0, 0);

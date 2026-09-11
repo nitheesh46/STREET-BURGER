@@ -298,13 +298,13 @@
         <button onclick="setDietFilter('all')" id="diet-all" class="diet-btn bg-brandGold text-black font-cyber text-xs font-bold px-6 py-3 rounded-xl whitespace-nowrap transition active:scale-95">
           All Menu
         </button>
-        <button onclick="setDietFilter('nonveg')" id="diet-nonveg" class="diet-btn glass-card hover:bg-red-950/40 text-stone-300 font-cyber text-xs font-bold px-6 py-3 rounded-xl whitespace-nowrap transition active:scale-95">
+        <button onclick="setDietFilter('nonveg')" id="diet-nonveg" class="diet-btn glass-card text-stone-300 font-cyber text-xs font-bold px-6 py-3 rounded-xl whitespace-nowrap transition active:scale-95">
           <span class="text-red-400 mr-1">▲</span> Non-Veg
         </button>
-        <button onclick="setDietFilter('veg')" id="diet-veg" class="diet-btn glass-card hover:bg-emerald-950/40 text-stone-300 font-cyber text-xs font-bold px-6 py-3 rounded-xl whitespace-nowrap transition active:scale-95">
+        <button onclick="setDietFilter('veg')" id="diet-veg" class="diet-btn glass-card text-stone-300 font-cyber text-xs font-bold px-6 py-3 rounded-xl whitespace-nowrap transition active:scale-95">
           <span class="text-emerald-400 mr-1">●</span> Pure Veg
         </button>
-        <button onclick="setDietFilter('cooler')" id="diet-cooler" class="diet-btn glass-card hover:bg-blue-950/40 text-stone-300 font-cyber text-xs font-bold px-6 py-3 rounded-xl whitespace-nowrap transition active:scale-95">
+        <button onclick="setDietFilter('cooler')" id="diet-cooler" class="diet-btn glass-card text-stone-300 font-cyber text-xs font-bold px-6 py-3 rounded-xl whitespace-nowrap transition active:scale-95">
           🍹 Coolers
         </button>
       </div>
@@ -332,7 +332,7 @@
     </div>
   </section>
 
-  <!-- Menu Section -->
+  <!-- Menu Section (REORDERED TABS) -->
   <section id="menuSection" class="max-w-6xl mx-auto px-4 pb-12">
     <div class="flex items-center justify-center gap-4 overflow-x-auto pb-8 pt-4">
       <button onclick="filterCategory('all')" id="tab-all" class="cat-tab bg-brandGold text-black font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95">
@@ -341,14 +341,14 @@
       <button onclick="filterCategory('burgers')" id="tab-burgers" class="cat-tab glass-card text-stone-300 font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95 hover:text-white">
         🍔 Gourmet Burgers
       </button>
+      <button onclick="filterCategory('appetizers')" id="tab-appetizers" class="cat-tab glass-card text-stone-300 font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95 hover:text-white">
+        🍟 Appetizers
+      </button>
       <button onclick="filterCategory('panini')" id="tab-panini" class="cat-tab glass-card text-stone-300 font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95 hover:text-white">
         🥪 Panini & Toast
       </button>
       <button onclick="filterCategory('mojitos')" id="tab-mojitos" class="cat-tab glass-card text-stone-300 font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95 hover:text-white">
         🍹 Mojitos
-      </button>
-      <button onclick="filterCategory('appetizers')" id="tab-appetizers" class="cat-tab glass-card text-stone-300 font-cyber text-sm px-8 py-3.5 rounded-full font-bold whitespace-nowrap transition active:scale-95 hover:text-white">
-        🍟 Appetizers
       </button>
     </div>
 
@@ -690,21 +690,44 @@
           <h3 class="font-cyber text-lg font-bold text-white flex items-center gap-2">
             <i class="fa-solid fa-sliders text-amber-500"></i> MENU & STOCK MANAGER
           </h3>
-          <p class="text-xs text-stone-400 font-tamil mt-1">Edit, Delete, or mark items In-Stock/Sold Out.</p>
+          <p class="text-xs text-stone-400 font-tamil mt-1">Edit items, Update stock, or Trash items.</p>
         </div>
         <button onclick="closeStockModal()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition">✕</button>
       </div>
 
       <div id="stockModalList" class="flex-1 overflow-y-auto space-y-2.5 pr-2"></div>
 
+      <!-- Footer With Recovery Bin Access -->
       <div class="pt-4 border-t border-white/10 mt-4 flex items-center justify-between">
-        <button onclick="resetAllStock()" class="text-xs text-amber-400 hover:underline flex items-center gap-1">
-          <i class="fa-solid fa-rotate-left"></i> Make All In-Stock
-        </button>
-        <button onclick="closeStockModal()" class="bg-white/10 hover:bg-white/20 text-white font-bold px-6 py-2 rounded-xl text-xs font-cyber">
+        <div class="flex gap-4">
+          <button onclick="resetAllStock()" class="text-xs text-amber-400 hover:text-amber-300 transition flex items-center gap-1.5">
+            <i class="fa-solid fa-rotate-left"></i> Make All In-Stock
+          </button>
+          <button onclick="openRecoveryBin()" class="text-xs text-red-400 hover:text-red-300 transition flex items-center gap-1.5">
+            <i class="fa-solid fa-trash-arrow-up"></i> Recovery Bin
+          </button>
+        </div>
+        <button onclick="closeStockModal()" class="bg-white/10 hover:bg-white/20 text-white font-bold px-6 py-2 rounded-xl text-xs font-cyber transition">
           Close Manager
         </button>
       </div>
+    </div>
+  </div>
+
+  <!-- RECOVERY BIN MODAL (Owner Only) -->
+  <div id="recoveryBinModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass-card bg-cyberCard border border-red-500/30 w-full max-w-3xl max-h-[85vh] rounded-[2rem] flex flex-col p-6 shadow-2xl">
+      <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+        <div>
+          <h3 class="font-cyber text-lg font-bold text-red-400 flex items-center gap-2">
+            <i class="fa-solid fa-trash-can"></i> RECOVERY BIN
+          </h3>
+          <p class="text-xs text-stone-400 font-tamil mt-1">Deleted items are safely kept here. Restore or permanently delete.</p>
+        </div>
+        <button onclick="closeRecoveryBin()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition">✕</button>
+      </div>
+
+      <div id="recoveryBinList" class="flex-1 overflow-y-auto space-y-2.5 pr-2"></div>
     </div>
   </div>
 
@@ -872,10 +895,11 @@
           <div>
             <label class="block text-xs text-stone-400 mb-1 uppercase tracking-wider">Category *</label>
             <select id="newItemCategory" class="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-brandGold outline-none">
+              <!-- Reordered Category List in Dropdown -->
               <option value="burgers">Gourmet Burgers</option>
+              <option value="appetizers">Global Appetizers</option>
               <option value="panini">Panini & Sandwich</option>
               <option value="mojitos">Fizz's & Mojitos</option>
-              <option value="appetizers">Global Appetizers</option>
             </select>
           </div>
           <div>
@@ -927,309 +951,39 @@
 
     let defaultMenuRegistry = [
       // BURGERS
-      {
-        id: "Classic-STREET-BURGER-Chicken",
-        name: "Classic STREET BURGER Chicken",
-        category: "burgers",
-        diet: "nonveg",
-        price: 110,
-        tag: "USA Recipe",
-        desc: "எங்களது கடையின் பிரத்யேக அமெரிக்க பாரம்பரிய முறையில் சிறப்பான Signature Sauce சேர்த்து தயாரிக்கப்பட்டது.",
-        img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Classic-Tambaron-Burger",
-        name: "Classic Tambaron Burger",
-        category: "burgers",
-        diet: "nonveg",
-        price: 90,
-        tag: "Philippines",
-        desc: "பிலிப்பைன்ஸ் நாட்டின் பாரம்பரிய முறையில் காரசாரமான மசாலாக்கள் மற்றும் பிரத்யேக சாஸ் சேர்க்கை.",
-        img: "https://images.unsplash.com/photo-1586816001966-79b736744398?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Fried-Chicken-Burger",
-        name: "Fried Chicken Burger",
-        category: "burgers",
-        diet: "nonveg",
-        price: 100,
-        tag: "USA Crispy",
-        desc: "பொரித்தெடுக்கப்பட்ட மொறுமொறுப்பான கோழி இறைச்சி மற்றும் கடையின் ஸ்பெஷல் சாஸ்.",
-        img: "https://images.unsplash.com/photo-1615297928064-24977384d0cb?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Peri-Peri-Panneer-Burger",
-        name: "Peri Peri Panneer Burger",
-        category: "burgers",
-        diet: "veg",
-        price: 100,
-        tag: "Africa Special",
-        desc: "ஆப்பிரிக்க நாட்டின் காரசாரமான பெரி பெரி மசாலா தடவிய பனீர், பிரத்யேக சாஸ் சேர்க்கை.",
-        img: "https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Buffalo-Chicken-Burger",
-        name: "Buffalo Chicken Burger",
-        category: "burgers",
-        diet: "nonveg",
-        price: 120,
-        tag: "USA Spicy",
-        desc: "அமெரிக்க பாணியில் காரசாரமான ஃபயரி பஃபெலோ சாஸில் தோய்த்து தயாரிக்கப்பட்ட உணவு!",
-        img: "https://images.unsplash.com/photo-1594212848525-4c07920ab480?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
+      { id: "Classic-STREET-BURGER-Chicken", name: "Classic STREET BURGER Chicken", category: "burgers", diet: "nonveg", price: 110, tag: "USA Recipe", desc: "எங்களது கடையின் பிரத்யேக அமெரிக்க பாரம்பரிய முறையில் சிறப்பான Signature Sauce சேர்த்து தயாரிக்கப்பட்டது.", img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Classic-Tambaron-Burger", name: "Classic Tambaron Burger", category: "burgers", diet: "nonveg", price: 90, tag: "Philippines", desc: "பிலிப்பைன்ஸ் நாட்டின் பாரம்பரிய முறையில் காரசாரமான மசாலாக்கள் மற்றும் பிரத்யேக சாஸ் சேர்க்கை.", img: "https://images.unsplash.com/photo-1586816001966-79b736744398?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Fried-Chicken-Burger", name: "Fried Chicken Burger", category: "burgers", diet: "nonveg", price: 100, tag: "USA Crispy", desc: "பொரித்தெடுக்கப்பட்ட மொறுமொறுப்பான கோழி இறைச்சி மற்றும் கடையின் ஸ்பெஷல் சாஸ்.", img: "https://images.unsplash.com/photo-1615297928064-24977384d0cb?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Peri-Peri-Panneer-Burger", name: "Peri Peri Panneer Burger", category: "burgers", diet: "veg", price: 100, tag: "Africa Special", desc: "ஆப்பிரிக்க நாட்டின் காரசாரமான பெரி பெரி மசாலா தடவிய பனீர், பிரத்யேக சாஸ் சேர்க்கை.", img: "https://images.unsplash.com/photo-1550547660-d9450f859349?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Buffalo-Chicken-Burger", name: "Buffalo Chicken Burger", category: "burgers", diet: "nonveg", price: 120, tag: "USA Spicy", desc: "அமெரிக்க பாணியில் காரசாரமான ஃபயரி பஃபெலோ சாஸில் தோய்த்து தயாரிக்கப்பட்ட உணவு!", img: "https://images.unsplash.com/photo-1594212848525-4c07920ab480?w=700&auto=format&fit=crop&q=80", inStock: true },
 
       // PANINI & SANDWICHES
-      {
-        id: "Classic-Veg-Sandwich",
-        name: "Classic Veg Sandwich",
-        category: "panini",
-        diet: "veg",
-        price: 80,
-        tag: "Italy Tradition",
-        desc: "புதிதாக நறுக்கிய காய்கறிகள், நறுமண மசாலாக்கள் மற்றும் கடையின் ஸ்பெஷல் சாஸ் சேர்த்து வாட்டியது.",
-        img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Classic-Roasted-Chicken-Sandwich",
-        name: "Classic Roasted Chicken Sandwich",
-        category: "panini",
-        diet: "nonveg",
-        price: 100,
-        tag: "Chef's Special",
-        desc: "இத்தாலி பாரம்பரிய நறுமண மசாலாக்களுடன் சுடச்சுட வாட்டி தயாரிக்கப்பட்ட சீஸ் சிக்கன் சாண்ட்விச்.",
-        img: "https://images.unsplash.com/photo-1619881589316-56c7f9e6b587?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Peri-Peri-Paneer-Sandwich",
-        name: "Peri Peri Paneer Sandwich",
-        category: "panini",
-        diet: "veg",
-        price: 100,
-        tag: "Africa Peri Peri",
-        desc: "காரசாரமான பெரி பெரி மசாலா மற்றும் கடையின் ஸ்பெஷல் சாஸ் சேர்த்து டோஸ்ட் செய்யப்பட்டது.",
-        img: "https://images.unsplash.com/photo-1554433607-66b5efe9d304?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Mushroom-Fajita-Sandwich",
-        name: "Mushroom Fajita Sandwich",
-        category: "panini",
-        diet: "veg",
-        price: 90,
-        tag: "Mexico Fajita",
-        desc: "மெக்சிகன் மசாலாக்கள், குடைமிளகாய் மற்றும் வதக்கிய காளான் கலந்த சீஸி டோஸ்ட்.",
-        img: "https://images.unsplash.com/photo-1559561853-08451507cbe7?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Buffalo-Chicken-Sandwich",
-        name: "Buffalo Chicken Sandwich",
-        category: "panini",
-        diet: "nonveg",
-        price: 120,
-        tag: "Spicy Buffalo",
-        desc: "காரசாரமான பஃபெலோ சாஸ் மற்றும் உருகிய சீஸ் சேர்த்து சுடச்சுட வாட்டப்பட்ட சாண்ட்விச்.",
-        img: "https://images.unsplash.com/photo-1509722747041-616f39b57569?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
+      { id: "Classic-Veg-Sandwich", name: "Classic Veg Sandwich", category: "panini", diet: "veg", price: 80, tag: "Italy Tradition", desc: "புதிதாக நறுக்கிய காய்கறிகள், நறுமண மசாலாக்கள் மற்றும் கடையின் ஸ்பெஷல் சாஸ் சேர்த்து வாட்டியது.", img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Classic-Roasted-Chicken-Sandwich", name: "Classic Roasted Chicken Sandwich", category: "panini", diet: "nonveg", price: 100, tag: "Chef's Special", desc: "இத்தாலி பாரம்பரிய நறுமண மசாலாக்களுடன் சுடச்சுட வாட்டி தயாரிக்கப்பட்ட சீஸ் சிக்கன் சாண்ட்விச்.", img: "https://images.unsplash.com/photo-1619881589316-56c7f9e6b587?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Peri-Peri-Paneer-Sandwich", name: "Peri Peri Paneer Sandwich", category: "panini", diet: "veg", price: 100, tag: "Africa Peri Peri", desc: "காரசாரமான பெரி பெரி மசாலா மற்றும் கடையின் ஸ்பெஷல் சாஸ் சேர்த்து டோஸ்ட் செய்யப்பட்டது.", img: "https://images.unsplash.com/photo-1554433607-66b5efe9d304?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Mushroom-Fajita-Sandwich", name: "Mushroom Fajita Sandwich", category: "panini", diet: "veg", price: 90, tag: "Mexico Fajita", desc: "மெக்சிகன் மசாலாக்கள், குடைமிளகாய் மற்றும் வதக்கிய காளான் கலந்த சீஸி டோஸ்ட்.", img: "https://images.unsplash.com/photo-1559561853-08451507cbe7?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Buffalo-Chicken-Sandwich", name: "Buffalo Chicken Sandwich", category: "panini", diet: "nonveg", price: 120, tag: "Spicy Buffalo", desc: "காரசாரமான பஃபெலோ சாஸ் மற்றும் உருகிய சீஸ் சேர்த்து சுடச்சுட வாட்டப்பட்ட சாண்ட்விச்.", img: "https://images.unsplash.com/photo-1509722747041-616f39b57569?w=700&auto=format&fit=crop&q=80", inStock: true },
 
       // MOJITOS
-      {
-        id: "Virgin-Mojito",
-        name: "Virgin Mojito",
-        category: "mojitos",
-        diet: "cooler",
-        price: 50,
-        tag: "Cuba Classic",
-        desc: "புத்துணர்ச்சியூட்டும் புதினா, எலுமிச்சை சாறு, சோடா மற்றும் ஸ்பெஷல் சிரப் கலந்த பானம்.",
-        img: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Blue-Curacao-Mojito",
-        name: "Blue Curacao Mojito",
-        category: "mojitos",
-        diet: "cooler",
-        price: 60,
-        tag: "Tropical Hit",
-        desc: "ஆரஞ்சு பழச் சுவை கொண்ட புத்துணர்ச்சியூட்டும் நீல நிற எலுமிச்சை சோடா குளிர்பானம்.",
-        img: "https://images.unsplash.com/photo-1615887023516-9b6ca55882f0?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Mint-Mojito",
-        name: "Mint Mojito",
-        category: "mojitos",
-        diet: "cooler",
-        price: 70,
-        tag: "Cuba Classic",
-        desc: "நறுமணமிக்க புதிய புதினா இலைகள், எலுமிச்சை மற்றும் பிரத்யேக சிரப் சேர்க்கை.",
-        img: "https://images.unsplash.com/photo-1546171753-97d7676e4602?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "The-World-s-End",
-        name: "The World's End",
-        category: "mojitos",
-        diet: "cooler",
-        price: 80,
-        tag: "England Cooler",
-        desc: "இங்கிலாந்து நாட்டு பாரம்பரிய முறைப்படி பெர்ரி சாறுகள் மற்றும் புதினா கலந்த பானம்.",
-        img: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Mermaid-Beach",
-        name: "Mermaid Beach",
-        category: "mojitos",
-        diet: "cooler",
-        price: 80,
-        tag: "Australia Fizz",
-        desc: "நீல நிற குராக்கோ, தேங்காய் சாறு, எலுமிச்சை மற்றும் புத்துணர்ச்சி தரும் நுரைத்த சோடா கலவை.",
-        img: "https://images.unsplash.com/photo-1536935338788-846bb9981813?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
+      { id: "Virgin-Mojito", name: "Virgin Mojito", category: "mojitos", diet: "cooler", price: 50, tag: "Cuba Classic", desc: "புத்துணர்ச்சியூட்டும் புதினா, எலுமிச்சை சாறு, சோடா மற்றும் ஸ்பெஷல் சிரப் கலந்த பானம்.", img: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Blue-Curacao-Mojito", name: "Blue Curacao Mojito", category: "mojitos", diet: "cooler", price: 60, tag: "Tropical Hit", desc: "ஆரஞ்சு பழச் சுவை கொண்ட புத்துணர்ச்சியூட்டும் நீல நிற எலுமிச்சை சோடா குளிர்பானம்.", img: "https://images.unsplash.com/photo-1615887023516-9b6ca55882f0?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Mint-Mojito", name: "Mint Mojito", category: "mojitos", diet: "cooler", price: 70, tag: "Cuba Classic", desc: "நறுமணமிக்க புதிய புதினா இலைகள், எலுமிச்சை மற்றும் பிரத்யேக சிரப் சேர்க்கை.", img: "https://images.unsplash.com/photo-1546171753-97d7676e4602?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "The-World-s-End", name: "The World's End", category: "mojitos", diet: "cooler", price: 80, tag: "England Cooler", desc: "இங்கிலாந்து நாட்டு பாரம்பரிய முறைப்படி பெர்ரி சாறுகள் மற்றும் புதினா கலந்த பானம்.", img: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Mermaid-Beach", name: "Mermaid Beach", category: "mojitos", diet: "cooler", price: 80, tag: "Australia Fizz", desc: "நீல நிற குராக்கோ, தேங்காய் சாறு, எலுமிச்சை மற்றும் புத்துணர்ச்சி தரும் நுரைத்த சோடா கலவை.", img: "https://images.unsplash.com/photo-1536935338788-846bb9981813?w=700&auto=format&fit=crop&q=80", inStock: true },
 
       // APPETIZERS
-      {
-        id: "Classic-French-Fries",
-        name: "Classic French Fries",
-        category: "appetizers",
-        diet: "veg",
-        price: 50,
-        tag: "Belgium",
-        desc: "பெல்ஜியம் நாட்டு சுவையில் பொன்னிறமாக வறுத்தெடுக்கப்பட்ட மொறுமொறு உருளைக்கிழங்கு.",
-        img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Peri-Peri-Fries",
-        name: "Peri Peri Fries",
-        category: "appetizers",
-        diet: "veg",
-        price: 60,
-        tag: "Africa Peri Peri",
-        desc: "ஆப்பிரிக்க நாட்டின் காரசாரமான பெரி பெரி மசாலா தூவப்பட்ட மொறுமொறு உருளைக்கிழங்கு.",
-        img: "https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Cheesy-Chicken-Fries",
-        name: "Cheesy Chicken Fries",
-        category: "appetizers",
-        diet: "nonveg",
-        price: 80,
-        tag: "Canada",
-        desc: "ஃபிரைஸ் மீது உருகிய பாலாடைக்கட்டியும் கோழி இறைச்சியும் தூவித் தரும் சுவை அட்டா!",
-        img: "https://images.unsplash.com/photo-1585109649139-366815a0d713?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Crumb-Fried-Chicken",
-        name: "Crumb Fried Chicken",
-        category: "appetizers",
-        diet: "nonveg",
-        price: 80,
-        tag: "USA",
-        desc: "நறுமண மசாலாக்களுடன் மொறுமொறுப்பாக பொரித்தெடுக்கப்பட்ட அசல் க்ரம்ப் சிக்கன்.",
-        img: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Cheesy-Jalapeno-Fritters",
-        name: "Cheesy Jalapeno Fritters",
-        category: "appetizers",
-        diet: "veg",
-        price: 70,
-        tag: "Mexico Hit",
-        desc: "காரசாரமான ஜலபெனோ மிளகாயில் உருகிய சீஸ் கலந்து பொரித்தெடுத்த ஃபிரிட்டர்ஸ்.",
-        img: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Mac--n-Cheese-Ball",
-        name: "Mac 'n Cheese Ball",
-        category: "appetizers",
-        diet: "veg",
-        price: 70,
-        tag: "USA Tradition",
-        desc: "பாலாடைக்கட்டி மற்றும் பாஸ்தா கலவையை உருண்டைகளாக்கி பொரித்தெடுத்த உணவு.",
-        img: "https://images.unsplash.com/photo-1626082895617-2c6ad3ed3445?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Corn-Cheese-Ball",
-        name: "Corn Cheese Ball",
-        category: "appetizers",
-        diet: "veg",
-        price: 70,
-        tag: "USA Style",
-        desc: "இனிப்பு சோளம் மற்றும் சீஸ் கலவையை உருண்டையாக்கி மொறுமொறுப்பாக பொரித்தது.",
-        img: "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Kentucky-Fried-Chicken",
-        name: "Kentucky Fried Chicken",
-        category: "appetizers",
-        diet: "nonveg",
-        price: 80,
-        tag: "Chef's Pick",
-        desc: "நறுமண மசாலாக்களில் ஊறிய கோழி இறைச்சியை முறுக்கு போல மொறுமொறுப்பாய் பொரித்த உணவு!",
-        img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Chicken-Momos--Fried-",
-        name: "Chicken Momos (Fried)",
-        category: "appetizers",
-        diet: "nonveg",
-        price: 70,
-        tag: "Tibet",
-        desc: "திபெத் நாட்டின் பாரம்பரியமான மொறுமொறுப்பாக பொரித்தெடுக்கப்பட்ட சுவையான சிக்கன் மோமோஸ்!",
-        img: "https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Veg-Momos--Fried-",
-        name: "Veg Momos (Fried)",
-        category: "appetizers",
-        diet: "veg",
-        price: 60,
-        tag: "Tibet",
-        desc: "திபெத் நாட்டின் பாரம்பரியமான மொறுமொறுப்பாக பொரித்தெடுக்கப்பட்ட சுவையான வெஜ் மோமோஸ்!",
-        img: "https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Chicken-Nuggets",
-        name: "Chicken Nuggets",
-        category: "appetizers",
-        diet: "nonveg",
-        price: 70,
-        tag: "USA",
-        desc: "அமெரிக்க பாரம்பரிய உணவு; காரசாரமான சாஸுடன் பரிமாறப்படும் சிக்கன் நக்கெட்ஸ்.",
-        img: "https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      },
-      {
-        id: "Veg-Nuggets",
-        name: "Veg Nuggets",
-        category: "appetizers",
-        diet: "veg",
-        price: 60,
-        tag: "USA",
-        desc: "அமெரிக்க பாரம்பரிய உணவு; காரசாரமான சாஸுடன் பரிமாறப்படும் வெஜ் நக்கெட்ஸ்.",
-        img: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=700&auto=format&fit=crop&q=80",
-        inStock: true
-      }
+      { id: "Classic-French-Fries", name: "Classic French Fries", category: "appetizers", diet: "veg", price: 50, tag: "Belgium", desc: "பெல்ஜியம் நாட்டு சுவையில் பொன்னிறமாக வறுத்தெடுக்கப்பட்ட மொறுமொறு உருளைக்கிழங்கு.", img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Peri-Peri-Fries", name: "Peri Peri Fries", category: "appetizers", diet: "veg", price: 60, tag: "Africa Peri Peri", desc: "ஆப்பிரிக்க நாட்டின் காரசாரமான பெரி பெரி மசாலா தூவப்பட்ட மொறுமொறு உருளைக்கிழங்கு.", img: "https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Cheesy-Chicken-Fries", name: "Cheesy Chicken Fries", category: "appetizers", diet: "nonveg", price: 80, tag: "Canada", desc: "ஃபிரைஸ் மீது உருகிய பாலாடைக்கட்டியும் கோழி இறைச்சியும் தூவித் தரும் சுவை அட்டா!", img: "https://images.unsplash.com/photo-1585109649139-366815a0d713?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Crumb-Fried-Chicken", name: "Crumb Fried Chicken", category: "appetizers", diet: "nonveg", price: 80, tag: "USA", desc: "நறுமண மசாலாக்களுடன் மொறுமொறுப்பாக பொரித்தெடுக்கப்பட்ட அசல் க்ரம்ப் சிக்கன்.", img: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Cheesy-Jalapeno-Fritters", name: "Cheesy Jalapeno Fritters", category: "appetizers", diet: "veg", price: 70, tag: "Mexico Hit", desc: "காரசாரமான ஜலபெனோ மிளகாயில் உருகிய சீஸ் கலந்து பொரித்தெடுத்த ஃபிரிட்டர்ஸ்.", img: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Mac--n-Cheese-Ball", name: "Mac 'n Cheese Ball", category: "appetizers", diet: "veg", price: 70, tag: "USA Tradition", desc: "பாலாடைக்கட்டி மற்றும் பாஸ்தா கலவையை உருண்டைகளாக்கி பொரித்தெடுத்த உணவு.", img: "https://images.unsplash.com/photo-1626082895617-2c6ad3ed3445?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Corn-Cheese-Ball", name: "Corn Cheese Ball", category: "appetizers", diet: "veg", price: 70, tag: "USA Style", desc: "இனிப்பு சோளம் மற்றும் சீஸ் கலவையை உருண்டையாக்கி மொறுமொறுப்பாக பொரித்தது.", img: "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Kentucky-Fried-Chicken", name: "Kentucky Fried Chicken", category: "appetizers", diet: "nonveg", price: 80, tag: "Chef's Pick", desc: "நறுமண மசாலாக்களில் ஊறிய கோழி இறைச்சியை முறுக்கு போல மொறுமொறுப்பாய் பொரித்த உணவு!", img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Chicken-Momos--Fried-", name: "Chicken Momos (Fried)", category: "appetizers", diet: "nonveg", price: 70, tag: "Tibet", desc: "திபெத் நாட்டின் பாரம்பரியமான மொறுமொறுப்பாக பொரித்தெடுக்கப்பட்ட சுவையான சிக்கன் மோமோஸ்!", img: "https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Veg-Momos--Fried-", name: "Veg Momos (Fried)", category: "appetizers", diet: "veg", price: 60, tag: "Tibet", desc: "திபெத் நாட்டின் பாரம்பரியமான மொறுமொறுப்பாக பொரித்தெடுக்கப்பட்ட சுவையான வெஜ் மோமோஸ்!", img: "https://images.unsplash.com/photo-1645112411341-6c4fd023714a?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Chicken-Nuggets", name: "Chicken Nuggets", category: "appetizers", diet: "nonveg", price: 70, tag: "USA", desc: "அமெரிக்க பாரம்பரிய உணவு; காரசாரமான சாஸுடன் பரிமாறப்படும் சிக்கன் நக்கெட்ஸ்.", img: "https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=700&auto=format&fit=crop&q=80", inStock: true },
+      { id: "Veg-Nuggets", name: "Veg Nuggets", category: "appetizers", diet: "veg", price: 60, tag: "USA", desc: "அமெரிக்க பாரம்பரிய உணவு; காரசாரமான சாஸுடன் பரிமாறப்படும் வெஜ் நக்கெட்ஸ்.", img: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=700&auto=format&fit=crop&q=80", inStock: true }
     ];
 
     let menuRegistry = []; 
@@ -1346,7 +1100,9 @@
     function renderMenuCards() {
       const container = document.getElementById('dynamicMenuRoot');
       const search = (document.getElementById('menuSearchInput')?.value || '').toLowerCase().trim();
-      const categories = ['burgers', 'panini', 'mojitos', 'appetizers'];
+      
+      // REORDERED CATEGORY DISPLAY ARRAY
+      const categories = ['burgers', 'appetizers', 'panini', 'mojitos'];
       let totalVisible = 0;
 
       container.innerHTML = categories.map(cat => {
@@ -1593,8 +1349,17 @@
     }
 
     function deleteMenuItem(id) {
-      if(!confirm("Are you sure you want to PERMANENTLY delete this item from your menu?")) return;
+      if(!confirm("Move this item to the Recovery Bin?")) return;
       
+      const itemToTrash = menuRegistry.find(i => i.id === id);
+      if(itemToTrash) {
+        let trash = JSON.parse(localStorage.getItem('sb_trash') || '[]');
+        if(!trash.find(i => i.id === id)) {
+          trash.push(itemToTrash);
+          localStorage.setItem('sb_trash', JSON.stringify(trash));
+        }
+      }
+
       let customItems = JSON.parse(localStorage.getItem('sb_custom_menu') || '[]');
       customItems = customItems.filter(item => item.id !== id);
       localStorage.setItem('sb_custom_menu', JSON.stringify(customItems));
@@ -1605,9 +1370,8 @@
         localStorage.setItem('sb_deleted_ids', JSON.stringify(deletedIds));
       }
 
-      const itemMeta = menuRegistry.find(i => i.id === id);
-      if(itemMeta) {
-         const cIdx = cart.findIndex(c => c.name === itemMeta.name);
+      if(itemToTrash) {
+         const cIdx = cart.findIndex(c => c.name === itemToTrash.name);
          if (cIdx !== -1) cart.splice(cIdx, 1);
          saveCart();
       }
@@ -1616,7 +1380,7 @@
       renderStockManagerRows();
       renderMenuCards();
       renderCart();
-      showToast("Item successfully deleted.");
+      showToast("Moved to Recovery Bin.");
     }
 
     function closeAddMenuModal() {
@@ -1701,6 +1465,81 @@
       showToast(name + " saved successfully!");
     }
 
+    // --- RECOVERY BIN LOGIC (NEW) ---
+    function openRecoveryBin() {
+      renderRecoveryBinRows();
+      document.getElementById('stockModal').classList.add('hidden');
+      document.getElementById('recoveryBinModal').classList.remove('hidden');
+    }
+
+    function closeRecoveryBin() {
+      document.getElementById('recoveryBinModal').classList.add('hidden');
+      document.getElementById('stockModal').classList.remove('hidden');
+    }
+
+    function renderRecoveryBinRows() {
+      const list = document.getElementById('recoveryBinList');
+      const trash = JSON.parse(localStorage.getItem('sb_trash') || '[]');
+      
+      if(trash.length === 0) {
+        list.innerHTML = `<div class="text-center py-10 text-stone-500 font-bold">Recovery Bin is empty.</div>`;
+        return;
+      }
+
+      list.innerHTML = trash.map(item => `
+        <div class="flex items-center justify-between p-3 rounded-xl border border-red-500/20 bg-red-950/10">
+          <div class="flex items-center gap-3 w-1/2">
+            <img src="${item.img}" class="w-12 h-12 object-cover rounded-lg shrink-0 grayscale opacity-60">
+            <div class="min-w-0">
+              <div class="text-sm font-bold text-stone-300 line-through truncate">${item.name}</div>
+              <div class="text-xs text-red-400">Deleted</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5 shrink-0">
+            <button onclick="restoreMenuItem('${item.id}')" class="px-3 py-2 rounded-lg text-xs font-bold bg-emerald-600/20 hover:bg-emerald-500 text-emerald-400 hover:text-white transition border border-emerald-500/30">
+              <i class="fa-solid fa-rotate-left"></i> Restore
+            </button>
+            <button onclick="permanentlyDelete('${item.id}')" class="w-9 h-9 rounded-lg bg-red-500/10 hover:bg-red-500 text-red-500 hover:text-white flex items-center justify-center transition border border-red-500/30" title="Delete Forever">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function restoreMenuItem(id) {
+      let trash = JSON.parse(localStorage.getItem('sb_trash') || '[]');
+      const itemToRestore = trash.find(i => i.id === id);
+      if(!itemToRestore) return;
+
+      trash = trash.filter(i => i.id !== id);
+      localStorage.setItem('sb_trash', JSON.stringify(trash));
+
+      let deletedIds = JSON.parse(localStorage.getItem('sb_deleted_ids') || '[]');
+      if (deletedIds.includes(id)) {
+         deletedIds = deletedIds.filter(dId => dId !== id);
+         localStorage.setItem('sb_deleted_ids', JSON.stringify(deletedIds));
+      } else {
+         let customItems = JSON.parse(localStorage.getItem('sb_custom_menu') || '[]');
+         customItems.push(itemToRestore);
+         localStorage.setItem('sb_custom_menu', JSON.stringify(customItems));
+      }
+
+      loadCustomMenu();
+      renderStockManagerRows(); 
+      renderMenuCards();
+      renderRecoveryBinRows();
+      showToast("Item Restored!");
+    }
+
+    function permanentlyDelete(id) {
+      if(!confirm("Permanently delete this item? This cannot be undone.")) return;
+      let trash = JSON.parse(localStorage.getItem('sb_trash') || '[]');
+      trash = trash.filter(i => i.id !== id);
+      localStorage.setItem('sb_trash', JSON.stringify(trash));
+      renderRecoveryBinRows();
+    }
+
     // --- STOCK LOGIC ---
     function closeStockModal() {
       document.getElementById('stockModal').classList.add('hidden');
@@ -1722,7 +1561,7 @@
             <button onclick="editMenuItem('${item.id}')" class="w-9 h-9 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 flex items-center justify-center transition border border-blue-500/30" title="Edit">
               <i class="fa-solid fa-pen"></i>
             </button>
-            <button onclick="deleteMenuItem('${item.id}')" class="w-9 h-9 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-500 flex items-center justify-center transition border border-red-500/30" title="Delete">
+            <button onclick="deleteMenuItem('${item.id}')" class="w-9 h-9 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-500 flex items-center justify-center transition border border-red-500/30" title="Trash">
               <i class="fa-solid fa-trash"></i>
             </button>
             <button onclick="toggleStockItem('${item.id}')" class="px-3 py-2 rounded-lg text-xs font-cyber font-bold transition active:scale-95 ${item.inStock ? 'bg-emerald-600 hover:bg-emerald-500 text-white' : 'bg-red-600 hover:bg-red-500 text-white'}">
@@ -2562,7 +2401,7 @@
     }
 
     // ==========================================
-    // 11. FILTER LOGIC
+    // 11. FILTER COLOR LOGIC
     // ==========================================
     function resetAllFilters() {
       currentCategory = 'all';
@@ -2577,7 +2416,7 @@
       document.getElementById('tab-all').classList.remove('glass-card', 'text-stone-300');
 
       document.querySelectorAll('.diet-btn').forEach(b => {
-        b.classList.remove('bg-brandGold', 'text-black');
+        b.classList.remove('bg-brandGold', 'bg-red-600', 'bg-emerald-600', 'bg-blue-600', 'text-black', 'text-white');
         b.classList.add('glass-card', 'text-stone-300');
       });
       document.getElementById('diet-all').classList.add('bg-brandGold', 'text-black');
@@ -2591,7 +2430,7 @@
       if (cat === 'all') {
         currentDiet = 'all';
         document.querySelectorAll('.diet-btn').forEach(b => {
-          b.classList.remove('bg-brandGold', 'text-black');
+          b.classList.remove('bg-brandGold', 'bg-red-600', 'bg-emerald-600', 'bg-blue-600', 'text-black', 'text-white');
           b.classList.add('glass-card', 'text-stone-300');
         });
         document.getElementById('diet-all').classList.add('bg-brandGold', 'text-black');
@@ -2623,13 +2462,17 @@
       }
 
       document.querySelectorAll('.diet-btn').forEach(b => {
-        b.classList.remove('bg-brandGold', 'text-black');
+        b.classList.remove('bg-brandGold', 'bg-red-600', 'bg-emerald-600', 'bg-blue-600', 'text-black', 'text-white');
         b.classList.add('glass-card', 'text-stone-300');
       });
+      
       const active = document.getElementById(`diet-${diet}`);
       if (active) {
-        active.classList.add('bg-brandGold', 'text-black');
         active.classList.remove('glass-card', 'text-stone-300');
+        if (diet === 'all') active.classList.add('bg-brandGold', 'text-black');
+        if (diet === 'nonveg') active.classList.add('bg-red-600', 'text-white');
+        if (diet === 'veg') active.classList.add('bg-emerald-600', 'text-white');
+        if (diet === 'cooler') active.classList.add('bg-blue-600', 'text-white');
       }
       renderMenuCards();
     }

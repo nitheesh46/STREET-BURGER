@@ -1,0 +1,8 @@
+{
+  "name": "street-burger",
+  "version": "1.0.0",
+  "dependencies": {
+    "@upstash/redis": "latest",
+    "@vercel/blob": "latest"
+  }
+}
